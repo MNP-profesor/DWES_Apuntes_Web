@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>Ámbito de las variables – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD2/04-directivas-operadores.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/05-ambito.html"><span class="chapter-title">Ámbito de las variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +327,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,11 +368,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
@@ -396,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
@@ -411,9 +410,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#ámbito-global-y-local" id="toc-ámbito-global-y-local" class="nav-link active" data-scroll-target="#ámbito-global-y-local">Ámbito global y local</a></li>
+  <li><a href="#global-acceder-a-una-variable-del-exterior" id="toc-global-acceder-a-una-variable-del-exterior" class="nav-link" data-scroll-target="#global-acceder-a-una-variable-del-exterior"><code>global</code> — acceder a una variable del exterior</a></li>
+  <li><a href="#static-variable-local-que-recuerda-su-valor" id="toc-static-variable-local-que-recuerda-su-valor" class="nav-link" data-scroll-target="#static-variable-local-que-recuerda-su-valor"><code>static</code> — variable local que recuerda su valor</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -422,9 +421,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/05-ambito.html"><span class="chapter-title">Ámbito de las variables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">Ámbito de las variables</span></h1>
 </div>
 
 
@@ -441,54 +440,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
-</div>
-</div>
-</section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
-<ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
-</ul>
-</section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="ámbito-global-y-local" class="level2">
+<h2 class="anchored" data-anchor-id="ámbito-global-y-local">Ámbito global y local</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -499,34 +452,244 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<p>En PHP, una función <strong>no puede leer ni modificar</strong> las variables del exterior a menos que se lo indiquemos explícitamente. Las variables declaradas dentro de una función son locales y desaparecen al salir de ella.</p>
 </div>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="va">$contador</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="kw">function</span> incrementar() {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>    <span class="va">$contador</span><span class="op">++</span><span class="ot">;</span>           <span class="co">// crea una variable LOCAL $contador</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="cf">return</span> <span class="va">$contador</span><span class="ot">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="kw">echo</span> incrementar()<span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a><span class="kw">echo</span> incrementar()<span class="ot">;</span>  <span class="co">// 1  ← siempre 1: la local empieza en 0 cada vez</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a><span class="kw">echo</span> <span class="va">$contador</span><span class="ot">;</span>      <span class="co">// 0  ← la global no fue tocada</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este es el punto más sorprendente para quien llega de otros lenguajes: aunque exista una variable <code>$contador</code> fuera de la función, PHP no la ve dentro. Crea una <strong>nueva variable local</strong> con el mismo nombre.</p>
+</div>
+</div>
+</section>
+<section id="global-acceder-a-una-variable-del-exterior" class="level2">
+<h2 class="anchored" data-anchor-id="global-acceder-a-una-variable-del-exterior"><code>global</code> — acceder a una variable del exterior</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="va">$contador</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="kw">function</span> incrementar() {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>    <span class="kw">global</span> <span class="va">$contador</span><span class="ot">;</span>     <span class="co">// ahora sí: usa la variable del exterior</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>    <span class="va">$contador</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>    <span class="cf">return</span> <span class="va">$contador</span><span class="ot">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="kw">echo</span> incrementar()<span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a><span class="kw">echo</span> incrementar()<span class="ot">;</span>  <span class="co">// 2</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a><span class="kw">echo</span> incrementar()<span class="ot">;</span>  <span class="co">// 3</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a><span class="kw">echo</span> <span class="va">$contador</span><span class="ot">;</span>      <span class="co">// 3  ← la global sí fue modificada</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Varios <code>global</code> en la misma función:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="va">$visitas</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="va">$errores</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="kw">function</span> registrar(<span class="dt">bool</span> <span class="va">$exito</span>) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>    <span class="kw">global</span> <span class="va">$visitas</span><span class="ot">,</span> <span class="va">$errores</span><span class="ot">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>    <span class="va">$visitas</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="va">$exito</span>) {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>        <span class="va">$errores</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>    }</span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>registrar(<span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>registrar(<span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>registrar(<span class="kw">false</span>)<span class="ot">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a><span class="kw">echo</span> <span class="st">"Visitas: </span><span class="va">$visitas</span><span class="st">, Errores: </span><span class="va">$errores</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a><span class="co">// → Visitas: 3, Errores: 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="static-variable-local-que-recuerda-su-valor" class="level2">
+<h2 class="anchored" data-anchor-id="static-variable-local-que-recuerda-su-valor"><code>static</code> — variable local que recuerda su valor</h2>
+<p>Con <code>static</code>, la variable es local (no accesible desde fuera) pero conserva su valor entre llamadas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="kw">function</span> contarLlamadas() {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>    <span class="kw">static</span> <span class="va">$n</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span>   <span class="co">// se inicializa solo la primera vez</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="va">$n</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>    <span class="cf">return</span> <span class="va">$n</span><span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="kw">echo</span> contarLlamadas()<span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="kw">echo</span> contarLlamadas()<span class="ot">;</span>  <span class="co">// 2</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a><span class="kw">echo</span> contarLlamadas()<span class="ot">;</span>  <span class="co">// 3</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a><span class="co">// $n no existe fuera de la función</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Comparación directa de las tres estrategias:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="va">$global_n</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="kw">function</span> conGlobal()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>    <span class="kw">global</span> <span class="va">$global_n</span><span class="ot">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>    <span class="cf">return</span> <span class="op">++</span><span class="va">$global_n</span><span class="ot">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a><span class="kw">function</span> conStatic()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>    <span class="kw">static</span> <span class="va">$n</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>    <span class="cf">return</span> <span class="op">++</span><span class="va">$n</span><span class="ot">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>}</span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a><span class="kw">function</span> sinMemoria()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>    <span class="va">$n</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a>    <span class="cf">return</span> <span class="op">++</span><span class="va">$n</span><span class="ot">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a>}</span>
+<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a><span class="co">// Cuatro llamadas a cada una:</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a><span class="kw">echo</span> conGlobal()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-label="21"></a><span class="kw">echo</span> conGlobal()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 2</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-label="22"></a><span class="kw">echo</span> conGlobal()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 3</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-label="23"></a><span class="kw">echo</span> conGlobal()  <span class="op">.</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span> <span class="co">// 4</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-label="24"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-label="25"></a><span class="kw">echo</span> conStatic()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-label="26"></a><span class="kw">echo</span> conStatic()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 2</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-label="27"></a><span class="kw">echo</span> conStatic()  <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 3</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-label="28"></a><span class="kw">echo</span> conStatic()  <span class="op">.</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span> <span class="co">// 4</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-label="29"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-label="30"></a><span class="kw">echo</span> sinMemoria() <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-label="31"></a><span class="kw">echo</span> sinMemoria() <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-label="32"></a><span class="kw">echo</span> sinMemoria() <span class="op">.</span> <span class="st">" "</span><span class="ot">;</span>  <span class="co">// 1</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-label="33"></a><span class="kw">echo</span> sinMemoria() <span class="op">.</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span> <span class="co">// 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida:</p>
+<pre><code>1 2 3 4
+1 2 3 4
+1 1 1 1</code></pre>
+<p>La diferencia entre <code>global</code> y <code>static</code>:</p>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><code>global</code></th>
+<th><code>static</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Persiste entre llamadas?</td>
+<td>Sí (es la variable exterior)</td>
+<td>Sí (variable local especial)</td>
+</tr>
+<tr class="even">
+<td>¿Accesible desde fuera?</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>¿Puede modificarla otro código?</td>
+<td>Sí, cualquier parte del script</td>
+<td>No, solo esta función</td>
+</tr>
+</tbody>
+</table>
+<p>Para un sistema real, <code>static</code> es preferible, ya que encapsula el estado dentro de la función y evita que otro código la modifique por error.</p>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
-<ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
-</ol>
+<p><strong>EJ11 · Sistema de tickets</strong></p>
+<p>Crea <code>tickets.php</code> e implementa tres funciones que numeren tickets:</p>
+<ul>
+<li><code>ticketGlobal()</code> — usa <code>global</code></li>
+<li><code>ticketStatic()</code> — usa <code>static</code></li>
+<li><code>ticketRoto()</code> — variable local sin <code>static</code> ni <code>global</code></li>
+</ul>
+<p>Llama a cada función 4 veces y muestra los 12 resultados en una tabla HTML con una columna por función.</p>
+<p>Añade una cuarta función, <code>ticketPorCategoria(string $categoria): string</code>, que numere tickets <strong>por separado según la categoría</strong> (“URGENTE”, “NORMAL”…) y devuelva el número formateado como <code>"URGENTE-001"</code>, <code>"NORMAL-001"</code>, <code>"URGENTE-002"</code>… — cada categoría lleva su propia cuenta, independiente de las demás. Pista: la variable <code>static</code> no tiene por qué ser un número suelto, también puede ser un array.</p>
+<p>Llama a <code>ticketPorCategoria()</code> con esta secuencia intercalada y muestra el resultado de cada llamada en orden:</p>
+<p>URGENTE, NORMAL, URGENTE, URGENTE, NORMAL</p>
+<p>Comprueba que el contador de “URGENTE” y el de “NORMAL” avanzan de forma independiente, aunque las llamadas estén mezcladas.</p>
+<p>Resultado esperado de la primera tabla:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Llamada</th>
+<th style="text-align: center;">ticketGlobal()</th>
+<th style="text-align: center;">ticketStatic()</th>
+<th style="text-align: center;">ticketRoto()</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Resultado esperado de <code>ticketPorCategoria()</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Llamada</th>
+<th style="text-align: left;">Categoría</th>
+<th style="text-align: left;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">URGENTE</td>
+<td style="text-align: left;">URGENTE-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">NORMAL</td>
+<td style="text-align: left;">NORMAL-001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">URGENTE</td>
+<td style="text-align: left;">URGENTE-002</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">URGENTE</td>
+<td style="text-align: left;">URGENTE-003</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">NORMAL</td>
+<td style="text-align: left;">NORMAL-002</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -953,14 +1116,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD2/04-directivas-operadores.html" class="pagination-link" aria-label="Directivas y operadores">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Directivas y operadores</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

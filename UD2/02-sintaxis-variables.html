@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>Sintaxis, variables y constantes – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD2/03-tipos-conversion.html" rel="next">
+<link href="../UD2/01-generacion-embebida.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/02-sintaxis-variables.html"><span class="chapter-title">Sintaxis, variables y constantes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,11 +369,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
@@ -381,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -411,9 +411,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#sentencias-y-comentarios" id="toc-sentencias-y-comentarios" class="nav-link active" data-scroll-target="#sentencias-y-comentarios">Sentencias y comentarios</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#constantes" id="toc-constantes" class="nav-link" data-scroll-target="#constantes">Constantes</a></li>
+  <li><a href="#var_dumpisset-empty-y-unset" id="toc-var_dumpisset-empty-y-unset" class="nav-link" data-scroll-target="#var_dumpisset-empty-y-unset"><code>var_dump</code>,<code>isset()</code>, <code>empty()</code> y <code>unset()</code></a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -422,9 +423,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/02-sintaxis-variables.html"><span class="chapter-title">Sintaxis, variables y constantes</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">Sintaxis, variables y constantes</span></h1>
 </div>
 
 
@@ -441,92 +442,162 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
+<section id="sentencias-y-comentarios" class="level2">
+<h2 class="anchored" data-anchor-id="sentencias-y-comentarios">Sentencias y comentarios</h2>
+<p>Cada sentencia termina en <code>;</code>. Los comentarios tienen la misma sintaxis que en la mayoría de lenguajes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="kw">echo</span> <span class="st">"Hola"</span><span class="ot">;</span>          <span class="co">// comentario de línea</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="kw">echo</span> <span class="st">" mundo"</span><span class="ot">;</span>        <span class="co"># también válido (estilo shell)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="co">/*</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="co">  Bloque de comentario.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="co">  No se envía al navegador.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="co">*/</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="kw">echo</span> <span class="st">"!"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida: <code>Hola mundo!</code></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
+<p>Olvidar el <code>;</code> al final de una sentencia genera un <code>Parse error</code> y la página no se ejecuta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="va">$precio</span> <span class="op">=</span> <span class="dv">10</span>        <span class="co">// ← falta el punto y coma</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>       <span class="co">// Parse error aquí</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<p>Una variable se declara con <code>$</code> seguido del nombre. No hace falta indicar el tipo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="va">$nombre</span>  <span class="op">=</span> <span class="st">"Carlos"</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="va">$edad</span>    <span class="op">=</span> <span class="dv">19</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a><span class="va">$precio</span>  <span class="op">=</span> <span class="fl">9.99</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="va">$activo</span>  <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="kw">echo</span> <span class="va">$nombre</span><span class="ot">;</span>   <span class="co">// Carlos</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a><span class="kw">echo</span> <span class="va">$edad</span><span class="ot">;</span>     <span class="co">// 19</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a><span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>   <span class="co">// 9.99</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$activo</span><span class="ot">;</span>   <span class="co">// 1   ← PHP muestra true como 1 con echo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Varias variables en la misma cadena (interpolación con comillas dobles):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="va">$ciudad</span>  <span class="op">=</span> <span class="st">"Valencia"</span><span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="va">$pais</span>    <span class="op">=</span> <span class="st">"España"</span><span class="ot">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">"Vivo en </span><span class="va">$ciudad</span><span class="st">, </span><span class="va">$pais</span><span class="st">."</span><span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a><span class="co">// → Vivo en Valencia, España.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="kw">echo</span> <span class="st">'Vivo en $ciudad, $pais.'</span><span class="ot">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="co">// → Vivo en $ciudad, $pais.   ← comillas simples NO interpolan</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reglas de nomenclatura:</p>
 <ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
+<li>Empieza por letra o <code>_</code>, nunca por número: <code>$_config</code>, <code>$nombre</code>, <code>$precio2</code> -&gt; Correcto, <code>$2precio</code> -&gt; Incorrecto</li>
+<li>Sensible a mayúsculas: <code>$Precio</code> y <code>$precio</code> son variables distintas.</li>
+<li>Convención: Cuando se trabaja con PHP nativo se suele utilizar <code>snake_case</code> (<code>$precio_con_iva</code>, <code>$nombre_usuario</code>, …). El motivo es que las funciones nativas de PHP son todas <code>snake_case</code>, y usar esta misma convención da mayor coherencia visual entre vuestro código y el propio código nativo de PHP.</li>
 </ul>
 </section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
-</div>
-</div>
+<section id="constantes" class="level2">
+<h2 class="anchored" data-anchor-id="constantes">Constantes</h2>
+<p>Una constante se define una sola vez y no puede reasignarse. Se usa sin <code>$</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="fu">define</span>(<span class="st">'IVA'</span><span class="ot">,</span>          <span class="fl">0.21</span>)<span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="fu">define</span>(<span class="st">'IVA_REDUCIDO'</span><span class="ot">,</span> <span class="fl">0.10</span>)<span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="fu">define</span>(<span class="st">'NOMBRE_TIENDA'</span><span class="ot">,</span> <span class="st">'MiTienda'</span>)<span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="kw">echo</span> <span class="cn">IVA</span><span class="ot">;</span>           <span class="co">// 0.21</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a><span class="kw">echo</span> <span class="cn">IVA_REDUCIDO</span><span class="ot">;</span>  <span class="co">// 0.1</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="kw">echo</span> <span class="cn">NOMBRE_TIENDA</span><span class="ot">;</span> <span class="co">// MiTienda</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a><span class="va">$base</span> <span class="op">=</span> <span class="dv">100</span><span class="ot">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="kw">echo</span> <span class="va">$base</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="cn">IVA</span>)<span class="ot">;</span>  <span class="co">// 121</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Intento de reasignación:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="fu">define</span>(<span class="st">'MAX'</span><span class="ot">,</span> <span class="dv">10</span>)<span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="fu">define</span>(<span class="st">'MAX'</span><span class="ot">,</span> <span class="dv">20</span>)<span class="ot">;</span>  <span class="co">// Fatal error: Cannot redefine constant MAX</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sintaxis alternativa con <code>const</code> (válida fuera de funciones):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">const</span> <span class="fu">PI</span> <span class="op">=</span> <span class="fl">3.14159</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="kw">echo</span> <span class="fu">PI</span><span class="ot">;</span>  <span class="co">// 3.14159</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="var_dumpisset-empty-y-unset" class="level2">
+<h2 class="anchored" data-anchor-id="var_dumpisset-empty-y-unset"><code>var_dump</code>,<code>isset()</code>, <code>empty()</code> y <code>unset()</code></h2>
+<ul>
+<li><p><code>var_dump()</code> es una herramienta para revisar código. Sirve para ver qué hay exactamente dentro de una variable. Muestra el tipo de dato, la longitud y el valor. Es muy útil para encontrar errores en tus programas.</p></li>
+<li><p><code>isset()</code> sirve para comprobar si una variable existe y tiene valor.</p></li>
+<li><p><code>empty()</code> sirve para comprobar si una variable está vacía.</p></li>
+<li><p><code>unset()</code> sirve para eliminar variables y liberar memoria del servidor.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Ana"</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="fu">var_dump</span>(<span class="kw">isset</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(true)  — existe y no es null</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(false) — tiene contenido</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a><span class="kw">unset</span>(<span class="va">$nombre</span>)<span class="ot">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a><span class="fu">var_dump</span>(<span class="kw">isset</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(false) — ya no existe</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>empty()</code> devuelve <code>true</code> en todos estos casos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">""</span>))<span class="ot">;</span>    <span class="co">// bool(true)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">"0"</span>))<span class="ot">;</span>   <span class="co">// bool(true)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="dv">0</span>))<span class="ot">;</span>     <span class="co">// bool(true)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>([]))<span class="ot">;</span>    <span class="co">// bool(true)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="kw">null</span>))<span class="ot">;</span>  <span class="co">// bool(true)</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">"hola"</span>))<span class="ot">;</span> <span class="co">// bool(false)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="dv">1</span>))<span class="ot">;</span>      <span class="co">// bool(false)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Uso típico antes de acceder a un dato que puede no existir:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a><span class="co">// Simulamos que un dato llega desde un formulario</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a><span class="va">$_POST</span>[<span class="st">'email'</span>] <span class="op">=</span> <span class="st">''</span><span class="ot">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'email'</span>]) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">empty</span>(<span class="va">$_POST</span>[<span class="st">'email'</span>])) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a>    <span class="kw">echo</span> <span class="st">"Email: "</span> <span class="op">.</span> <span class="va">$_POST</span>[<span class="st">'email'</span>]<span class="ot">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-label="7"></a>} <span class="cf">else</span> {</span>
+<span id="cb10-8"><a href="#cb10-8" aria-label="8"></a>    <span class="kw">echo</span> <span class="st">"El email está vacío o no se ha enviado."</span><span class="ot">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-label="9"></a>}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-label="10"></a><span class="co">// → El email está vacío o no se ha enviado.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
-<ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
-</ol>
+<p><strong>EJ3 · Depurador: caza de errores</strong></p>
+<p>Corrige los cuatro fragmentos de código siguientes. Para cada fragmento, añade un comentario indicando la línea del error y la causa.</p>
+<p><strong>Fragmento A</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Laura"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a><span class="va">$edad</span> <span class="op">=</span> <span class="dv">25</span><span class="ot">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-label="4"></a><span class="kw">echo</span> <span class="st">"Hola </span><span class="va">$nombre</span><span class="st">, tienes </span><span class="va">$edad</span><span class="st"> años."</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Fragmento B</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="va">$mensaje</span> <span class="op">=</span> <span class="st">"El resultado es "</span>correcto<span class="st">"."</span><span class="ot">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$mensaje</span><span class="ot">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Fragmento C</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-label="2"></a><span class="va">$a</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-label="3"></a><span class="co">/* Este es un comentario muy largo</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-label="4"></a><span class="co">$b = 10;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-label="5"></a><span class="co">echo $a + $b;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-label="6"></a><span class="co">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Fragmento D</strong> — este no tiene error de sintaxis, pero el resultado no es el esperado. Encuentra el error lógico.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a><span class="va">$base</span>   <span class="op">=</span> <span class="dv">4</span><span class="ot">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-label="3"></a><span class="va">$altura</span> <span class="op">=</span> <span class="dv">3</span><span class="ot">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-label="4"></a><span class="va">$area</span>   <span class="op">=</span> <span class="va">$base</span> <span class="op">+</span> <span class="va">$altura</span> <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span>   <span class="co">// Fórmula área de un triángulo</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">"Área: </span><span class="va">$area</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-label="6"></a><span class="co">// Resultado esperado: 6</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-label="7"></a><span class="co">// Resultado real: ???</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="ejercicio">
+<p><strong>EJ4 · Panel de configuración</strong></p>
+<p>Crea <code>config.php</code>. Declara al menos 6 variables (nombre de la tienda, moneda, descuento activo, número de productos, email de contacto, modo mantenimiento) y 2 constantes (<code>IVA_GENERAL</code> e <code>IVA_REDUCIDO</code>). Muéstralas en una tabla HTML con columnas «Variable», «Valor» y «Tipo» usando <code>gettype()</code>.</p>
+<p>Al final, intenta reasignar una de las constantes dentro de un comentario y escribe qué error produce PHP.</p>
 </div>
 
 
@@ -953,13 +1024,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD2/01-generacion-embebida.html" class="pagination-link" aria-label="Generación embebida, tecnologías y delimitadores">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD2/03-tipos-conversion.html" class="pagination-link" aria-label="Tipos de datos y conversión">
+        <span class="nav-page-text"><span class="chapter-title">Tipos de datos y conversión</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -336,584 +336,353 @@
     ]
   },
   {
-    "objectID": "UD3/00-presentacion.html",
-    "href": "UD3/00-presentacion.html",
-    "title": "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
+    "objectID": "UD2/00-presentacion.html",
+    "href": "UD2/00-presentacion.html",
+    "title": "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
     "section": "",
     "text": "Presentación de la unidad",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida"
     ]
   },
   {
-    "objectID": "UD3/00-presentacion.html#presentación-de-la-unidad",
-    "href": "UD3/00-presentacion.html#presentación-de-la-unidad",
-    "title": "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
+    "objectID": "UD2/00-presentacion.html#presentación-de-la-unidad",
+    "href": "UD2/00-presentacion.html#presentación-de-la-unidad",
+    "title": "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
     "section": "",
-    "text": "Qué aprenderás\nEn esta unidad aprendemos a dar lógica real a tus páginas: condicionales, bucles, funciones, y a recoger y validar datos de un formulario.\n\n\nObjetivos\n\nAplicar estructuras condicionales para controlar el flujo de un programa PHP.\nUtilizar bucles para automatizar tareas repetitivas.\nDiseñar funciones reutilizables con parámetros y valores de retorno.\nConstruir formularios HTML y recoger sus datos desde PHP.\nValidar y sanear los datos recibidos de un formulario antes de procesarlos.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA3. Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE3.a\nSe han utilizado mecanismos de decisión en la creación de bloques de sentencias.\n\n\nCE3.b\nSe han utilizado bucles y se ha verificado su funcionamiento.\n\n\nCE3.c\nSe han utilizado matrices (arrays) para almacenar y recuperar conjuntos de datos.\n\n\nCE3.d\nSe han creado y utilizado funciones.\n\n\nCE3.e\nSe han utilizado formularios web para interactuar con el usuario del navegador web.\n\n\nCE3.f\nSe han empleado métodos para recuperar la información introducida en el formulario.\n\n\nCE3.g\nSe han añadido comentarios al código.\n\n\n\n\n\nContenidos\n\n\n\n\n\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nCondicionales: if/elseif/else, ternario, ??, switch / match\nCE3.a\n\n\n2\nBucles while, do-while, for, foreach, break/continue\nCE3.b\n\n\n3\nArrays indexados y asociativos, multidimensionales y funciones de orden superior\nCE3.c\n\n\n4\nFunciones: parámetros, retorno, referencia, ámbito\nCE3.d\n\n\n5\nFormularios HTML: GET vs POST\nCE3.e\n\n\n6\nRecogida y validación de datos\nCE3.e-f\n\n\n\n\n\nRecursos y materiales\n\nServidor local PHP (XAMPP, PHP embebido o Docker)\nDocumentación oficial de PHP\nNavegador con herramientas de desarrollador (F12)\nEditor de código (VS Code recomendado)\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nClasificador de tarifas\nNo\n\n\nEJ2\nSelector de plan de hosting\nNo\n\n\nEJ3\nGenerador de tablas de multiplicar\nNo\n\n\nEJ4\nFiltro de inventario\nNo\n\n\nEJ5\nCatálogo de cursos\nNo\n\n\nEJ6\nInventario multinivel de almacén\nNo\n\n\nEJ7\nEjercicios extras de Arrays\nNo\n\n\nEJ8\nLibrería de funciones de validación\nNo\n\n\nEJ9\nEjercicios extras de funciones\nNo\n\n\nEJ10\nFormulario de inscripción\nNo\n\n\nEJ11\nProcesador de inscripción con validación\nNo\n\n\nEJ12\nTienda online — ejercicio de integración\nSí\n\n\n\nPara obtener el apto es necesario:\n\nEl código produce el resultado esperado en los ficheros entregados.\nLa estructura elegida es adecuada al problema.\nTodas las funciones incluyen PHPDoc completo y el código tiene comentarios en la lógica más compleja.\n\n\n\n\n\n\n\nImportanteImportante\n\n\n\n\nEl EJ12 engloba todos los contenidos de la unidad.\nLos comentarios (CE3.g) son obligatorios en la entrega. Pon los que consideres apropiados.",
+    "text": "Qué aprenderás\nEn esta unidad aprendemos a escribir código PHP dentro de documentos HTML para generar páginas web dinámicas. Cubrimos la sintaxis básica, los tipos de datos, los operadores y el concepto de ámbito de variables.\n\n\nObjetivos\nAl terminar esta unidad serás capaz de:\n\nIntegrar PHP en HTML usando los delimitadores correctos.\nDeclarar variables y constantes con el tipo adecuado.\nUsar los principales tipos de datos: enteros, decimales, cadenas, booleanos y arrays.\nConvertir valores entre tipos de forma explícita e implícita.\nAplicar directivas de configuración del intérprete.\nConstruir expresiones con los operadores de PHP.\nControlar el ámbito de las variables con global y static.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA2. Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE2.a\nSe han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.\n\n\nCE2.b\nSe han identificado las principales tecnologías asociadas.\n\n\nCE2.c\nSe han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.\n\n\nCE2.d\nSe ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.\n\n\nCE2.e\nSe han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.\n\n\nCE2.f\nSe han utilizado directivas para modificar el comportamiento predeterminado.\n\n\nCE2.g\nSe han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.\n\n\nCE2.h\nSe han identificado los ámbitos de utilización de las variables.\n\n\n\n\n\nContenidos\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nGeneración embebida, tecnologías y delimitadores\nCE2.a-b-c\n\n\n2\nSintaxis, variables y constantes\nCE2.d-e\n\n\n3\nTipos de datos y conversión\nCE2.g\n\n\n4\nDirectivas y operadores\nCE2.f-g\n\n\n5\nÁmbito de las variables\nCE2.h\n\n\n\n\n\nRecursos y materiales\n\nServidor local PHP (XAMPP, PHP embebido o Docker)\nDocumentación oficial de PHP\nNavegador con herramientas de desarrollador (F12)\nEditor de código (VS Code recomendado)\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nFicha de producto dinámica\nNo\n\n\nEJ2\nPlantilla con cuatro zonas\nNo\n\n\nEJ3\nDepurador: caza de errores\nNo\n\n\nEJ4\nPanel de configuración\nNo\n\n\nEJ5\nPractica con cadenas\nNo\n\n\nEJ6\nCatálogo con cálculo de inventario\nNo\n\n\nEJ7\nValidación de datos de texto\nNo\n\n\nEJ8\nEjercicios extras de Funciones de Strings\nNo\n\n\nEJ9\nDesarrollo vs. producción\nNo\n\n\nEJ10\nMotor de descuentos\nNo\n\n\nEJ11\nSistema de tickets\nSí",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida"
     ]
   },
   {
-    "objectID": "UD3/01-condicionales.html",
-    "href": "UD3/01-condicionales.html",
-    "title": "Estructuras condicionales",
+    "objectID": "UD2/01-generacion-embebida.html",
+    "href": "UD2/01-generacion-embebida.html",
+    "title": "Generación embebida, tecnologías y delimitadores",
     "section": "",
-    "text": "if / elseif / else\nEjemplo de uso:\nUso de varios casos encadenados:",
+    "text": "¿Qué hace el servidor con un archivo PHP?\nEl servidor recorre el archivo de arriba a abajo. Cuando encuentra HTML lo envía tal cual; cuando encuentra un bloque PHP lo ejecuta y envía el resultado. El navegador nunca ve código PHP.\nLo que recibe el navegador:",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Generación embebida, tecnologías y delimitadores</span>"
     ]
   },
   {
-    "objectID": "UD3/01-condicionales.html#if-elseif-else",
-    "href": "UD3/01-condicionales.html#if-elseif-else",
-    "title": "Estructuras condicionales",
+    "objectID": "UD2/01-generacion-embebida.html#qué-hace-el-servidor-con-un-archivo-php",
+    "href": "UD2/01-generacion-embebida.html#qué-hace-el-servidor-con-un-archivo-php",
+    "title": "Generación embebida, tecnologías y delimitadores",
     "section": "",
-    "text": "&lt;?php\n$edad = 17;\n\nif ($edad &lt; 18) {\n    echo \"Tarifa juvenil\";\n} elseif ($edad &lt; 65) {\n    echo \"Tarifa general\";\n} else {\n    echo \"Tarifa senior\";\n}\n// Tarifa juvenil\n?&gt;\n\n&lt;?php\n$nota = 6.5;\n\nif ($nota &lt; 5) {\n    $calificacion = \"Insuficiente\";\n} elseif ($nota &lt; 6) {\n    $calificacion = \"Suficiente\";\n} elseif ($nota &lt; 7) {\n    $calificacion = \"Bien\";\n} elseif ($nota &lt; 9) {\n    $calificacion = \"Notable\";\n} else {\n    $calificacion = \"Sobresaliente\";\n}\n\necho $calificacion;\n// Bien\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nPHP convierte cualquier valor a booleano al evaluarlo en un if. * Devolverían false los siguientes: 0, \"\", \"0\", [], null. * Cualquier otro sería true.\n&lt;?php\nvar_dump((bool) 0);    // false\nvar_dump((bool) \"\");   // false\nvar_dump((bool) \"0\");  // false\nvar_dump((bool) []);   // false\nvar_dump((bool) null); // false\n\nvar_dump((bool) 1);    // true\nvar_dump((bool) \"ho\"); // true\nvar_dump((bool) [0]);  // true  (array no vacío)\n?&gt;\nAl comparar con 0, \"\" o null, como buena práctica usa siempre ===:\n&lt;?php\nvar_dump(0 == false);   // true  — sorpresa\nvar_dump(0 === false);  // false — correcto\n\nvar_dump(\"\" == false);  // true\nvar_dump(\"\" === false); // false\n?&gt;",
+    "text": "&lt;!-- archivo.php --&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;Son las &lt;?php echo date(\"H:i:s\"); ?&gt;.&lt;/p&gt;\n  &lt;p&gt;El servidor tiene PHP &lt;?php echo PHP_VERSION; ?&gt;.&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;Son las 11:44:33.&lt;/p&gt;\n  &lt;p&gt;El servidor tiene PHP 8.2.12.&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Generación embebida, tecnologías y delimitadores</span>"
     ]
   },
   {
-    "objectID": "UD3/01-condicionales.html#operador-ternario",
-    "href": "UD3/01-condicionales.html#operador-ternario",
-    "title": "Estructuras condicionales",
-    "section": "Operador ternario ? :",
-    "text": "Operador ternario ? :\nEjemplo de uso:\n&lt;?php\n$edad = 20;\n$tarifa = ($edad &lt; 18) ? \"juvenil\" : \"general\";\necho $tarifa;\n// general\n?&gt;\nVarios ternarios encadenados:\n&lt;?php\n$puntos = 85;\n$nivel = $puntos &gt;= 90 ? \"oro\"\n       : ($puntos &gt;= 70 ? \"plata\"\n       : \"bronce\");\necho $nivel;\n// plata\n?&gt;",
+    "objectID": "UD2/01-generacion-embebida.html#tecnologías-de-servidor",
+    "href": "UD2/01-generacion-embebida.html#tecnologías-de-servidor",
+    "title": "Generación embebida, tecnologías y delimitadores",
+    "section": "Tecnologías de servidor",
+    "text": "Tecnologías de servidor\nHay varias formas de generar HTML dinámico en el servidor:\n\n\n\n\n\n\n\nTecnología\nDescripción\n\n\n\n\nPHP\nLenguaje libre, embebido en HTML, muy extendido en hosting y CMS.\n\n\nASP.NET\nTecnología Microsoft sobre IIS y el ecosistema .NET.\n\n\nJSP / Servlets\nJava en servidor; requiere un contenedor como Tomcat.\n\n\nNode.js\nJavaScript en servidor; mismo lenguaje que en el cliente.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Generación embebida, tecnologías y delimitadores</span>"
     ]
   },
   {
-    "objectID": "UD3/01-condicionales.html#operador-null-coalescing-o-fusión-nula",
-    "href": "UD3/01-condicionales.html#operador-null-coalescing-o-fusión-nula",
-    "title": "Estructuras condicionales",
-    "section": "Operador ?? (null coalescing o fusión nula)",
-    "text": "Operador ?? (null coalescing o fusión nula)\nDevuelve el valor de la izquierda si existe y no es null; si no, devuelve el de la derecha.\nEquivaldría a hacer lo siguiente con un ternario: isset(a) ? a : b.\nEn el siguiente ejemplo, suponemos que desde un formulario recuperamos el atributo ‘nombre’.\n&lt;?php\n$nombre = $_GET['nombre'] ?? \"Invitado\";\necho $nombre;\n// Invitado   (si no viene el parámetro en la URL)\n?&gt;\nEjemplo con un supuesto array de configuración:\n&lt;?php\n$config = ['timeout' =&gt; null, 'reintentos' =&gt; 3];\n\necho $config['timeout']    ?? 30;           // 30  (era null)\necho \"\\n\";\necho $config['reintentos'] ?? 5;            // 3   (existía y no era null)\necho \"\\n\";\necho $config['host']       ?? \"localhost\";  // localhost (clave no existía)\necho \"\\n\";\n?&gt;\nAsignación ??= — asigna solo si la variable no existe o es null:\n&lt;?php\n$opciones = [];\n$opciones['color'] ??= \"azul\";\necho $opciones['color'];  // azul\n\n$opciones['color'] ??= \"rojo\";  // ya tiene valor, no cambia\necho $opciones['color'];  // azul\n?&gt;",
+    "objectID": "UD2/01-generacion-embebida.html#delimitadores",
+    "href": "UD2/01-generacion-embebida.html#delimitadores",
+    "title": "Generación embebida, tecnologías y delimitadores",
+    "section": "Delimitadores",
+    "text": "Delimitadores\n\n&lt;?php ?&gt; — bloque de código\nTodo lo que esté entre &lt;?php y ?&gt; se ejecuta. Todo lo que esté fuera se envía sin tocar.\n&lt;h1&gt;Bienvenido/a&lt;/h1&gt;\n&lt;?php\n    $nombre = \"Manel\";\n    echo \"¡Hola $nombre!\";\n?&gt;\n&lt;p&gt;Fin de la página.&lt;/p&gt;\nSalida:\n&lt;h1&gt;Bienvenido/a&lt;/h1&gt;\n¡Hola Manel!\n&lt;p&gt;Fin de la página.&lt;/p&gt;\n\n\n&lt;?= ?&gt; — echo abreviado\nEquivale exactamente a &lt;?php echo ... ?&gt;. Se usa mucho dentro de HTML para insertar valores:\n&lt;p&gt;El precio con IVA es &lt;?= 100 * 1.21 ?&gt; €.&lt;/p&gt;\nSalida:\n&lt;p&gt;El precio con IVA es 121 €.&lt;/p&gt;\n\n\nMezcla real: varios bloques en una misma página\n&lt;?php $usuario = \"Manel\"; $carrito = 3; ?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;header&gt;\n    &lt;p&gt;Hola &lt;?= $usuario ?&gt;. Tienes &lt;?= $carrito ?&gt; artículos.&lt;/p&gt;\n  &lt;/header&gt;\n\n  &lt;?php if ($carrito &gt; 0): ?&gt;\n    &lt;p&gt;¿Quieres finalizar tu compra?&lt;/p&gt;\n  &lt;?php endif; ?&gt;\n\n  &lt;footer&gt;\n    &lt;p&gt;&copy; &lt;?= date('Y') ?&gt;&lt;/p&gt;\n  &lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nSalida (con $carrito = 3):\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;header&gt;\n    &lt;p&gt;Hola Manel. Tienes 3 artículos.&lt;/p&gt;\n  &lt;/header&gt;\n\n  &lt;p&gt;¿Quieres finalizar tu compra?&lt;/p&gt;\n\n  &lt;footer&gt;\n    &lt;p&gt;&copy; 2026&lt;/p&gt;\n  &lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nOlvidar el cierre ?&gt;\nSi abres un bloque &lt;?php y no lo cierras, PHP interpreta todo el HTML siguiente como código y genera un error de parse o una página en blanco.\nExtensión del archivo\nEl servidor solo procesa PHP en archivos .php. Un archivo .html con bloques &lt;?php ?&gt; se enviará sin ejecutar.\nEl delimitador corto &lt;? (sin php) solo funciona si está habilitado en php.ini. Usa siempre &lt;?php o &lt;?=.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Generación embebida, tecnologías y delimitadores</span>"
     ]
   },
   {
-    "objectID": "UD3/01-condicionales.html#switch",
-    "href": "UD3/01-condicionales.html#switch",
-    "title": "Estructuras condicionales",
-    "section": "switch",
-    "text": "switch\n&lt;?php\n$dia = \"lunes\";\n\nswitch ($dia) {\n    case \"lunes\":\n    case \"martes\":\n    case \"miércoles\":\n    case \"jueves\":\n    case \"viernes\":\n        echo \"Día laborable\";\n        break;\n    case \"sábado\":\n    case \"domingo\":\n        echo \"Fin de semana\";\n        break;\n    default:\n        echo \"Día desconocido\";\n}\n// Día laborable\n?&gt;\n&lt;?php\n$codigo = \"ES\";\n\nswitch ($codigo) {\n    case \"ES\": $moneda = \"EUR\"; break;\n    case \"US\": $moneda = \"USD\"; break;\n    case \"GB\": $moneda = \"GBP\"; break;\n    default:   $moneda = \"desconocida\";\n}\n\necho \"Moneda: $moneda\";\n// Moneda: EUR\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nswitch usa comparación débil (==). Con el valor 0 puede haber sorpresas:\n&lt;?php\n$valor = 0;\nswitch ($valor) {\n    case \"hola\": echo \"Caso hola\"; break;  // true: 0 == \"hola\"\n    case 0:      echo \"Caso cero\"; break;\n}\n// Caso hola   ← inesperado\n?&gt;\nSi el valor puede ser 0 o cadenas, usa match.",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/01-condicionales.html#match-php-8",
-    "href": "UD3/01-condicionales.html#match-php-8",
-    "title": "Estructuras condicionales",
-    "section": "match (PHP 8+)",
-    "text": "match (PHP 8+)\nmatch es una expresión que devuelve un valor, usa comparación estricta (===) y no tiene fallthrough:\nEs una alternativa más moderna, limpia y segura que el clásico switch.\n&lt;?php\n$plan = 'B';\n\n$precio = match($plan) {\n    'A'      =&gt; 9.99,\n    'B'      =&gt; 19.99,\n    'C', 'D' =&gt; 29.99,\n    default  =&gt; 0,\n};\n\necho $precio;\n// 19.99\n?&gt;\n&lt;?php\n$estado = \"pen\";\n\n$etiqueta = match($estado) {\n    \"pend\"    =&gt; \"Pendiente\",\n    \"pag\"     =&gt; \"Pagado\",\n    \"canc\"    =&gt; \"Cancelado\",\n    default   =&gt; \"Desconocido\",\n};\n\necho $etiqueta;\n// Pendiente\n?&gt;\nUtilizar match(true) para evaluar rangos equivale a una cadena de elseif:\n&lt;?php\n$temperatura = 28;\n\n$descripcion = match(true) {\n    $temperatura &lt; 0  =&gt; \"Bajo cero\",\n    $temperatura &lt; 15 =&gt; \"Frío\",\n    $temperatura &lt; 25 =&gt; \"Templado\",\n    $temperatura &lt; 35 =&gt; \"Caluroso\",\n    default           =&gt; \"Muy caluroso\",\n};\n\necho $descripcion;\n// Caluroso\n?&gt;\nSi ningún caso coincide y no hay default, match lanza una excepción UnhandledMatchError:\n&lt;?php\n$color = \"verde\";\n\ntry {\n    $hex = match($color) {\n        \"rojo\"  =&gt; \"#FF0000\",\n        \"azul\"  =&gt; \"#0000FF\",\n    };\n} catch (UnhandledMatchError $e) {\n    echo \"Color no reconocido: $color\";\n}\n// Color no reconocido: verde\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/01-condicionales.html#actividades",
-    "href": "UD3/01-condicionales.html#actividades",
-    "title": "Estructuras condicionales",
+    "objectID": "UD2/01-generacion-embebida.html#actividades",
+    "href": "UD2/01-generacion-embebida.html#actividades",
+    "title": "Generación embebida, tecnologías y delimitadores",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ1 · Clasificador de tarifas\nCompleta la función para que produzca el resultado indicado:\n&lt;?php\nfunction calcularTarifa(int $edad, bool $tieneAbono): string {\n    // Tramos: &lt; 18 → \"juvenil\", 18-64 → \"general\", &gt;= 65 → \"senior\"\n    // Si tiene abono, añade a continuación de la tarifa: \" (con descuento)\"\n}\n?&gt;\nResultado esperado:\njuvenil\ngeneral (con descuento)\nsenior\njuvenil (con descuento)\n\n\nEJ2 · Selector de plan de hosting\nImplementa obtenerPlan() usando match. Añade un comentario de una línea en el código explicando por qué match es más adecuado que switch aquí:\n&lt;?php\nfunction obtenerPlan(string $codigo): array {\n    // 'A'      → [\"nombre\" =&gt; \"Básico\",    \"precio\" =&gt; 9.99,  \"gb\" =&gt; 10]\n    // 'B'      → [\"nombre\" =&gt; \"Estándar\",  \"precio\" =&gt; 19.99, \"gb\" =&gt; 50]\n    // 'C', 'D' → [\"nombre\" =&gt; \"Premium\",   \"precio\" =&gt; 29.99, \"gb\" =&gt; 200]\n    // otro     → lanza UnhandledMatchError (sin default)\n}\n?&gt;\nResultado esperado (respeta el formato):\nEstándar: 19.99 € — 50 GB\nPremium: 29.99 € — 200 GB",
+    "text": "Actividades\n\nEJ1 · Ficha de producto dinámica\nCrea el archivo ficha.php. Declara tres variables con los datos de un producto cualquiera y muéstralas en una tabla HTML usando &lt;?= ?&gt;.\nComprueba con «Ver código fuente» en el navegador que el resultado no contiene ninguna etiqueta &lt;?php ni el símbolo $.\n\n\nEJ2 · Plantilla con cuatro zonas\nCrea tienda.php con cuatro secciones: cabecera, listado de productos, barra lateral y pie. Cada sección debe contener al menos un bloque &lt;?php ?&gt; y un bloque &lt;?= ?&gt; generando contenido distinto.\nDespués, comenta el cierre ?&gt; de uno de los bloques y observa qué ocurre. Explica en un comentario PHP por qué la página se rompe.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estructuras condicionales</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Generación embebida, tecnologías y delimitadores</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html",
-    "href": "UD3/02-bucles.html",
-    "title": "Bucles",
+    "objectID": "UD2/02-sintaxis-variables.html",
+    "href": "UD2/02-sintaxis-variables.html",
+    "title": "Sintaxis, variables y constantes",
     "section": "",
-    "text": "while\nEvalúa la condición antes de cada iteración. Si la condición es false desde el inicio, el bloque no se ejecuta:",
+    "text": "Sentencias y comentarios\nCada sentencia termina en ;. Los comentarios tienen la misma sintaxis que en la mayoría de lenguajes:\nSalida: Hola mundo!",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html#while",
-    "href": "UD3/02-bucles.html#while",
-    "title": "Bucles",
+    "objectID": "UD2/02-sintaxis-variables.html#sentencias-y-comentarios",
+    "href": "UD2/02-sintaxis-variables.html#sentencias-y-comentarios",
+    "title": "Sintaxis, variables y constantes",
     "section": "",
-    "text": "&lt;?php\n$i = 1;\nwhile ($i &lt;= 5) {\n    echo $i . \" \";\n    $i++;\n}\n// 1 2 3 4 5\n?&gt;\n&lt;?php\n$total = 0;\n$numero = 1;\nwhile ($numero &lt;= 100) {\n    $total += $numero;\n    $numero++;\n}\necho \"Suma 1..100 = $total\";\n// Suma 1..100 = 5050\n?&gt;\n&lt;?php\n// Contar dígitos de un número\n$n = 38472;\n$digitos = 0;\nwhile ($n &gt; 0) {\n    $n = (int)($n / 10);\n    $digitos++;\n}\necho \"Dígitos: $digitos\";\n// Dígitos: 5\n?&gt;",
+    "text": "&lt;?php\necho \"Hola\";          // comentario de línea\necho \" mundo\";        # también válido (estilo shell)\n\n/*\n  Bloque de comentario.\n  No se envía al navegador.\n*/\necho \"!\";\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nOlvidar el ; al final de una sentencia genera un Parse error y la página no se ejecuta:\n&lt;?php\n$precio = 10        // ← falta el punto y coma\necho $precio;       // Parse error aquí",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html#do-while",
-    "href": "UD3/02-bucles.html#do-while",
-    "title": "Bucles",
-    "section": "do-while",
-    "text": "do-while\nEvalúa la condición después de cada iteración — el bloque se ejecuta al menos una vez:\n&lt;?php\n$intentos = 0;\ndo {\n    $intentos++;\n    echo \"Intento $intentos\\n\";\n} while ($intentos &lt; 3);\n// Intento 1\n// Intento 2\n// Intento 3\n?&gt;\n&lt;?php\n// Útil para menús: muestra opciones al menos una vez\n$numeros = [7, 12, 3, 18, 5, -1]; // -1 es condición de parada\n$idx = 0;\ndo {\n    $valor = $numeros[$idx];\n    if ($valor === -1) break;\n    echo \"Procesando: $valor\\n\";\n    $idx++;\n} while ($idx &lt; count($numeros));\n// Procesando: 7\n// Procesando: 12\n// Procesando: 3\n// Procesando: 18\n// Procesando: 5\n?&gt;",
+    "objectID": "UD2/02-sintaxis-variables.html#variables",
+    "href": "UD2/02-sintaxis-variables.html#variables",
+    "title": "Sintaxis, variables y constantes",
+    "section": "Variables",
+    "text": "Variables\nUna variable se declara con $ seguido del nombre. No hace falta indicar el tipo.\n&lt;?php\n$nombre  = \"Carlos\";\n$edad    = 19;\n$precio  = 9.99;\n$activo  = true;\n\necho $nombre;   // Carlos\necho $edad;     // 19\necho $precio;   // 9.99\necho $activo;   // 1   ← PHP muestra true como 1 con echo\nVarias variables en la misma cadena (interpolación con comillas dobles):\n&lt;?php\n$ciudad  = \"Valencia\";\n$pais    = \"España\";\n\necho \"Vivo en $ciudad, $pais.\";\n// → Vivo en Valencia, España.\n\necho 'Vivo en $ciudad, $pais.';\n// → Vivo en $ciudad, $pais.   ← comillas simples NO interpolan\nReglas de nomenclatura:\n\nEmpieza por letra o _, nunca por número: $_config, $nombre, $precio2 -&gt; Correcto, $2precio -&gt; Incorrecto\nSensible a mayúsculas: $Precio y $precio son variables distintas.\nConvención: Cuando se trabaja con PHP nativo se suele utilizar snake_case ($precio_con_iva, $nombre_usuario, …). El motivo es que las funciones nativas de PHP son todas snake_case, y usar esta misma convención da mayor coherencia visual entre vuestro código y el propio código nativo de PHP.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html#for",
-    "href": "UD3/02-bucles.html#for",
-    "title": "Bucles",
-    "section": "for",
-    "text": "for\nCuando sabes exactamente cuántas iteraciones necesitas:\n&lt;?php\nfor ($i = 1; $i &lt;= 10; $i++) {\n    echo \"$i \";\n}\n// 1 2 3 4 5 6 7 8 9 10\n?&gt;\n&lt;?php\n// Tabla de multiplicar del 7\nfor ($i = 1; $i &lt;= 10; $i++) {\n    echo \"7 × $i = \" . (7 * $i) . \"\\n\";\n}\n// 7 × 1 = 7\n// 7 × 2 = 14\n// ...\n// 7 × 10 = 70\n?&gt;\n&lt;?php\n// Recorrer un array indexado con for\n$frutas = [\"manzana\", \"pera\", \"naranja\", \"uva\"];\nfor ($i = 0; $i &lt; count($frutas); $i++) {\n    echo \"$i: {$frutas[$i]}\\n\";\n}\n// 0: manzana\n// 1: pera\n// 2: naranja\n// 3: uva\n?&gt;\n&lt;?php\n// Bucle decreciente\nfor ($i = 5; $i &gt;= 1; $i--) {\n    echo \"$i... \";\n}\necho \"¡Ya!\";\n// 5... 4... 3... 2... 1... ¡Ya!\n?&gt;",
+    "objectID": "UD2/02-sintaxis-variables.html#constantes",
+    "href": "UD2/02-sintaxis-variables.html#constantes",
+    "title": "Sintaxis, variables y constantes",
+    "section": "Constantes",
+    "text": "Constantes\nUna constante se define una sola vez y no puede reasignarse. Se usa sin $:\n&lt;?php\ndefine('IVA',          0.21);\ndefine('IVA_REDUCIDO', 0.10);\ndefine('NOMBRE_TIENDA', 'MiTienda');\n\necho IVA;           // 0.21\necho IVA_REDUCIDO;  // 0.1\necho NOMBRE_TIENDA; // MiTienda\n\n$base = 100;\necho $base * (1 + IVA);  // 121\nIntento de reasignación:\n&lt;?php\ndefine('MAX', 10);\ndefine('MAX', 20);  // Fatal error: Cannot redefine constant MAX\nSintaxis alternativa con const (válida fuera de funciones):\n&lt;?php\nconst PI = 3.14159;\necho PI;  // 3.14159",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html#foreach",
-    "href": "UD3/02-bucles.html#foreach",
-    "title": "Bucles",
-    "section": "foreach",
-    "text": "foreach\nLa forma más natural de recorrer arrays en PHP.\n&lt;?php\n$colores = [\"rojo\", \"verde\", \"azul\"];\n\nforeach ($colores as $color) {\n    echo $color . \"\\n\";\n}\n// rojo\n// verde\n// azul\n?&gt;\nCon arrays asociativos — accedes a clave y valor:\n&lt;?php\n$precios = [\"pan\" =&gt; 1.20, \"leche\" =&gt; 0.95, \"huevos\" =&gt; 2.50];\n\nforeach ($precios as $producto =&gt; $precio) {\n    echo \"$producto: $precio €\\n\";\n}\n// pan: 1.2 €\n// leche: 0.95 €\n// huevos: 2.5 €\n?&gt;\n&lt;?php\n// Acumular con foreach\n$notas = [7.5, 8.0, 6.5, 9.0, 5.5];\n$suma = 0;\nforeach ($notas as $nota) {\n    $suma += $nota;\n}\n$media = $suma / count($notas);\necho \"Media: $media\";\n// Media: 7.3\n?&gt;\n&lt;?php\n// Modificar elementos con referencia (&)\n$precios = [10.0, 25.0, 8.0];\nforeach ($precios as &$precio) {\n    $precio *= 1.21; // aplicar IVA\n}\nunset($precio); // importante: romper la referencia al salir del bucle\n\nprint_r($precios);\n// Array ( [0] =&gt; 12.1 [1] =&gt; 30.25 [2] =&gt; 9.68 )\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nSi usas &$variable en un foreach, siempre añade unset($variable) justo después del bucle. Si no lo haces, la última posición del array queda apuntada por esa referencia y el siguiente código que use esa variable puede sobreescribir el array sin querer.",
+    "objectID": "UD2/02-sintaxis-variables.html#var_dumpisset-empty-y-unset",
+    "href": "UD2/02-sintaxis-variables.html#var_dumpisset-empty-y-unset",
+    "title": "Sintaxis, variables y constantes",
+    "section": "var_dump,isset(), empty() y unset()",
+    "text": "var_dump,isset(), empty() y unset()\n\nvar_dump() es una herramienta para revisar código. Sirve para ver qué hay exactamente dentro de una variable. Muestra el tipo de dato, la longitud y el valor. Es muy útil para encontrar errores en tus programas.\nisset() sirve para comprobar si una variable existe y tiene valor.\nempty() sirve para comprobar si una variable está vacía.\nunset() sirve para eliminar variables y liberar memoria del servidor.\n\n&lt;?php\n$nombre = \"Ana\";\n\nvar_dump(isset($nombre));   // bool(true)  — existe y no es null\nvar_dump(empty($nombre));   // bool(false) — tiene contenido\n\nunset($nombre);\n\nvar_dump(isset($nombre));   // bool(false) — ya no existe\nempty() devuelve true en todos estos casos:\n&lt;?php\nvar_dump(empty(\"\"));    // bool(true)\nvar_dump(empty(\"0\"));   // bool(true)\nvar_dump(empty(0));     // bool(true)\nvar_dump(empty([]));    // bool(true)\nvar_dump(empty(null));  // bool(true)\nvar_dump(empty(\"hola\")); // bool(false)\nvar_dump(empty(1));      // bool(false)\nUso típico antes de acceder a un dato que puede no existir:\n&lt;?php\n// Simulamos que un dato llega desde un formulario\n$_POST['email'] = '';\n\nif (isset($_POST['email']) && !empty($_POST['email'])) {\n    echo \"Email: \" . $_POST['email'];\n} else {\n    echo \"El email está vacío o no se ha enviado.\";\n}\n// → El email está vacío o no se ha enviado.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/02-bucles.html#break-y-continue",
-    "href": "UD3/02-bucles.html#break-y-continue",
-    "title": "Bucles",
-    "section": "break y continue",
-    "text": "break y continue\nbreak detiene el bucle; continue salta al inicio de la siguiente iteración:\n&lt;?php\n// break: para en cuanto encuentra el primer número par\n$numeros = [1, 3, 7, 4, 9, 2];\nforeach ($numeros as $n) {\n    if ($n % 2 === 0) {\n        echo \"Primer par: $n\";\n        break;\n    }\n}\n// Primer par: 4\n?&gt;\n&lt;?php\n// continue: imprime solo los impares\nfor ($i = 1; $i &lt;= 10; $i++) {\n    if ($i % 2 === 0) continue;\n    echo \"$i \";\n}\n// 1 3 5 7 9\n?&gt;\n\nbreak N y continue N en bucles anidados\nbreak 2 sale de los dos bucles más internos; continue 2 salta a la siguiente iteración del bucle externo:\n&lt;?php\nfor ($i = 1; $i &lt;= 3; $i++) {\n    for ($j = 1; $j &lt;= 3; $j++) {\n        if ($j === 2) continue 2; // salta al siguiente $i\n        echo \"i=$i j=$j  \";\n    }\n}\n// i=1 j=1  i=2 j=1  i=3 j=1\n?&gt;\n&lt;?php\n// Buscar un valor en una matriz 2D y salir de ambos bucles al encontrarlo\n$matriz = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9],\n];\n$buscado = 5;\n$encontrado = false;\n\nfor ($fila = 0; $fila &lt; count($matriz); $fila++) {\n    for ($col = 0; $col &lt; count($matriz[$fila]); $col++) {\n        if ($matriz[$fila][$col] === $buscado) {\n            echo \"Encontrado en fila $fila, columna $col\";\n            $encontrado = true;\n            break 2;\n        }\n    }\n}\n// Encontrado en fila 1, columna 1\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/02-bucles.html#actividades",
-    "href": "UD3/02-bucles.html#actividades",
-    "title": "Bucles",
+    "objectID": "UD2/02-sintaxis-variables.html#actividades",
+    "href": "UD2/02-sintaxis-variables.html#actividades",
+    "title": "Sintaxis, variables y constantes",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ3 · Generador de tablas de multiplicar\nCompleta las tres funciones. Las dos primeras generan la tabla del número recibido del 1 al 10. La tercera recibe un array de números entre 1 y 10 y va generando sus tablas, pero la función se detiene cuando se encuentre un valor -1.\n&lt;?php\nfunction tablaFor(int $n): void {\n    // Usa for\n}\n\nfunction tablaWhile(int $n): void {\n    // Usa while\n}\n\nfunction tablasCondicionParada(array $numeros): void {\n    // Usa do-while. Genera la tabla de cada número del array\n    // hasta encontrar -1 (condición de parada), por tanto -1 y \n    // los siguientes no se procesan.\n}\n\ntablaFor(3);\necho \"---\\n\";\ntablaWhile(3);\necho \"---\\n\";\ntablasCondicionParada([2, 4, -1, 6]);\n?&gt;\nResultado esperado:\n3 × 1 = 3\n3 × 2 = 6\n...\n3 × 10 = 30\n---\n3 × 1 = 3\n...\n3 × 10 = 30\n---\n2 × 1 = 2\n...\n2 × 10 = 20\n4 × 1 = 4\n...\n4 × 10 = 40\n(El -1 y el 6 no generan tabla.)\n\n\nEJ4 · Filtro de inventario\nDado este inventario, implementa los dos recorridos indicados en los comentarios:\n&lt;?php\n$inventario = [\n    [\"nombre\" =&gt; \"Teclado\",   \"precio\" =&gt; 25.0,  \"stock\" =&gt; 12],\n    [\"nombre\" =&gt; \"Ratón\",     \"precio\" =&gt; 15.0,  \"stock\" =&gt; 0],\n    [\"nombre\" =&gt; \"Monitor\",   \"precio\" =&gt; 180.0, \"stock\" =&gt; 5],\n    [\"nombre\" =&gt; \"Cable USB\", \"precio\" =&gt; 5.0,   \"stock\" =&gt; 30],\n];\n\n// a) Con BREAK: lista productos hasta encontrar el primero con stock = 0\n//    Al encontrarlo, muestra \"Agotado: {nombre}\" y para.\necho \"--- Con BREAK ---\\n\";\nforeach ...\n\n// b) Con CONTINUE: muestra solo los productos con precio &lt;= 50 €\necho \"--- Con CONTINUE (precio &lt;= 50 €) ---\\n\";\nforeach ...\n?&gt;\nResultado esperado:\n--- Con break ---\nTeclado: 12 uds\nAgotado: Ratón\n--- Con continue (precio &lt;= 50 €) ---\nTeclado: 25 €\nRatón: 15 €\nCable USB: 5 €",
+    "text": "Actividades\n\nEJ3 · Depurador: caza de errores\nCorrige los cuatro fragmentos de código siguientes. Para cada fragmento, añade un comentario indicando la línea del error y la causa.\nFragmento A\n&lt;?php\n$nombre = \"Laura\"\n$edad = 25;\necho \"Hola $nombre, tienes $edad años.\";\nFragmento B\n&lt;?php\n$mensaje = \"El resultado es \"correcto\".\";\necho $mensaje;\n?&gt;\nFragmento C\n&lt;?php\n$a = 5;\n/* Este es un comentario muy largo\n$b = 10;\necho $a + $b;\n?&gt;\nFragmento D — este no tiene error de sintaxis, pero el resultado no es el esperado. Encuentra el error lógico.\n&lt;?php\n$base   = 4;\n$altura = 3;\n$area   = $base + $altura / 2;   // Fórmula área de un triángulo\necho \"Área: $area\";\n// Resultado esperado: 6\n// Resultado real: ???\n\n\nEJ4 · Panel de configuración\nCrea config.php. Declara al menos 6 variables (nombre de la tienda, moneda, descuento activo, número de productos, email de contacto, modo mantenimiento) y 2 constantes (IVA_GENERAL e IVA_REDUCIDO). Muéstralas en una tabla HTML con columnas «Variable», «Valor» y «Tipo» usando gettype().\nAl final, intenta reasignar una de las constantes dentro de un comentario y escribe qué error produce PHP.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bucles</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sintaxis, variables y constantes</span>"
     ]
   },
   {
-    "objectID": "UD3/03-arrays.html",
-    "href": "UD3/03-arrays.html",
-    "title": "Arrays",
+    "objectID": "UD2/03-tipos-conversion.html",
+    "href": "UD2/03-tipos-conversion.html",
+    "title": "Tipos de datos y conversión",
     "section": "",
-    "text": "Arrays indexados\nEl lenguaje PHP dispone de una gran cantidad de funciones de tratamiento de arrays, puedes consultarlas aquí.\nUn array indexado almacena valores accesibles por posición numérica (desde 0):",
+    "text": "Tipos simples",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/03-arrays.html#arrays-indexados",
-    "href": "UD3/03-arrays.html#arrays-indexados",
-    "title": "Arrays",
+    "objectID": "UD2/03-tipos-conversion.html#tipos-simples",
+    "href": "UD2/03-tipos-conversion.html#tipos-simples",
+    "title": "Tipos de datos y conversión",
     "section": "",
-    "text": "&lt;?php\n$colores = [\"rojo\", \"verde\", \"azul\"];\n\necho $colores[0];   // rojo\necho $colores[2];   // azul\necho count($colores); // 3\n\n$colores[] = \"amarillo\"; // añade al final\necho count($colores); // 4\n?&gt;\n&lt;?php\n// Funciones habituales\n$numeros = [3, 1, 4, 1, 5, 9, 2, 6];\n\nsort($numeros);\nprint_r($numeros);\n// Array ( [0] =&gt; 1 [1] =&gt; 1 [2] =&gt; 2 [3] =&gt; 3 [4] =&gt; 4 [5] =&gt; 5 [6] =&gt; 6 [7] =&gt; 9 )\n\n$ultimo  = array_pop($numeros);    // extrae el último (9)\n$primero = array_shift($numeros);  // extrae el primero (1)\n\narray_push($numeros, 100);         // añade al final\narray_unshift($numeros, 0);        // añade al inicio\n\necho count($numeros); // 8 (6 originales menos 2 extraídos, más 2 añadidos)\n?&gt;\n&lt;?php\n// Comprobar si un valor existe\n$frutas = [\"manzana\", \"pera\", \"naranja\"];\n\nvar_dump(in_array(\"pera\", $frutas));      // true\nvar_dump(in_array(\"uva\", $frutas));       // false\n\n// Posición de un elemento\n$pos = array_search(\"naranja\", $frutas);\necho $pos; // 2\n?&gt;",
+    "text": "&lt;?php\n$entero  = 42;\n$decimal = 3.14;\n$cadena  = \"Hola PHP\";\n$booleano = true;\n\necho gettype($entero);   // integer\necho gettype($decimal);  // double   ← PHP llama \"double\" al decimal\necho gettype($cadena);   // string\necho gettype($booleano); // boolean\n\nCadenas: comillas dobles vs simples\n&lt;?php\n$producto = \"monitor\";\n$precio   = 159.99;\n\necho \"El $producto cuesta $precio €.\";\n// → El monitor cuesta 159.99 €.\n\necho 'El $producto cuesta $precio €.';\n// → El $producto cuesta $precio €.   ← sin interpolación\n\n// Comillas dobles también interpretan secuencias de escape\necho \"Línea 1\\nLínea 2\";   // salto de línea en el HTML fuente\necho \"Columna1\\tColumna2\"; // tabulación\n\n\nCadenas multilínea (heredoc)\n&lt;?php\n$nombre = \"Laura\";\n$texto = &lt;&lt;&lt;EOT\nHola, $nombre.\nBienvenida al sistema.\nEOT;\n\necho $texto;\n// → Hola, Laura.\n// → Bienvenida al sistema.\n\n\nOperaciones con cadenas (strings)\nEl lenguaje PHP dispone de una gran cantidad de funciones de tratamiento de cadenas (strings), puedes consultarlas aquí.\n&lt;?php\n$a = \"Hola\";\n$b = \" mundo\";\n\necho $a . $b;          // Hola mundo   ← concatenar con .\necho strlen($a);       // 4            ← longitud\necho strtoupper($a);   // HOLA\necho strtolower($a);   // hola\necho str_replace(\"Hola\", \"Adiós\", $a . $b);  // Adiós mundo\n\n$texto = \"   Esto es un texto con espacios   \";\n$texto2 = trim($texto); // En este punto, $texto2 vale \"Esto es un texto con espacios\"\n\n$numero = 3.14159;\n$texto = number_format($numero, 2);\n// En este punto, $texto vale 3.14\n\n$texto = \"if (var1 &lt; var2 && ...\";\n$textoHTML = htmlspecialchars($texto);\n// En este punto, $textoHTML vale \"if (var1 &lt; var2 &amp;&amp; ...\"\nLa función substr_count(texto, texto_buscado) cuenta cuántas veces aparece $buscado dentro de $cadena. Es sensible a mayúsculas/minúsculas.\n$nombre = \"Barbara\";\n\n$vecesA = substr_count(strtoupper($nombre), \"A\");\n\necho \"La letra 'a' aparece $vecesA veces.\";\n// La letra 'a' aparece 3 veces.\nLa función stripos(texto, texto_buscado) devuelve la posición (empezando en 0) donde aparece por primera vez texto_buscado dentro de $cadena. La “i” del nombre es de insensitive (a diferencia de strpos, no distingue mayúsculas de minúsculas). Si no lo encuentra, devuelve false.\n$nombre = \"Barbara\";\n\n$posicion = stripos($nombre, \"a\");\n\necho \"La primera 'a' está en la posición $posicion.\";\n// La primera 'a' está en la posición 1.\nLa función explode(separador, cadena) devuelve una lista (array) con todas las partes de la cadena en que se puede dividir cortando por el separador indicado.\nLa función implode(separador, array) combina todos los elementos de la lista (array), uniéndolos con el separador indicado.\n$texto = \"uno-dos-tres-cuatro\";\n$partes = explode('-', $texto);\n// En este punto, $partes es una lista o array. En su posición 0 está\n// la palabra 'uno', en la 1 está 'dos', en la 2 está '3' y en la 3 \n// está 'cuatro'\n$texto2 = implode(';', $partes);\n// Aquí $texto2 vale 'uno;dos;tres;cuatro'\nLa función substr(cadena, comienzo, fin) obtiene una subcadena de la cadena, a partir de la posición de comienzo indicada hasta (opcionalmente) la posición de fin indicada (si no se pone fin, se toma hasta el final de la cadena).\n$texto = \"Hola, buenas tardes\";\n$texto2 = substr($texto, 6, 11); // Aquí $texto2 vale 'buenas'\nLa función strcmp(cadena1, cadena2) compara las dos cadenas viendo cuál es mayor alfabéticamente. Dará un número positivo si la cadena1 es mayor, negativo si la cadena2 es mayor, o cero si son iguales. La función strcasecmp(cadena1, cadena2) funciona como la anterior, pero sin distinguir mayúsculas y minúsculas (las mayúsculas, si no se indica lo contrario, se consideran menores que las minúsculas).\n$texto1 = \"hola\";\n$texto2 = \"adiós\";\n$resultado = strcmp($texto1, $texto2); // Aquí $resultado es &gt; 0, porque \"hola\" es mayor que \"adiós\".\nLas funciones str_replace(viejacadena, nuevacadena, cadena) y su variante insensible a mayúsculas str_ireplace() reemplazan todas las ocurrencias de viejacadena por nuevacadena dentro de cadena:\n$errores = \"Un téxto de prueba con acento en la palabra téxto\";\n$corregido = str_replace(\"téxto\", \"texto\", $errores);\n// \"Un texto de prueba con acento en la palabra texto\"\n\n$nombre = \"Rodrigo\";\n$resultado = str_ireplace(\"o\", \"0\", $nombre);\n// \"R0drig0\"  ← sustituye 'o' y 'O' por igual, str_replace() no lo haría",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/03-arrays.html#arrays-asociativos",
-    "href": "UD3/03-arrays.html#arrays-asociativos",
-    "title": "Arrays",
-    "section": "Arrays asociativos",
-    "text": "Arrays asociativos\nLas claves son cadenas de texto en lugar de números:\n&lt;?php\n$alumno = [\n    \"nombre\" =&gt; \"Laura\",\n    \"curso\"  =&gt; \"2º DAW\",\n    \"nota\"   =&gt; 8.5,\n];\n\necho $alumno[\"nombre\"]; // Laura\necho $alumno[\"nota\"];   // 8.5\n\n// Añadir o modificar\n$alumno[\"email\"] = \"laura@example.com\";\n$alumno[\"nota\"]  = 9.0;\n\n// Comprobar si una clave existe\nvar_dump(array_key_exists(\"email\", $alumno)); // true\nvar_dump(isset($alumno[\"telefono\"]));          // false\n?&gt;\n&lt;?php\n// Recorrer con foreach\n$capitales = [\n    \"España\"   =&gt; \"Madrid\",\n    \"Francia\"  =&gt; \"París\",\n    \"Portugal\" =&gt; \"Lisboa\",\n];\n\nforeach ($capitales as $pais =&gt; $capital) {\n    echo \"$pais → $capital\\n\";\n}\n// España → Madrid\n// Francia → París\n// Portugal → Lisboa\n?&gt;\n&lt;?php\n// Eliminar una clave\n$config = [\"debug\" =&gt; true, \"cache\" =&gt; false, \"timeout\" =&gt; 30];\nunset($config[\"debug\"]);\nprint_r($config);\n// Array ( [cache] =&gt; [timeout] =&gt; 30 )\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nAcceder a una clave que no existe lanza un aviso en PHP 8. Siempre usa ?? para dar un valor por defecto seguro para los casos en los que no exista la key del array:\n&lt;?php\n$datos = [\"nombre\" =&gt; \"Ana\"];\n\necho $datos[\"telefono\"];         // Warning: Undefined array key\necho $datos[\"telefono\"] ?? \"—\";  // —   (sin aviso)\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/03-arrays.html#arrays-multidimensionales",
-    "href": "UD3/03-arrays.html#arrays-multidimensionales",
-    "title": "Arrays",
-    "section": "Arrays multidimensionales",
-    "text": "Arrays multidimensionales\nArrays que contienen otros arrays — el patrón habitual para representar listas de registros:\n&lt;?php\n$alumnos = [\n    [\"nombre\" =&gt; \"Laura\", \"nota\" =&gt; 8.5, \"aprobado\" =&gt; true],\n    [\"nombre\" =&gt; \"Marc\",  \"nota\" =&gt; 4.0, \"aprobado\" =&gt; false],\n    [\"nombre\" =&gt; \"Aisha\", \"nota\" =&gt; 9.2, \"aprobado\" =&gt; true],\n];\n\necho $alumnos[0][\"nombre\"] . \"&lt;br&gt;\"; // Laura\necho $alumnos[1][\"nota\"] . \"&lt;br&gt;\";   // 4\n\nforeach ($alumnos as $a) {\n    $estado = $a[\"aprobado\"] ? \"Aprobado\" : \"Suspendido\";\n    echo \"{$a['nombre']}: {$a['nota']} ({$estado})&lt;br&gt;\";\n}\n\n// Laura: 8.5 (Aprobado)\n// Marc: 4 (Suspendido)\n// Aisha: 9.2 (Aprobado)\n?&gt;\n&lt;?php\n// Añadir, modificar y filtrar sobre multidimensional\n$productos = [\n    [\"nombre\" =&gt; \"Camiseta\", \"precio\" =&gt; 15.0, \"stock\" =&gt; 10],\n    [\"nombre\" =&gt; \"Pantalón\", \"precio\" =&gt; 35.0, \"stock\" =&gt; 0],\n    [\"nombre\" =&gt; \"Zapatos\",  \"precio\" =&gt; 60.0, \"stock\" =&gt; 5],\n];\n\n// Contar los disponibles\n$disponibles = 0;\nforeach ($productos as $p) {\n    if ($p[\"stock\"] &gt; 0) $disponibles++;\n}\necho \"Disponibles: $disponibles / \" . count($productos);\n// Disponibles: 2 / 3\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/03-arrays.html#funciones-de-orden-superior",
-    "href": "UD3/03-arrays.html#funciones-de-orden-superior",
-    "title": "Arrays",
-    "section": "Funciones de orden superior",
-    "text": "Funciones de orden superior\nEs una función que recibe otra función como argumento (o devuelve una función) — en vez de decirle a PHP cómo recorrer el array paso a paso con un bucle, le dices qué hacer con cada elemento, y ella se encarga del recorrido por ti.\narray_map, array_filter y array_reduce son las tres funciones de orden superior más usadas con arrays, y cada una resuelve un problema distinto.\n\n\n\n\n\n\nNotaNota\n\n\n\nLas tres evitan bucles explícitos (for, foreach) y, sobre todo, evitan el error típico de olvidar declarar o reiniciar una variable acumuladora fuera del bucle.\n\n\n\narray_map\n\nTransforma cada elemento y devuelve un array nuevo del mismo tamaño (por ejemplo, duplicar todos los precios).\n\n&lt;?php\n$precios = [10.0, 25.0, 8.0, 40.0];\n\n// Aplicar IVA a todos\n$conIva = array_map(fn($p) =&gt; round($p * 1.21, 2), $precios);\nprint_r($conIva);\n// Array ( [0] =&gt; 12.1 [1] =&gt; 30.25 [2] =&gt; 9.68 [3] =&gt; 48.4 )\n?&gt;\n&lt;?php\n// Aplicar a arrays asociativos dentro de un array\n$alumnos = [\n    [\"nombre\" =&gt; \"Laura\", \"nota\" =&gt; 7.0],\n    [\"nombre\" =&gt; \"Marc\",  \"nota\" =&gt; 4.5],\n    [\"nombre\" =&gt; \"Aisha\", \"nota\" =&gt; 9.1],\n];\n\n// Añadir campo 'aprobado' a cada alumno\n$conEstado = array_map(function($a) {\n    $a[\"aprobado\"] = $a[\"nota\"] &gt;= 5;\n    return $a;\n}, $alumnos);\n\nforeach ($conEstado as $a) {\n    $s = $a[\"aprobado\"] ? \"Aprobado\" : \"Suspendido\";\n    echo \"{$a['nombre']}: $s&lt;br&gt;\";\n}\n// Laura: Aprobado\n// Marc: Suspendido\n// Aisha: Aprobado\n?&gt;\n\n\narray_filter\n\nSelecciona/Filtra los elementos que cumplen una condición, devolviendo un array más pequeño (o igual) que el original (por ejemplo, quedarte solo con los productos en stock).\n\n&lt;?php\n$numeros = [1, 2, 3, 4, 5, 6, 7, 8];\n\n$pares = array_filter($numeros, fn($n) =&gt; $n % 2 === 0);\nprint_r(array_values($pares)); // reindexar con array_values\n// Array ( [0] =&gt; 2 [1] =&gt; 4 [2] =&gt; 6 [3] =&gt; 8 )\n?&gt;\n&lt;?php\n$productos = [\n    [\"nombre\" =&gt; \"Teclado\", \"precio\" =&gt; 25.0, \"stock\" =&gt; 0],\n    [\"nombre\" =&gt; \"Ratón\",   \"precio\" =&gt; 15.0, \"stock\" =&gt; 8],\n    [\"nombre\" =&gt; \"Monitor\", \"precio\" =&gt; 180.0,\"stock\" =&gt; 3],\n];\n\n// Solo los que tienen stock\n$disponibles = array_filter($productos, fn($p) =&gt; $p[\"stock\"] &gt; 0);\n\nforeach ($disponibles as $p) {\n    echo \"{$p['nombre']}: {$p['precio']} €\\n\";\n}\n// Ratón: 15 €\n// Monitor: 180 €\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\narray_filter conserva las claves originales. Si después necesitas índices 0, 1, 2..., aplica array_values():\n&lt;?php\n$pares = array_filter([1,2,3,4,5], fn($n) =&gt; $n % 2 === 0);\nvar_dump(array_keys($pares));         // [1, 3]  — claves no consecutivas\nvar_dump(array_keys(array_values($pares))); // [0, 1]  — reindexado\n?&gt;\n\n\n\n\narray_reduce\n\nCombina todos los elementos en un único valor de salida (por ejemplo, sumar el total de una compra).\n\n&lt;?php\n$notas = [7.5, 8.0, 6.5, 9.0, 5.5];\n\n$suma = array_reduce($notas, fn($acum, $n) =&gt; $acum + $n, 0);\necho \"Suma: $suma\\n\";      // Suma: 36.5\necho \"Media: \" . ($suma / count($notas)); // Media: 7.3\n?&gt;\n&lt;?php\n// Agrupar productos por categoría con array_reduce\n$items = [\n    [\"nombre\" =&gt; \"Manzana\", \"tipo\" =&gt; \"fruta\"],\n    [\"nombre\" =&gt; \"Pan\",     \"tipo\" =&gt; \"panadería\"],\n    [\"nombre\" =&gt; \"Pera\",    \"tipo\" =&gt; \"fruta\"],\n    [\"nombre\" =&gt; \"Croissant\",\"tipo\"=&gt; \"panadería\"],\n];\n\n$agrupados = array_reduce($items, function($acum, $item) {\n    $acum[$item[\"tipo\"]][] = $item[\"nombre\"];\n    return $acum;\n}, []);\n\nprint_r($agrupados);\n// Array (\n//   [fruta] =&gt; Array ( [0] =&gt; Manzana [1] =&gt; Pera )\n//   [panadería] =&gt; Array ( [0] =&gt; Pan [1] =&gt; Croissant )\n// )\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/03-arrays.html#otras-funciones-útiles",
-    "href": "UD3/03-arrays.html#otras-funciones-útiles",
-    "title": "Arrays",
-    "section": "Otras funciones útiles",
-    "text": "Otras funciones útiles\n&lt;?php\n$catalogo = [\"DAW2\" =&gt; \"Desarrollo Web\", \"DAM2\" =&gt; \"Apps Móviles\", \"ASIR2\" =&gt; \"Redes\"];\n\n// Ordenar por clave\nksort($catalogo);\nprint_r($catalogo);\n// Array ( [ASIR2] =&gt; Redes [DAM2] =&gt; Apps Móviles [DAW2] =&gt; Desarrollo Web )\n\n// Ordenar por valor (mantiene asociación clave-valor)\nasort($catalogo);\nprint_r($catalogo);\n// Array ( [DAM2] =&gt; Apps Móviles [DAW2] =&gt; Desarrollo Web [ASIR2] =&gt; Redes )\n\n// Extraer solo claves o solo valores\nprint_r(array_keys($catalogo));   // Array ( [0] =&gt; DAM2 [1] =&gt; DAW2 [2] =&gt; ASIR2 )\nprint_r(array_values($catalogo)); // Array ( [0] =&gt; Apps Móviles [1] =&gt; Desarrollo Web [2] =&gt; Redes )\n?&gt;\n&lt;?php\n// array_slice: extraer una porción\n$letras = [\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"];\nprint_r(array_slice($letras, 2, 3));\n// Array ( [0] =&gt; c [1] =&gt; d [2] =&gt; e )\n\n// array_splice: extraer y (opcionalmente) insertar\n$numeros = [1,2,3,4,5];\n$extraidos = array_splice($numeros, 1, 2, [10, 20]);\nprint_r($numeros);    // Array ( [0] =&gt; 1 [1] =&gt; 10 [2] =&gt; 20 [3] =&gt; 4 [4] =&gt; 5 )\nprint_r($extraidos);  // Array ( [0] =&gt; 2 [1] =&gt; 3 )\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/03-arrays.html#actividades",
-    "href": "UD3/03-arrays.html#actividades",
-    "title": "Arrays",
+    "objectID": "UD2/03-tipos-conversion.html#actividades",
+    "href": "UD2/03-tipos-conversion.html#actividades",
+    "title": "Tipos de datos y conversión",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ5 · Catálogo de cursos\nCompleta las funciones que gestionan el catálogo:\n&lt;?php\n$catalogo = [\n    \"4021\"  =&gt; \"Desarrollo de Aplicaciones Web\",\n    \"1103\"  =&gt; \"Desarrollo de Aplicaciones Multiplataforma\",\n    \"3350\" =&gt; \"Administración de Sistemas Informáticos en Red\",\n    \"2287\"  =&gt; \"Sistemas Microinformáticos y Redes\",\n];\n\nfunction buscarCurso(array $catalogo, string $codigo): ?string {\n    // Devuelve el nombre si existe, null si no\n}\n\nfunction existeCurso(array $catalogo, string $nombre): bool {\n    // true si el nombre existe como valor (usa in_array estricto)\n}\n\n// Pruebas\nvar_dump(buscarCurso($catalogo, \"4021\"));        // string \"Desarrollo de Aplicaciones Web\"\nvar_dump(buscarCurso($catalogo, \"9999\"));         // NULL\nvar_dump(existeCurso($catalogo, \"Redes\"));        // false (nombre parcial)\nvar_dump(existeCurso($catalogo, \"Sistemas Microinformáticos y Redes\")); // true\n\n// Muestra el catálogo ordenado por código y luego por nombre\n?&gt;\nResultado esperado de la parte de ordenación:\nPor código:\n1103: Desarrollo de Aplicaciones Multiplataforma\n2287: Sistemas Microinformáticos y Redes\n3350: Administración de Sistemas Informáticos en Red\n4021: Desarrollo de Aplicaciones Web\n\nPor nombre:\n3350: Administración de Sistemas Informáticos en Red\n1103: Desarrollo de Aplicaciones Multiplataforma\n4021: Desarrollo de Aplicaciones Web\n2287: Sistemas Microinformáticos y Redes\n\n\nEJ6 · Inventario multinivel de almacén\nDado este array, implementa las operaciones con array_map y array_filter (sin bucles explícitos):\n&lt;?php\n$almacenes = [\n    \"Madrid\" =&gt; [\n        [\"producto\" =&gt; \"Portátil\", \"precio\" =&gt; 600.0, \"stock\" =&gt; 4],\n        [\"producto\" =&gt; \"Tablet\",   \"precio\" =&gt; 250.0, \"stock\" =&gt; 1],\n    ],\n    \"Valencia\" =&gt; [\n        [\"producto\" =&gt; \"Monitor\",  \"precio\" =&gt; 180.0, \"stock\" =&gt; 8],\n        [\"producto\" =&gt; \"Teclado\",  \"precio\" =&gt; 25.0,  \"stock\" =&gt; 2],\n    ],\n];\n\n// a) $almacenesActualizados: precios +10%, sin modificar $almacenes\n//    Usa array_map anidado (uno por almacén, uno por producto)\n$almacenesActualizados = // Tu código aquí\n\n// b) $stockBajo: solo productos con stock &lt;= 2, manteniendo estructura por almacén\n//    Usa array_map + array_filter\n$stockBajo = // Tu código aquí\n\nprint_r($almacenesActualizados);\nprint_r($stockBajo);\n?&gt;\nResultado esperado de $stockBajo:\nArray\n(\n    [Madrid] =&gt; Array\n        (\n            [1] =&gt; Array ( [producto] =&gt; Tablet [precio] =&gt; 250 [stock] =&gt; 1 )\n        )\n    [Valencia] =&gt; Array\n        (\n            [1] =&gt; Array ( [producto] =&gt; Teclado [precio] =&gt; 25 [stock] =&gt; 2 )\n        )\n)\n\n\nEJ7 · Ejercicios extras de Arrays\nCrea un fichero php llamado arrays.php y resuelve los siguientes ejercicios. Para las funciones que no se han comentado en la teoría, investiga su uso en la documentación oficial de arrays en PHP.\n\nCrea un array llamado nombres que contenga varios nombres.\nMuestra el número de elementos que tiene el array.\nCrea una cadena que contenga los nombres de los alumnos existentes en el array separados por un espacio y muéstrala.\nMuestra el array ordenado alfabéticamente.\nMuestra el array en el orden inverso al que se creó (función array_reverse).\nMuestra la posición que tiene tu nombre en el array.\nCrea un array de alumnos donde cada elemento sea otro array que contenga el id, nombre y edad del alumno.\nCrea una tabla html en la que se muestren todos los datos de los alumnos.\nUtiliza la función array_column para obtener un array indexado que contenga únicamente los nombres de los alumnos y muéstralo por pantalla.\nCrea un array con 10 números y utiliza la función array_sum para obtener la suma de los 10 números.",
+    "text": "Actividades\n\nEJ5 · Practica con cadenas\nCrea una página llamada manejo_textos.php. Realiza en ella las siguientes operaciones:\n\nCrea una variable $radio con un radio de circunferencia (el que quieras).\nCrea una variable $area y calcula en ella el área del círculo, como has hecho en algún ejercicio anterior (PI * radio(^2), definiendo la constante PI).\nCrea una variable $textoResultado que diga “El área calculada del círculo es” y luego ponga la variable $area, mostrando sólo 2 decimales (utiliza la función number_format). Muestra luego esta variable por pantalla con un echo.\nCrea una variable $textoResultadoMayus que convierta el texto anterior a mayúsculas. Muestra también esta variable por pantalla.\nCrea una variable llamada $textoResultadoModificado que reemplace la palabra “calculada” por la palabra “obtenida”, usando la función apropiada en la variable $textoResultado.\nAverigua la longitud del texto de la variable anterior.\nAverigua en qué posición del texto de la variable anterior se encuentra la palabra “círculo”.\nCrea una variable $numeros que tenga el valor “1,2,3,4,5”, y utiliza la función apropiada para quedarte con los números por separado. Sácalos por pantalla, separados por el signo “+” (“1+2+3+4+5”), y después, intenta sumarlos entre sí y mostrar el resultado de la suma a continuación (al final, te quedará algo como “1+2+3+4+5=15”).",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arrays</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/04-funciones.html",
-    "href": "UD3/04-funciones.html",
-    "title": "Funciones",
-    "section": "",
-    "text": "Declaración básica\nEl lenguaje PHP dispone de una gran cantidad de funciones bien categorizadas, puedes consultarlas aquí.\nTípico ejemplo de calcular un factorial utilizando recursividad:",
+    "objectID": "UD2/03-tipos-conversion.html#arrays",
+    "href": "UD2/03-tipos-conversion.html#arrays",
+    "title": "Tipos de datos y conversión",
+    "section": "Arrays",
+    "text": "Arrays\n\nArray indexado\n&lt;?php\n$colores = [\"rojo\", \"verde\", \"azul\"];\n\necho $colores[0];        // rojo\necho $colores[2];        // azul\necho count($colores);    // 3\n\n// Añadir elementos\n$colores[] = \"amarillo\";\necho count($colores);    // 4\n\n// Modificar\n$colores[0] = \"naranja\";\necho $colores[0];        // naranja\n\n\nArray asociativo\n&lt;?php\n$producto = [\n    \"nombre\"   =&gt; \"Teclado mecánico\",\n    \"precio\"   =&gt; 79.90,\n    \"stock\"    =&gt; 15,\n    \"en_oferta\" =&gt; true,\n];\n\necho $producto[\"nombre\"];    // Teclado mecánico\necho $producto[\"precio\"];    // 79.9\necho $producto[\"stock\"];     // 15\n\n// Modificar un campo\n$producto[\"precio\"] = 69.90;\necho $producto[\"precio\"];    // 69.9\n\n// Añadir un campo nuevo\n$producto[\"categoria\"] = \"Periféricos\";\necho $producto[\"categoria\"]; // Periféricos\n\n\nArray multidimensional\n&lt;?php\n$catalogo = [\n    [\"nombre\" =&gt; \"Ratón\",   \"precio\" =&gt; 19.90],\n    [\"nombre\" =&gt; \"Teclado\", \"precio\" =&gt; 79.90],\n    [\"nombre\" =&gt; \"Monitor\", \"precio\" =&gt; 189.00],\n];\n\necho $catalogo[0][\"nombre\"];  // Ratón\necho $catalogo[1][\"precio\"];  // 79.9\necho $catalogo[2][\"nombre\"];  // Monitor\n\necho count($catalogo);        // 3\n\n\nprint_r() y var_dump()\n&lt;?php\n$datos = [\"Ana\", 22, true];\n\nprint_r($datos);\n/*\nArray\n(\n    [0] =&gt; Ana\n    [1] =&gt; 22\n    [2] =&gt; 1\n)\n*/\n\nvar_dump($datos);\n/*\narray(3) {\n  [0]=&gt;  string(3) \"Ana\"\n  [1]=&gt;  int(22)\n  [2]=&gt;  bool(true)\n}\n*/\n// var_dump muestra además el tipo y la longitud de cada elemento",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/04-funciones.html#declaración-básica",
-    "href": "UD3/04-funciones.html#declaración-básica",
-    "title": "Funciones",
-    "section": "",
-    "text": "&lt;?php\nfunction saludar(string $nombre): string {\n    return \"Hola, $nombre!\";\n}\n\necho saludar(\"Laura\"); // Hola, Laura!\necho saludar(\"Marc\");  // Hola, Marc!\n?&gt;\n&lt;?php\nfunction esPar(int $n): bool {\n    return $n % 2 === 0;\n}\n\nvar_dump(esPar(4));  // true\nvar_dump(esPar(7));  // false\n?&gt;\n\n&lt;?php\nfunction factorial(int $n): int {\n    if ($n &lt;= 1) return 1;\n    return $n * factorial($n - 1); // recursión\n}\n\necho factorial(5);  // 120\necho factorial(0);  // 1\n?&gt;",
+    "objectID": "UD2/03-tipos-conversion.html#tipos-para-unidades-posteriores",
+    "href": "UD2/03-tipos-conversion.html#tipos-para-unidades-posteriores",
+    "title": "Tipos de datos y conversión",
+    "section": "Tipos para unidades posteriores",
+    "text": "Tipos para unidades posteriores\n\n\n\nTipo\nCuándo aparece\n\n\n\n\nobject\nUD4 — Programación orientada a objetos en PHP\n\n\nresource\nUD6 — Acceso a datos con PDO\n\n\nnull\nYa: unset($var) hace que la variable valga null",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/04-funciones.html#parámetros-con-valor-por-defecto",
-    "href": "UD3/04-funciones.html#parámetros-con-valor-por-defecto",
-    "title": "Funciones",
-    "section": "Parámetros con valor por defecto",
-    "text": "Parámetros con valor por defecto\nEjemplo 1\n&lt;?php\nfunction formatearPrecio(float $valor, int $decimales = 2, string $moneda = \"€\"): string {\n    return number_format($valor, $decimales, ',', '.') . \" $moneda\";\n}\n\necho formatearPrecio(19.5);          // 19,50 €\necho formatearPrecio(19.5, 0);       // 20 €\necho formatearPrecio(1234.5);        // 1.234,50 €\necho formatearPrecio(99.99, 2, \"$\"); // 99,99 $\n?&gt;\nEjemplo 2\n&lt;?php\nfunction repetir(string $texto, int $veces = 3, string $separador = \" \"): string {\n    return implode($separador, array_fill(0, $veces, $texto));\n}\n\necho repetir(\"PHP\");          // PHP PHP PHP\necho repetir(\"PHP\", 5);       // PHP PHP PHP PHP PHP\necho repetir(\"eco\", 4, \"-\");  // eco-eco-eco-eco\n?&gt;\nEjemplo 3\n&lt;?php\n// Declaramos la función con valores por defecto para $rol y $pais\nfunction crearPerfil($nombre, $rol = \"Lector\", $pais = \"España\") {\n    return \"Usuario: $nombre | Rol: $rol | País: $pais\\n\";\n}\n\n// CASO 1: Solo pasamos el nombre (parámetro obligatorio)\n// PHP usará automáticamente los valores por defecto para el rol y el país.\necho crearPerfil(\"Ana\"); \n// Imprime: Usuario: Ana | Rol: Lector | País: España\n\n// CASO 2: Queremos cambiar el rol, pero mantener el país por defecto\n// El segundo argumento sobrescribe a \"Lector\", pero el tercero se mantiene.\necho crearPerfil(\"Carlos\", \"Administrador\"); \n// Imprime: Usuario: Carlos | Rol: Administrador | País: España\n\n// CASO 3: Queremos cambiar absolutamente todo\n// Al pasar todos los argumentos, ignoramos por completo los valores por defecto.\necho crearPerfil(\"Sofía\", \"Editor\", \"México\"); \n// Imprime: Usuario: Sofía | Rol: Editor | País: México\n?&gt;\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nLos parámetros con valor por defecto deben ir siempre al final de la lista. Poner un parámetro sin defecto después de uno con defecto es un error de sintaxis.",
+    "objectID": "UD2/03-tipos-conversion.html#conversión-de-tipos",
+    "href": "UD2/03-tipos-conversion.html#conversión-de-tipos",
+    "title": "Tipos de datos y conversión",
+    "section": "Conversión de tipos",
+    "text": "Conversión de tipos\n\nImplícita — PHP decide\n&lt;?php\necho \"5\" + 3;       // 8     ← \"5\" se convierte a entero porque + es aritmético\necho \"5\" . 3;       // 53    ← 3 se convierte a cadena porque . concatena\necho true + true;   // 2     ← true vale 1\necho false + 1;     // 1     ← false vale 0\necho \"3 cajas\" + 2; // 5     ← toma el número del inicio de la cadena\necho \"cajas\" + 2;   // 2     ← sin número inicial → 0\n\n\nExplícita — cast\n&lt;?php\n$texto = \"42 unidades\";\n\n$entero  = (int)    $texto;   // 42\n$decimal = (float)  \"3.14abc\"; // 3.14\n$cadena  = (string) 99;        // \"99\"\n$bool    = (bool)   0;         // false\n$bool2   = (bool)   \"hola\";    // true  ← cualquier cadena no vacía es true\n$bool3   = (bool)   \"\";        // false ← cadena vacía es false\n$bool4   = (bool)   \"0\";       // false ← excepción: \"0\" es false\n\nvar_dump($entero);   // int(42)\nvar_dump($decimal);  // float(3.14)\nvar_dump($cadena);   // string(2) \"99\"\nvar_dump($bool);     // bool(false)\n\n\nComa decimal en cadenas — error frecuente\n&lt;?php\n// Un precio que llega como texto con coma decimal\n$precio_texto = \"29,99\";\n\n$mal  = (float) $precio_texto;                      // 29.0  ← INCORRECTO\n$bien = (float) str_replace(\",\", \".\", $precio_texto); // 29.99 ← correcto\n\necho $mal;   // 29\necho $bien;  // 29.99\n\n\nFunciones de conversión (código heredado)\nSon equivalentes al cast pero más verbosas. Las verás en código antiguo:\n&lt;?php\necho intval(\"42px\");    // 42   — igual que (int)\necho floatval(\"3.14\");  // 3.14 — igual que (float)\necho strval(100);       // \"100\" — igual que (string)\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n== frente a ===\n== convierte los tipos antes de comparar. === compara tipo y valor sin convertir.\n&lt;?php\nvar_dump(0    == false);   // bool(true)   ← 0 se considera false\nvar_dump(0    === false);  // bool(false)  ← int vs bool: distintos tipos\nvar_dump(\"0\"  == false);   // bool(true)\nvar_dump(\"0\"  === false);  // bool(false)\nvar_dump(\"\"   == false);   // bool(true)\nvar_dump(\"1\"  == true);    // bool(true)\nvar_dump(\"1\"  === true);   // bool(false)  ← string vs bool\n\n// Regla: usa === por defecto",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/04-funciones.html#paso-por-valor-y-por-referencia",
-    "href": "UD3/04-funciones.html#paso-por-valor-y-por-referencia",
-    "title": "Funciones",
-    "section": "Paso por valor y por referencia",
-    "text": "Paso por valor y por referencia\nPor defecto, PHP pasa los valores por copia (por valor). Para modificar la variable original, usa &:\n&lt;?php\n// Por valor: la función trabaja con una copia\nfunction doblar(int $n): int {\n    $n *= 2;\n    return $n;\n}\n\n$valor = 5;\n$resultado = doblar($valor);\necho $valor;     // 5  — sin cambios\necho $resultado; // 10\n?&gt;\n&lt;?php\n// Por referencia: la función modifica la variable original\nfunction intercambiar(mixed &$a, mixed &$b): void {\n    $temp = $a;\n    $a    = $b;\n    $b    = $temp;\n}\n\n$x = \"manzana\";\n$y = \"naranja\";\nintercambiar($x, $y);\necho $x; // naranja\necho $y; // manzana\n?&gt;\n&lt;?php\n// Otro uso habitual: normalizar un array en el sitio (modificar el array original directamente)\nfunction limpiarEspacios(array &$lista): void {\n    foreach ($lista as &$elemento) {\n        $elemento = trim($elemento);\n    }\n    unset($elemento); // romper la referencia\n}\n\n$nombres = [\"  Laura  \", \"Marc \", \" Aisha\"];\nlimpiarEspacios($nombres);\nprint_r($nombres);\n// Array ( [0] =&gt; Laura [1] =&gt; Marc [2] =&gt; Aisha )\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nLos arrays se pasan por valor por defecto. Modificar un array dentro de una función sin & no afecta al original:\n&lt;?php\nfunction agregar(array $lista, string $item): void {\n    $lista[] = $item; // modifica la copia local\n}\n\n$frutas = [\"manzana\", \"pera\"];\nagregar($frutas, \"naranja\");\nprint_r($frutas); // solo manzana y pera — naranja no se añadió\n\n// Solución A: devolver el array modificado\nfunction agregarV2(array $lista, string $item): array {\n    $lista[] = $item;\n    return $lista;\n}\n$frutas = agregarV2($frutas, \"naranja\");\n\n// Solución B: pasar por referencia\nfunction agregarV3(array &$lista, string $item): void {\n    $lista[] = $item;\n}\nagregarV3($frutas, \"uva\");\nprint_r($frutas); // manzana, pera, naranja, uva\n?&gt;",
+    "objectID": "UD2/03-tipos-conversion.html#analizar-urls-con-parse_url",
+    "href": "UD2/03-tipos-conversion.html#analizar-urls-con-parse_url",
+    "title": "Tipos de datos y conversión",
+    "section": "Analizar URLs con parse_url",
+    "text": "Analizar URLs con parse_url\nparse_url() descompone una URL en sus partes y las devuelve como un array asociativo — no como un string ni como un objeto:\n&lt;?php\n$url = 'https://usuario:clave@miweb.com:8080/productos?id=5#detalle';\n\n$partes = parse_url($url);\nprint_r($partes);\nSalida:\nArray\n(\n    [scheme] =&gt; https\n    [host] =&gt; miweb.com\n    [port] =&gt; 8080\n    [user] =&gt; usuario\n    [pass] =&gt; clave\n    [path] =&gt; /productos\n    [query] =&gt; id=5\n    [fragment] =&gt; detalle\n)\nCada componente se accede por su clave, como cualquier array asociativo:\n&lt;?php\necho $partes['scheme'];  // https\necho $partes['host'];    // miweb.com\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nNo todas las claves aparecen siempre — una URL sin usuario/contraseña no tendrá user ni pass en el array. Comprueba con isset() antes de acceder a una clave que podría no existir, o parse_url() lanzará un aviso de índice indefinido.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/04-funciones.html#tipado-de-parámetros-y-retorno",
-    "href": "UD3/04-funciones.html#tipado-de-parámetros-y-retorno",
-    "title": "Funciones",
-    "section": "Tipado de parámetros y retorno",
-    "text": "Tipado de parámetros y retorno\n&lt;?php\nfunction dividir(float $a, float $b): float {\n    if ($b === 0.0) {\n        throw new \\InvalidArgumentException(\"División por cero\");\n    }\n    return $a / $b;\n}\n\necho dividir(10, 3);    // 3.3333333333333\necho dividir(9.0, 3.0); // 3\n?&gt;\n&lt;?php\n// Tipo nullable: el valor puede ser del tipo indicado o null\nfunction buscarUsuario(int $id): ?string {\n    $usuarios = [1 =&gt; \"Laura\", 2 =&gt; \"Marc\", 3 =&gt; \"Aisha\"];\n    return $usuarios[$id] ?? null;\n}\n\nvar_dump(buscarUsuario(2));  // string \"Marc\"\nvar_dump(buscarUsuario(99)); // NULL\n?&gt;\n&lt;?php\n// Tipo de retorno void: la función no devuelve nada útil\nfunction registrar(string $mensaje): void {\n    echo \"[LOG] $mensaje\\n\";\n    // no hay return\n}\n\nregistrar(\"Usuario autenticado\");\n// [LOG] Usuario autenticado\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/04-funciones.html#ámbito-de-variables",
-    "href": "UD3/04-funciones.html#ámbito-de-variables",
-    "title": "Funciones",
-    "section": "Ámbito de variables",
-    "text": "Ámbito de variables\nLas variables declaradas dentro de una función son locales y no son visibles fuera:\n&lt;?php\nfunction calcular(): int {\n    $resultado = 42; // local a la función\n    return $resultado;\n}\n\ncalcular();\necho $resultado; // Warning: Undefined variable — no existe aquí\n?&gt;\nPara usar una variable global dentro de una función, declárala con global:\n&lt;?php\n$impuesto = 0.21;\n\nfunction precioFinal(float $precio): float {\n    global $impuesto;\n    return $precio * (1 + $impuesto);\n}\n\necho precioFinal(100); // 121\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl uso de global dificulta el mantenimiento. La alternativa limpia es pasar el valor como parámetro:\n&lt;?php\n// Evitar esto:\n$impuesto = 0.21;\nfunction precioMalo(float $base): float {\n    global $impuesto;\n    return $base * (1 + $impuesto);\n}\necho precioMalo(100); // 121\n\n// Preferir esto:\n$impuesto = 0.21;\nfunction precioBueno(float $base, float $impuesto): float {\n    return $base * (1 + $impuesto);\n}\necho precioBueno(100, $impuesto); // 121\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/04-funciones.html#funciones-anónimas-y-closures",
-    "href": "UD3/04-funciones.html#funciones-anónimas-y-closures",
-    "title": "Funciones",
-    "section": "Funciones anónimas y Closures",
-    "text": "Funciones anónimas y Closures\nUna función anónima es aquella a la que no se le asigna un nombre. Puede almacenarse en variables, pasarse como argumento (callbacks) o devolverse desde otra función.\n&lt;?php\n// Asignación de una función anónima a una variable\n$saludo = function(string$nombre): string {\n    return \"Hola, $nombre\";\n}; // Nota el punto y coma obligatorio al final de la asignación\n\necho $saludo(\"Aisha\"); // Hola, Aisha\n?&gt;\nUn **Closure (o clausura)** es una función anónima con la capacidad de heredar variables del entorno exterior (ámbito del script contenedor) mediante la estructura use.\n&lt;?php\n$iva = 0.21; // Variable en el ámbito local/global externo\n\n// El closure \"atrapa\" el valor de $iva en el momento de su definición\n$calcularTotal = function(float $base) use ($iva): float {\n    return $base * (1 + $iva);\n};\n\necho \"Total con impuestos: \" . $calcularTotal(100); // Total con impuestos: 121\n?&gt;\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nTécnicamente en PHP, todas las funciones anónimas son objetos instanciados de la clase interna nativa Closure. El uso de use es la alternativa limpia a la palabra clave global cuando se trabaja con funciones en línea, aislando de forma segura el comportamiento.",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/04-funciones.html#funciones-variádicas",
-    "href": "UD3/04-funciones.html#funciones-variádicas",
-    "title": "Funciones",
-    "section": "Funciones variádicas",
-    "text": "Funciones variádicas\nAceptan un número variable de argumentos con ...:\n&lt;?php\nfunction sumar(float ...$numeros): float {\n    return array_sum($numeros);\n}\n\necho sumar(1, 2, 3);          // 6\necho sumar(10, 20, 30, 40);   // 100\necho sumar();                  // 0\n\n// También puedes expandir un array con ...\n$valores = [5, 10, 15];\necho sumar(...$valores);       // 30\n?&gt;\n&lt;?php\nfunction maximo(int $primero, int ...$resto): int {\n    $max = $primero;\n    foreach ($resto as $n) {\n        if ($n &gt; $max) $max = $n;\n    }\n    return $max;\n}\n\necho maximo(3);           // 3\necho maximo(3, 7, 2, 9);  // 9\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/04-funciones.html#phpdoc",
-    "href": "UD3/04-funciones.html#phpdoc",
-    "title": "Funciones",
-    "section": "PHPDoc",
-    "text": "PHPDoc\nDocumenta tus funciones con bloques PHPDoc — los IDEs los leen y ofrecen autocompletado y validación.\n&lt;?php\n/**\n * Valida el formato de un DNI español.\n *\n * @param string $dni Cadena a validar, p. ej. \"12345678Z\".\n * @return bool true si el formato es correcto.\n */\nfunction validarDNI(string $dni): bool {\n    return preg_match('/^[0-9]{8}[A-Z]$/', $dni) === 1;\n}\n\nvar_dump(validarDNI(\"12345678Z\")); // true\nvar_dump(validarDNI(\"1234567z\"));  // false\nvar_dump(validarDNI(\"123456\"));    // false\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/04-funciones.html#actividades",
-    "href": "UD3/04-funciones.html#actividades",
-    "title": "Funciones",
+    "objectID": "UD2/03-tipos-conversion.html#actividades-1",
+    "href": "UD2/03-tipos-conversion.html#actividades-1",
+    "title": "Tipos de datos y conversión",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ8 · Librería de funciones de validación\nCrea un fichero libreria_validacion.php con estas cuatro funciones. Todas llevan PHPDoc completo y tipado en parámetros y retorno:\n&lt;?php\n/**\n * Valida el formato de un DNI español (8 dígitos + letra mayúscula).\n * @param string $dni  p. ej. \"12345678Z\"\n * @return bool\n */\nfunction validarDNI(string $dni): bool {\n    // Usa preg_match con la RegEx adecuada\n}\n\n/**\n * Calcula la edad en años cumplidos a partir de una fecha de nacimiento.\n * @param string $fechaNacimiento  formato 'Y-m-d', p. ej. '2000-05-15'\n * @return int\n */\nfunction calcularEdad(string $fechaNacimiento): int {\n    // Usa DateTime y diff()\n}\n\n/**\n * Formatea un valor como precio en euros.\n * @param float $valor\n * @param int   $decimales  por defecto 2\n * @return string  p. ej. \"1.234,50 €\"\n */\nfunction formatearPrecio(float $valor, int $decimales = 2): string {\n    // Usa number_format con coma decimal y punto de miles\n}\n\n/**\n * Intercambia los valores de dos variables.\n * Justifica en un comentario por qué es necesario pasar por referencia.\n * @param mixed $a\n * @param mixed $b\n */\nfunction intercambiar(mixed &$a, mixed &$b): void {\n    // Tu código aquí\n}\n\n// --- Pruebas ---\nvar_dump(validarDNI(\"12345678Z\")); // true\nvar_dump(validarDNI(\"1234567z\"));  // false\n\necho calcularEdad(\"2000-05-15\") . \" años\\n\"; // depende de la fecha actual\n\necho formatearPrecio(19.5)      . \"\\n\"; // 19,50 €\necho formatearPrecio(1234.5)    . \"\\n\"; // 1.234,50 €\necho formatearPrecio(1234.5, 0) . \"\\n\"; // 1.235 €\n\n$x = 10; $y = 20;\nintercambiar($x, $y);\necho \"x=$x y=$y\\n\"; // x=20 y=10\n?&gt;\n\n\nEJ9 · Ejercicios extras de funciones\nEn el proyecto de ejemplo creado en la actividad anterior, crea un fichero PHP llamado funciones.php y resuelve los siguientes ejercicios:\n\n1. Generador de consultas INSERT INTO (Paso por valor)\nQueremos crear una función llamada insert que nos genere una sentencia INSERT INTO en SQL de forma dinámica. Para ello, la función recibirá dos parámetros: el nombre de la tabla y un array asociativo que contendrá los nombres de los campos (claves) y sus respectivos valores.\nLa sentencia resultante devuelta por la función debe tener la siguiente estructura: \"INSERT INTO nombre_tabla (campos, separados, por, comas) VALUES (:campos, :separados, :por, :comas)\"\n\nNota: De momento no operaremos con los valores del array, solo con sus claves para preparar los named placeholders de PDO.\nAyuda: Utiliza las funciones nativas sprintf, implode y array_keys.\n\n\n\n2. Generador de consultas SQL (Paso por referencia)\nRepite el ejercicio anterior aplicando una lógica diferente basada en plantillas y paso por referencia: * La función recibirá la cadena base por referencia inicializada de la siguiente forma: $sql = \"INSERT INTO tabla (campos) VALUES (valores)\"; * Dentro de la función, deberás buscar y sustituir los textos comodín: * El texto tabla por el nombre real de la tabla. * El texto campos por los nombres de los campos del array separados por comas. * El texto valores por los nombres de los campos separados por comas con el carácter : delante.\n\n\n3. Calculadora flexible mediante Funciones Anónimas (Callbacks)\nQueremos crear una función genérica que calcule y muestre por pantalla el resultado de una operación matemática entre dos operandos.\nLa salida impresa debe seguir estrictamente este formato:\n[Primer operando] [Símbolo] [Segundo operando] = [Resultado]\n(Por ejemplo: 5 + 3 = 8)\nPara lograr la máxima flexibilidad, la función debe recibir cuatro parámetros:\n\nEl primer operando numérico.\nEl segundo operando numérico.\nEl símbolo de la operación en formato string (ej: \"+\", \"-\", \"*\").\nUna función anónima (clousure / callback) que se encargará de realizar internamente la operación aritmética correspondiente y devolver el resultado.",
+    "text": "Actividades\n\nEJ6 · Catálogo con cálculo de inventario\nCrea catalogo.php. Declara un array $catalogo con 4 productos (nombre, precio, stock, categoría). Muéstralos en una tabla HTML sin usar bucles. Calcula y muestra el valor total del inventario (precio × stock sumado para todos los productos).\n\n\nEJ7 · Validación de datos de texto\nCrea validar.php con este código de partida y completa los apartados:\n&lt;?php\n$edad_texto     = \"17 años\";\n$precio_texto   = \"29,99\";\n$acepta_texto   = \"on\";\n$cantidad_texto = \"3\";\n\n// 1. Convierte $edad_texto a entero y comprueba si es &gt;= 18\n// 2. Convierte $precio_texto a float (OJO con la coma)\n// 3. Determina si $acepta_texto indica aceptación (===, no cast)\n// 4. Calcula el importe total redondeado a 2 decimales\n// 5. Compara (int)$edad_texto con \"17\" y con 17 usando ===\n//    Muestra los dos resultados con var_dump()\n\n\nEJ8 · Ejercicios extras de Funciones de Strings\n\nManipulación de cadenas\nCrea un fichero PHP llamado cadenas.php y resuelve las siguientes tareas utilizando las funciones de manejo de cadenas nativas de PHP. Los datos llegan por querystring — por ejemplo, visitando:\nhttp://localhost:8000/cadenas.php?nombre=/Laura/&prefijo=La\n\n\n\n\n\n\nNotaNota\n\n\n\nEn una querystring: ? separa la URL de los parámetros, & separa un parámetro de otro, y cada uno tiene la forma clave=valor.\n\n\n\nEliminación de caracteres: Muestra el valor de un parámetro llamado nombre recibido por querystring eliminando los caracteres / del principio y del final si los hubiera (función trim). Si no se recibe dicho parámetro, se asignará tu nombre de pila por defecto.\nLongitud del texto: Muestra la longitud del parámetro nombre.\nConversión a mayúsculas: Muestra el nombre completamente en mayúsculas.\nConversión a minúsculas: Muestra el nombre completamente en minúsculas.\nComprobación de prefijo: Recibe un segundo parámetro por querystring llamado prefijo (recuerda separar los parámetros utilizando el carácter &). Indica si el nombre comienza por dicho prefijo o no, distinguiendo entre mayúsculas y minúsculas. Si no se pasa el parámetro prefijo, no se realizará esta comprobación.\nContar caracteres: Muestra el número de veces que aparece la letra ‘a’ (tanto mayúscula como minúscula) en el parámetro nombre.\nBuscar posición: Muestra la posición de la primera ‘a’ existente en el nombre (sea mayúscula o minúscula). Si no contiene ninguna, muestra un texto indicándolo.\nSustitución de texto: Muestra el nombre sustituyendo todas las letras ‘o’ (mayúsculas o minúsculas) por el número cero 0.\n\n\n\n\nAnálisis de URLs con parse_url\nA partir de una variable que contenga una dirección de ejemplo:\n$url = 'https://admin:s3cr3t@tienda.example.com:8443/carrito?cupon=VERANO25';\nUtiliza la función parse_url para extraer y mostrar por pantalla las siguientes partes de la variable url del ejemplo:\n\nEl protocolo utilizado (en el ejemplo https).\nEl nombre de usuario (en el ejemplo admin).\nEl path de la url (en el ejemplo /carrito)\nEl querystring de la url (en el ejemplo cupon=VERANO25)",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Funciones</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tipos de datos y conversión</span>"
     ]
   },
   {
-    "objectID": "UD3/05-formularios.html",
-    "href": "UD3/05-formularios.html",
-    "title": "Formularios HTML",
+    "objectID": "UD2/04-directivas-operadores.html",
+    "href": "UD2/04-directivas-operadores.html",
+    "title": "Directivas y operadores",
     "section": "",
-    "text": "El elemento &lt;form&gt;\nUn formulario agrupa controles de entrada y define a dónde y cómo se envían los datos:",
+    "text": "Directivas de error\nLas directivas configuran el comportamiento del intérprete, no generan salida HTML.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/05-formularios.html#el-elemento-form",
-    "href": "UD3/05-formularios.html#el-elemento-form",
-    "title": "Formularios HTML",
+    "objectID": "UD2/04-directivas-operadores.html#directivas-de-error",
+    "href": "UD2/04-directivas-operadores.html#directivas-de-error",
+    "title": "Directivas y operadores",
     "section": "",
-    "text": "&lt;form action=\"procesar.php\" method=\"post\"&gt;\n    &lt;label for=\"nombre\"&gt;Nombre:&lt;/label&gt;\n    &lt;input type=\"text\" id=\"nombre\" name=\"nombre\" required&gt;\n\n    &lt;label for=\"curso\"&gt;Curso:&lt;/label&gt;\n    &lt;select id=\"curso\" name=\"curso\"&gt;\n        &lt;option value=\"daw\"&gt;2º DAW&lt;/option&gt;\n        &lt;option value=\"dam\"&gt;2º DAM&lt;/option&gt;\n    &lt;/select&gt;\n\n    &lt;button type=\"submit\"&gt;Enviar&lt;/button&gt;\n&lt;/form&gt;\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEl atributo name (no id) de cada control es la clave con la que PHP recibirá el dato. Si un control no tiene name, su valor no se envía.",
+    "text": "Mostrar errores en desarrollo\n&lt;?php\nerror_reporting(E_ALL);\nini_set('display_errors', '1');\n\necho $variable_que_no_existe;  // Warning: Undefined variable\necho 10 / 0;                   // Warning: Division by zero\nSalida visible en pantalla:\nWarning: Undefined variable $variable_que_no_existe in /var/www/html/test.php on line 4\nWarning: Division by zero in /var/www/html/test.php on line 5\n\n\nOcultar errores en producción\n&lt;?php\nini_set('display_errors', '0');\nini_set('log_errors',     '1');   // guardar en el log del servidor\n\necho $variable_que_no_existe;  // El error ocurre pero el usuario no lo ve\necho 10 / 0;\nSalida visible: (nada — la página parece funcionar, pero el log del servidor registra los errores)\n\n\ndeclare(strict_types=1)\nObliga a que los tipos de los parámetros de funciones tipadas coincidan exactamente. Debe ser la primera línea del archivo:\n&lt;?php\ndeclare(strict_types=1);\n\nfunction duplicar(int $n): int {\n    return $n * 2;\n}\n\necho duplicar(5);     // 10\necho duplicar(\"5\");   // TypeError: sin strict_types PHP convertiría \"5\" a 5 automáticamente;\n                      // con strict_types lanza excepción",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/05-formularios.html#controles-habituales",
-    "href": "UD3/05-formularios.html#controles-habituales",
-    "title": "Formularios HTML",
-    "section": "Controles habituales",
-    "text": "Controles habituales\n&lt;!-- Texto de una línea --&gt;\n&lt;input type=\"text\"     name=\"usuario\"  placeholder=\"Tu nombre\"&gt;\n&lt;input type=\"email\"    name=\"correo\"   required&gt;\n&lt;input type=\"password\" name=\"clave\"&gt;\n&lt;input type=\"number\"   name=\"edad\"     min=\"0\" max=\"120\"&gt;\n&lt;input type=\"date\"     name=\"fecha\"&gt;\n&lt;input type=\"hidden\"   name=\"token\"    value=\"abc123\"&gt;\n\n&lt;!-- Texto multilínea --&gt;\n&lt;textarea name=\"comentario\" rows=\"4\" cols=\"40\"&gt;&lt;/textarea&gt;\n\n&lt;!-- Lista desplegable --&gt;\n&lt;select name=\"pais\"&gt;\n    &lt;option value=\"es\"&gt;España&lt;/option&gt;\n    &lt;option value=\"fr\"&gt;Francia&lt;/option&gt;\n    &lt;option value=\"pt\" selected&gt;Portugal&lt;/option&gt;\n&lt;/select&gt;\n\n&lt;!-- Botones de opción (radio): solo uno del grupo --&gt;\n&lt;input type=\"radio\" name=\"modalidad\" value=\"presencial\" id=\"r1\"&gt;\n&lt;label for=\"r1\"&gt;Presencial&lt;/label&gt;\n&lt;input type=\"radio\" name=\"modalidad\" value=\"online\" id=\"r2\" checked&gt;\n&lt;label for=\"r2\"&gt;Online&lt;/label&gt;\n\n&lt;!-- Casilla de verificación --&gt;\n&lt;input type=\"checkbox\" name=\"condiciones\" value=\"1\" id=\"ck1\"&gt;\n&lt;label for=\"ck1\"&gt;Acepto las condiciones&lt;/label&gt;\n\n&lt;!-- Subida de archivos --&gt;\n&lt;input type=\"file\" name=\"avatar\"&gt;\n\n&lt;!-- Envío --&gt;\n&lt;button type=\"submit\"&gt;Enviar&lt;/button&gt;\n&lt;button type=\"reset\"&gt;Limpiar&lt;/button&gt;\n\n\n\n\n\n\nImportante¡Obligatorio para subir archivos!\n\n\n\nPara que el navegador pueda empaquetar y enviar un archivo binario (como una imagen o un PDF), el elemento &lt;form&gt; debe incluir obligatoriamente el atributo enctype=\"multipart/form-data\" y utilizar el método POST. Si se te olvida, PHP no recibirá el archivo.\n&lt;form action=\"subir.php\" method=\"post\" enctype=\"multipart/form-data\"&gt;\n    &lt;input type=\"file\" name=\"documento\"&gt;\n    &lt;button type=\"submit\"&gt;Subir archivo&lt;/button&gt;\n&lt;/form&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/05-formularios.html#get-frente-a-post",
-    "href": "UD3/05-formularios.html#get-frente-a-post",
-    "title": "Formularios HTML",
-    "section": "GET frente a POST",
-    "text": "GET frente a POST\n\n\n\n\n\n\n\n\n\nGET\nPOST\n\n\n\n\nDonde están los datos\nURL (?campo=valor&...)\nCuerpo de la petición\n\n\nLímite de longitud de la URL\n~2–8 KB según navegador\nSin límite\n\n\nVisible en historial\nSí (porque la petición entera está en la URL)\nNo\n\n\nCacheable\nSí (porque la petición entera está en la URL)\nNo\n\n\nUso\nBúsquedas, filtros, paginación\nRegistro, login, envío de archivos\n\n\n\n&lt;!-- GET: adecuado para un buscador — la URL se puede compartir --&gt;\n&lt;form action=\"buscar.php\" method=\"get\"&gt;\n    &lt;input type=\"text\" name=\"q\" placeholder=\"Buscar...\"&gt;\n    &lt;button type=\"submit\"&gt;Buscar&lt;/button&gt;\n&lt;/form&gt;\n&lt;!-- URL resultante: buscar.php?q=php+arrays --&gt;\n&lt;!-- POST: adecuado para un formulario de login --&gt;\n&lt;form action=\"login.php\" method=\"post\"&gt;\n    &lt;input type=\"text\"     name=\"usuario\"&gt;\n    &lt;input type=\"password\" name=\"clave\"&gt;\n    &lt;button type=\"submit\"&gt;Entrar&lt;/button&gt;\n&lt;/form&gt;\n&lt;!-- Los datos van en el cuerpo, no en la URL --&gt;\n\n\n\n\n\n\nAdvertencia¡Cuidado!\n\n\n\nNunca uses GET para enviar contraseñas o datos personales. La URL queda en el historial del navegador, en los registros del servidor y en la cabecera Referer al hacer clic en enlaces externos.\nImagina un login mal hecho por GET:\nhttp://mitienda.com/login.php?usuario=ana&password=secreto123\nSi desde esa misma página, después de loguearte, hay un enlace o un botón que lleva a un sitio externo (un banner de publicidad, un enlace a “Síguenos en redes”, un widget de terceros embebido).\n&lt;a href=\"https://anuncios-externos.com/promo\"&gt;Ver oferta especial&lt;/a&gt;\nCuando el usuario hace clic ahí, el navegador le dice automáticamente a anuncios-externos.com, en la cabecera Referer de esa nueva petición, desde qué URL vino, es decir, le envía literalmente:\nReferer: http://mitienda.com/login.php?usuario=ana&password=secreto123\nPor tanto, el propietario de anuncios-externos.com (o cualquiera con acceso a sus logs) acaba de recibir tu usuario y tu contraseña.",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/05-formularios.html#formulario-completo-ejemplo",
-    "href": "UD3/05-formularios.html#formulario-completo-ejemplo",
-    "title": "Formularios HTML",
-    "section": "Formulario completo (ejemplo)",
-    "text": "Formulario completo (ejemplo)\nUn formulario de inscripción con varios tipos de control:",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/05-formularios.html#formulario-completo-ejemplo-1",
-    "href": "UD3/05-formularios.html#formulario-completo-ejemplo-1",
-    "title": "Formularios HTML",
-    "section": "Formulario completo (ejemplo)",
-    "text": "Formulario completo (ejemplo)\nUn formulario de contacto con soporte técnico, con varios tipos de control:\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;&lt;meta charset=\"UTF-8\"&gt;&lt;title&gt;Contactar con soporte&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n&lt;form action=\"enviar_contacto.php\" method=\"post\"&gt;\n\n    &lt;label for=\"email\"&gt;Tu correo electrónico:&lt;/label&gt;\n    &lt;input type=\"email\" id=\"email\" name=\"email\" required&gt;\n    &lt;br&gt;\n\n    &lt;label for=\"departamento\"&gt;Departamento:&lt;/label&gt;\n    &lt;select id=\"departamento\" name=\"departamento\"&gt;\n        &lt;option value=\"\"&gt;-- Elige --&lt;/option&gt;\n        &lt;option value=\"tecnico\"&gt;Soporte técnico&lt;/option&gt;\n        &lt;option value=\"facturacion\"&gt;Facturación&lt;/option&gt;\n        &lt;option value=\"comercial\"&gt;Comercial&lt;/option&gt;\n    &lt;/select&gt;\n    &lt;br&gt;\n\n    &lt;fieldset&gt;\n        &lt;legend&gt;Prioridad&lt;/legend&gt;\n        &lt;input type=\"radio\" id=\"baja\" name=\"prioridad\" value=\"baja\" checked&gt;\n        &lt;label for=\"baja\"&gt;Baja&lt;/label&gt;\n        &lt;input type=\"radio\" id=\"alta\" name=\"prioridad\" value=\"alta\"&gt;\n        &lt;label for=\"alta\"&gt;Alta&lt;/label&gt;\n    &lt;/fieldset&gt;\n\n    &lt;label for=\"mensaje\"&gt;Mensaje:&lt;/label&gt;\n    &lt;textarea id=\"mensaje\" name=\"mensaje\" rows=\"4\" required&gt;&lt;/textarea&gt;\n    &lt;br&gt;\n\n    &lt;input type=\"checkbox\" id=\"ck\" name=\"suscribir\" value=\"1\"&gt;\n    &lt;label for=\"ck\"&gt;Quiero recibir novedades por email&lt;/label&gt;\n    &lt;br&gt;&lt;br&gt;\n\n    &lt;button type=\"submit\"&gt;Enviar consulta&lt;/button&gt;\n&lt;/form&gt;\n&lt;/body&gt;\n&lt;/html&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/05-formularios.html#actividades",
-    "href": "UD3/05-formularios.html#actividades",
-    "title": "Formularios HTML",
+    "objectID": "UD2/04-directivas-operadores.html#actividades",
+    "href": "UD2/04-directivas-operadores.html#actividades",
+    "title": "Directivas y operadores",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ10 · Formulario de inscripción\nEl centro va a abrir un formulario web para que el alumnado se inscriba a los ciclos de FP que oferta, sustituyendo el papel que se rellenaba hasta ahora en secretaría. Necesitas construir la página del formulario.\nCrea el fichero inscripcion.html con un formulario que cumpla estos requisitos:\n\nCampos: nombre completo (texto, obligatorio), email (obligatorio), curso (select con al menos 3 opciones), modalidad (radio con “Presencial” y “Semipresencial”), checkbox de aceptación de condiciones (obligatorio).\nUtiliza el método que consideres correcto: GET o POST.\nAñade un comentario HTML al inicio explicando por qué se usas el método.\nAcción: procesar_inscripcion.php.\nCada control debe tener su &lt;label&gt; asociado con for/id.\nBotón de envío con texto “Enviar inscripción”.\n\nEn este ejercicio no hace falta que procesar_inscripcion.php exista todavía porque se crea en EJ11.",
+    "text": "Actividades\n\nEJ9 · Desarrollo vs. producción\nCrea errores.php con este código de partida:\n&lt;?php\n// Configura aquí las directivas\n\n$x = $variable_indefinida + 5;\n$y = 10 / 0;\n\necho \"x = $x, y = $y\";\n\nConfigura el modo desarrollo y anota exactamente qué mensajes aparecen.\nCambia a modo producción y describe qué ve el usuario.\nAñade declare(strict_types=1) y explica en un comentario qué cambiaría si $variable_indefinida fuera el parámetro de una función tipada como int.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Formularios HTML</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/06-recogida-datos.html",
-    "href": "UD3/06-recogida-datos.html",
-    "title": "Recogida y validación de datos",
-    "section": "",
-    "text": "$_GET y $_POST\nPHP rellena automáticamente estos arrays con los datos enviados:",
+    "objectID": "UD2/04-directivas-operadores.html#operadores",
+    "href": "UD2/04-directivas-operadores.html#operadores",
+    "title": "Directivas y operadores",
+    "section": "Operadores",
+    "text": "Operadores\n\nAritméticos\n&lt;?php\n$a = 17;\n$b = 5;\n\necho $a + $b;   // 22\necho $a - $b;   // 12\necho $a * $b;   // 85\necho $a / $b;   // 3.4\necho $a % $b;   // 2   ← resto de la división entera\necho $a ** 2;   // 289 ← potencia (17²)\necho $b ** 3;   // 125 ← 5³\n\n\nAsignación compuesta\n&lt;?php\n$precio = 100;\n\n$precio += 20;   echo $precio;  // 120\n$precio -= 5;    echo $precio;  // 115\n$precio *= 1.1;  echo $precio;  // 126.5\n$precio /= 2;    echo $precio;  // 63.25\n$precio  = 100;\n\n$texto  = \"Hola\";\n$texto .= \", mundo\";   echo $texto;  // Hola, mundo\n\n\nIncremento y decremento\n&lt;?php\n$i = 5;\necho $i++;   // 5  ← muestra primero, luego incrementa\necho $i;     // 6\necho ++$i;   // 7  ← incrementa primero, luego muestra\necho $i--;   // 7  ← muestra primero, luego decrementa\necho $i;     // 6\n\n\nComparación\n&lt;?php\nvar_dump(5 &gt;  3);     // bool(true)\nvar_dump(5 &lt;  3);     // bool(false)\nvar_dump(5 &gt;= 5);     // bool(true)\nvar_dump(5 &lt;= 4);     // bool(false)\nvar_dump(5 == \"5\");   // bool(true)  ← convierte antes de comparar\nvar_dump(5 === \"5\");  // bool(false) ← tipo distinto: int vs string\nvar_dump(5 != 3);     // bool(true)\nvar_dump(5 !== \"5\");  // bool(true)  ← tipo distinto\n\n\nLógicos\n&lt;?php\n$edad   = 20;\n$carnet = true;\n\nvar_dump($edad &gt;= 18 && $carnet);  // bool(true)  — ambas verdaderas\nvar_dump($edad &gt;= 18 && !$carnet); // bool(false) — segunda es false\nvar_dump($edad &lt; 18 || $carnet);   // bool(true)  — al menos una verdadera\nvar_dump(!($edad &gt;= 18));          // bool(false) — negación\n\n\nConcatenación\n&lt;?php\n$nombre = \"Ana\";\n$ciudad = \"Valencia\";\n\necho $nombre . \" vive en \" . $ciudad . \".\";\n// → Ana vive en Valencia.\n\n$msg  = \"Hola\";\n$msg .= \", $nombre!\";\necho $msg;\n// → Hola, Ana!\n\n\nOperador ternario\n&lt;?php\n$edad = 20;\n$acceso = ($edad &gt;= 18) ? \"Permitido\" : \"Denegado\";\necho $acceso;  // Permitido\n\n// Forma corta: si la condición es truthy, usa el propio valor\n$nombre = \"\" ?: \"Anónimo\";\necho $nombre;  // Anónimo   ← \"\" es falsy, usa el valor de la derecha",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/06-recogida-datos.html#get-y-_post",
-    "href": "UD3/06-recogida-datos.html#get-y-_post",
-    "title": "Recogida y validación de datos",
-    "section": "",
-    "text": "&lt;?php\n// procesar.php — formulario con method=\"get\"\n// URL: procesar.php?nombre=Laura&edad=22\n\n$nombre = $_GET['nombre']; // \"Laura\"\n$edad   = $_GET['edad'];   // \"22\"  (siempre string)\n\necho \"Hola, $nombre. Tienes $edad años.\";\n// Hola, Laura. Tienes 22 años.\n?&gt;\n&lt;?php\n// procesar.php — formulario con method=\"post\"\n$nombre = $_POST['nombre'];\n$curso  = $_POST['curso'];\n\necho \"Inscrito: $nombre en $curso\";\n?&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nNo uses $_REQUEST en producción: mezcla GET, POST y cookies sin distinguir el origen, lo que puede permitir que un atacante inyecte un valor GET que sobreescriba lo que esperas del formulario POST.",
+    "objectID": "UD2/04-directivas-operadores.html#precedencia-y-la-trampa-de-andor",
+    "href": "UD2/04-directivas-operadores.html#precedencia-y-la-trampa-de-andor",
+    "title": "Directivas y operadores",
+    "section": "Precedencia y la trampa de and/or",
+    "text": "Precedencia y la trampa de and/or\nComo en cualquier lenguaje de programación, PHP resuelve los operadores por precedencia.\n\n\n\nOperadores\nTipo / Información adicional\n\n\n\n\n**\nPotencia (Aritmética)\n\n\n++ --\nIncremento y decremento\n\n\n* / %\nMultiplicación, división y resto (Módulo)\n\n\n+ - .\nSuma, resta y Concatenación de strings (.)\n\n\n&lt; &lt;= &gt; &gt;=\nComparaciones relacionales\n\n\n== != === !==\nIgualdad e identidad (compara valor y tipo)\n\n\n&&\nLógico Y (AND con mayor precedencia)\n\n\n||\nLógico O (OR con mayor precedencia)\n\n\n??\nCoalescencia nula (básico para recibir datos de formularios)\n\n\n? :\nOperador ternario (condicional compacto)\n\n\n= += -= .=\nAsignación directa y asignaciones combinadas\n\n\nand or\nLógicos con muy baja precedencia\n\n\n\nAnte cualquier duda, usa paréntesis:\n&lt;?php\necho 2 + 3 * 4;      // 14  ← * antes que +\necho (2 + 3) * 4;    // 20  ← el paréntesis fuerza el orden\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nand/or tienen precedencia menor que =\n&lt;?php\n$a = false || true;   // $a = true   ← || evalúa antes que =\n$b = false or true;   // $b = false  ← = asigna primero, luego or se descarta\n\nvar_dump($a);  // bool(true)\nvar_dump($b);  // bool(false)  ← ¡sorpresa!\nLa segunda línea se parsea como ($b = false) or true: primero asigna false a $b, y luego evalúa false or true (resultado true) que se descarta sin asignar a nada.\nRegla: usa siempre && y || en condiciones. and/or solo en construcciones de control de flujo donde la baja precedencia es intencionada.",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/06-recogida-datos.html#recogida-de-archivos-_files",
-    "href": "UD3/06-recogida-datos.html#recogida-de-archivos-_files",
-    "title": "Recogida y validación de datos",
-    "section": "Recogida de archivos: $_FILES",
-    "text": "Recogida de archivos: $_FILES\nCuando el formulario envía un archivo a través de un input de tipo file (y con el enctype adecuado), este no se aloja en $_POST. PHP procesa el archivo de forma independiente y rellena de forma automática un array bidimensional global llamado $_FILES.\nA través de $_FILES['nombre_input'], tenemos acceso a 5 datos cruciales sobre el archivo subido:\n&lt;?php\n// Suponiendo un &lt;input type=\"file\" name=\"avatar\"&gt;\n\n$nombreArchivo = $_FILES['avatar']['name'];     // Nombre original (ej: \"foto.png\")\n$tipoMime      = $_FILES['avatar']['type'];     // Tipo de archivo (ej: \"image/png\")\n$tamano        = $_FILES['avatar']['size'];     // Tamaño en bytes (ej: 24512)\n$rutaTemporal  = $_FILES['avatar']['tmp_name']; // Ubicación temporal en el servidor\n$error         = $_FILES['avatar']['error'];    // Código de error (0 si todo es correcto)\n\n// Guardar el archivo de forma definitiva en nuestro servidor\nif ($error === UPLOAD_ERR_OK) {\n    $directorioDestino = \"subidas/\" . basename($nombreArchivo);\n\n    // Mueve el archivo desde la carpeta temporal a su destino real\n    if (move_uploaded_file($rutaTemporal, $directorioDestino)) {\n        echo \"¡Archivo subido con éxito!\";\n    } else {\n        echo \"Error al mover el archivo de espacio temporal.\";\n    }\n}\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#leer-con-seguridad-el-operador",
-    "href": "UD3/06-recogida-datos.html#leer-con-seguridad-el-operador",
-    "title": "Recogida y validación de datos",
-    "section": "Leer con seguridad: el operador ??",
-    "text": "Leer con seguridad: el operador ??\nSi un campo no llega (porque el usuario manipuló el formulario o por un error), acceder directamente lanza un aviso:\n&lt;?php\n// Peligroso si 'nombre' no llega:\n$nombre = $_POST['nombre'];  // Warning: Undefined array key\n\n// Seguro:\n$nombre = $_POST['nombre'] ?? '';\n$edad   = $_POST['edad']   ?? null;\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#validación-básica",
-    "href": "UD3/06-recogida-datos.html#validación-básica",
-    "title": "Recogida y validación de datos",
-    "section": "Validación básica",
-    "text": "Validación básica\nSiempre valida en el servidor — la validación del navegador (required, type=\"email\") se puede eludir:\n&lt;?php\n$nombre = trim($_POST['nombre'] ?? '');\n$email  = trim($_POST['email']  ?? '');\n$edad   = $_POST['edad'] ?? null;\n\n$errores = [];\n\n// Campo obligatorio no vacío\nif ($nombre === '') {\n    $errores[] = \"El nombre es obligatorio.\";\n}\n\n// Formato de email\nif ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {\n    $errores[] = \"El email no es válido.\";\n}\n\n// Número entero en rango\nif ($edad === null || !is_numeric($edad) || (int)$edad &lt; 0 || (int)$edad &gt; 120) {\n    $errores[] = \"La edad debe ser un número entre 0 y 120.\";\n}\n\nif (empty($errores)) {\n    echo \"Datos válidos\";\n} else {\n    foreach ($errores as $e) {\n        echo \"Datos inválidos $e\\n\";\n    }\n}\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#filter_var-validar-y-limpiar",
-    "href": "UD3/06-recogida-datos.html#filter_var-validar-y-limpiar",
-    "title": "Recogida y validación de datos",
-    "section": "filter_var() — validar y limpiar",
-    "text": "filter_var() — validar y limpiar\n&lt;?php\n// Validar email\nvar_dump(filter_var(\"hola@example.com\", FILTER_VALIDATE_EMAIL)); // string\nvar_dump(filter_var(\"no-es-email\",      FILTER_VALIDATE_EMAIL)); // false\n\n// Validar entero con rango\n$opciones = ['options' =&gt; ['min_range' =&gt; 1, 'max_range' =&gt; 10]];\nvar_dump(filter_var(5,  FILTER_VALIDATE_INT, $opciones)); // int 5\nvar_dump(filter_var(15, FILTER_VALIDATE_INT, $opciones)); // false\n\n// Validar URL\nvar_dump(filter_var(\"https://php.net\", FILTER_VALIDATE_URL)); // string\nvar_dump(filter_var(\"php.net\",         FILTER_VALIDATE_URL)); // false\n\n// Validar IP\nvar_dump(filter_var(\"192.168.1.1\", FILTER_VALIDATE_IP)); // string\nvar_dump(filter_var(\"999.0.0.1\",   FILTER_VALIDATE_IP)); // false\n\nXSS (o Cross-Site Scripting)\nEs uno de los fallos de seguridad web más comunes y peligrosos. Ocurre cuando un atacante consigue inyectar y ejecutar código malicioso (normalmente JavaScript) dentro de una página web.\nEl “Cross-Site” sucede cuando el navegador de la víctima ejecuta el script confiando en que proviene del sitio web original, permitiendo al atacante “cruzar” los límites de seguridad de esa web.\n&lt;?php\n// Limpiar una cadena de HTML peligroso\n$entrada = \"&lt;script&gt;alert('xss')&lt;/script&gt; Hola\";\n$limpia  = filter_var($entrada, FILTER_SANITIZE_SPECIAL_CHARS);\necho $limpia; // &#60;script&#62;alert(&#39;xss&#39;)&#60;/script&#62; Hola\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#validación-con-expresiones-regulares-preg_match",
-    "href": "UD3/06-recogida-datos.html#validación-con-expresiones-regulares-preg_match",
-    "title": "Recogida y validación de datos",
-    "section": "Validación con Expresiones Regulares (preg_match)",
-    "text": "Validación con Expresiones Regulares (preg_match)\nCuando los filtros por defecto de filter_var() no son suficientes para reglas de negocio específicas (como un código postal o un teléfono), recurrimos a las expresiones regulares mediante preg_match(). Esta función devuelve 1 si el texto coincide con el patrón, o 0 si no.\n&lt;?php\n// Validar un Código Postal español (5 números)\n$cp = $_POST['cp'] ?? '';\n$patronCP = '/^[0-9]{5}$/';\n\nif (!preg_match($patronCP, $cp)) {\n    echo \"El código postal debe tener exactamente 5 números.\";\n}\n\n// Validar un teléfono (9 dígitos, empieza por 6, 7, 8 o 9)\n$telefono = $_POST['telefono'] ?? '';\n$patronTelefono = '/^[6-9][0-9]{8}$/';\n\nif (preg_match($patronTelefono, $telefono)) {\n    echo \"¡Teléfono válido!\";\n}\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#htmlspecialchars-proteger-la-salida",
-    "href": "UD3/06-recogida-datos.html#htmlspecialchars-proteger-la-salida",
-    "title": "Recogida y validación de datos",
-    "section": "htmlspecialchars() — proteger la salida",
-    "text": "htmlspecialchars() — proteger la salida\nAntes de mostrar en HTML cualquier dato del usuario, conviértelo para evitar XSS (Cross-Site Scripting):\n&lt;?php\n$nombre = $_POST['nombre'] ?? '';\n\n// Sin protección: si el usuario envía &lt;script&gt;..., se ejecuta en el navegador\necho $nombre;\n\n// Con protección: &lt; &gt; & \" ' se convierten en entidades HTML\necho htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');\n?&gt;\n&lt;?php\n// Ejemplo con entrada maliciosa\n$entrada = '&lt;script&gt;alert(\"hackeado\")&lt;/script&gt;';\n\necho htmlspecialchars($entrada, ENT_QUOTES, 'UTF-8');\n// &lt;script&gt;alert(&quot;hackeado&quot;)&lt;/script&gt;\n// Se muestra como texto, no se ejecuta\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#patrón-completo-de-procesamiento",
-    "href": "UD3/06-recogida-datos.html#patrón-completo-de-procesamiento",
-    "title": "Recogida y validación de datos",
-    "section": "Patrón completo de procesamiento",
-    "text": "Patrón completo de procesamiento\n&lt;?php\n// procesar_contacto.php\n\n// 1. Recoger\n$nombre  = trim($_POST['nombre']  ?? '');\n$email   = trim($_POST['email']   ?? '');\n$mensaje = trim($_POST['mensaje'] ?? '');\n\n// 2. Validar\n$errores = [];\n\nif (mb_strlen($nombre) &lt; 2) {\n    $errores[] = \"El nombre debe tener al menos 2 caracteres.\";\n}\n\nif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {\n    $errores[] = \"El email no tiene un formato válido.\";\n}\n\nif (mb_strlen($mensaje) &lt; 10) {\n    $errores[] = \"El mensaje debe tener al menos 10 caracteres.\";\n}\n\n// 3. Mostrar resultado\nif (empty($errores)) {\n    // 4. Sanear antes de mostrar\n    $nombreSeguro  = htmlspecialchars($nombre,  ENT_QUOTES, 'UTF-8');\n    $emailSeguro   = htmlspecialchars($email,   ENT_QUOTES, 'UTF-8');\n    $mensajeSeguro = htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8');\n\n    echo \"&lt;h2&gt;Mensaje recibido de $nombreSeguro ($emailSeguro)&lt;/h2&gt;\";\n    echo \"&lt;p&gt;$mensajeSeguro&lt;/p&gt;\";\n} else {\n    echo \"&lt;ul&gt;\";\n    foreach ($errores as $e) {\n        echo \"&lt;li&gt;\" . htmlspecialchars($e, ENT_QUOTES, 'UTF-8') . \"&lt;/li&gt;\";\n    }\n    echo \"&lt;/ul&gt;\";\n}\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#phpdoc-ce3.g",
-    "href": "UD3/06-recogida-datos.html#phpdoc-ce3.g",
-    "title": "Recogida y validación de datos",
-    "section": "PHPDoc (CE3.g)",
-    "text": "PHPDoc (CE3.g)\nDocumenta tus funciones con bloques PHPDoc. Los IDEs leen estos bloques y ofrecen autocompletado:\n&lt;?php\n/**\n * Valida y limpia los datos de un formulario de contacto.\n *\n * @param array $post  Datos de $_POST.\n * @return array       Array con 'datos' (limpios) y 'errores' (lista de mensajes).\n */\nfunction procesarContacto(array $post): array {\n    $nombre  = trim($post['nombre']  ?? '');\n    $email   = trim($post['email']   ?? '');\n    $errores = [];\n\n    if (mb_strlen($nombre) &lt; 2) {\n        $errores[] = \"Nombre demasiado corto.\";\n    }\n    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {\n        $errores[] = \"Email no válido.\";\n    }\n\n    return [\n        'datos'   =&gt; ['nombre' =&gt; $nombre, 'email' =&gt; $email],\n        'errores' =&gt; $errores,\n    ];\n}\n\n// Uso\n$resultado = procesarContacto($_POST);\nif (empty($resultado['errores'])) {\n    echo \"OK: \" . htmlspecialchars($resultado['datos']['nombre'], ENT_QUOTES, 'UTF-8');\n} else {\n    print_r($resultado['errores']);\n}\n?&gt;",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#seguridad-introducción-a-la-inyección-sql",
-    "href": "UD3/06-recogida-datos.html#seguridad-introducción-a-la-inyección-sql",
-    "title": "Recogida y validación de datos",
-    "section": "Seguridad: Introducción a la Inyección SQL",
-    "text": "Seguridad: Introducción a la Inyección SQL\nLa regla de oro de cualquier programador web es: “Nunca confíes en los datos que introduce un usuario”.\nSi recoges una variable de un formulario directo y la concatenas a pelo dentro de una consulta a la base de datos, abres una brecha de seguridad crítica conocida como Inyección SQL. Un atacante podría escribir sentencias SQL maliciosas dentro de tus cajas de texto para robar datos o borrar tablas de tu sistema.\n&lt;?php\n// CRÍTICO - VULNERABLE A INYECCIÓN SQL\n// Si el usuario escribe en la caja:  admin' OR '1'='1\n$usuario = $_POST['user'];\n$clave   = $_POST['pass'];\n\n$sql = \"SELECT * FROM usuarios WHERE user = '$usuario' AND pass = '$clave'\";\n// La consulta se rompería y daría acceso completo sin conocer la contraseña.\n?&gt;\n\n\n\n\n\n\nTip¿Cómo lo solucionaremos?\n\n\n\nPara protegernos por completo de esto, en la próxima unidad (UD4) aprenderemos a separar siempre los datos de las consultas utilizando Sentencias Preparadas (PDO), haciendo que cualquier carácter malicioso insertado en el formulario sea tratado simplemente como texto plano inofensivo.",
-    "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
-    ]
-  },
-  {
-    "objectID": "UD3/06-recogida-datos.html#actividades",
-    "href": "UD3/06-recogida-datos.html#actividades",
-    "title": "Recogida y validación de datos",
+    "objectID": "UD2/04-directivas-operadores.html#actividades-1",
+    "href": "UD2/04-directivas-operadores.html#actividades-1",
+    "title": "Directivas y operadores",
     "section": "Actividades",
-    "text": "Actividades\n\nEJ11 · Procesador de inscripción con validación\nCrea procesar_inscripcion.php que procese el formulario de EJ10. El script debe:\nRecoger (todos con ?? para evitar avisos):\n&lt;?php\n$nombre      = trim($_POST['nombre']      ?? '');\n$email       = trim($_POST['email']       ?? '');\n$curso       = trim($_POST['curso']       ?? '');\n$condiciones = $_POST['condiciones']      ?? null;\n?&gt;\nValidar: - nombre: no vacío. - email: formato válido con filter_var. - curso: debe ser uno de ['daw2', 'dam2', 'asir2'] (usa in_array estricto). - condiciones: debe valer \"1\".\nMostrar: - Sin errores → resumen con los datos saneados con htmlspecialchars. - Con errores → lista &lt;ul&gt; con los mensajes.\nResultado si todos los datos son correctos:\nInscripción registrada\nNombre: Laura García\nEmail: laura@example.com\nCurso: daw2\nResultado si email y curso son incorrectos:\nEl email no tiene un formato válido.\nDebe seleccionar un curso válido.",
+    "text": "Actividades\n\nEJ10 · Motor de descuentos\nCrea descuentos.php con este código de partida y completa los cálculos:\n&lt;?php\n$precio_base  = 120.0;\n$es_socio     = true;\n$unidades     = 5;\n$codigo_promo = \"VERANO10\";\n\n// 1. Aplica 15% de descuento si $es_socio es true\n//    Guarda el resultado en $precio_tras_socio\n\n// 2. Aplica 10% adicional si $codigo_promo === \"VERANO10\"\n//    (sobre el precio ya descontado, no sobre el base)\n//    Guarda en $precio_tras_promo\n\n// 3. Multiplica por $unidades y redondea a 2 decimales → $precio_final\n\n// 4. Calcula $envio_gratis: true si (es socio Y más de 3 unidades)\n//    O si el precio final supera 400 €\n\n// 5. Muestra todos los valores intermedios y el resultado final\nResultado esperado:\nPrecio base:          120.00 €\nTras descuento socio: 102.00 €\nTras descuento promo:  91.80 €\nPrecio final (×5):    459.00 €\nEnvío gratuito:       Sí",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Directivas y operadores</span>"
     ]
   },
   {
-    "objectID": "UD3/06-recogida-datos.html#proyecto-integrador",
-    "href": "UD3/06-recogida-datos.html#proyecto-integrador",
-    "title": "Recogida y validación de datos",
-    "section": "Proyecto integrador",
-    "text": "Proyecto integrador\n\nEJ12 · Tienda online\nVas a construir la parte de servidor de una pequeña tienda de ropa y accesorios: un catálogo con control de stock, un formulario de pedido y el procesamiento del pedido con validación y aplicación de códigos de descuento. Es el mismo patrón que verás en cualquier tienda online real, aunque aquí sin base de datos todavía (llegará en UD6).\nEste ejercicio integra todos los contenidos de la unidad y se compone de tres ficheros que debes construir en orden.\n\n\ncatalogo.php — Arrays y funciones\nDado el siguiente catálogo de productos, implementa las funciones indicadas:\n&lt;?php\n$catalogo = [\n    \"P001\" =&gt; [\"nombre\" =&gt; \"Camiseta\",   \"precio\" =&gt; 15.99, \"stock\" =&gt; 20, \"categoria\" =&gt; \"ropa\"],\n    \"P002\" =&gt; [\"nombre\" =&gt; \"Pantalón\",   \"precio\" =&gt; 39.99, \"stock\" =&gt; 0,  \"categoria\" =&gt; \"ropa\"],\n    \"P003\" =&gt; [\"nombre\" =&gt; \"Zapatillas\", \"precio\" =&gt; 59.99, \"stock\" =&gt; 5,  \"categoria\" =&gt; \"calzado\"],\n    \"P004\" =&gt; [\"nombre\" =&gt; \"Calcetines\", \"precio\" =&gt; 4.99,  \"stock\" =&gt; 50, \"categoria\" =&gt; \"ropa\"],\n    \"P005\" =&gt; [\"nombre\" =&gt; \"Mochila\",    \"precio\" =&gt; 29.99, \"stock\" =&gt; 3,  \"categoria\" =&gt; \"accesorios\"],\n    \"P006\" =&gt; [\"nombre\" =&gt; \"Cinturón\",   \"precio\" =&gt; 12.99, \"stock\" =&gt; 0,  \"categoria\" =&gt; \"accesorios\"],\n];\n\n/**\n * Devuelve solo los productos disponibles (stock &gt; 0).\n * Usa array_filter. No modifica el catálogo original.\n * @param array $catalogo\n * @return array\n */\nfunction productosDisponibles(array $catalogo): array {\n    // Tu código aquí\n}\n\n/**\n * Devuelve los productos de una categoría concreta.\n * Usa array_filter. No modifica el catálogo original.\n * @param array  $catalogo\n * @param string $categoria\n * @return array\n */\nfunction productosPorCategoria(array $catalogo, string $categoria): array {\n    // Tu código aquí\n}\n\n/**\n * Aplica un porcentaje de descuento al precio de todos los productos.\n * Usa array_map. Devuelve un nuevo array sin modificar el original.\n * @param array $catalogo\n * @param float $porcentaje  Valor entre 0 y 100\n * @return array\n */\nfunction aplicarDescuento(array $catalogo, float $porcentaje): array {\n    // Tu código aquí\n}\n\n/**\n * Calcula el valor total del inventario (precio × stock de cada producto).\n * Usa array_reduce.\n * @param array $catalogo\n * @return float\n */\nfunction valorInventario(array $catalogo): float {\n    // Tu código aquí\n}\n\n/**\n * Clasifica un producto según su precio.\n * &lt; 10 €     → \"económico\"\n * 10–29.99 € → \"estándar\"\n * 30–59.99 € → \"premium\"\n * &gt;= 60 €    → \"lujo\"\n * @param float $precio\n * @return string\n */\nfunction clasificarPrecio(float $precio): string {\n    // Tu código aquí — usa match(true)\n}\n\n\n\nFichero 2 · pedido.html — Formulario\nCrea un formulario HTML que envíe un pedido por POST a procesar_pedido.php con los siguientes campos:\n\n\n\n\n\n\n\n\nCampo\nControl\nRestricciones\n\n\n\n\nNombre del cliente\ntext\nObligatorio, mínimo 2 caracteres\n\n\nEmail\nemail\nObligatorio, formato válido utilizando filter_var\n\n\nReferencia del producto\nselect\nObligatoria. Opciones: P001–P006 con su nombre. Usa obligatoriamente in_array estricto\n\n\nCantidad\nnumber\nObligatoria, mínimo 1, máximo 10\n\n\nCódigo de descuento\ntext\nOpcional\n\n\n\nAñade un comentario HTML al inicio explicando por qué se usa POST.\n\n\n\nFichero 3 · procesar_pedido.php — Recogida y validación\nProcesa el formulario de pedido.html. Incluye catalogo.php al inicio para tener disponibles el array $catalogo y todas sus funciones.\n&lt;?php\nrequire 'catalogo.php';\n\n// 1. RECOGER DATOS\n// Tu código aquí\n\n// 2. VALIDAR\n// Recoger errores en un array []\n\n// Validaciones del formulario \n// Tu código aquí\n\n// Validación de producto disponible, siempre y cuando la ref sea válida\n// Tu código aquí\n\n// 3. CALCULAR DESCUENTO POR CÓDIGO (CE3.a)\n// Si no hay errores, determinar el descuento con match:\n// \"VERANO10\" → 10%\n// \"BLACK20\"  → 20%\n// código vacío → 0% (sin descuento)\n// cualquier otro → error \"Código de descuento no válido.\"\n\n// Tu código aquí (obligatorio uso de match)\n\n// 4. MOSTRAR RESULTADO\nif (empty($errores)) {\n    $producto    = $catalogo[$ref];\n    $precioFinal = $producto['precio'] * (1 - $descuento / 100);\n    $total       = $precioFinal * (int)$cantidad;\n\n    $nombreSeguro  = htmlspecialchars($nombre,             ENT_QUOTES, 'UTF-8');\n    $emailSeguro   = htmlspecialchars($email,              ENT_QUOTES, 'UTF-8');\n    $productoSeguro = htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8');\n\n    echo \"¡Pedido confirmado!\\n\";\n    echo \"Cliente: $nombreSeguro ($emailSeguro)\\n\";\n    echo \"Producto: $productoSeguro (ref. $ref)\\n\";\n    echo \"Cantidad: $cantidad × \" . number_format($precioFinal, 2, ',', '.') . \" € = \"\n       . number_format($total, 2, ',', '.') . \" €\\n\";\n    if ($descuento &gt; 0) {\n        echo \"Descuento aplicado: $descuento%\\n\";\n    }\n} else {\n    foreach ($errores as $e) {\n        echo \"Error: \" . htmlspecialchars($e, ENT_QUOTES, 'UTF-8') . \"\\n\";\n    }\n}\n?&gt;\nResultado esperado con datos correctos (ref. P001, cantidad 3, código VERANO10):\n¡Pedido confirmado!\nCliente: Laura García (laura@example.com)\nProducto: Camiseta (ref. P001)\nCantidad: 3 × 14,39 € = 43,17 €\nDescuento aplicado: 10%\nResultado esperado con producto agotado (ref. P002) y código inválido:\nError: El producto Pantalón no tiene stock disponible.\nError: Código de descuento no válido.",
+    "objectID": "UD2/05-ambito.html",
+    "href": "UD2/05-ambito.html",
+    "title": "Ámbito de las variables",
+    "section": "",
+    "text": "Ámbito global y local",
     "crumbs": [
-      "UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Recogida y validación de datos</span>"
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Ámbito de las variables</span>"
+    ]
+  },
+  {
+    "objectID": "UD2/05-ambito.html#ámbito-global-y-local",
+    "href": "UD2/05-ambito.html#ámbito-global-y-local",
+    "title": "Ámbito de las variables",
+    "section": "",
+    "text": "NotaConcepto clave\n\n\n\nEn PHP, una función no puede leer ni modificar las variables del exterior a menos que se lo indiquemos explícitamente. Las variables declaradas dentro de una función son locales y desaparecen al salir de ella.\n\n\n&lt;?php\n$contador = 0;\n\nfunction incrementar() {\n    $contador++;           // crea una variable LOCAL $contador\n    return $contador;\n}\n\necho incrementar();  // 1\necho incrementar();  // 1  ← siempre 1: la local empieza en 0 cada vez\necho $contador;      // 0  ← la global no fue tocada\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEste es el punto más sorprendente para quien llega de otros lenguajes: aunque exista una variable $contador fuera de la función, PHP no la ve dentro. Crea una nueva variable local con el mismo nombre.",
+    "crumbs": [
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Ámbito de las variables</span>"
+    ]
+  },
+  {
+    "objectID": "UD2/05-ambito.html#global-acceder-a-una-variable-del-exterior",
+    "href": "UD2/05-ambito.html#global-acceder-a-una-variable-del-exterior",
+    "title": "Ámbito de las variables",
+    "section": "global — acceder a una variable del exterior",
+    "text": "global — acceder a una variable del exterior\n&lt;?php\n$contador = 0;\n\nfunction incrementar() {\n    global $contador;     // ahora sí: usa la variable del exterior\n    $contador++;\n    return $contador;\n}\n\necho incrementar();  // 1\necho incrementar();  // 2\necho incrementar();  // 3\necho $contador;      // 3  ← la global sí fue modificada\nVarios global en la misma función:\n&lt;?php\n$visitas = 0;\n$errores = 0;\n\nfunction registrar(bool $exito) {\n    global $visitas, $errores;\n    $visitas++;\n    if (!$exito) {\n        $errores++;\n    }\n}\n\nregistrar(true);\nregistrar(true);\nregistrar(false);\n\necho \"Visitas: $visitas, Errores: $errores\";\n// → Visitas: 3, Errores: 1",
+    "crumbs": [
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Ámbito de las variables</span>"
+    ]
+  },
+  {
+    "objectID": "UD2/05-ambito.html#static-variable-local-que-recuerda-su-valor",
+    "href": "UD2/05-ambito.html#static-variable-local-que-recuerda-su-valor",
+    "title": "Ámbito de las variables",
+    "section": "static — variable local que recuerda su valor",
+    "text": "static — variable local que recuerda su valor\nCon static, la variable es local (no accesible desde fuera) pero conserva su valor entre llamadas:\n&lt;?php\nfunction contarLlamadas() {\n    static $n = 0;   // se inicializa solo la primera vez\n    $n++;\n    return $n;\n}\n\necho contarLlamadas();  // 1\necho contarLlamadas();  // 2\necho contarLlamadas();  // 3\n// $n no existe fuera de la función\nComparación directa de las tres estrategias:\n&lt;?php\n$global_n = 0;\n\nfunction conGlobal(): int {\n    global $global_n;\n    return ++$global_n;\n}\n\nfunction conStatic(): int {\n    static $n = 0;\n    return ++$n;\n}\n\nfunction sinMemoria(): int {\n    $n = 0;\n    return ++$n;\n}\n\n// Cuatro llamadas a cada una:\necho conGlobal()  . \" \";  // 1\necho conGlobal()  . \" \";  // 2\necho conGlobal()  . \" \";  // 3\necho conGlobal()  . \"\\n\"; // 4\n\necho conStatic()  . \" \";  // 1\necho conStatic()  . \" \";  // 2\necho conStatic()  . \" \";  // 3\necho conStatic()  . \"\\n\"; // 4\n\necho sinMemoria() . \" \";  // 1\necho sinMemoria() . \" \";  // 1\necho sinMemoria() . \" \";  // 1\necho sinMemoria() . \"\\n\"; // 1\nSalida:\n1 2 3 4\n1 2 3 4\n1 1 1 1\nLa diferencia entre global y static:\n\n\n\n\n\n\n\n\n\nglobal\nstatic\n\n\n\n\n¿Persiste entre llamadas?\nSí (es la variable exterior)\nSí (variable local especial)\n\n\n¿Accesible desde fuera?\nSí\nNo\n\n\n¿Puede modificarla otro código?\nSí, cualquier parte del script\nNo, solo esta función\n\n\n\nPara un sistema real, static es preferible, ya que encapsula el estado dentro de la función y evita que otro código la modifique por error.",
+    "crumbs": [
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Ámbito de las variables</span>"
+    ]
+  },
+  {
+    "objectID": "UD2/05-ambito.html#actividades",
+    "href": "UD2/05-ambito.html#actividades",
+    "title": "Ámbito de las variables",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ11 · Sistema de tickets\nCrea tickets.php e implementa tres funciones que numeren tickets:\n\nticketGlobal() — usa global\nticketStatic() — usa static\nticketRoto() — variable local sin static ni global\n\nLlama a cada función 4 veces y muestra los 12 resultados en una tabla HTML con una columna por función.\nAñade una cuarta función, ticketPorCategoria(string $categoria): string, que numere tickets por separado según la categoría (“URGENTE”, “NORMAL”…) y devuelva el número formateado como \"URGENTE-001\", \"NORMAL-001\", \"URGENTE-002\"… — cada categoría lleva su propia cuenta, independiente de las demás. Pista: la variable static no tiene por qué ser un número suelto, también puede ser un array.\nLlama a ticketPorCategoria() con esta secuencia intercalada y muestra el resultado de cada llamada en orden:\nURGENTE, NORMAL, URGENTE, URGENTE, NORMAL\nComprueba que el contador de “URGENTE” y el de “NORMAL” avanzan de forma independiente, aunque las llamadas estén mezcladas.\nResultado esperado de la primera tabla:\n\n\n\nLlamada\nticketGlobal()\nticketStatic()\nticketRoto()\n\n\n\n\n1\n1\n1\n1\n\n\n2\n2\n2\n1\n\n\n3\n3\n3\n1\n\n\n4\n4\n4\n1\n\n\n\nResultado esperado de ticketPorCategoria():\n\n\n\nLlamada\nCategoría\nResultado\n\n\n\n\n1\nURGENTE\nURGENTE-001\n\n\n2\nNORMAL\nNORMAL-001\n\n\n3\nURGENTE\nURGENTE-002\n\n\n4\nURGENTE\nURGENTE-003\n\n\n5\nNORMAL\nNORMAL-002",
+    "crumbs": [
+      "UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Ámbito de las variables</span>"
     ]
   }
 ]

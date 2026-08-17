@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios – Desarrollo Web en Entorno Servidor</title>
+<title>UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD3/01-condicionales.html" rel="next">
+<link href="../UD2/01-generacion-embebida.html" rel="next">
 <link href="../UD1/06-herramientas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -332,8 +332,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -341,32 +341,27 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
@@ -399,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</h1>
+<h1 class="title">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</h1>
 </div>
 
 
@@ -420,22 +415,25 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
 <section id="qué-aprenderás" class="level3">
 <h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad aprendemos a dar lógica real a tus páginas: condicionales, bucles, funciones, y a recoger y validar datos de un formulario.</p>
+<p>En esta unidad aprendemos a escribir código PHP dentro de documentos HTML para generar páginas web dinámicas. Cubrimos la sintaxis básica, los tipos de datos, los operadores y el concepto de ámbito de variables.</p>
 </section>
 <section id="objetivos" class="level3">
 <h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
-<ul>
-<li>Aplicar estructuras condicionales para controlar el flujo de un programa PHP.</li>
-<li>Utilizar bucles para automatizar tareas repetitivas.</li>
-<li>Diseñar funciones reutilizables con parámetros y valores de retorno.</li>
-<li>Construir formularios HTML y recoger sus datos desde PHP.</li>
-<li>Validar y sanear los datos recibidos de un formulario antes de procesarlos.</li>
-</ul>
+<p>Al terminar esta unidad serás capaz de:</p>
+<ol type="1">
+<li>Integrar PHP en HTML usando los delimitadores correctos.</li>
+<li>Declarar variables y constantes con el tipo adecuado.</li>
+<li>Usar los principales tipos de datos: enteros, decimales, cadenas, booleanos y arrays.</li>
+<li>Convertir valores entre tipos de forma explícita e implícita.</li>
+<li>Aplicar directivas de configuración del intérprete.</li>
+<li>Construir expresiones con los operadores de PHP.</li>
+<li>Controlar el ámbito de las variables con <code>global</code> y <code>static</code>.</li>
+</ol>
 </section>
 <section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
 <h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
 <blockquote class="blockquote">
-<p><strong>RA3.</strong> Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</p>
+<p><strong>RA2.</strong> Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.</p>
 </blockquote>
 <table class="caption-top table">
 <colgroup>
@@ -450,32 +448,36 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>CE3.a</td>
-<td>Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</td>
+<td>CE2.a</td>
+<td>Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.</td>
 </tr>
 <tr class="even">
-<td>CE3.b</td>
-<td>Se han utilizado bucles y se ha verificado su funcionamiento.</td>
+<td>CE2.b</td>
+<td>Se han identificado las principales tecnologías asociadas.</td>
 </tr>
 <tr class="odd">
-<td>CE3.c</td>
-<td>Se han utilizado matrices (arrays) para almacenar y recuperar conjuntos de datos.</td>
+<td>CE2.c</td>
+<td>Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.</td>
 </tr>
 <tr class="even">
-<td>CE3.d</td>
-<td>Se han creado y utilizado funciones.</td>
+<td>CE2.d</td>
+<td>Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.</td>
 </tr>
 <tr class="odd">
-<td>CE3.e</td>
-<td>Se han utilizado formularios web para interactuar con el usuario del navegador web.</td>
+<td>CE2.e</td>
+<td>Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.</td>
 </tr>
 <tr class="even">
-<td>CE3.f</td>
-<td>Se han empleado métodos para recuperar la información introducida en el formulario.</td>
+<td>CE2.f</td>
+<td>Se han utilizado directivas para modificar el comportamiento predeterminado.</td>
 </tr>
 <tr class="odd">
-<td>CE3.g</td>
-<td>Se han añadido comentarios al código.</td>
+<td>CE2.g</td>
+<td>Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.</td>
+</tr>
+<tr class="even">
+<td>CE2.h</td>
+<td>Se han identificado los ámbitos de utilización de las variables.</td>
 </tr>
 </tbody>
 </table>
@@ -483,11 +485,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="contenidos" class="level3">
 <h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 40%">
-<col style="width: 20%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Bloque</th>
@@ -498,33 +495,28 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td>Condicionales: <code>if/elseif/else</code>, ternario, <code>??</code>, <code>switch</code> / <code>match</code></td>
-<td style="text-align: center;">CE3.a</td>
+<td>Generación embebida, tecnologías y delimitadores</td>
+<td style="text-align: center;">CE2.a-b-c</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td>Bucles <code>while</code>, <code>do-while</code>, <code>for</code>, <code>foreach</code>, <code>break</code>/<code>continue</code></td>
-<td style="text-align: center;">CE3.b</td>
+<td>Sintaxis, variables y constantes</td>
+<td style="text-align: center;">CE2.d-e</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td>Arrays indexados y asociativos, multidimensionales y funciones de orden superior</td>
-<td style="text-align: center;">CE3.c</td>
+<td>Tipos de datos y conversión</td>
+<td style="text-align: center;">CE2.g</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td>Funciones: parámetros, retorno, referencia, ámbito</td>
-<td style="text-align: center;">CE3.d</td>
+<td>Directivas y operadores</td>
+<td style="text-align: center;">CE2.f-g</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td>Formularios HTML: GET vs POST</td>
-<td style="text-align: center;">CE3.e</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Recogida y validación de datos</td>
-<td style="text-align: center;">CE3.e-f</td>
+<td>Ámbito de las variables</td>
+<td style="text-align: center;">CE2.h</td>
 </tr>
 </tbody>
 </table>
@@ -566,88 +558,61 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">EJ1</td>
-<td>Clasificador de tarifas</td>
+<td>Ficha de producto dinámica</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ2</td>
-<td>Selector de plan de hosting</td>
+<td>Plantilla con cuatro zonas</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ3</td>
-<td>Generador de tablas de multiplicar</td>
+<td>Depurador: caza de errores</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ4</td>
-<td>Filtro de inventario</td>
+<td>Panel de configuración</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ5</td>
-<td>Catálogo de cursos</td>
+<td>Practica con cadenas</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ6</td>
-<td>Inventario multinivel de almacén</td>
+<td>Catálogo con cálculo de inventario</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ7</td>
-<td>Ejercicios extras de Arrays</td>
+<td>Validación de datos de texto</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ8</td>
-<td>Librería de funciones de validación</td>
+<td>Ejercicios extras de Funciones de Strings</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ9</td>
-<td>Ejercicios extras de funciones</td>
+<td>Desarrollo vs.&nbsp;producción</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ10</td>
-<td>Formulario de inscripción</td>
+<td>Motor de descuentos</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ11</td>
-<td>Procesador de inscripción con validación</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ12</td>
-<td>Tienda online — ejercicio de integración</td>
+<td>Sistema de tickets</td>
 <td style="text-align: center;">Sí</td>
 </tr>
 </tbody>
 </table>
-<p>Para obtener el <strong>apto</strong> es necesario:</p>
-<ul>
-<li>El código produce el resultado esperado en los ficheros entregados.</li>
-<li>La estructura elegida es adecuada al problema.</li>
-<li>Todas las funciones incluyen PHPDoc completo y el código tiene comentarios en la lógica más compleja.</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>El EJ12 engloba todos los contenidos de la unidad.</li>
-<li>Los comentarios (<strong>CE3.g</strong>) son obligatorios en la entrega. Pon los que consideres apropiados.</li>
-</ul>
-</div>
-</div>
 
 
 </section>
@@ -1079,8 +1044,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD3/01-condicionales.html" class="pagination-link" aria-label="Estructuras condicionales">
-        <span class="nav-page-text"><span class="chapter-title">Estructuras condicionales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD2/01-generacion-embebida.html" class="pagination-link" aria-label="Generación embebida, tecnologías y delimitadores">
+        <span class="nav-page-text"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
