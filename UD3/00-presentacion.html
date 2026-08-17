@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Modelos de ejecución: cliente y servidor – Desarrollo Web en Entorno Servidor</title>
+<title>UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/02-paginas-dinamicas.html" rel="next">
-<link href="../UD1/00-presentacion.html" rel="prev">
+<link href="../UD3/01-condicionales.html" rel="next">
+<link href="../UD1/06-herramientas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/01-modelo-ejecucion.html"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -293,14 +293,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -332,13 +332,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
@@ -381,10 +381,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#ejecución-en-el-cliente" id="toc-ejecución-en-el-cliente" class="nav-link active" data-scroll-target="#ejecución-en-el-cliente">Ejecución en el cliente</a></li>
-  <li><a href="#ejecución-en-el-servidor" id="toc-ejecución-en-el-servidor" class="nav-link" data-scroll-target="#ejecución-en-el-servidor">Ejecución en el servidor</a></li>
-  <li><a href="#mecanismos-de-ejecución-en-el-servidor" id="toc-mecanismos-de-ejecución-en-el-servidor" class="nav-link" data-scroll-target="#mecanismos-de-ejecución-en-el-servidor">Mecanismos de ejecución en el servidor</a></li>
-  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
+  <ul class="collapse">
+  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
+  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
+  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
+  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -392,9 +397,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/01-modelo-ejecucion.html"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></h1>
+<h1 class="title">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</h1>
 </div>
 
 
@@ -411,187 +416,241 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Cuando el navegador pide una página, el servidor la procesa y devuelve HTML. Pero ese procesamiento puede ocurrir en dos lugares muy distintos: <strong>en el servidor</strong> (antes de que llegue nada al navegador) o <strong>en el cliente</strong> (dentro del propio navegador, después de recibir la respuesta). Saber distinguirlos es la base de todo lo que viene en el módulo.</p>
-<section id="ejecución-en-el-cliente" class="level2">
-<h2 class="anchored" data-anchor-id="ejecución-en-el-cliente">Ejecución en el cliente</h2>
-<p>El código que se ejecuta en el cliente lo interpreta el navegador del usuario. Tiene acceso al contenido visible de la página (el DOM) pero no puede tocar la base de datos ni el sistema de ficheros del servidor.</p>
-<p>Ejemplos típicos de código de cliente:</p>
-<ul>
-<li>Validar que un campo de formulario no está vacío antes de enviarlo.</li>
-<li>Mostrar u ocultar un menú desplegable al hacer clic.</li>
-<li>Actualizar un contador en pantalla sin recargar la página.</li>
-</ul>
-<p>La tecnología principal en el cliente es <strong>JavaScript</strong>. CSS y HTML también se procesan en el cliente, pero no son lenguajes de programación.</p>
+<section id="presentación-de-la-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
+<section id="qué-aprenderás" class="level3">
+<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
+<p>En esta unidad aprendemos a dar lógica real a tus páginas: condicionales, bucles, funciones, y a recoger y validar datos de un formulario.</p>
 </section>
-<section id="ejecución-en-el-servidor" class="level2">
-<h2 class="anchored" data-anchor-id="ejecución-en-el-servidor">Ejecución en el servidor</h2>
-<p>El código que se ejecuta en el servidor corre <strong>antes</strong> de que la respuesta llegue al navegador. El usuario nunca ve ese código: solo recibe el HTML que el servidor genera como resultado.</p>
-<p>Ventajas clave:</p>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
 <ul>
-<li>Acceso directo a bases de datos, ficheros y servicios internos.</li>
-<li>El código fuente nunca llega al cliente (protege lógica de negocio y credenciales).</li>
-<li>Funciona igual en cualquier navegador o dispositivo.</li>
+<li>Aplicar estructuras condicionales para controlar el flujo de un programa PHP.</li>
+<li>Utilizar bucles para automatizar tareas repetitivas.</li>
+<li>Diseñar funciones reutilizables con parámetros y valores de retorno.</li>
+<li>Construir formularios HTML y recoger sus datos desde PHP.</li>
+<li>Validar y sanear los datos recibidos de un formulario antes de procesarlos.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La pregunta que debes hacerte ante cualquier fragmento de código no es «¿qué lenguaje es?» sino <strong>«¿dónde se ejecuta?»</strong>. PHP se ejecuta en el servidor. JavaScript puede ejecutarse en ambos lados según el contexto: en el navegador es código de cliente; en Node.js es código de servidor.</p>
-</div>
-</div>
 </section>
-<section id="mecanismos-de-ejecución-en-el-servidor" class="level2">
-<h2 class="anchored" data-anchor-id="mecanismos-de-ejecución-en-el-servidor">Mecanismos de ejecución en el servidor</h2>
-<p>Un servidor web (Apache, Nginx) por sí solo solo sabe devolver ficheros estáticos. Para ejecutar código necesita uno de estos mecanismos:</p>
-<table class="table-striped caption-top table">
-<caption>Mecanismos de ejecución de código en el servidor</caption>
+<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
+<blockquote class="blockquote">
+<p><strong>RA3.</strong> Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</p>
+</blockquote>
+<table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Mecanismo</th>
-<th>Cómo funciona</th>
-<th>Coste</th>
+<th>CE</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>CGI</strong></td>
-<td>Lanza un proceso nuevo por cada petición</td>
-<td>Alto — crea y destruye un proceso en cada request</td>
+<td>CE3.a</td>
+<td>Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</td>
 </tr>
 <tr class="even">
-<td><strong>Módulo embebido</strong> (<code>mod_php</code>)</td>
-<td>El intérprete vive dentro del propio proceso del servidor</td>
-<td>Bajo, pero el intérprete y el servidor comparten ciclo de vida</td>
+<td>CE3.b</td>
+<td>Se han utilizado bucles y se ha verificado su funcionamiento.</td>
 </tr>
 <tr class="odd">
-<td><strong>FastCGI / PHP-FPM</strong></td>
-<td>Mantiene un pool de procesos ya iniciados que se reutilizan</td>
-<td>Bajo — es el modelo estándar en producción con PHP</td>
+<td>CE3.c</td>
+<td>Se han utilizado matrices (arrays) para almacenar y recuperar conjuntos de datos.</td>
 </tr>
 <tr class="even">
-<td><strong>Contenedor de servlets</strong></td>
-<td>Un servidor de aplicaciones (Tomcat) mantiene las clases cargadas en memoria y usa hilos</td>
-<td>Bajo — modelo estándar en Java EE</td>
+<td>CE3.d</td>
+<td>Se han creado y utilizado funciones.</td>
+</tr>
+<tr class="odd">
+<td>CE3.e</td>
+<td>Se han utilizado formularios web para interactuar con el usuario del navegador web.</td>
+</tr>
+<tr class="even">
+<td>CE3.f</td>
+<td>Se han empleado métodos para recuperar la información introducida en el formulario.</td>
+</tr>
+<tr class="odd">
+<td>CE3.g</td>
+<td>Se han añadido comentarios al código.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="actividades" class="level2">
-<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
-<div class="ejercicio">
-<p><strong>EJ1 · Clasificación por lugar de ejecución</strong></p>
-<p>Indica si cada elemento de la lista se ejecuta en el <strong>cliente</strong>, en el <strong>servidor</strong> o en <strong>ambos</strong>. Por último, justifica la respuesta.</p>
+<section id="contenidos" class="level3">
+<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 40%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>#</th>
-<th>Elemento</th>
-<th style="text-align: center;">Lugar de ejecución</th>
-<th>Justificación</th>
+<th style="text-align: center;">Bloque</th>
+<th>Título</th>
+<th style="text-align: center;">CE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>PHP</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">1</td>
+<td>Condicionales: <code>if/elseif/else</code>, ternario, <code>??</code>, <code>switch</code> / <code>match</code></td>
+<td style="text-align: center;">CE3.a</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>JavaScript en el navegador</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">2</td>
+<td>Bucles <code>while</code>, <code>do-while</code>, <code>for</code>, <code>foreach</code>, <code>break</code>/<code>continue</code></td>
+<td style="text-align: center;">CE3.b</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>jQuery</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">3</td>
+<td>Arrays indexados y asociativos, multidimensionales y funciones de orden superior</td>
+<td style="text-align: center;">CE3.c</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>Node.js</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">4</td>
+<td>Funciones: parámetros, retorno, referencia, ámbito</td>
+<td style="text-align: center;">CE3.d</td>
 </tr>
 <tr class="odd">
-<td>5</td>
-<td>CSS</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">5</td>
+<td>Formularios HTML: GET vs POST</td>
+<td style="text-align: center;">CE3.e</td>
 </tr>
 <tr class="even">
-<td>6</td>
-<td>Java Servlets</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>Python con Django</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Una petición AJAX</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>WebSockets (lado cliente)</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>Una consulta SQL ejecutada desde PHP</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>Validación de formulario con JavaScript</td>
-<td style="text-align: center;"></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td><code>fetch()</code> en el navegador</td>
-<td style="text-align: center;"></td>
-<td></td>
+<td style="text-align: center;">6</td>
+<td>Recogida y validación de datos</td>
+<td style="text-align: center;">CE3.e-f</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled" title="Nota">
+</section>
+<section id="recursos-y-materiales" class="level3">
+<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
+<ul>
+<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
+<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
+<li>Navegador con herramientas de desarrollador (F12)</li>
+<li>Editor de código (VS Code recomendado)</li>
+</ul>
+</section>
+<section id="evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
+<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Nota
+<span class="screen-reader-only">Importante</span>Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los casos 4, 8 y 9 admiten más de una respuesta válida, pero lo importante es el razonamiento aplicado.</p>
+<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
 </div>
+</div>
+<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Ejercicio</th>
+<th>Título</th>
+<th style="text-align: center;">¿Entrega?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">EJ1</td>
+<td>Clasificador de tarifas</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ2</td>
+<td>Selector de plan de hosting</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ3</td>
+<td>Generador de tablas de multiplicar</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ4</td>
+<td>Filtro de inventario</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ5</td>
+<td>Catálogo de cursos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ6</td>
+<td>Inventario multinivel de almacén</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ7</td>
+<td>Ejercicios extras de Arrays</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ8</td>
+<td>Librería de funciones de validación</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ9</td>
+<td>Ejercicios extras de funciones</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ10</td>
+<td>Formulario de inscripción</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ11</td>
+<td>Procesador de inscripción con validación</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ12</td>
+<td>Tienda online — ejercicio de integración</td>
+<td style="text-align: center;">Sí</td>
+</tr>
+</tbody>
+</table>
+<p>Para obtener el <strong>apto</strong> es necesario:</p>
+<ul>
+<li>El código produce el resultado esperado en los ficheros entregados.</li>
+<li>La estructura elegida es adecuada al problema.</li>
+<li>Todas las funciones incluyen PHPDoc completo y el código tiene comentarios en la lógica más compleja.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>El EJ12 engloba todos los contenidos de la unidad.</li>
+<li>Los comentarios (<strong>CE3.g</strong>) son obligatorios en la entrega. Pon los que consideres apropiados.</li>
+</ul>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1015,13 +1074,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/00-presentacion.html" class="pagination-link" aria-label="UD1. Arquitecturas y tecnologías de programación Web en entorno servidor">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span>
+      <a href="../UD1/06-herramientas.html" class="pagination-link" aria-label="Herramientas de desarrollo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Herramientas de desarrollo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD3/01-condicionales.html" class="pagination-link" aria-label="Estructuras condicionales">
+        <span class="nav-page-text"><span class="chapter-title">Estructuras condicionales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
