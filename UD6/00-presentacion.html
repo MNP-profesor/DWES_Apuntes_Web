@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>UD6. Acceso a BBDD con PDO: Seguridad e integridad – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD6/01-tecnologias-acceso.html" rel="next">
+<link href="../UD3/06-recogida-datos.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -408,13 +408,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
@@ -462,10 +462,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
-  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
+  <ul class="collapse">
+  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
+  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
+  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
+  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -473,9 +478,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title">UD6. Acceso a BBDD con PDO: Seguridad e integridad</h1>
 </div>
 
 
@@ -492,54 +497,115 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
-</div>
-</div>
+<section id="presentación-de-la-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
+<section id="qué-aprenderás" class="level3">
+<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
+<p>En esta unidad las aplicaciones dejan de trabajar con datos efímeros y aprenden a <strong>persistirlos</strong> en una base de datos relacional y a recuperarlos de forma segura. Todo el acceso a datos se hace con <strong>PDO</strong> (PHP Data Objects), la capa de acceso a bases de datos de PHP.</p>
 </section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
 <ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
+<li>Comparar las tecnologías de acceso a datos y justificar el uso de PDO.</li>
+<li>Conectar con MySQL/MariaDB mediante PDO, configurando el DSN y la gestión de errores por excepciones.</li>
+<li>Recuperar información con sentencias preparadas y entender por qué evitan la inyección SQL.</li>
+<li>Publicar los datos en la web con escape de salida y paginación.</li>
+<li>Usar los distintos modos de recuperación, incluida la creación y rellenado de objetos con <code>FETCH_CLASS</code>.</li>
+<li>Crear operaciones completas (CRUD) protegiendo la integridad con transacciones.</li>
+<li>Probar y documentar el código de acceso a datos.</li>
 </ul>
 </section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
+<blockquote class="blockquote">
+<p><strong>RA6.</strong> Desarrolla aplicaciones web de acceso a almacenes de datos, aplicando medidas para mantener la seguridad y la integridad de la información.</p>
+</blockquote>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>CE</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CE6.a</td>
+<td>Se han analizado las tecnologías que permiten el acceso mediante programación a la información disponible en almacenes de datos.</td>
+</tr>
+<tr class="even">
+<td>CE6.b</td>
+<td>Se han creado aplicaciones que establezcan conexiones con bases de datos.</td>
+</tr>
+<tr class="odd">
+<td>CE6.c</td>
+<td>Se ha recuperado información almacenada en bases de datos.</td>
+</tr>
+<tr class="even">
+<td>CE6.d</td>
+<td>Se ha publicado en aplicaciones web la información recuperada.</td>
+</tr>
+<tr class="odd">
+<td>CE6.e</td>
+<td>Se han utilizado conjuntos de datos para almacenar la información.</td>
+</tr>
+<tr class="even">
+<td>CE6.f</td>
+<td>Se han creado aplicaciones web que permitan la actualización y la eliminación de información disponible en una base de datos.</td>
+</tr>
+<tr class="odd">
+<td>CE6.g</td>
+<td>Se han probado y documentado las aplicaciones web.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contenidos" class="level3">
+<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 40%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Bloque</th>
+<th>Título</th>
+<th style="text-align: center;">CE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>Conectar: tecnologías de acceso · conexión PDO · DSN · excepciones</td>
+<td style="text-align: center;">CE6.a-b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>Consultar: sentencias preparadas · inyección SQL · publicación web</td>
+<td style="text-align: center;">CE6.c-d</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td>Recorrer: modos de fetch · <code>FETCH_CLASS</code></td>
+<td style="text-align: center;">CE6.c-e</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td>Modificar: INSERT · UPDATE · DELETE · transacciones · integridad</td>
+<td style="text-align: center;">CE6.f</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td>Asegurar: pruebas y documentación</td>
+<td style="text-align: center;">CE6.g</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,37 +616,160 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<p>Trabajaremos con <strong>PDO nativo</strong>, que es la API que de verdad hay que dominar. PDO es además la base sobre la que Laravel construye su ORM Eloquent (que viste en la UD5): al final de la unidad entenderás “qué ocurre por debajo” de ese ORM.</p>
 </div>
 </div>
 </section>
-<section id="actividades" class="level2">
-<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
-<div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
-<ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
-</ol>
+<section id="recursos-y-materiales" class="level3">
+<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
+<ul>
+<li>Docker (obligatorio desde esta unidad — ver <span class="quarto-unresolved-ref">?sec-ud5-instalacion</span>)</li>
+<li>MySQL/MariaDB (vía el servicio <code>db</code> del <code>docker-compose.yml</code>, no instalación aparte)</li>
+<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
+<li>Navegador con herramientas de desarrollador (F12)</li>
+<li>Editor de código (VS Code recomendado)</li>
+</ul>
+<section id="base-de-datos-de-prácticas" class="level4">
+<h4 class="anchored" data-anchor-id="base-de-datos-de-prácticas">Base de datos de prácticas</h4>
+<p>Trabajaremos con la base de datos <code>biblioteca</code>, con tres tablas relacionadas: un socio puede tener varios préstamos, y cada préstamo referencia a un libro.</p>
+<section id="diagrama-uml" class="level5">
+<h5 class="anchored" data-anchor-id="diagrama-uml">Diagrama UML</h5>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/uml-biblioteca.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</section>
+<section id="sentencias-sql-iniciales" class="level5">
+<h5 class="anchored" data-anchor-id="sentencias-sql-iniciales">Sentencias SQL iniciales</h5>
+<p>Crea la base de datos antes de empezar.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> socios (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>    <span class="kw">id</span>     <span class="dt">INT</span> AUTO_INCREMENT <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>    nombre <span class="dt">VARCHAR</span>(<span class="dv">80</span>)  <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    email  <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">UNIQUE</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>    alta   <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> libros (</span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>    <span class="kw">id</span>            <span class="dt">INT</span> AUTO_INCREMENT <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>    titulo        <span class="dt">VARCHAR</span>(<span class="dv">150</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>    autor         <span class="dt">VARCHAR</span>(<span class="dv">100</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a>    isbn          <span class="dt">VARCHAR</span>(<span class="dv">13</span>)  <span class="kw">UNIQUE</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a>    copias_total  <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">1</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>    copias_libres <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">1</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>);</span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> prestamos (</span>
+<span id="cb1-18"><a href="#cb1-18" aria-label="18"></a>    <span class="kw">id</span>               <span class="dt">INT</span> AUTO_INCREMENT <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-label="19"></a>    socio_id         <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-label="20"></a>    libro_id         <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-label="21"></a>    fecha_prestamo   <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-label="22"></a>    fecha_devolucion <span class="dt">DATE</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-label="23"></a>    <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (socio_id) <span class="kw">REFERENCES</span> socios(<span class="kw">id</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-label="24"></a>    <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (libro_id) <span class="kw">REFERENCES</span> libros(<span class="kw">id</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-label="25"></a>);</span>
+<span id="cb1-26"><a href="#cb1-26" aria-label="26"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-label="27"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> socios (nombre, email, alta) <span class="kw">VALUES</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-label="28"></a>  (<span class="st">'Ana Ruiz'</span>,     <span class="st">'ana@example.com'</span>,    <span class="st">'2024-09-01'</span>),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-label="29"></a>  (<span class="st">'Carlos Vidal'</span>, <span class="st">'carlos@example.com'</span>, <span class="st">'2024-10-15'</span>),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-label="30"></a>  (<span class="st">'Marta Gil'</span>,    <span class="st">'marta@example.com'</span>,  <span class="st">'2025-01-20'</span>);</span>
+<span id="cb1-31"><a href="#cb1-31" aria-label="31"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-label="32"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> libros (titulo, autor, isbn, copias_total, copias_libres) <span class="kw">VALUES</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-label="33"></a>  (<span class="st">'El nombre del viento'</span>, <span class="st">'Patrick Rothfuss'</span>, <span class="st">'9788401352836'</span>, <span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-label="34"></a>  (<span class="st">'Fundación'</span>,            <span class="st">'Isaac Asimov'</span>,     <span class="st">'9788497596435'</span>, <span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-label="35"></a>  (<span class="st">'1984'</span>,                 <span class="st">'George Orwell'</span>,    <span class="st">'9788499890944'</span>, <span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-label="36"></a>  (<span class="st">'Yo, Robot'</span>,            <span class="st">'Isaac Asimov'</span>,     <span class="st">'9788401352102'</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-label="37"></a>  (<span class="st">'Neuromante'</span>,           <span class="st">'William Gibson'</span>,   <span class="st">'9788445077527'</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-label="38"></a>  (<span class="st">'El silencio de los corderos'</span>, <span class="st">'Thomas Harris'</span>, <span class="st">'9788497592870'</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-label="39"></a>  (<span class="st">'La sombra del viento'</span>, <span class="st">'Carlos Ruiz Zafón'</span>, <span class="st">'9788408043645'</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb1-40"><a href="#cb1-40" aria-label="40"></a>  (<span class="st">'Harry Potter y la piedra filosofal'</span>, <span class="st">'J.K. Rowling'</span>, <span class="st">'9788478884452'</span>, <span class="dv">5</span>, <span class="dv">5</span>),</span>
+<span id="cb1-41"><a href="#cb1-41" aria-label="41"></a>  (<span class="st">'La comunidad del anillo'</span>, <span class="st">'J.R.R. Tolkien'</span>, <span class="st">'9788445073192'</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb1-42"><a href="#cb1-42" aria-label="42"></a>  (<span class="st">'El Hobbit'</span>,            <span class="st">'J.R.R. Tolkien'</span>,   <span class="st">'9788445000672'</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb1-43"><a href="#cb1-43" aria-label="43"></a>  (<span class="st">'La chica del tren'</span>,    <span class="st">'Paula Hawkins'</span>,    <span class="st">'9788401341215'</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-label="44"></a>  (<span class="st">'Los juegos del hambre'</span>, <span class="st">'Suzanne Collins'</span>, <span class="st">'9788427202120'</span>, <span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb1-45"><a href="#cb1-45" aria-label="45"></a>  (<span class="st">'Perdida'</span>,              <span class="st">'Gillian Flynn'</span>,    <span class="st">'9788416588188'</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-label="46"></a>  (<span class="st">'Crónica de una muerte anunciada'</span>, <span class="st">'Gabriel García Márquez'</span>, <span class="st">'9788497592888'</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-label="47"></a>  (<span class="st">'Los pilares de la Tierra'</span>, <span class="st">'Ken Follett'</span>,   <span class="st">'9788432217892'</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb1-48"><a href="#cb1-48" aria-label="48"></a>  (<span class="st">'El código Da Vinci'</span>,   <span class="st">'Dan Brown'</span>,        <span class="st">'9788408057286'</span>, <span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-label="49"></a>  (<span class="st">'Ready Player One'</span>,     <span class="st">'Ernest Cline'</span>,     <span class="st">'9788401352874'</span>, <span class="dv">3</span>, <span class="dv">3</span>);</span>
+<span id="cb1-50"><a href="#cb1-50" aria-label="50"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-label="51"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> prestamos (socio_id, libro_id, fecha_prestamo, fecha_devolucion) <span class="kw">VALUES</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-label="52"></a>  (<span class="dv">1</span>, <span class="dv">1</span>, <span class="st">'2026-02-01'</span>, <span class="kw">NULL</span>),   <span class="co">-- Ana tiene "El nombre del viento"</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-label="53"></a>  (<span class="dv">2</span>, <span class="dv">2</span>, <span class="st">'2026-01-10'</span>, <span class="kw">NULL</span>),   <span class="co">-- Carlos tiene "Fundación"</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-label="54"></a>  (<span class="dv">3</span>, <span class="dv">2</span>, <span class="st">'2026-01-15'</span>, <span class="kw">NULL</span>);   <span class="co">-- Marta tiene "Fundación" (agota las copias)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con estos datos, “Fundación” tiene sus 2 copias prestadas (0 libres) y “1984” está entero disponible: son los casos que usaremos para probar préstamos, devoluciones e integridad.</p>
+</section>
+</section>
+</section>
+<section id="evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
+<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
+</div>
+</div>
+<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Ejercicio</th>
+<th>Título</th>
+<th style="text-align: center;">¿Entrega?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">EJ1</td>
+<td>Clase de conexión PDO reutilizable</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ2</td>
+<td>Inyección SQL: Sentencias preparadas</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ3</td>
+<td>Listado, ficha y paginación con objetos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ4</td>
+<td>CRUD con validación y transacciones</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ5</td>
+<td>Proyecto: gestión de la biblioteca</td>
+<td style="text-align: center;">Sí</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para llegar a la prueba objetiva en buenas condiciones, lo importante es haber asimilado los conceptos clave de cada ejercicio, ya que cubren todos los aspectos que la prueba combina: <strong>conectar</strong>, <strong>consultar</strong>, <strong>publicar</strong>, <strong>recorrer</strong> y <strong>modificar</strong> con seguridad e integridad.</p>
+</div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1004,13 +1193,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD3/06-recogida-datos.html" class="pagination-link" aria-label="Recogida y validación de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Recogida y validación de datos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD6/01-tecnologias-acceso.html" class="pagination-link" aria-label="Tecnologías de acceso a datos">
+        <span class="nav-page-text"><span class="chapter-title">Tecnologías de acceso a datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

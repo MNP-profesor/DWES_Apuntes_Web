@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>Recuperación de datos y seguridad – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD6/04-publicacion-web.html" rel="next">
+<link href="../UD6/02-conexion-pdo.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/03-recuperacion-seguridad.html"><span class="chapter-title">Recuperación de datos y seguridad</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -410,11 +410,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
+  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -462,9 +462,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#inyección-sql" id="toc-inyección-sql" class="nav-link active" data-scroll-target="#inyección-sql">Inyección SQL</a>
+  <ul class="collapse">
+  <li><a href="#código-vulnerable" id="toc-código-vulnerable" class="nav-link" data-scroll-target="#código-vulnerable">Código vulnerable</a></li>
+  <li><a href="#código-no-vulnerable-solución-marcadores" id="toc-código-no-vulnerable-solución-marcadores" class="nav-link" data-scroll-target="#código-no-vulnerable-solución-marcadores">Código no vulnerable, solución: marcadores</a></li>
+  </ul></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -473,9 +475,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/03-recuperacion-seguridad.html"><span class="chapter-title">Recuperación de datos y seguridad</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">Recuperación de datos y seguridad</span></h1>
 </div>
 
 
@@ -492,92 +494,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
+<p>Para una consulta <strong>fija</strong>, es decir, sin datos externos, podemos utilizar la función <code>query()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">'SELECT titulo FROM libros ORDER BY titulo'</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="cf">foreach</span> (<span class="va">$pdo</span>-&gt;query(<span class="va">$sql</span>) <span class="kw">as</span> <span class="va">$fila</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    <span class="kw">echo</span> <span class="va">$fila</span>[<span class="st">'titulo'</span>] <span class="op">.</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada:</p>
+<pre><code>1984
+El nombre del viento
+Fundación</code></pre>
+<p>En cuanto la consulta usa un <strong>valor del usuario</strong> (un id, un término de búsqueda) hay que utilizar <strong>sentencias preparadas</strong>.</p>
+<section id="inyección-sql" class="level2">
+<h2 class="anchored" data-anchor-id="inyección-sql">Inyección SQL</h2>
+<p>Nunca concatenes datos del usuario en el SQL — ya sea que vengan de un formulario o de un parámetro en la URL (<code>$_GET</code>). El ejemplo de esta sección usa este segundo caso; visitando la misma página con distintos valores de <code>id</code> puedes probar tú mismo la diferencia entre el código vulnerable y el seguro:</p>
+<pre><code>http://localhost:8080/index.php?id=0 OR 1=1
+http://localhost:8080/index.php?id=0%20OR%201=1</code></pre>
+<p>(las dos URLs son equivalentes: la segunda tiene los espacios ya codificados como <code>%20</code>, necesario si tu navegador no lo hace automáticamente al pegarla en la barra de direcciones)</p>
+<section id="código-vulnerable" class="level3">
+<h3 class="anchored" data-anchor-id="código-vulnerable">Código vulnerable</h3>
 <ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
+<li><p>Con <code>?id=0 OR 1=1</code> la consulta pasa a ser <code>... WHERE id = 0 OR 1=1</code>, que es <strong>siempre cierta</strong>, por lo que devolverá el primer registro del catálogo.</p></li>
+<li><p>Con <code>?id=0; DROP TABLE libros; --</code> se puede destruir la tabla.</p></li>
 </ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="co">// VULNERABLE — Prohibido en producción</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="va">$id</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">'id'</span>] <span class="op">??</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="va">$resultado</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;query(<span class="st">"SELECT id, titulo, autor FROM libros WHERE id = </span><span class="va">$id</span><span class="st">"</span>)<span class="ot">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="va">$libro</span> <span class="op">=</span> <span class="va">$resultado</span>-&gt;fetch()<span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="cf">if</span> (<span class="va">$libro</span> <span class="op">===</span> <span class="kw">false</span>) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>    <span class="kw">echo</span> <span class="st">'Libro no encontrado.'</span><span class="ot">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="kw">echo</span> <span class="va">$libro</span>[<span class="st">'titulo'</span>] <span class="op">.</span> <span class="st">" - "</span> <span class="op">.</span>  <span class="va">$libro</span>[<span class="st">'autor'</span>]<span class="ot">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Resultado incorrecto, con la tabla de prácticas inicial (el primer registro insertado es “El nombre del viento”, y no debería devolver ninguno):</p>
+<pre><code>1 resultado(s):
+El nombre del viento - Patrick Rothfuss</code></pre>
+</section>
+<section id="código-no-vulnerable-solución-marcadores" class="level3">
+<h3 class="anchored" data-anchor-id="código-no-vulnerable-solución-marcadores">Código no vulnerable, solución: marcadores</h3>
+<p>El valor viaja <strong>separado</strong> del SQL, es decir, el motor de base de datos no interpreta <code>?id=0 OR 1=1</code> como código, sino como un <code>id</code> literal que no existe.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="co">// SEGURO — sentencia preparada con marcador con nombre</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">'SELECT id, titulo, autor FROM libros WHERE id = :id'</span><span class="ot">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="va">$sentencia</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;prepare(<span class="va">$sql</span>)<span class="ot">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="va">$sentencia</span>-&gt;execute([<span class="st">':id'</span> =&gt; <span class="va">$_GET</span>[<span class="st">'id'</span>] <span class="op">??</span> <span class="dv">0</span>])<span class="ot">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a><span class="va">$libro</span> <span class="op">=</span> <span class="va">$sentencia</span>-&gt;fetch()<span class="ot">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a><span class="cf">if</span> (<span class="va">$libro</span> <span class="op">===</span> <span class="kw">false</span>) {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a>    <span class="kw">echo</span> <span class="st">'Libro no encontrado.'</span><span class="ot">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a>    <span class="kw">echo</span> <span class="va">$libro</span>[<span class="st">'titulo'</span>] <span class="op">.</span> <span class="st">" - "</span> <span class="op">.</span>  <span class="va">$libro</span>[<span class="st">'autor'</span>]<span class="ot">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Resultado correcto, no devuelve ningún libro:</p>
+<pre><code>Libro no encontrado.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
+<span class="screen-reader-only">Tip</span>Analogía Java
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
+<p>Si vienes de JDBC reconocerás el <code>PreparedStatement</code>, pero hay una diferencia que sorprende: en Java enlazabas cada parámetro con un <em>setter</em> tipado y posicional (<code>ps.setInt(1, id)</code>), mientras que en PHP pasas <strong>todos los parámetros juntos en un array asociativo</strong> (<code>execute([':id' =&gt; $id])</code>), sin indicar el tipo. PHP lo infiere del valor; por eso conviene castear a entero (<code>(int)</code>) los identificadores numéricos importantes.</p>
 </div>
 </div>
-</section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
-<ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
-</ul>
-</section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<ul>
+<li>Concatenar el valor en el SQL “solo por esta vez”: cualquier hueco es una vía de inyección.</li>
+<li>Olvidar comprobar <code>fetch() === false</code> cuando el registro puede no existir.</li>
+<li>Mostrar <code>$e-&gt;getMessage()</code> al usuario: filtra información del servidor. Regístralo con <code>error_log</code>.</li>
+</ul>
 </div>
 </div>
+</section>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
+<p><strong>EJ2 · Inyección SQL: Sentencias preparadas</strong></p>
+<p>Se te entrega un buscador de libros (<code>buscar_inseguro.php</code>) por título <strong>deliberadamente vulnerable</strong>, que concatena el término en el SQL:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="co">// buscar_inseguro.php  (punto de partida — NO es la solución)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="va">$q</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">'q'</span>] <span class="op">??</span> <span class="st">''</span><span class="ot">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">"SELECT id, titulo FROM libros WHERE titulo LIKE '%</span><span class="va">$q</span><span class="st">%'"</span><span class="ot">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="cf">foreach</span> (<span class="va">$pdo</span>-&gt;query(<span class="va">$sql</span>) <span class="kw">as</span> <span class="va">$fila</span>) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>    <span class="kw">echo</span> <span class="fu">htmlspecialchars</span>(<span class="va">$fila</span>[<span class="st">'titulo'</span>]) <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Qué hacer:</p>
 <ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
+<li><p><strong>Encuentra la vulnerabilidad</strong>: valor de <code>q</code> que haga que el buscador devuelva <strong>todos</strong> los libros aunque ninguno coincida con el texto buscado.</p></li>
+<li><p><strong>Blinda el buscador</strong>: reescribiéndolo con una sentencia preparada y un marcador <code>:q</code>.</p></li>
+<li><p><strong>Verificación</strong>: comprueba que el mismo valor malicioso ya no altera el resultado.</p></li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Información">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Información
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ejericio estará correcto si demuestras la inyección con un caso concreto y la eliminas con una preparada. Hay que probar el antes y el después.</p>
+</div>
+</div>
 </div>
 
 
@@ -1004,13 +1038,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD6/02-conexion-pdo.html" class="pagination-link" aria-label="Conexión con PDO">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Conexión con PDO</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD6/04-publicacion-web.html" class="pagination-link" aria-label="Publicación web de la información">
+        <span class="nav-page-text"><span class="chapter-title">Publicación web de la información</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>Proyecto integrador: Gestión de la biblioteca – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD6/06-crud-transacciones.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/07-proyecto.html"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +327,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -410,11 +409,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
@@ -447,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
+  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
   </div>
 </li>
       </ul>
@@ -462,10 +461,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
-  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#documentar-con-phpdoc" id="toc-documentar-con-phpdoc" class="nav-link active" data-scroll-target="#documentar-con-phpdoc">Documentar con PHPDoc</a></li>
+  <li><a href="#tabla-de-casos-de-prueba" id="toc-tabla-de-casos-de-prueba" class="nav-link" data-scroll-target="#tabla-de-casos-de-prueba">Tabla de casos de prueba</a></li>
+  <li><a href="#proyecto-integrador" id="toc-proyecto-integrador" class="nav-link" data-scroll-target="#proyecto-integrador">Proyecto integrador</a></li>
   </ul>
 </nav>
     </div>
@@ -473,9 +471,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/07-proyecto.html"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></h1>
 </div>
 
 
@@ -492,54 +490,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
+<section id="documentar-con-phpdoc" class="level2">
+<h2 class="anchored" data-anchor-id="documentar-con-phpdoc">Documentar con PHPDoc</h2>
+<p>En una unidad sin framework, documentar bien importa todavía más: no hay un IDE que infiera automáticamente qué espera cada método a partir de las convenciones de un ORM. Cada clase y método público lleva un bloque <code>/** ... */</code> que explica el <strong>contrato</strong> — qué recibe, qué devuelve, qué casos límite gestiona — no una traducción literal del nombre del método.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="co">/**</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="co"> * Registra un préstamo de forma transaccional: descuenta una copia</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="co"> * libre y crea el registro en `prestamos`. Si no quedan copias</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="co"> * libres, no modifica nada.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="co"> *</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="co"> * </span><span class="an">@param</span><span class="co">  </span><span class="cv">PDO</span><span class="co">  $pdo</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="co"> * </span><span class="an">@param</span><span class="co">  </span><span class="cv">int</span><span class="co">  $socioId</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="co"> * </span><span class="an">@param</span><span class="co">  </span><span class="cv">int</span><span class="co">  $libroId</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> bool  true si el préstamo se registró; false si no había copias libres.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a><span class="co"> */</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a><span class="kw">function</span> prestarLibro(<span class="bu">PDO</span> <span class="va">$pdo</span><span class="ot">,</span> <span class="dt">int</span> <span class="va">$socioId</span><span class="ot">,</span> <span class="dt">int</span> <span class="va">$libroId</span>)<span class="ot">:</span> <span class="dt">bool</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a>{</span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>    <span class="co">// ...</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
+<p>PHPDoc que repite el nombre del método (“prestarLibro: presta un libro”) sin aportar nada nuevo. Documenta el contrato — qué recibe, qué devuelve, qué pasa en el caso límite —, no lo obvio.</p>
 </div>
 </div>
 </section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
-<ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
-</ul>
-</section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="tabla-de-casos-de-prueba" class="level2">
+<h2 class="anchored" data-anchor-id="tabla-de-casos-de-prueba">Tabla de casos de prueba</h2>
+<p>Sin PHPUnit en esta unidad, la prueba es manual — pero eso no significa improvisada sobre la marcha. Una tabla de casos de prueba <strong>útil</strong> no son solo los caminos correctos: las filas que de verdad detectan fallos son las que atacan los extremos (datos inválidos, ids inexistentes, intentos maliciosos).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Caso</th>
+<th>Entrada</th>
+<th>Resultado esperado</th>
+<th>Resultado obtenido</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Préstamo con copias libres</td>
+<td>Prestar “1984”</td>
+<td>Copia descontada, registro creado</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Préstamo sin copias libres</td>
+<td>Prestar “Fundación”</td>
+<td>Rechazado, nada cambia</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>id inexistente</td>
+<td>Ficha con <code>id=9999</code></td>
+<td>“Libro no encontrado” (404)</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Inyección SQL</td>
+<td><code>?id=0 OR 1=1</code></td>
+<td>Ningún resultado</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>XSS en buscador</td>
+<td><code>q=&lt;script&gt;</code></td>
+<td>Se muestra como texto, no se ejecuta</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,34 +583,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<p>La columna “Resultado obtenido” no se rellena de memoria al final: se completa la primera vez que ejecutas cada caso, tal como lo ves en pantalla. Si más adelante cambias algo y el resultado deja de coincidir con lo esperado, lo sabes al momento — para eso sirve tener la tabla, no solo para entregarla.</p>
 </div>
 </div>
 </section>
-<section id="actividades" class="level2">
-<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<section id="proyecto-integrador" class="level2">
+<h2 class="anchored" data-anchor-id="proyecto-integrador">Proyecto integrador</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
+<p><strong>EJ5 · Proyecto: gestión de la biblioteca</strong></p>
+<p>Vas a terminar de desarrollar la aplicación web completa para gestionar la biblioteca, integrando todo lo trabajado en la unidad. Parte de tus soluciones de EJ1 a EJ4; aquí no hay código nuevo que se te dé, sino que unes las piezas en una aplicación coherente.</p>
+<p>Funcionalidades mínimas:</p>
+<ul>
+<li><p><strong>Catálogo de libros</strong> con búsqueda por título y paginación (a partir de EJ3), mostrando de un vistazo cuántas copias quedan libres.</p></li>
+<li><p><strong>Ficha de libro</strong> con sus datos y la lista de préstamos activos (socios que lo tienen), resuelta con <code>JOIN</code>.</p></li>
+<li><p><strong>Gestión de socios</strong>: listado, alta con validación y baja respetando la integridad (EJ4).</p></li>
+<li><p><strong>Préstamos y devoluciones</strong> como operaciones transaccionales (EJ4).</p></li>
+<li><p><strong>Navegación coherente</strong>: las páginas (catálogo, ficha, alta/baja de socio, préstamo/devolución) deben estar enlazadas entre sí de forma consistente — un menú o conjunto de enlaces repetido, no páginas sueltas a las que solo se llega tecleando la URL a mano.</p></li>
+<li><p><strong>Aspecto visual mínimo</strong>: aplica una hoja de estilos (<code>style.css</code>) común a todas las páginas. No se evalúa el diseño en sí, pero sí que exista y se use de forma consistente en toda la aplicación.</p></li>
+<li><p><strong>Punto de entrada</strong>: <code>index.php</code> debe llevar al catálogo (puede ser el propio catálogo, o una redirección al fichero de catálogo).</p></li>
+</ul>
+<p>Checklist de calidad (es lo que se revisará):</p>
 <ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
+<li>Una única conexión encapsulada, con credenciales externas.</li>
+<li><strong>Todas</strong> las consultas con datos externos usan sentencias preparadas (cero concatenación).</li>
+<li><strong>Toda</strong> la salida escapada con <code>htmlspecialchars()</code>.</li>
+<li>Las operaciones que tocan varias tablas (prestar, devolver) van en transacción.</li>
+<li>La baja de un socio y el borrado de un libro respetan la integridad referencial.</li>
+<li>La validación de datos ocurre en servidor.</li>
+<li>El código está documentado y acompañado de una tabla de casos de prueba de las operaciones críticas.</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Criterio Apto">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Criterio Apto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Apto</strong> cuando la aplicación lista correcto el catálogo, la ficha con <code>JOIN</code>, la gestión de socios y el ciclo préstamo/devolución, sin ninguna vía de inyección SQL ni de XSS, con las operaciones protegidas por transacciones, navegable como una aplicación única (no ficheros sueltos) y se apliquen estilos visuales coherentes en toda la aplicación.</p>
+</div>
+</div>
 </div>
 
 
@@ -1004,14 +1051,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD6/06-crud-transacciones.html" class="pagination-link" aria-label="CRUD completo: transacciones e integridad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">CRUD completo: transacciones e integridad</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>CRUD completo: transacciones e integridad – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD6/07-proyecto.html" rel="next">
+<link href="../UD6/05-conjuntos-datos.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/06-crud-transacciones.html"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -410,11 +410,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
+  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -462,10 +462,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#insertar" id="toc-insertar" class="nav-link active" data-scroll-target="#insertar">Insertar</a></li>
+  <li><a href="#transacciones-todo-o-nada" id="toc-transacciones-todo-o-nada" class="nav-link" data-scroll-target="#transacciones-todo-o-nada">Transacciones: todo o nada</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#eloquent-por-debajo" id="toc-eloquent-por-debajo" class="nav-link" data-scroll-target="#eloquent-por-debajo">Eloquent por debajo</a></li>
   </ul>
 </nav>
     </div>
@@ -473,9 +473,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/06-crud-transacciones.html"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">CRUD completo: transacciones e integridad</span></h1>
 </div>
 
 
@@ -492,54 +492,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
-</div>
-</div>
+<p>Hasta este apartado de la unidad tan solo hemos consultado información. <strong>Modificar</strong> datos (<em>INSERT, UPDATE, DELETE</em>) usa el mismo patrón de sentencia preparada, y añade un requisito: la <strong>integridad</strong>.</p>
+<section id="insertar" class="level2">
+<h2 class="anchored" data-anchor-id="insertar">Insertar</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">'INSERT INTO socios (nombre, email, alta)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="st">        VALUES (:nombre, :email, CURDATE())'</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="va">$st</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;prepare(<span class="va">$sql</span>)<span class="ot">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="va">$st</span>-&gt;execute([</span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="st">':nombre'</span> =&gt; <span class="va">$_POST</span>[<span class="st">'nombre'</span>]<span class="ot">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>    <span class="st">':email'</span>  =&gt; <span class="va">$_POST</span>[<span class="st">'email'</span>] <span class="ot">?:</span> <span class="kw">null</span><span class="ot">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>])<span class="ot">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="va">$nuevoId</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;lastInsertId()<span class="ot">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a><span class="kw">echo</span> <span class="st">"Alta del socio #</span><span class="va">$nuevoId</span><span class="st">"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada (partiendo de los 3 socios de la base de prácticas):</p>
+<pre><code>Alta del socio #4</code></pre>
 </section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
-<ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
-</ul>
-</section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="transacciones-todo-o-nada" class="level2">
+<h2 class="anchored" data-anchor-id="transacciones-todo-o-nada">Transacciones: todo o nada</h2>
+<p>Algunas operaciones son en realidad <strong>dos o más pasos que deben ocurrir juntos</strong>: si uno falla, ninguno debe quedar aplicado. El ejemplo clásico es una transferencia bancaria entre dos cuentas — deliberadamente <strong>fuera</strong> del esquema de la biblioteca, para que veas el patrón aislado antes de aplicarlo tú a <code>socios</code>/<code>libros</code>/<code>prestamos</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="co">// Ejemplo conceptual — no forma parte del esquema de la biblioteca</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="va">$cuentaOrigen</span> <span class="op">=</span> <span class="dv">1</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a><span class="va">$cuentaDestino</span> <span class="op">=</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="va">$importe</span> <span class="op">=</span> <span class="dv">50</span><span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="cf">try</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>    <span class="va">$pdo</span>-&gt;beginTransaction()<span class="ot">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>    <span class="co">// 1) Descontar del origen, solo si hay saldo suficiente</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>    <span class="va">$salida</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;prepare(<span class="st">'UPDATE cuentas SET saldo = saldo - :importe</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a><span class="st">                              WHERE id = :id AND saldo &gt;= :importe'</span>)<span class="ot">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>    <span class="va">$salida</span>-&gt;execute([<span class="st">':importe'</span> =&gt; <span class="va">$importe</span><span class="ot">,</span> <span class="st">':id'</span> =&gt; <span class="va">$cuentaOrigen</span>])<span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>    <span class="cf">if</span> (<span class="va">$salida</span>-&gt;rowCount() <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span>(<span class="st">'Saldo insuficiente.'</span>)<span class="ot">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>    }</span>
+<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-label="19"></a>    <span class="co">// 2) Abonar en el destino</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-label="20"></a>    <span class="va">$pdo</span>-&gt;prepare(<span class="st">'UPDATE cuentas SET saldo = saldo + :importe WHERE id = :id'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-label="21"></a>        -&gt;execute([<span class="st">':importe'</span> =&gt; <span class="va">$importe</span><span class="ot">,</span> <span class="st">':id'</span> =&gt; <span class="va">$cuentaDestino</span>])<span class="ot">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-label="22"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-label="23"></a>    <span class="va">$pdo</span>-&gt;commit()<span class="ot">;</span>          <span class="co">// ambas o ninguna</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-label="24"></a>    <span class="kw">echo</span> <span class="st">'Transferencia realizada.'</span><span class="ot">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-label="25"></a>} <span class="cf">catch</span> (<span class="bu">Throwable</span> <span class="va">$e</span>) {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-label="26"></a>    <span class="va">$pdo</span>-&gt;rollBack()<span class="ot">;</span>        <span class="co">// deshace todo si algo falla</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-label="27"></a>    <span class="fu">error_log</span>(<span class="va">$e</span>-&gt;getMessage())<span class="ot">;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-label="28"></a>    <span class="kw">echo</span> <span class="st">'No se pudo completar la transferencia.'</span><span class="ot">;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-label="29"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada (la cuenta 1 tiene saldo suficiente):</p>
+<pre><code>Transferencia realizada.</code></pre>
+<p>Si la cuenta origen no tuviera los 50€ (<code>saldo &lt; :importe</code>), el primer <code>UPDATE</code> no afectaría a ninguna fila, se lanzaría la excepción y el <code>rollBack</code> dejaría ambas cuentas <strong>exactamente igual</strong> que antes: ni descuento ni abono.</p>
+<p>Salida esperada:</p>
+<pre><code>No se pudo completar la transferencia.</code></pre>
+<p>El patrón es siempre el mismo, tengas cuentas bancarias, préstamos de libros o cualquier otra operación de varios pasos: <code>beginTransaction()</code> → comprobar cada paso (<code>rowCount() === 0</code> indica que la condición de un <code>UPDATE</code> no se cumplió) → <code>commit()</code> si todo fue bien, <code>rollBack()</code> en el <code>catch</code> si algo falló.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,35 +556,162 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<p>El RA exige “seguridad <strong>e</strong> integridad”:</p>
+<ul>
+<li><strong>Seguridad</strong> → sentencias preparadas (frente a inyección).</li>
+<li><strong>Integridad</strong> → transacciones (<code>commit</code> / <code>rollBack</code>) y restricciones del SGBD (claves foráneas, <code>NOT NULL</code>, <code>UNIQUE</code>), que evitan estados intermedios inconsistentes (un préstamo sin copia descontada, o al revés).</li>
+</ul>
 </div>
 </div>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
+<p><strong>EJ4 · CRUD con validación y transacciones</strong></p>
+<p>Implementa la gestión de socios, libros y préstamos de la biblioteca. Parte de la clase <code>Conexion</code> de EJ1 y del patrón de transacción visto en este bloque.</p>
+<p>La implementación constará de <strong>cuatro operaciones</strong>:</p>
 <ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
+<li><strong>Alta de socio</strong> (<code>alta_socio.php</code>):</li>
 </ol>
+<ul>
+<li>Formulario con validación <strong>en servidor</strong>: nombre obligatorio (máx. 80 caracteres) y email con formato válido y <strong>único</strong> en la tabla.</li>
+<li>Inserción con sentencia preparada y recuperación del <code>id</code> generado.</li>
+<li>Ante datos inválidos, reaparece el formulario con los valores introducidos y los errores. Decide tú cómo detectas el email duplicado (por consulta previa o capturando la violación de la restricción <code>UNIQUE</code>).</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Prestar un libro</strong> (<code>prestar.php</code>):</li>
+</ol>
+<ul>
+<li>Recibe un socio y un libro y registra el préstamo <strong>en una transacción</strong>: descuenta una copia libre y crea el registro en <code>prestamos</code>, todo o nada.</li>
+<li>Si el libro no tiene copias libres, no debe cambiar nada y hay que informar del motivo.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Devolver libro / Baja de socio</strong> (<code>devolver.php</code>, <code>baja_socio.php</code>):</li>
+</ol>
+<ul>
+<li>La devolución marca <code>fecha_devolucion</code> y repone una copia libre (de nuevo, en una sola transacción).</li>
+<li>La baja de un socio debe respetar la integridad: no se permite borrar un socio con préstamos <strong>activos</strong> (sin devolver).</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Eliminar libro</strong> (<code>baja_libro.php</code>):</li>
+</ol>
+<ul>
+<li>Elimina un libro del catálogo con sentencia preparada.</li>
+<li>Misma regla de integridad que la baja de socio: no se permite eliminar un libro con préstamos <strong>activos</strong> asociados (compruébalo antes del <code>DELETE</code>, o captura la violación de la clave foránea).</li>
+</ul>
+<p>Para evaluar el correcto funcionamiento del ejercicio debes realizar, al menos, las siguientes pruebas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 32%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Caso</th>
+<th>Acción</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Préstamo correcto</td>
+<td>Prestar “1984” (libre)</td>
+<td>Copia descontada + registro creado</td>
+</tr>
+<tr class="even">
+<td>Préstamo de libro sin copias</td>
+<td>Prestar “Fundación” (0 libres)</td>
+<td><code>rollBack</code>: nada cambia</td>
+</tr>
+<tr class="odd">
+<td>Devolución</td>
+<td>Devolver un préstamo activo</td>
+<td>Fecha marcada + copia repuesta</td>
+</tr>
+<tr class="even">
+<td>Baja con préstamo activo</td>
+<td>Dar de baja a Carlos</td>
+<td>Rechazada</td>
+</tr>
+<tr class="odd">
+<td>Baja de libro con préstamo activo</td>
+<td>Eliminar “Fundación”</td>
+<td>Rechazada</td>
+</tr>
+<tr class="even">
+<td>Baja de libro sin préstamos</td>
+<td>Eliminar un libro sin préstamos activos</td>
+<td>Aceptada</td>
+</tr>
+<tr class="odd">
+<td>Email duplicado</td>
+<td>Alta con email existente</td>
+<td>Error de validación, no se inserta</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Información">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Información
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ejercicio estará correcto si el préstamo y la devolución son transaccionales y verificables (una copia mal contada es un fallo), la validación del alta ocurre en servidor, y tanto la baja de socio como la de libro respetan la integridad referencial. Demostrar que un préstamo fallido no deja la base de datos a medias.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="eloquent-por-debajo" class="level2">
+<h2 class="anchored" data-anchor-id="eloquent-por-debajo">Eloquent por debajo</h2>
+<p>En la UD5 escribías <code>Libro::find(1)</code> o <code>$libro-&gt;save()</code> sin ver el SQL. Ahora entiendes qué hace Eloquent por debajo: cada método genera una sentencia preparada PDO como las que has escrito a mano.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ORM aporta comodidad sobre lo que acabas de aprender a hacer manualmente.</p>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>En Eloquent (UD5)</th>
+<th>Por debajo (PDO, esta unidad)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Libro::find(1)</code></td>
+<td><code>SELECT * FROM libros WHERE id = :id</code></td>
+</tr>
+<tr class="even">
+<td><code>Libro::all()</code></td>
+<td><code>SELECT * FROM libros</code></td>
+</tr>
+<tr class="odd">
+<td><code>$l-&gt;save()</code> (nuevo)</td>
+<td><code>INSERT INTO libros (...) VALUES (...)</code></td>
+</tr>
+<tr class="even">
+<td><code>$l-&gt;save()</code> (existente)</td>
+<td><code>UPDATE libros SET ... WHERE id = :id</code></td>
+</tr>
+<tr class="odd">
+<td><code>$l-&gt;delete()</code></td>
+<td><code>DELETE FROM libros WHERE id = :id</code></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -1004,13 +1137,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD6/05-conjuntos-datos.html" class="pagination-link" aria-label="Modos de recuperación y conjuntos de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD6/07-proyecto.html" class="pagination-link" aria-label="Proyecto integrador: Gestión de la biblioteca">
+        <span class="nav-page-text"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

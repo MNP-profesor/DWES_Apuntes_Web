@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Servidor web y servidor de aplicaciones – Desarrollo Web en Entorno Servidor</title>
+<title>Modos de recuperación y conjuntos de datos – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/04-lenguajes-tecnologias.html" rel="next">
-<link href="../UD1/02-paginas-dinamicas.html" rel="prev">
+<link href="../UD6/06-crud-transacciones.html" rel="next">
+<link href="../UD6/04-publicacion-web.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/05-conjuntos-datos.html"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -328,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -410,11 +410,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
@@ -437,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
+  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -462,9 +462,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
-  <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
-  <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#modos-de-recuperación" id="toc-modos-de-recuperación" class="nav-link active" data-scroll-target="#modos-de-recuperación">Modos de recuperación</a></li>
+  <li><a href="#el-conjunto-de-datos-qué-hacer-con-él-una-vez-recuperado" id="toc-el-conjunto-de-datos-qué-hacer-con-él-una-vez-recuperado" class="nav-link" data-scroll-target="#el-conjunto-de-datos-qué-hacer-con-él-una-vez-recuperado">El conjunto de datos: qué hacer con él una vez recuperado</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -473,9 +472,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li><li class="breadcrumb-item"><a href="../UD1/03-servidor-web-aplicaciones.html"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD6/00-presentacion.html">UD6. Acceso a BBDD con PDO: Seguridad e integridad</a></li><li class="breadcrumb-item"><a href="../UD6/05-conjuntos-datos.html"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></h1>
+<h1 class="title"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></h1>
 </div>
 
 
@@ -492,54 +491,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
-<section id="el-servidor-web" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
-<p>Lo que sabe hacer solo:</p>
-<ul>
-<li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
-<li>Gestionar TLS, compresión, caché y logs.</li>
-<li>Redirigir o reescribir URLs.</li>
-</ul>
-<p>Lo que <strong>no</strong> sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Dato adicional">
+<section id="modos-de-recuperación" class="level2">
+<h2 class="anchored" data-anchor-id="modos-de-recuperación">Modos de recuperación</h2>
+<p>El <strong>modo de recuperación</strong> (<em>fetch mode</em>) decide qué estructura recibes por cada fila:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 40%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modo</th>
+<th>Qué devuelve</th>
+<th>Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>FETCH_ASSOC</code></td>
+<td>Array asociativo <code>columna =&gt; valor</code></td>
+<td>Caso general, el que suele ponerse</td>
+</tr>
+<tr class="even">
+<td><code>FETCH_NUM</code></td>
+<td>Array con índices numéricos</td>
+<td>Consultas simples / rendimiento</td>
+</tr>
+<tr class="odd">
+<td><code>FETCH_OBJ</code></td>
+<td>Objeto anónimo con propiedades</td>
+<td>Acceso con <code>-&gt;propiedad</code> sin clase propia</td>
+</tr>
+<tr class="even">
+<td><code>FETCH_CLASS</code></td>
+<td>Instancia de una clase tuya</td>
+<td>Cuando ya tienes un modelo</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Información">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dato adicional
+<span class="screen-reader-only">Nota</span>Información
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
+<p>Recuerda que en la clase Conexion que ya has implementado, utilizas el atributo <code>ATTR_DEFAULT_FETCH_MODE =&gt; FETCH_ASSOC</code>. Es el que se pone normalmente por defecto.</p>
+</div>
+</div>
+<p>En el siguiente ejemplo se obtiene el mismo dato con dos modos distintos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="co">// FETCH_ASSOC</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="va">$fila</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;query(<span class="st">'SELECT titulo FROM libros LIMIT 1'</span>)-&gt;fetch(<span class="bu">PDO</span>::<span class="cn">FETCH_ASSOC</span>)<span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="kw">echo</span> <span class="va">$fila</span>[<span class="st">'titulo'</span>] <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span>   <span class="co">// acceso por clave</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="co">// FETCH_OBJ</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="va">$fila</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;query(<span class="st">'SELECT titulo FROM libros LIMIT 1'</span>)-&gt;fetch(<span class="bu">PDO</span>::<span class="cn">FETCH_OBJ</span>)<span class="ot">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="kw">echo</span> <span class="va">$fila</span>-&gt;titulo <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span>     <span class="co">// acceso por propiedad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada:</p>
+<pre><code>El nombre del viento
+El nombre del viento</code></pre>
+<p><code>FETCH_CLASS</code> <strong>crea y rellena objetos</strong> de una clase tuya, asignando cada columna a la propiedad del mismo nombre:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="kw">class</span> Libro {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="va">$id</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$titulo</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$autor</span><span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>    <span class="kw">public</span> <span class="kw">function</span> etiqueta()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>        <span class="cf">return</span> <span class="va">$this</span>-&gt;titulo <span class="op">.</span> <span class="st">' - '</span> <span class="op">.</span> <span class="va">$this</span>-&gt;autor<span class="ot">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>    }</span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a><span class="va">$st</span> <span class="op">=</span> <span class="va">$pdo</span>-&gt;query(<span class="st">'SELECT id, titulo, autor FROM libros ORDER BY titulo LIMIT 3'</span>)<span class="ot">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a><span class="va">$libros</span> <span class="op">=</span> <span class="va">$st</span>-&gt;fetchAll(<span class="bu">PDO</span>::<span class="cn">FETCH_CLASS</span><span class="ot">,</span> Libro::<span class="kw">class</span>)<span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a><span class="cf">foreach</span> (<span class="va">$libros</span> <span class="kw">as</span> <span class="va">$l</span>) {          <span class="co">// $l es un objeto Libro</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    <span class="kw">echo</span> <span class="va">$l</span>-&gt;etiqueta() <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada (los tres primeros por orden alfabético; el catálogo completo tiene más):</p>
+<pre><code>1984 — George Orwell
+Crónica de una muerte anunciada — Gabriel García Márquez
+El código Da Vinci — Dan Brown</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Analogía Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En Java construías el objeto y <strong>después</strong> rellenabas sus campos recorriendo el <code>ResultSet</code>. PDO con <code>FETCH_CLASS</code> hace lo contrario, y esto sorprende: <strong>asigna las propiedades ANTES de ejecutar el constructor</strong>. Si tu constructor pone valores por defecto, los pisará. Para que el constructor corra primero, combina las banderas: <code>fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Libro::class)</code>.</p>
 </div>
 </div>
 </section>
-<section id="el-servidor-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="el-servidor-de-aplicaciones">El servidor de aplicaciones</h2>
-<p>El servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:</p>
-<ul>
-<li>Mantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).</li>
-<li>Gestiona transacciones, seguridad declarativa y balanceo de carga interno.</li>
-<li>En Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).</li>
-</ul>
-</section>
-<section id="cómo-cooperan" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-cooperan">Cómo cooperan</h2>
-<p>Una arquitectura típica con ambos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Navegador</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>   │  HTTP</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>   ▼</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>Nginx  ──── ficheros estáticos ──▶ respuesta directa</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>   │</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>   │  petición dinámica</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>   ▼</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>PHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="el-conjunto-de-datos-qué-hacer-con-él-una-vez-recuperado" class="level2">
+<h2 class="anchored" data-anchor-id="el-conjunto-de-datos-qué-hacer-con-él-una-vez-recuperado">El conjunto de datos: qué hacer con él una vez recuperado</h2>
+<p><code>fetchAll()</code> no te da una fila: te da el <strong>conjunto completo</strong> de resultados, un array con un elemento por fila. Una vez está en PHP, ya no hace falta volver a la base de datos para filtrarlo, ordenarlo o resumirlo — son operaciones sobre un array normal, con las funciones de orden superior que ya conoces de UD3 (<code>array_filter</code>, <code>array_map</code>, <code>array_reduce</code>), ahora aplicadas sobre un array de <strong>objetos</strong> en vez de arrays asociativos.</p>
+<p>Sobre el mismo <code>$libros</code> del ejemplo anterior:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="co">// Solo los libros con copias disponibles</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="va">$disponibles</span> <span class="op">=</span> <span class="fu">array_filter</span>(<span class="va">$libros</span><span class="ot">,</span> <span class="kw">fn</span> (Libro <span class="va">$l</span>) =&gt; <span class="va">$l</span>-&gt;copias_libres <span class="op">&gt;</span> <span class="dv">0</span>)<span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="co">// Solo los títulos, como array de strings</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="va">$titulos</span> <span class="op">=</span> <span class="fu">array_map</span>(<span class="kw">fn</span> (Libro <span class="va">$l</span>) =&gt; <span class="va">$l</span>-&gt;titulo<span class="ot">,</span> <span class="va">$libros</span>)<span class="ot">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="co">// Total de copias libres en todo el conjunto</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a><span class="va">$totalLibres</span> <span class="op">=</span> <span class="fu">array_reduce</span>(<span class="va">$libros</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="va">$acum</span><span class="ot">,</span> Libro <span class="va">$l</span>) =&gt; <span class="va">$acum</span> <span class="op">+</span> <span class="va">$l</span>-&gt;copias_libres<span class="ot">,</span> <span class="dv">0</span>)<span class="ot">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="kw">echo</span> <span class="fu">count</span>(<span class="va">$disponibles</span>) <span class="op">.</span> <span class="st">' de '</span> <span class="op">.</span> <span class="fu">count</span>(<span class="va">$libros</span>) <span class="op">.</span> <span class="st">" libros disponibles</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a><span class="kw">echo</span> <span class="st">"Copias libres en total: </span><span class="va">$totalLibres</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida esperada (sobre el catálogo completo de 17 libros, no solo los 3 del <code>LIMIT</code> anterior):</p>
+<pre><code>14 de 17 libros disponibles
+Copias libres en total: 32</code></pre>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,34 +620,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.</p>
+<p>La diferencia con los modos de <em>fetch</em> de arriba: el modo decide <strong>qué forma tiene cada fila</strong> al llegar desde la base de datos; esto es sobre <strong>qué haces en PHP</strong> con el conjunto entero una vez ya lo tienes. Son dos cosas distintas aunque aparezcan en la misma sección.</p>
 </div>
 </div>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
-<p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Responde:</p>
+<p><strong>EJ3 · Listado, ficha y paginación con objetos</strong></p>
+<p>Construye la parte de consulta del catálogo de la biblioteca, devolviendo <strong>objetos</strong> de una clase <code>Libro</code> (no arrays).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">class</span> Libro {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="va">$id</span><span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$titulo</span><span class="ot">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$autor</span><span class="ot">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="va">$copias_libres</span><span class="ot">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a>    <span class="co">// </span><span class="al">TODO</span><span class="co">: método(s) de comportamiento que necesites en las vistas</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>    <span class="co">//       (por ejemplo, saber si hay copias disponibles)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Constará de dos vistas:</p>
 <ol type="1">
-<li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
-<li>¿Qué componente se aproxima más al concepto de <strong>servidor de aplicaciones</strong>? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.</li>
-<li>¿Por qué el balanceador de carga <strong>no es</strong> ni servidor web ni servidor de aplicaciones?</li>
+<li><strong>Listado</strong> (<code>catalogo.php</code>: listado con búsqueda, paginación y objetos):</li>
 </ol>
+<ul>
+<li>Muestra los libros en una tabla con su título, autor y número de copias libres.</li>
+<li>Incluye un buscador por título con <code>LIKE</code> <strong>parametrizado</strong> que conserve el término tras enviar.</li>
+<li>Pagina los resultados de 5 en 5 con <code>LIMIT</code>/<code>OFFSET</code>. Inserta más libros para poder probar.</li>
+<li>Recupera los libros con <code>FETCH_CLASS</code> sobre tu clase <code>Libro</code>, y en la tabla usa un método de esa clase (por ejemplo, uno que indique si el libro está disponible).</li>
+<li>Sobre el array de objetos ya recuperado (el de la página actual, sin otra consulta SQL), calcula con <code>array_filter</code> cuántos de los libros mostrados están disponibles, y muéstralo como un contador (p.&nbsp;ej. “3 de 5 disponibles”).</li>
+<li>Toda la salida escapada con <code>htmlspecialchars()</code>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>    <span class="co">//</span><span class="al">TODO</span><span class="co">: parte PHP </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="kw">?&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="co">//</span><span class="al">TODO</span><span class="co">: parte HTML</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li><strong>Ficha</strong> (<code>libro_catalogo.php?id=...</code>):</li>
+</ol>
+<ul>
+<li>Muestra un libro concreto recibido por su <code>id</code> mediante sentencia preparada. Castea el <code>id</code> a entero (<code>(int) $_GET['id']</code>) antes de usarlo — así un <code>id</code> no numérico se trata siempre como <code>0</code>, sin depender de cómo MySQL convierta el valor.</li>
+<li>Gestiona el caso de que el <code>id</code> no exista (mensaje y código 404).</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a>    <span class="co">// </span><span class="al">TODO</span><span class="co">: busca el libro por su `id` mediante sentencia preparada</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="kw">?&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a><span class="co">// Se muestra el libro (recuerda: $l es un objeto Libro, no un array)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="op">&lt;</span>h1<span class="op">&gt;&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="fu">htmlspecialchars</span>(<span class="va">$l</span>-&gt;titulo) <span class="kw">?&gt;</span><span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a><span class="op">&lt;</span>p<span class="op">&gt;&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="fu">htmlspecialchars</span>(<span class="va">$l</span>-&gt;autor) <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Copias libres<span class="ot">:</span> <span class="op">&lt;</span><span class="ot">?</span><span class="op">=</span> (<span class="dt">int</span>) <span class="va">$l</span>-&gt;copias_libres <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para los siguientes casos, la implementación debe dar los resultados indicados:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Caso</th>
+<th>Entrada</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id existente</td>
+<td><code>?id=3</code></td>
+<td>Ficha de “1984”</td>
+</tr>
+<tr class="even">
+<td>id inexistente</td>
+<td><code>?id=9999</code></td>
+<td>“Libro no encontrado.” (404)</td>
+</tr>
+<tr class="odd">
+<td>id no numérico</td>
+<td><code>?id=abc</code></td>
+<td>Tratado como 0 → “Libro no encontrado.”</td>
+</tr>
+<tr class="even">
+<td>id malicioso</td>
+<td><code>?id=0 OR 1=1</code></td>
+<td>“Libro no encontrado.”</td>
+</tr>
+<tr class="odd">
+<td>XSS en buscador</td>
+<td><code>q=</code> <code>&lt;script&gt;alert(1)&lt;/script&gt;</code></td>
+<td>Se muestra como texto, no se ejecuta</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Información">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Información
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ejericio estará correcto si el catálogo usa objetos <code>Libro</code> (no arrays), el contador de disponibles usa <code>array_filter</code> sobre el array ya recuperado (no una segunda consulta SQL), toda consulta con datos externos va parametrizada, la salida está escapada y la tabla de pruebas cubre los cinco casos, incluido el de XSS.</p>
+</div>
+</div>
 </div>
 
 
@@ -1004,13 +1152,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD1/02-paginas-dinamicas.html" class="pagination-link" aria-label="Páginas estáticas y dinámicas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Páginas estáticas y dinámicas</span></span>
+      <a href="../UD6/04-publicacion-web.html" class="pagination-link" aria-label="Publicación web de la información">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Publicación web de la información</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/04-lenguajes-tecnologias.html" class="pagination-link" aria-label="Lenguajes y tecnologías en entorno servidor">
-        <span class="nav-page-text"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD6/06-crud-transacciones.html" class="pagination-link" aria-label="CRUD completo: transacciones e integridad">
+        <span class="nav-page-text"><span class="chapter-title">CRUD completo: transacciones e integridad</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
