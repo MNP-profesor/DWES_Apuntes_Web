@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Verificación de formularios en dos capas – Desarrollo Web en Entorno Servidor</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD8/05-dom-dinamico.html" rel="next">
+<link href="../UD8/03-interaccion-fetch.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD8/00-presentacion.html">UD8. Generación dinámica de páginas Web</a></li><li class="breadcrumb-item"><a href="../UD8/04-verificacion-formularios.html"><span class="chapter-title">Verificación de formularios en dos capas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📋 Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD5. Separación de la lógica de negocio: MVC con Laravel</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas y controladores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD7. Servicios Web: API REST con Laravel (Resources y Sanctum)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD8/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD8. Generación dinámica de páginas Web</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/01-modelos-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor y cliente: dos modelos de ejecución</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/02-tecnologias-frameworks.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías y frameworks de generación dinámica interactiva</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/03-interaccion-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Obtención remota de información: fetch, JSON y consumo de APIs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/04-verificacion-formularios.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/05-dom-dinamico.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modificación dinámica del contenido y la estructura</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD8/06-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD9/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/01-aplicaciones-hibridas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aplicaciones Web híbridas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/02-composer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer en profundidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/03-consumo-repositorios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir repositorios existentes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/04-repositorios-propios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/05-librerias-terceros.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Librerías de terceros: PDF y QR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/06-analitica-bigdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Analítica, Big Data e inteligencia de negocios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD9/07-prueba-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Probar, depurar y documentar</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#el-principio-el-cliente-ayuda-el-servidor-decide" id="toc-el-principio-el-cliente-ayuda-el-servidor-decide" class="nav-link active" data-scroll-target="#el-principio-el-cliente-ayuda-el-servidor-decide">El principio: el cliente ayuda, el servidor decide</a></li>
+  <li><a href="#primera-capa-html5-y-la-constraint-validation-api" id="toc-primera-capa-html5-y-la-constraint-validation-api" class="nav-link" data-scroll-target="#primera-capa-html5-y-la-constraint-validation-api">Primera capa: HTML5 y la Constraint Validation API</a></li>
+  <li><a href="#segunda-capa-el-servidor-valida-y-responde-en-json" id="toc-segunda-capa-el-servidor-valida-y-responde-en-json" class="nav-link" data-scroll-target="#segunda-capa-el-servidor-valida-y-responde-en-json">Segunda capa: el servidor valida y responde en JSON</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD8/00-presentacion.html">UD8. Generación dinámica de páginas Web</a></li><li class="breadcrumb-item"><a href="../UD8/04-verificacion-formularios.html"><span class="chapter-title">Verificación de formularios en dos capas</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Verificación de formularios en dos capas</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este bloque desarrolla el criterio <strong>CE8.e</strong> del RA8: generar páginas web que incluyan verificación de formularios.</p>
+</div>
+</div>
+<section id="el-principio-el-cliente-ayuda-el-servidor-decide" class="level2">
+<h2 class="anchored" data-anchor-id="el-principio-el-cliente-ayuda-el-servidor-decide">El principio: el cliente ayuda, el servidor decide</h2>
+<p>La verificación de formularios es el terreno donde la combinación servidor-cliente muestra su lógica con más claridad. La <strong>capa cliente</strong> valida para ayudar al usuario: avisa al instante, antes de enviar, sin coste de red. La <strong>capa servidor</strong> valida para proteger la aplicación: es la única barrera real, porque todo lo que hace el cliente puede desactivarse (basta abrir las herramientas de desarrollo o enviar la petición desde Postman saltándose la página).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Regla de oro (memorizable):</strong> la validación en cliente es una <em>cortesía</em>; la validación en servidor es una <em>obligación</em>. Un formulario sin validación de cliente es incómodo; un formulario sin validación de servidor es una vulnerabilidad.</p>
+</div>
+</div>
+</section>
+<section id="primera-capa-html5-y-la-constraint-validation-api" class="level2">
+<h2 class="anchored" data-anchor-id="primera-capa-html5-y-la-constraint-validation-api">Primera capa: HTML5 y la Constraint Validation API</h2>
+<p>El propio HTML aporta la <strong>validación declarativa</strong> (<code>required</code>, <code>minlength</code>, <code>max</code>, <code>type="email"</code>, <code>pattern</code>), que el navegador aplica sin una línea de JavaScript. Cuando se necesita lógica adicional o mensajes propios, JavaScript intercepta el envío:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> id</span><span class="op">=</span><span class="st">"fValoracion"</span><span class="ot"> novalidate</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>  <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> name</span><span class="op">=</span><span class="st">"autor"</span><span class="ot">  required minlength</span><span class="op">=</span><span class="st">"3"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>  <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> name</span><span class="op">=</span><span class="st">"nota"</span><span class="ot">   type</span><span class="op">=</span><span class="st">"number"</span><span class="ot"> min</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> max</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> required</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>  <span class="dt">&lt;</span><span class="kw">textarea</span><span class="ot"> name</span><span class="op">=</span><span class="st">"texto"</span><span class="ot"> required minlength</span><span class="op">=</span><span class="st">"15"</span><span class="dt">&gt;&lt;/</span><span class="kw">textarea</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="dt">&gt;</span>Enviar valoración<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">"errores"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"error"</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a><span class="kw">const</span> form <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#fValoracion'</span>)<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>form<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'submit'</span><span class="op">,</span> <span class="kw">async</span> (evento) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a>  evento<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span>          <span class="co">// detener el envío clásico</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a>  <span class="cf">if</span> (<span class="op">!</span>form<span class="op">.</span><span class="fu">checkValidity</span>()) {      <span class="co">// Constraint Validation API</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#errores'</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>      <span class="st">'Revisa los campos marcados antes de enviar.'</span><span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a>  }</span>
+<span id="cb1-18"><a href="#cb1-18" aria-label="18"></a>  <span class="cf">await</span> <span class="fu">enviarValoracion</span>(<span class="kw">new</span> <span class="bu">FormData</span>(form))<span class="op">;</span>  <span class="co">// ver más abajo</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-label="19"></a>})<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-label="20"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dos piezas merecen atención: <code>preventDefault()</code> cancela el envío clásico con recarga para sustituirlo por <code>fetch</code>, y <code>FormData</code> empaqueta los campos del formulario tal cual los espera PHP en <code>$_POST</code>, sin construir el cuerpo a mano.</p>
+<p>Qué ve el usuario según lo que escriba (antes de que nada viaje al servidor):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>autor = "An", nota = 7, texto = "Buena"   →  "Revisa los campos marcados antes de enviar."</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>autor = "Ana", nota = 15                  →  "Revisa los campos marcados antes de enviar."</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>autor = "Ana", nota = 9, texto correcto   →  se ejecuta enviarValoracion(...)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cada <code>input</code> que incumple sus restricciones queda marcado como inválido por el navegador (<code>:invalid</code> en CSS permite resaltarlo), y <code>checkValidity()</code> devuelve <code>false</code> mientras haya alguno.</p>
+</section>
+<section id="segunda-capa-el-servidor-valida-y-responde-en-json" class="level2">
+<h2 class="anchored" data-anchor-id="segunda-capa-el-servidor-valida-y-responde-en-json">Segunda capa: el servidor valida y responde en JSON</h2>
+<p>El endpoint receptor reutiliza todo lo aprendido en UD3 y UD4 (<code>filter_var</code>, <code>trim</code>, <code>htmlspecialchars</code>) con un único cambio de contrato: la respuesta ya no es una página, sino JSON con el resultado, y el <strong>código de estado comunica el veredicto</strong> (201 creado, 422 datos inválidos).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="co">// api/valoraciones.php — recibe POST del formulario</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="fu">header</span>(<span class="st">'Content-Type: application/json; charset=utf-8'</span>)<span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="va">$errores</span> <span class="op">=</span> []<span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a><span class="va">$autor</span> <span class="op">=</span> <span class="fu">trim</span>(<span class="va">$_POST</span>[<span class="st">'autor'</span>] <span class="op">??</span> <span class="st">''</span>)<span class="ot">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="va">$nota</span>  <span class="op">=</span> <span class="fu">filter_var</span>(<span class="va">$_POST</span>[<span class="st">'nota'</span>] <span class="op">??</span> <span class="st">''</span><span class="ot">,</span> <span class="cn">FILTER_VALIDATE_INT</span><span class="ot">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>         [<span class="st">'options'</span> =&gt; [<span class="st">'min_range'</span> =&gt; <span class="dv">0</span><span class="ot">,</span> <span class="st">'max_range'</span> =&gt; <span class="dv">10</span>]])<span class="ot">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a><span class="va">$texto</span> <span class="op">=</span> <span class="fu">trim</span>(<span class="va">$_POST</span>[<span class="st">'texto'</span>] <span class="op">??</span> <span class="st">''</span>)<span class="ot">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a><span class="cf">if</span> (<span class="fu">mb_strlen</span>(<span class="va">$autor</span>) <span class="op">&lt;</span> <span class="dv">3</span>)  { <span class="va">$errores</span>[<span class="st">'autor'</span>] <span class="op">=</span> <span class="st">'Mínimo 3 caracteres'</span><span class="ot">;</span> }</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a><span class="cf">if</span> (<span class="va">$nota</span> <span class="op">===</span> <span class="kw">false</span>)        { <span class="va">$errores</span>[<span class="st">'nota'</span>]  <span class="op">=</span> <span class="st">'Entero entre 0 y 10'</span><span class="ot">;</span> }</span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a><span class="cf">if</span> (<span class="fu">mb_strlen</span>(<span class="va">$texto</span>) <span class="op">&lt;</span> <span class="dv">15</span>) { <span class="va">$errores</span>[<span class="st">'texto'</span>] <span class="op">=</span> <span class="st">'Mínimo 15 caracteres'</span><span class="ot">;</span> }</span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a><span class="cf">if</span> (<span class="va">$errores</span>) {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    <span class="fu">http_response_code</span>(<span class="dv">422</span>)<span class="ot">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>    <span class="kw">echo</span> <span class="fu">json_encode</span>([<span class="st">'ok'</span> =&gt; <span class="kw">false</span><span class="ot">,</span> <span class="st">'errores'</span> =&gt; <span class="va">$errores</span>])<span class="ot">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a>    <span class="cf">exit</span><span class="ot">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-label="19"></a>}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-label="20"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-label="21"></a><span class="co">// Aquí se persistiría con PDO (UD6). Escapado al mostrar (UD4).</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-label="22"></a><span class="fu">http_response_code</span>(<span class="dv">201</span>)<span class="ot">;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-label="23"></a><span class="kw">echo</span> <span class="fu">json_encode</span>([<span class="st">'ok'</span> =&gt; <span class="kw">true</span><span class="ot">,</span> <span class="st">'autor'</span> =&gt; <span class="fu">htmlspecialchars</span>(<span class="va">$autor</span>)])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Las dos respuestas posibles, tal como se ven en Postman o en la pestaña Red:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a>POST con autor=Ana, nota=9, texto="Gran banda sonora y ritmo"</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>→ 201 Created</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>  {"ok":true,"autor":"Ana"}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>POST con autor=A, nota=veinte, texto="corto"</span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>→ 422 Unprocessable Content</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>  {"ok":false,"errores":{"autor":"Mínimo 3 caracteres",</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>   "nota":"Entero entre 0 y 10","texto":"Mínimo 15 caracteres"}}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Y el cliente que envía y trata ese veredicto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">enviarValoracion</span>(datos) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">'api/valoraciones.php'</span><span class="op">,</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>    <span class="dt">method</span><span class="op">:</span> <span class="st">'POST'</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="dt">body</span><span class="op">:</span> datos                      <span class="co">// FormData: sin cabeceras manuales</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>  })<span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>  <span class="kw">const</span> cuerpo <span class="op">=</span> <span class="cf">await</span> r<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>  <span class="cf">if</span> (r<span class="op">.</span><span class="at">status</span> <span class="op">===</span> <span class="dv">422</span>) {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    <span class="fu">mostrarErrores</span>(cuerpo<span class="op">.</span><span class="at">errores</span>)<span class="op">;</span>  <span class="co">// pinta cada error junto a su campo</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>  } <span class="cf">else</span> <span class="cf">if</span> (r<span class="op">.</span><span class="at">status</span> <span class="op">===</span> <span class="dv">201</span>) {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>    form<span class="op">.</span><span class="fu">reset</span>()<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#errores'</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>      <span class="st">'Gracias, '</span> <span class="op">+</span> cuerpo<span class="op">.</span><span class="at">autor</span> <span class="op">+</span> <span class="st">'. Valoración registrada.'</span><span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>  }</span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Una implementación sencilla de <code>mostrarErrores</code> que pinta cada mensaje junto a su campo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">function</span> <span class="fu">mostrarErrores</span>(errores) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>  <span class="cf">for</span> (<span class="kw">const</span> [campo<span class="op">,</span> mensaje] <span class="kw">of</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(errores)) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="kw">const</span> input <span class="op">=</span> form<span class="op">.</span><span class="at">elements</span>[campo]<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="kw">let</span> aviso <span class="op">=</span> input<span class="op">.</span><span class="at">nextElementSibling</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    <span class="cf">if</span> (<span class="op">!</span>aviso <span class="op">||</span> <span class="op">!</span>aviso<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">contains</span>(<span class="st">'aviso-campo'</span>)) {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>      aviso <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'small'</span>)<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>      aviso<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">'aviso-campo'</span><span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>      input<span class="op">.</span><span class="fu">after</span>(aviso)<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a>    }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a>    aviso<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> mensaje<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a>  }</span>
+<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con la respuesta 422 del ejemplo anterior, el usuario ve bajo cada campo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>[autor]  Mínimo 3 caracteres</span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>[nota]   Entero entre 0 y 10</span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>[texto]  Mínimo 15 caracteres</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Analogía Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Atención al detalle de <code>filter_var(..., FILTER_VALIDATE_INT)</code> devolviendo <code>false</code>: en Java, un <code>Integer.parseInt("veinte")</code> lanza excepción y el flujo se corta solo; en PHP, <code>filter_var</code> devuelve <code>false</code> <strong>y el programa continúa</strong>, así que olvidarse de comprobar <code>=== false</code> deja pasar el dato inválido en silencio. Es el tipado débil de PHP obligando a una comprobación explícita que en Java sería automática.</p>
+</div>
+</div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ8 · La capa cliente no basta</strong></p>
+<p>Demuestra (realizando la prueba) por qué la capa cliente no basta. Con el formulario del primer listado de este bloque funcionando:</p>
+<ol type="a">
+<li>Elimina el atributo <code>required</code> desde la pestaña Elementos y envía datos vacíos.</li>
+<li>Envía la misma petición POST desde Postman sin pasar por la página.</li>
+</ol>
+<p>Analiza <strong>qué capa detiene cada intento</strong>.</p>
+</div>
+<div class="ejercicio">
+<p><strong>EJ9 · Formulario de valoraciones con verificación en dos capas</strong> — CE8.e</p>
+<p><strong>Parte 1:</strong> construye el formulario de valoración de películas con validación declarativa HTML5 completa, interceptación del envío con <code>preventDefault</code> y comprobación con la Constraint Validation API, mostrando los mensajes junto a cada campo.</p>
+<p><strong>Parte 2:</strong> implementa el endpoint PHP con la validación definitiva de todos los campos (reutilizando <code>filter_var</code> y las técnicas de UD3/UD4), respuesta JSON con códigos 201/422, y el tratamiento en cliente que pinte los errores devueltos por el servidor campo a campo.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prueba a realizar ">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Prueba a realizar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Verificar con Postman que el servidor rechaza datos inválidos aunque la página no se use.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../UD8/03-interaccion-fetch.html" class="pagination-link" aria-label="Obtención remota de información: fetch, JSON y consumo de APIs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Obtención remota de información: fetch, JSON y consumo de APIs</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../UD8/05-dom-dinamico.html" class="pagination-link" aria-label="Modificación dinámica del contenido y la estructura">
+        <span class="nav-page-text"><span class="chapter-title">Modificación dinámica del contenido y la estructura</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Manel Navarro Pérez | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>DWES | 2º DAW | Módulo 0613</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
