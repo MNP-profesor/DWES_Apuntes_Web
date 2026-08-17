@@ -1,0 +1,338 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Desarrollo Web en Entorno Servidor",
+    "section": "",
+    "text": "Presentación del módulo\nBienvenido/a a los apuntes del módulo Desarrollo Web en Entorno Servidor (DWES, código 0613) de 2º curso del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web (DAW).",
+    "crumbs": [
+      "📋 Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-del-módulo",
+    "href": "index.html#estructura-del-módulo",
+    "title": "Desarrollo Web en Entorno Servidor",
+    "section": "Estructura del módulo",
+    "text": "Estructura del módulo\nEl módulo se organiza en 9 unidades didácticas, cada una asociada a un Resultado de Aprendizaje:\n\nDistribución de unidades (200 horas totales)\n\n\n\n\n\n\n\n\nUD\nTítulo\nRA\nHoras\n\n\n\n\n1\nArquitecturas y tecnologías de programación Web en entorno servidor\nRA1\n8\n\n\n2\nFundamentos de PHP: variables, operadores y sintaxis embebida\nRA2\n16\n\n\n3\nEstructuras de control, funciones y formularios en PHP\nRA3\n18\n\n\n4\nPOO en PHP y Desarrollo de funcionalidades Web: autenticación, sesiones y cookies\nRA4\n36\n\n\n5\nSeparación de la lógica de negocio: MVC con Laravel\nRA5\n32\n\n\n6\nAcceso a BBDD con PDO: seguridad e integridad\nRA6\n34\n\n\n7\nServicios Web: API REST con Laravel (Resources y Sanctum)\nRA7\n26\n\n\n8\nGeneración dinámica de páginas Web\nRA8\n18\n\n\n9\nAplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)\nRA9\n12",
+    "crumbs": [
+      "📋 Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "index.html#cómo-usar-estos-apuntes",
+    "href": "index.html#cómo-usar-estos-apuntes",
+    "title": "Desarrollo Web en Entorno Servidor",
+    "section": "Cómo usar estos apuntes",
+    "text": "Cómo usar estos apuntes\n\nLa teoría y los ejercicios están intercalados: practica cada concepto justo después de estudiarlo.\nLos bloques de código PHP son completos y ejecutables: pruébalos en tu entorno.\nLas cajas de color tienen un significado fijo en los apuntes:\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nDefiniciones y fundamentos que debes dominar.\n\n\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nComparativa con lo que ya conoces de la programación Java de 1º curso.\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nConsejos para saber cómo evitarlos.\n\n\n\n\n\n\n\n\nImportanteNormativa | RA-CE\n\n\n\nVinculación del contenido con los Criterios de Evaluación oficiales.\n\n\nEn la página de Descargas tienes el libro completo y cada unidad en PDF y EPUB.\n\nEstos materiales se publican bajo licencia CC BY-NC-SA 4.0.",
+    "crumbs": [
+      "📋 Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "UD1/00-presentacion.html",
+    "href": "UD1/00-presentacion.html",
+    "title": "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+    "section": "",
+    "text": "Presentación de la unidad",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor"
+    ]
+  },
+  {
+    "objectID": "UD1/00-presentacion.html#presentación-de-la-unidad",
+    "href": "UD1/00-presentacion.html#presentación-de-la-unidad",
+    "title": "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+    "section": "",
+    "text": "Qué aprenderás\nEn esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.\n\n\nObjetivos\n\nDistinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.\nReconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).\nDiferenciar un servidor web de un servidor de aplicaciones.\nComparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.\nIdentificar los delimitadores que separan el código de servidor del HTML en un documento mixto.\nPoner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA1. Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE1.a\nSe han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.\n\n\nCE1.b\nSe han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.\n\n\nCE1.c\nSe han identificado los mecanismos de ejecución de código en los servidores Web.\n\n\nCE1.d\nSe han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.\n\n\nCE1.e\nSe han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.\n\n\nCE1.f\nSe han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.\n\n\nCE1.g\nSe han reconocido y evaluado las herramientas de programación en entorno servidor.\n\n\n\n\n\nContenidos\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nModelos de ejecución: cliente y servidor\nCE1.a\n\n\n2\nPáginas estáticas y dinámicas\nCE1.b\n\n\n3\nServidor web y servidor de aplicaciones\nCE1.c-d\n\n\n4\nLenguajes y tecnologías en entorno servidor\nCE1.e\n\n\n5\nIntegración con lenguajes de marcas\nCE1.f\n\n\n6\nHerramientas de desarrollo\nCE1.c-e\n\n\n\n\n\nRecursos y materiales\n\nServidor local PHP (XAMPP, PHP embebido o Docker)\nDocumentación oficial de PHP\nNavegador con herramientas de desarrollador (F12)\nEditor de código (VS Code recomendado)\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nClasificación por lugar de ejecución\nNo\n\n\nEJ2\n¿Estático, dinámico embebido o script independiente?\nNo\n\n\nEJ3\nIdentificación de roles en una arquitectura real\nNo\n\n\nEJ4\nAnálisis comparativo de escenarios\nNo\n\n\nEJ5\nTrazado manual de la salida\nNo\n\n\nEJ6\nPuesta en marcha del entorno\nSí",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor"
+    ]
+  },
+  {
+    "objectID": "UD1/01-modelo-ejecucion.html",
+    "href": "UD1/01-modelo-ejecucion.html",
+    "title": "Modelos de ejecución: cliente y servidor",
+    "section": "",
+    "text": "Ejecución en el cliente\nCuando el navegador pide una página, el servidor la procesa y devuelve HTML. Pero ese procesamiento puede ocurrir en dos lugares muy distintos: en el servidor (antes de que llegue nada al navegador) o en el cliente (dentro del propio navegador, después de recibir la respuesta). Saber distinguirlos es la base de todo lo que viene en el módulo.\nEl código que se ejecuta en el cliente lo interpreta el navegador del usuario. Tiene acceso al contenido visible de la página (el DOM) pero no puede tocar la base de datos ni el sistema de ficheros del servidor.\nEjemplos típicos de código de cliente:\nLa tecnología principal en el cliente es JavaScript. CSS y HTML también se procesan en el cliente, pero no son lenguajes de programación.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Modelos de ejecución: cliente y servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/01-modelo-ejecucion.html#ejecución-en-el-cliente",
+    "href": "UD1/01-modelo-ejecucion.html#ejecución-en-el-cliente",
+    "title": "Modelos de ejecución: cliente y servidor",
+    "section": "",
+    "text": "Validar que un campo de formulario no está vacío antes de enviarlo.\nMostrar u ocultar un menú desplegable al hacer clic.\nActualizar un contador en pantalla sin recargar la página.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Modelos de ejecución: cliente y servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/01-modelo-ejecucion.html#ejecución-en-el-servidor",
+    "href": "UD1/01-modelo-ejecucion.html#ejecución-en-el-servidor",
+    "title": "Modelos de ejecución: cliente y servidor",
+    "section": "Ejecución en el servidor",
+    "text": "Ejecución en el servidor\nEl código que se ejecuta en el servidor corre antes de que la respuesta llegue al navegador. El usuario nunca ve ese código: solo recibe el HTML que el servidor genera como resultado.\nVentajas clave:\n\nAcceso directo a bases de datos, ficheros y servicios internos.\nEl código fuente nunca llega al cliente (protege lógica de negocio y credenciales).\nFunciona igual en cualquier navegador o dispositivo.\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nLa pregunta que debes hacerte ante cualquier fragmento de código no es «¿qué lenguaje es?» sino «¿dónde se ejecuta?». PHP se ejecuta en el servidor. JavaScript puede ejecutarse en ambos lados según el contexto: en el navegador es código de cliente; en Node.js es código de servidor.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Modelos de ejecución: cliente y servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/01-modelo-ejecucion.html#mecanismos-de-ejecución-en-el-servidor",
+    "href": "UD1/01-modelo-ejecucion.html#mecanismos-de-ejecución-en-el-servidor",
+    "title": "Modelos de ejecución: cliente y servidor",
+    "section": "Mecanismos de ejecución en el servidor",
+    "text": "Mecanismos de ejecución en el servidor\nUn servidor web (Apache, Nginx) por sí solo solo sabe devolver ficheros estáticos. Para ejecutar código necesita uno de estos mecanismos:\n\nMecanismos de ejecución de código en el servidor\n\n\n\n\n\n\n\nMecanismo\nCómo funciona\nCoste\n\n\n\n\nCGI\nLanza un proceso nuevo por cada petición\nAlto — crea y destruye un proceso en cada request\n\n\nMódulo embebido (mod_php)\nEl intérprete vive dentro del propio proceso del servidor\nBajo, pero el intérprete y el servidor comparten ciclo de vida\n\n\nFastCGI / PHP-FPM\nMantiene un pool de procesos ya iniciados que se reutilizan\nBajo — es el modelo estándar en producción con PHP\n\n\nContenedor de servlets\nUn servidor de aplicaciones (Tomcat) mantiene las clases cargadas en memoria y usa hilos\nBajo — modelo estándar en Java EE",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Modelos de ejecución: cliente y servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/01-modelo-ejecucion.html#actividades",
+    "href": "UD1/01-modelo-ejecucion.html#actividades",
+    "title": "Modelos de ejecución: cliente y servidor",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ1 · Clasificación por lugar de ejecución\nIndica si cada elemento de la lista se ejecuta en el cliente, en el servidor o en ambos. Por último, justifica la respuesta.\n\n\n\n#\nElemento\nLugar de ejecución\nJustificación\n\n\n\n\n1\nPHP\n\n\n\n\n2\nJavaScript en el navegador\n\n\n\n\n3\njQuery\n\n\n\n\n4\nNode.js\n\n\n\n\n5\nCSS\n\n\n\n\n6\nJava Servlets\n\n\n\n\n7\nPython con Django\n\n\n\n\n8\nUna petición AJAX\n\n\n\n\n9\nWebSockets (lado cliente)\n\n\n\n\n10\nUna consulta SQL ejecutada desde PHP\n\n\n\n\n11\nValidación de formulario con JavaScript\n\n\n\n\n12\nfetch() en el navegador\n\n\n\n\n\n\n\n\n\n\n\nNotaNota\n\n\n\nLos casos 4, 8 y 9 admiten más de una respuesta válida, pero lo importante es el razonamiento aplicado.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Modelos de ejecución: cliente y servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/02-paginas-dinamicas.html",
+    "href": "UD1/02-paginas-dinamicas.html",
+    "title": "Páginas estáticas y dinámicas",
+    "section": "",
+    "text": "Dos estrategias para generar contenido dinámico\nUna página estática es un fichero HTML guardado en disco que el servidor devuelve tal cual. Siempre es la misma para todos los usuarios.\nUna página dinámica se genera en el momento de la petición: el servidor ejecuta código, consulta datos y construye el HTML resultante sobre la marcha. El usuario puede recibir un contenido distinto dependiendo de quién es, qué ha pedido o qué hay en la base de datos.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Páginas estáticas y dinámicas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/02-paginas-dinamicas.html#dos-estrategias-para-generar-contenido-dinámico",
+    "href": "UD1/02-paginas-dinamicas.html#dos-estrategias-para-generar-contenido-dinámico",
+    "title": "Páginas estáticas y dinámicas",
+    "section": "",
+    "text": "Código embebido en el HTML\nEl código de servidor se inserta directamente dentro del documento HTML. El servidor localiza los bloques de código, los ejecuta y sustituye el resultado en su lugar antes de enviar la respuesta.\n&lt;!-- fichero saludo.php --&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;h1&gt;Hola, &lt;?php echo \"mundo\"; ?&gt;&lt;/h1&gt;\n  &lt;p&gt;Hoy es &lt;?php echo date('d/m/Y'); ?&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nLo que llega al navegador:\n&lt;html&gt;\n&lt;body&gt;\n  &lt;h1&gt;Hola, mundo&lt;/h1&gt;\n  &lt;p&gt;Hoy es 11/07/2026&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nEste es el modelo que usaremos en PHP a lo largo del módulo.\n\n\nScript independiente\nEl código genera él mismo todo el HTML mediante instrucciones de salida. No hay plantilla HTML: el script construye el documento completo.\n# Ejemplo CGI en Python\nprint(\"Content-Type: text/html\\n\")\nprint(\"&lt;html&gt;&lt;body&gt;\")\nprint(\"&lt;h1&gt;Hola desde Python&lt;/h1&gt;\")\nprint(\"&lt;/body&gt;&lt;/html&gt;\")\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nVentajas de la generación dinámica. Puedes mostrar datos actualizados sin tocar el código, personalizar el contenido según el usuario y responder a formularios o parámetros de la URL de forma automática.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Páginas estáticas y dinámicas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/02-paginas-dinamicas.html#actividades",
+    "href": "UD1/02-paginas-dinamicas.html#actividades",
+    "title": "Páginas estáticas y dinámicas",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ2 · ¿Estático, dinámico embebido o script independiente?\nClasifica cada fragmento e identifica la pista textual que te ha llevado a esa conclusión.\nFragmento 1\n&lt;html&gt;\n&lt;body&gt;\n  &lt;h1&gt;Bienvenido&lt;/h1&gt;\n  &lt;p&gt;Esta página no cambia nunca.&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nFragmento 2\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;Usuarios registrados: &lt;?php echo $total; ?&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nFragmento 3\nprint(\"Content-Type: text/html\\n\")\nprint(\"&lt;html&gt;&lt;body&gt;&lt;p&gt;Generado desde Python&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;\")\nFragmento 4\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p id=\"contador\"&gt;0&lt;/p&gt;\n  &lt;script&gt;\n    document.getElementById('contador').textContent = Date.now();\n  &lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nFragmento 5\n&lt;p&gt;Hola, {{ nombre }}. Tienes {{ mensajes }} mensajes nuevos.&lt;/p&gt;\nFragmento 6\n&lt;html&gt;\n&lt;body&gt;\n  &lt;% Response.Write(\"Hora: \" & Now()) %&gt;\n&lt;/body&gt;\n&lt;/html&gt;",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Páginas estáticas y dinámicas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/03-servidor-web-aplicaciones.html",
+    "href": "UD1/03-servidor-web-aplicaciones.html",
+    "title": "Servidor web y servidor de aplicaciones",
+    "section": "",
+    "text": "El servidor web\nEn conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.\nEl servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.\nLo que sabe hacer solo:\nLo que no sabe hacer solo: ejecutar PHP, Python o cualquier otro código. Para eso delega en otro componente (FastCGI, módulo embebido, proxy hacia un servidor de aplicaciones).",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Servidor web y servidor de aplicaciones</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/03-servidor-web-aplicaciones.html#el-servidor-web",
+    "href": "UD1/03-servidor-web-aplicaciones.html#el-servidor-web",
+    "title": "Servidor web y servidor de aplicaciones",
+    "section": "",
+    "text": "Devolver ficheros estáticos (HTML, CSS, imágenes, JS).\nGestionar TLS, compresión, caché y logs.\nRedirigir o reescribir URLs.\n\n\n\n\n\n\n\n\nTipDato adicional\n\n\n\nExisten alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Servidor web y servidor de aplicaciones</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/03-servidor-web-aplicaciones.html#el-servidor-de-aplicaciones",
+    "href": "UD1/03-servidor-web-aplicaciones.html#el-servidor-de-aplicaciones",
+    "title": "Servidor web y servidor de aplicaciones",
+    "section": "El servidor de aplicaciones",
+    "text": "El servidor de aplicaciones\nEl servidor de aplicaciones ejecuta la lógica de negocio y ofrece servicios de infraestructura que un servidor web no proporciona:\n\nMantiene en memoria el estado de la aplicación entre peticiones (sesiones, pools de conexión a la BD).\nGestiona transacciones, seguridad declarativa y balanceo de carga interno.\nEn Java EE, es el contenedor que ejecuta Servlets, JSP y EJB (Tomcat, JBoss, WildFly).",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Servidor web y servidor de aplicaciones</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/03-servidor-web-aplicaciones.html#cómo-cooperan",
+    "href": "UD1/03-servidor-web-aplicaciones.html#cómo-cooperan",
+    "title": "Servidor web y servidor de aplicaciones",
+    "section": "Cómo cooperan",
+    "text": "Cómo cooperan\nUna arquitectura típica con ambos:\nNavegador\n   │  HTTP\n   ▼\nNginx  ──── ficheros estáticos ──▶ respuesta directa\n   │\n   │  petición dinámica\n   ▼\nPHP-FPM / Tomcat  ──▶ lógica + BD  ──▶ HTML generado\n   │\n   ▼\nNginx devuelve la respuesta al navegador\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEn el ecosistema PHP, PHP-FPM hace el papel de servidor de aplicaciones ligero: mantiene procesos activos en un pool y los reutiliza. No ofrece transacciones distribuidas ni servicios empresariales, pero cubre la mayoría de los casos de uso web.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Servidor web y servidor de aplicaciones</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/03-servidor-web-aplicaciones.html#actividades",
+    "href": "UD1/03-servidor-web-aplicaciones.html#actividades",
+    "title": "Servidor web y servidor de aplicaciones",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ3 · Identificación de roles en una arquitectura real\nLa siguiente arquitectura de producción tiene estos componentes:\nInternet\n   │\n   ▼\nBalanceador de carga\n   │              │\n   ▼              ▼\nNginx #1       Nginx #2\n   │\n   ▼\nPHP-FPM (pool de 3 procesos)\n   │\n   ▼\nMySQL\nResponde:\n\n¿Qué componente actúa como servidor web?\n¿Qué componente se aproxima más al concepto de servidor de aplicaciones? Justifica por qué y señala en qué se diferencia de un servidor de aplicaciones en sentido estricto.\n¿Por qué el balanceador de carga no es ni servidor web ni servidor de aplicaciones?",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Servidor web y servidor de aplicaciones</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/04-lenguajes-tecnologias.html",
+    "href": "UD1/04-lenguajes-tecnologias.html",
+    "title": "Lenguajes y tecnologías en entorno servidor",
+    "section": "",
+    "text": "Comparativa\nNo existe la tecnología «mejor» para programar en servidor. La elección depende del proyecto, el equipo y los requisitos. A continuación se comparan las opciones más habituales.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lenguajes y tecnologías en entorno servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/04-lenguajes-tecnologias.html#comparativa",
+    "href": "UD1/04-lenguajes-tecnologias.html#comparativa",
+    "title": "Lenguajes y tecnologías en entorno servidor",
+    "section": "",
+    "text": "Tecnologías de programación en entorno servidor\n\n\n\n\n\n\n\n\nTecnología\nModelo de ejecución\nPuntos fuertes\nUso típico\n\n\n\n\nPHP\nProceso por petición (FastCGI/FPM)\nSencillo de aprender, enorme ecosistema web, frameworks maduros (Laravel, Symfony)\nCMS, comercio electrónico, APIs web\n\n\nJava EE / JSP\nMultihilo en servidor de aplicaciones\nTipado fuerte, escalabilidad empresarial, ecosistema maduro\nBanca, administración pública, ERPs\n\n\nASP.NET (C#)\nMultihilo en IIS / Kestrel\nIntegración con ecosistema Microsoft, alto rendimiento, .NET Core multiplataforma\nAplicaciones corporativas Microsoft\n\n\nPython (Django/Flask)\nProceso/hilo según servidor\nSintaxis legible, fuerte en datos e IA, Django «todo incluido»\nCiencia de datos, startups, APIs\n\n\nNode.js\nE/S no bloqueante, un hilo de evento\nMismo lenguaje en cliente y servidor, altísima concurrencia\nAPIs en tiempo real, microservicios",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lenguajes y tecnologías en entorno servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/04-lenguajes-tecnologias.html#ejemplos-del-mismo-resultado-en-distintas-tecnologías",
+    "href": "UD1/04-lenguajes-tecnologias.html#ejemplos-del-mismo-resultado-en-distintas-tecnologías",
+    "title": "Lenguajes y tecnologías en entorno servidor",
+    "section": "Ejemplos del mismo resultado en distintas tecnologías",
+    "text": "Ejemplos del mismo resultado en distintas tecnologías\nEl siguiente fragmento muestra cómo se imprime «Hola, mundo» en cada tecnología. La lógica es idéntica; solo cambia la sintaxis y el mecanismo de salida.\nPHP\n&lt;?php echo \"Hola, mundo\"; ?&gt;\nJSP (Java)\n&lt;%= \"Hola, mundo\" %&gt;\nASP.NET (C#) — Razor\n@(\"Hola, mundo\")\nPython (Flask)\nfrom flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    return \"Hola, mundo\"\nNode.js (Express)\nconst express = require('express')\nconst app = express()\n\napp.get('/', (req, res) =&gt; res.send('Hola, mundo'))\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\n¿Por qué PHP en este módulo? Es la tecnología de servidor más extendida en el mercado laboral español para pequeña y mediana empresa, su modelo de código embebido facilita la transición desde HTML, y dentro de las 200 horas del módulo permite llegar a contenidos avanzados (MVC con Laravel, APIs REST) sin sobrecarga de configuración.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lenguajes y tecnologías en entorno servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/04-lenguajes-tecnologias.html#actividades",
+    "href": "UD1/04-lenguajes-tecnologias.html#actividades",
+    "title": "Lenguajes y tecnologías en entorno servidor",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ4 · Análisis comparativo de escenarios\nEsta actividad se realiza en grupo. A cada grupo se le asigna uno de los siguientes escenarios:\n\nA: tienda online de pequeño volumen, presupuesto ajustado, equipo de dos desarrolladores sin experiencia previa en servidor.\nB: intranet corporativa de una gran empresa cuyo equipo de desarrollo lleva diez años trabajando con Java.\nC: API para una aplicación de mensajería que debe soportar 50 000 conexiones simultáneas.\nD: proyecto personal de aprendizaje sin restricciones de equipo ni presupuesto.\n\nEl grupo debe:\n\nRecomendar una tecnología de servidor para su escenario.\nJustificar la elección con al menos tres argumentos técnicos (no de preferencia personal).\nCitar una alternativa descartada y explicar por qué no encaja en ese escenario.\n\nCada grupo dispondrá de 10 minutos para analizar el escenario y luego se hará una ronda para comentar cada uno.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lenguajes y tecnologías en entorno servidor</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/05-integracion-marcas.html",
+    "href": "UD1/05-integracion-marcas.html",
+    "title": "Integración con lenguajes de marcas",
+    "section": "",
+    "text": "Delimitadores de código\nCuando PHP procesa un fichero .php, recorre el documento línea a línea. Todo lo que está fuera de los delimitadores &lt;?php ... ?&gt; se envía al cliente sin modificar. Todo lo que está dentro se ejecuta, y solo el resultado de esa ejecución se inserta en la respuesta.\nCada tecnología de código embebido usa sus propias etiquetas:",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Integración con lenguajes de marcas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/05-integracion-marcas.html#delimitadores-de-código",
+    "href": "UD1/05-integracion-marcas.html#delimitadores-de-código",
+    "title": "Integración con lenguajes de marcas",
+    "section": "",
+    "text": "Tecnología\nAbre\nCierra\n\n\n\n\nPHP (estándar)\n&lt;?php\n?&gt;\n\n\nPHP (echo directo)\n&lt;?=\n?&gt;\n\n\nBlade (Laravel)\n{{\n}}\n\n\nASP.NET (clásico, Web Forms)\n&lt;% (lógica) / &lt;%= (salida)\n%&gt;\n\n\nJSP\n&lt;% o &lt;%=\n%&gt;",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Integración con lenguajes de marcas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/05-integracion-marcas.html#ejemplos-paso-a-paso",
+    "href": "UD1/05-integracion-marcas.html#ejemplos-paso-a-paso",
+    "title": "Integración con lenguajes de marcas",
+    "section": "Ejemplos paso a paso",
+    "text": "Ejemplos paso a paso\n\nEjemplo 1 — Valor fijo\nFichero fuente (saludo.php):\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;&lt;?php echo \"Buenos días\"; ?&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nHTML que recibe el navegador:\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;Buenos días&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\nEjemplo 2 — Expresión calculada\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;El doble de 21 es &lt;?php echo 21 * 2; ?&gt;&lt;/p&gt;\n  &lt;p&gt;Hoy es &lt;?php echo date('d/m/Y'); ?&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nHTML resultante:\n&lt;html&gt;\n&lt;body&gt;\n  &lt;p&gt;El doble de 21 es 42&lt;/p&gt;\n  &lt;p&gt;Hoy es 11/07/2026&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\nEjemplo 3 — Forma corta &lt;?=\n&lt;?= expresión ?&gt; es equivalente a &lt;?php echo expresión ?&gt;:\n&lt;title&gt;&lt;?= \"Mi tienda\" ?&gt;&lt;/title&gt;\nResultado:\n&lt;title&gt;Mi tienda&lt;/title&gt;\n\n\nEjemplo 4 — Varios bloques en un mismo documento\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;&lt;?= \"Panel de usuario\" ?&gt;&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Bienvenido&lt;/h1&gt;\n  &lt;p&gt;Servidor: &lt;?php echo $_SERVER['SERVER_NAME']; ?&gt;&lt;/p&gt;\n  &lt;p&gt;Protocolo: &lt;?php echo $_SERVER['SERVER_PROTOCOL']; ?&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nResultado (en un servidor local):\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Panel de usuario&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Bienvenido&lt;/h1&gt;\n  &lt;p&gt;Servidor: localhost&lt;/p&gt;\n  &lt;p&gt;Protocolo: HTTP/1.1&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl navegador nunca recibe código PHP. Si ves el código &lt;?php ... ?&gt; en el código fuente de la página (menú Ver código fuente), el servidor no está procesando el fichero — probablemente el fichero tiene extensión .html en lugar de .php, o el intérprete PHP no está activo.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Integración con lenguajes de marcas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/05-integracion-marcas.html#actividades",
+    "href": "UD1/05-integracion-marcas.html#actividades",
+    "title": "Integración con lenguajes de marcas",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ5 · Trazado manual de la salida\nDado el siguiente documento, escribe el HTML exacto que el navegador recibiría cuando $usuario = \"Ana\", $rol = \"admin\" y $productos = [\"Teclado\", \"Ratón\"].\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;h1&gt;Hola, &lt;?= $usuario ?&gt;&lt;/h1&gt;\n  &lt;p&gt;&lt;?= count($productos) ?&gt; artículos en el catálogo:&lt;/p&gt;\n  &lt;ul&gt;\n    &lt;?php foreach ($productos as $i =&gt; $p): ?&gt;\n    &lt;li&gt;&lt;?= ($i + 1) . '. ' . $p ?&gt;&lt;/li&gt;\n    &lt;?php endforeach; ?&gt;\n  &lt;/ul&gt;\n  &lt;?php if ($rol === 'admin'): ?&gt;\n    &lt;a href=\"/panel\"&gt;Acceder al panel&lt;/a&gt;\n  &lt;?php else: ?&gt;\n    &lt;a href=\"/perfil\"&gt;Ver mi perfil&lt;/a&gt;\n  &lt;?php endif; ?&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nResultado esperado (para $usuario = \"Ana\", $rol = \"admin\", $productos = [\"Teclado\", \"Ratón\"]):\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n  &lt;h1&gt;Hola, Ana&lt;/h1&gt;\n  &lt;p&gt;2 artículos en el catálogo:&lt;/p&gt;\n  &lt;ul&gt;\n    &lt;li&gt;1. Teclado&lt;/li&gt;\n    &lt;li&gt;2. Ratón&lt;/li&gt;\n  &lt;/ul&gt;\n    &lt;a href=\"/panel\"&gt;Acceder al panel&lt;/a&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nAhora repite el ejercicio con $rol = \"cliente\" y $productos = [\"Teclado\", \"Ratón\", \"Monitor\"]. ¿Qué cambia en el HTML resultante?",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Integración con lenguajes de marcas</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/06-herramientas.html",
+    "href": "UD1/06-herramientas.html",
+    "title": "Herramientas de desarrollo",
+    "section": "",
+    "text": "Opción A — XAMPP (Uso tradicional)\nPara ejecutar PHP en local necesitas tres componentes: un servidor web (Apache o Nginx), el intérprete PHP y, habitualmente, un gestor de base de datos (MySQL/MariaDB). Hay dos formas principales de tenerlos juntos.\nXAMPP agrupa Apache, PHP, MariaDB y phpMyAdmin en un único instalador. Es la opción más rápida para empezar.\nDescarga: apachefriends.org\nUna vez instalado, copia tus ficheros .php en la carpeta htdocs/ y accede a http://localhost/ en el navegador. El panel de control de XAMPP te permite arrancar y parar Apache y MySQL con un clic.\nVariantes equivalentes: WAMP (Windows), MAMP (macOS).",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Herramientas de desarrollo</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/06-herramientas.html#opción-a-xampp-uso-tradicional",
+    "href": "UD1/06-herramientas.html#opción-a-xampp-uso-tradicional",
+    "title": "Herramientas de desarrollo",
+    "section": "",
+    "text": "Imagen XAMPP Windows",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Herramientas de desarrollo</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/06-herramientas.html#opción-b-docker-uso-de-contenedores",
+    "href": "UD1/06-herramientas.html#opción-b-docker-uso-de-contenedores",
+    "title": "Herramientas de desarrollo",
+    "section": "Opción B — Docker (Uso de contenedores)",
+    "text": "Opción B — Docker (Uso de contenedores)\nDocker es un motor de contenedores: permite empaquetar una aplicación junto con todo lo que necesita para ejecutarse (sistema operativo base, dependencias, configuración) en una unidad aislada llamada contenedor. El contenedor se comporta igual en cualquier máquina, independientemente del sistema operativo del anfitrión.\nDocker Compose es una herramienta que se construye sobre Docker y permite definir y orquestar varios contenedores a la vez mediante un único fichero de texto (docker-compose.yml). En lugar de lanzar cada contenedor manualmente con docker run (especificando imagen, puertos y volúmenes en la línea de comandos), con Compose defines todo eso en el fichero y levantas el entorno completo con un solo comando.\nPara nuestros proyectos PHP, el fichero docker-compose.yml especifica:\n\nQué imagen usar (php:8.2-apache — PHP con Apache ya integrado).\nEn qué puerto escucha el contenedor y cómo se mapea al puerto de tu máquina.\nQué carpeta local contiene los ficheros .php y dónde se monta dentro del contenedor.\n\nCrea la carpeta Prueba/ con esta estructura:\nPrueba/\n├── docker-compose.yml\n└── src/\n    └── fichero.php\nSe implementa el fichero docker-compose.yml y en src/ se ubicarán los ficheros .php del proyecto.\nLa ventaja principal del uso de contenedores es la portabilidad de los proyectos, ya que el docker-compose.yml funcionará igual en cualquier máquina, con independencia de qué sistema operativo se esté utilizando.\nEjemplo mínimo de docker-compose.yml para PHP + Apache:\nservices:\n  web:\n    image: php:8.2-apache\n    ports:\n      - \"8080:80\"\n    volumes:\n      - ./src:/var/www/html\nLuego, estando ubicado en Prueba/, con el siguiente comando levantamos el contenedor:\ndocker compose up -d\nComprueba que el contenedor esté levantado:\ndocker ps\nPor último, accede a http://localhost:8080/ para probar.\nSi queremos parar el entorno:\ndocker compose down",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Herramientas de desarrollo</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/06-herramientas.html#editor-de-código",
+    "href": "UD1/06-herramientas.html#editor-de-código",
+    "title": "Herramientas de desarrollo",
+    "section": "Editor de código",
+    "text": "Editor de código\n\n\n\n\n\n\n\n\nHerramienta\nTipo\nNotas\n\n\n\n\nVisual Studio Code + PHP Intelephense\nEditor extensible, gratuito\nRecomendado para este módulo\n\n\nPhpStorm\nIDE específico PHP, de pago\nMás completo; recomendado en proyectos grandes\n\n\nEclipse PDT (PHP Development Tools)\nIDE genérico con plugin PHP, gratuito\nMás pesado que VS Code",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Herramientas de desarrollo</span>"
+    ]
+  },
+  {
+    "objectID": "UD1/06-herramientas.html#actividades",
+    "href": "UD1/06-herramientas.html#actividades",
+    "title": "Herramientas de desarrollo",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ6 · Puesta en marcha del entorno\nHaciendo uso de XAMPP y Docker como servidor, crea el fichero presentacion_TuNombre.php que muestre en el navegador la información siguiente:\n\nTu nombre y el ciclo al que perteneces.\nLa fecha y hora actuales (generadas por PHP, no escritas a mano).\nUna tabla con estos datos técnicos del entorno: versión de PHP, sistema operativo, servidor web, límite de memoria y tamaño máximo de subida.\n\nLa página debe tener un aspecto cuidado (usa CSS básico) y debe funcionar correctamente en los dos entornos: XAMPP y Docker.\nFunciones de PHP que necesitarás (Más información en php.net):\nphpversion()                  // versión de PHP instalada\nphp_uname()                   // información del sistema operativo\n$_SERVER['SERVER_SOFTWARE']   // servidor web\nini_get('memory_limit')       // valor de una directiva de php.ini\ndate('d/m/Y')                 // fecha actual\ndate('H:i:s')                 // hora actual\nEntrega:\n\nPDF con las capturas de pantalla del resultado en cada uno de los dos entornos (XAMPP y Docker).\nFichero presentacion_TuNombre.php implementado.\n\nEjemplo de posible solución:\n\n\n\nDesde el navegador\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nSi el navegador muestra el código fuente PHP en lugar de la página renderizada, el intérprete no está procesando el fichero. Comprueba que Apache está en marcha (XAMPP) o que el contenedor está levantado (comando docker ps), y que el fichero tiene extensión .php y no .html.",
+    "crumbs": [
+      "UD1. Arquitecturas y tecnologías de programación Web en entorno servidor",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Herramientas de desarrollo</span>"
+    ]
+  }
+]
