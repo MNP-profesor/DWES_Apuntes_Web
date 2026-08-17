@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sintaxis, variables y constantes – Desarrollo Web en Entorno Servidor</title>
+<title>Herencia, namespaces y excepciones – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD2/03-tipos-conversion.html" rel="next">
-<link href="../UD2/01-generacion-embebida.html" rel="prev">
+<link href="../UD4/04-poo-avanzada.html" rel="next">
+<link href="../UD4/02-constructores-y-encapsulacion.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/02-sintaxis-variables.html"><span class="chapter-title">Sintaxis, variables y constantes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/03-herencia-namespaces-excepciones.html"><span class="chapter-title">Herencia, namespaces y excepciones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -367,8 +367,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -376,27 +376,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
@@ -411,10 +436,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#sentencias-y-comentarios" id="toc-sentencias-y-comentarios" class="nav-link active" data-scroll-target="#sentencias-y-comentarios">Sentencias y comentarios</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
-  <li><a href="#constantes" id="toc-constantes" class="nav-link" data-scroll-target="#constantes">Constantes</a></li>
-  <li><a href="#var_dumpisset-empty-y-unset" id="toc-var_dumpisset-empty-y-unset" class="nav-link" data-scroll-target="#var_dumpisset-empty-y-unset"><code>var_dump</code>,<code>isset()</code>, <code>empty()</code> y <code>unset()</code></a></li>
+  <li><a href="#herencia" id="toc-herencia" class="nav-link active" data-scroll-target="#herencia">Herencia</a></li>
+  <li><a href="#polimorfismo-y-sobreescritura" id="toc-polimorfismo-y-sobreescritura" class="nav-link" data-scroll-target="#polimorfismo-y-sobreescritura">Polimorfismo y sobreescritura</a></li>
+  <li><a href="#namespaces" id="toc-namespaces" class="nav-link" data-scroll-target="#namespaces">Namespaces</a></li>
+  <li><a href="#control-de-errores-y-excepciones" id="toc-control-de-errores-y-excepciones" class="nav-link" data-scroll-target="#control-de-errores-y-excepciones">Control de errores y excepciones</a>
+  <ul class="collapse">
+  <li><a href="#excepciones-personalizadas" id="toc-excepciones-personalizadas" class="nav-link" data-scroll-target="#excepciones-personalizadas">Excepciones personalizadas</a></li>
+  <li><a href="#capturar-varios-tipos-de-excepción" id="toc-capturar-varios-tipos-de-excepción" class="nav-link" data-scroll-target="#capturar-varios-tipos-de-excepción">Capturar varios tipos de excepción</a></li>
+  </ul></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -423,9 +452,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/02-sintaxis-variables.html"><span class="chapter-title">Sintaxis, variables y constantes</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/03-herencia-namespaces-excepciones.html"><span class="chapter-title">Herencia, namespaces y excepciones</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Sintaxis, variables y constantes</span></h1>
+<h1 class="title"><span class="chapter-title">Herencia, namespaces y excepciones</span></h1>
 </div>
 
 
@@ -442,19 +471,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="sentencias-y-comentarios" class="level2">
-<h2 class="anchored" data-anchor-id="sentencias-y-comentarios">Sentencias y comentarios</h2>
-<p>Cada sentencia termina en <code>;</code>. Los comentarios tienen la misma sintaxis que en la mayoría de lenguajes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="kw">echo</span> <span class="st">"Hola"</span><span class="ot">;</span>          <span class="co">// comentario de línea</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="kw">echo</span> <span class="st">" mundo"</span><span class="ot">;</span>        <span class="co"># también válido (estilo shell)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="co">/*</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="co">  Bloque de comentario.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="co">  No se envía al navegador.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="co">*/</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="kw">echo</span> <span class="st">"!"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Salida: <code>Hola mundo!</code></p>
+<section id="herencia" class="level2">
+<h2 class="anchored" data-anchor-id="herencia">Herencia</h2>
+<p><code>extends</code> permite que una clase reutilice y amplíe otra. <code>parent::</code> invoca el método del padre.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">class</span> Usuario {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>    <span class="kw">protected</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="dt">string</span> <span class="va">$nombre</span>) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>        <span class="va">$this</span>-&gt;nombre <span class="op">=</span> <span class="va">$nombre</span><span class="ot">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    }</span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> permisos()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>        <span class="cf">return</span> [<span class="st">'ver_perfil'</span>]<span class="ot">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>    }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a><span class="kw">class</span> Administrador <span class="kw">extends</span> Usuario {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>    <span class="kw">public</span> <span class="kw">function</span> permisos()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>        <span class="cf">return</span> <span class="fu">array_merge</span>(<span class="kw">parent</span>::permisos()<span class="ot">,</span> [<span class="st">'gestionar_usuarios'</span>])<span class="ot">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a>    }</span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-label="18"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-label="19"></a><span class="va">$u</span> <span class="op">=</span> <span class="kw">new</span> Usuario(<span class="st">'Ana'</span>)<span class="ot">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-label="20"></a><span class="va">$a</span> <span class="op">=</span> <span class="kw">new</span> Administrador(<span class="st">'Luis'</span>)<span class="ot">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-label="21"></a><span class="fu">print_r</span>(<span class="va">$u</span>-&gt;permisos())<span class="ot">;</span> <span class="co">// ['ver_perfil']</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-label="22"></a><span class="fu">print_r</span>(<span class="va">$a</span>-&gt;permisos())<span class="ot">;</span> <span class="co">// ['ver_perfil', 'gestionar_usuarios']</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Otro ejemplo, jerarquía de figuras:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">class</span> Figura {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>    }</span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a><span class="kw">class</span> Circulo <span class="kw">extends</span> Figura {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">private</span> <span class="dt">float</span> <span class="va">$radio</span>) {}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>    <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>        <span class="cf">return</span> <span class="fu">pi</span>() <span class="op">*</span> <span class="va">$this</span>-&gt;radio <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>    }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a><span class="kw">class</span> Cuadrado <span class="kw">extends</span> Figura {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-label="16"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">private</span> <span class="dt">float</span> <span class="va">$lado</span>) {}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-label="17"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>    <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a>        <span class="cf">return</span> <span class="va">$this</span>-&gt;lado <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-label="20"></a>    }</span>
+<span id="cb2-21"><a href="#cb2-21" aria-label="21"></a>}</span>
+<span id="cb2-22"><a href="#cb2-22" aria-label="22"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-label="23"></a><span class="va">$formas</span> <span class="op">=</span> [<span class="kw">new</span> Circulo(<span class="dv">3</span>)<span class="ot">,</span> <span class="kw">new</span> Cuadrado(<span class="dv">4</span>)]<span class="ot">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-label="24"></a><span class="cf">foreach</span> (<span class="va">$formas</span> <span class="kw">as</span> <span class="va">$f</span>) {</span>
+<span id="cb2-25"><a href="#cb2-25" aria-label="25"></a>    <span class="kw">echo</span> <span class="fu">round</span>(<span class="va">$f</span>-&gt;area()<span class="ot">,</span> <span class="dv">2</span>) <span class="op">.</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-label="26"></a>}</span>
+<span id="cb2-27"><a href="#cb2-27" aria-label="27"></a><span class="co">// 28.27</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-label="28"></a><span class="co">// 16</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El segundo ejemplo usa <strong>promoción de propiedades en el constructor</strong> (<code>private float $radio</code> directamente en la firma), una forma abreviada disponible desde PHP 8 que evita escribir la propiedad y la asignación por separado. Antes de PHP 8, había que declarar la propiedad aparte y asignarla a mano dentro de <code>__construct()</code>.</p>
+</div>
+</div>
+</section>
+<section id="polimorfismo-y-sobreescritura" class="level2">
+<h2 class="anchored" data-anchor-id="polimorfismo-y-sobreescritura">Polimorfismo y sobreescritura</h2>
+<p>Cuando varias subclases implementan el mismo método heredado cada una a su manera, y una función que solo conoce la clase padre puede llamarlas indistintamente, eso es <strong>polimorfismo</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">class</span> Animal {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>        <span class="cf">return</span> <span class="st">'Sonido genérico'</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    }</span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="kw">class</span> Perro <span class="kw">extends</span> Animal {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>        <span class="cf">return</span> <span class="st">'Guau Guau'</span><span class="ot">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>    }</span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a><span class="kw">class</span> Gato <span class="kw">extends</span> Animal {</span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>        <span class="cf">return</span> <span class="st">'Miau Miau'</span><span class="ot">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>}</span>
+<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-label="19"></a><span class="kw">function</span> reproducirSonido(Animal <span class="va">$animal</span>)<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-20"><a href="#cb3-20" aria-label="20"></a>    <span class="cf">return</span> <span class="va">$animal</span>-&gt;hacerSonido()<span class="ot">;</span> <span class="co">// no sabe si es Perro o Gato, y no le hace falta</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-label="21"></a>}</span>
+<span id="cb3-22"><a href="#cb3-22" aria-label="22"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-label="23"></a><span class="kw">echo</span> reproducirSonido(<span class="kw">new</span> Perro())<span class="ot">;</span> <span class="co">// Guau Guau</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-label="24"></a><span class="kw">echo</span> reproducirSonido(<span class="kw">new</span> Gato())<span class="ot">;</span>  <span class="co">// Miau Miau</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Redefinir en la subclase un método que ya existe en el padre, como <code>hacerSonido()</code> arriba, se llama <strong>sobreescritura</strong> (en inglés, <em>override</em>). En PHP, “sobreescritura” y “redefinición” son sinónimos: es lo mismo que ya hiciste con <code>permisos()</code> en el ejemplo de <code>Administrador</code> más arriba, solo que allí combinabas el resultado del padre con <code>parent::</code>, y aquí lo sustituyes por completo.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Analogía Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Java permite además la <strong>sobrecarga</strong> (<em>overloading</em>): varios métodos con el mismo nombre pero distinta lista de parámetros. <strong>PHP no tiene sobrecarga de métodos.</strong> Si declaras dos métodos con el mismo nombre en la misma clase, es un error fatal, no una sobrecarga válida. Si necesitas comportamientos distintos según los argumentos, usa parámetros opcionales (<code>function mostrar($nombre, $apellido = null)</code>) o comprueba <code>func_num_args()</code>.</p>
+</div>
+</div>
+</section>
+<section id="namespaces" class="level2">
+<h2 class="anchored" data-anchor-id="namespaces">Namespaces</h2>
+<p>Organizan las clases en espacios de nombres para evitar colisiones entre ficheros/librerías.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="co">// Fichero: App/Modelo/Usuario.php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="kw">namespace</span> App\Modelo<span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="kw">class</span> Usuario {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// Fichero: index.php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="kw">require_once</span> <span class="st">'App/Modelo/Usuario.php'</span><span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="kw">use</span> App\Modelo\Usuario<span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="va">$u</span> <span class="op">=</span> <span class="kw">new</span> Usuario()<span class="ot">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="va">$u</span>-&gt;nombre <span class="op">=</span> <span class="st">'Ana'</span><span class="ot">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a><span class="kw">echo</span> <span class="va">$u</span>-&gt;nombre<span class="ot">;</span> <span class="co">// Ana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="control-de-errores-y-excepciones" class="level2">
+<h2 class="anchored" data-anchor-id="control-de-errores-y-excepciones">Control de errores y excepciones</h2>
+<p>PHP ofrece mecanismos básicos (<code>@</code>, <code>die()</code>/<code>exit()</code>) y el modelo moderno de excepciones (<code>try/catch/throw</code>).</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -465,139 +611,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Olvidar el <code>;</code> al final de una sentencia genera un <code>Parse error</code> y la página no se ejecuta:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="va">$precio</span> <span class="op">=</span> <span class="dv">10</span>        <span class="co">// ← falta el punto y coma</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>       <span class="co">// Parse error aquí</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El operador <code>@</code> oculta los errores, pero no los soluciona. Un script con <code>@</code> por todas partes es casi imposible de depurar porque los fallos desaparecen en silencio. Evítalo salvo casos muy puntuales y bien documentados.</p>
 </div>
 </div>
+<section id="excepciones-personalizadas" class="level3">
+<h3 class="anchored" data-anchor-id="excepciones-personalizadas">Excepciones personalizadas</h3>
+<p>Para probarlo, en un mismo fichero, define la excepción:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">class</span> SaldoInsuficienteException <span class="kw">extends</span> <span class="bu">Exception</span> {}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Implementa la función:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">function</span> retirar(<span class="dt">float</span> <span class="va">$saldo</span><span class="ot">,</span> <span class="dt">float</span> <span class="va">$cantidad</span>)<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>    <span class="cf">if</span> (<span class="va">$cantidad</span> <span class="op">&gt;</span> <span class="va">$saldo</span>) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>        <span class="cf">throw</span> <span class="kw">new</span> SaldoInsuficienteException(<span class="st">'Saldo insuficiente'</span>)<span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>    }</span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    <span class="cf">return</span> <span class="va">$saldo</span> <span class="op">-</span> <span class="va">$cantidad</span><span class="ot">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Realiza la prueba:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="cf">try</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>    <span class="va">$nuevoSaldo</span> <span class="op">=</span> retirar(<span class="dv">100</span><span class="ot">,</span> <span class="dv">150</span>)<span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a>} <span class="cf">catch</span> (SaldoInsuficienteException <span class="va">$e</span>) {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a>    <span class="kw">echo</span> <span class="st">'Error: '</span> <span class="op">.</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span> <span class="co">// Error: Saldo insuficiente</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>} <span class="cf">finally</span> {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>    <span class="kw">echo</span> <span class="st">' - operación finalizada'</span><span class="ot">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Gracias a la herencia, crear excepciones propias es tan simple como extender <code>Exception</code>, lo que te permite capturar de forma selectiva solo el error que te interesa — esto es justo lo que usarás en el login de la sección 8.</p>
 </section>
-<section id="variables" class="level2">
-<h2 class="anchored" data-anchor-id="variables">Variables</h2>
-<p>Una variable se declara con <code>$</code> seguido del nombre. No hace falta indicar el tipo.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="va">$nombre</span>  <span class="op">=</span> <span class="st">"Carlos"</span><span class="ot">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="va">$edad</span>    <span class="op">=</span> <span class="dv">19</span><span class="ot">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a><span class="va">$precio</span>  <span class="op">=</span> <span class="fl">9.99</span><span class="ot">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="va">$activo</span>  <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="kw">echo</span> <span class="va">$nombre</span><span class="ot">;</span>   <span class="co">// Carlos</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a><span class="kw">echo</span> <span class="va">$edad</span><span class="ot">;</span>     <span class="co">// 19</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a><span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>   <span class="co">// 9.99</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$activo</span><span class="ot">;</span>   <span class="co">// 1   ← PHP muestra true como 1 con echo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Varias variables en la misma cadena (interpolación con comillas dobles):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="va">$ciudad</span>  <span class="op">=</span> <span class="st">"Valencia"</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="va">$pais</span>    <span class="op">=</span> <span class="st">"España"</span><span class="ot">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">"Vivo en </span><span class="va">$ciudad</span><span class="st">, </span><span class="va">$pais</span><span class="st">."</span><span class="ot">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a><span class="co">// → Vivo en Valencia, España.</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="kw">echo</span> <span class="st">'Vivo en $ciudad, $pais.'</span><span class="ot">;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="co">// → Vivo en $ciudad, $pais.   ← comillas simples NO interpolan</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Reglas de nomenclatura:</p>
-<ul>
-<li>Empieza por letra o <code>_</code>, nunca por número: <code>$_config</code>, <code>$nombre</code>, <code>$precio2</code> -&gt; Correcto, <code>$2precio</code> -&gt; Incorrecto</li>
-<li>Sensible a mayúsculas: <code>$Precio</code> y <code>$precio</code> son variables distintas.</li>
-<li>Convención: Cuando se trabaja con PHP nativo se suele utilizar <code>snake_case</code> (<code>$precio_con_iva</code>, <code>$nombre_usuario</code>, …). El motivo es que las funciones nativas de PHP son todas <code>snake_case</code>, y usar esta misma convención da mayor coherencia visual entre vuestro código y el propio código nativo de PHP.</li>
-</ul>
+<section id="capturar-varios-tipos-de-excepción" class="level3">
+<h3 class="anchored" data-anchor-id="capturar-varios-tipos-de-excepción">Capturar varios tipos de excepción</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">function</span> dividir(<span class="dt">float</span> <span class="va">$a</span><span class="ot">,</span> <span class="dt">float</span> <span class="va">$b</span>)<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a>    <span class="cf">if</span> (<span class="va">$b</span> <span class="op">===</span> <span class="fl">0.0</span>) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">DivisionByZeroError</span>(<span class="st">'No se puede dividir entre 0'</span>)<span class="ot">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a>    }</span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a>    <span class="cf">return</span> <span class="va">$a</span> <span class="op">/</span> <span class="va">$b</span><span class="ot">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="cf">try</span> {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-label="9"></a>    <span class="kw">echo</span> dividir(<span class="dv">10</span><span class="ot">,</span> <span class="dv">0</span>)<span class="ot">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-label="10"></a>} <span class="cf">catch</span> (<span class="bu">DivisionByZeroError</span> <span class="va">$e</span>) {</span>
+<span id="cb9-11"><a href="#cb9-11" aria-label="11"></a>    <span class="kw">echo</span> <span class="st">'Error matemático: '</span> <span class="op">.</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-label="12"></a>} <span class="cf">catch</span> (<span class="bu">Exception</span> <span class="va">$e</span>) {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-label="13"></a>    <span class="kw">echo</span> <span class="st">'Error general: '</span> <span class="op">.</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-label="14"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-label="15"></a><span class="co">// Error matemático: No se puede dividir entre 0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="constantes" class="level2">
-<h2 class="anchored" data-anchor-id="constantes">Constantes</h2>
-<p>Una constante se define una sola vez y no puede reasignarse. Se usa sin <code>$</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="fu">define</span>(<span class="st">'IVA'</span><span class="ot">,</span>          <span class="fl">0.21</span>)<span class="ot">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="fu">define</span>(<span class="st">'IVA_REDUCIDO'</span><span class="ot">,</span> <span class="fl">0.10</span>)<span class="ot">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="fu">define</span>(<span class="st">'NOMBRE_TIENDA'</span><span class="ot">,</span> <span class="st">'MiTienda'</span>)<span class="ot">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="kw">echo</span> <span class="cn">IVA</span><span class="ot">;</span>           <span class="co">// 0.21</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a><span class="kw">echo</span> <span class="cn">IVA_REDUCIDO</span><span class="ot">;</span>  <span class="co">// 0.1</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="kw">echo</span> <span class="cn">NOMBRE_TIENDA</span><span class="ot">;</span> <span class="co">// MiTienda</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a><span class="va">$base</span> <span class="op">=</span> <span class="dv">100</span><span class="ot">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="kw">echo</span> <span class="va">$base</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="cn">IVA</span>)<span class="ot">;</span>  <span class="co">// 121</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Intento de reasignación:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="fu">define</span>(<span class="st">'MAX'</span><span class="ot">,</span> <span class="dv">10</span>)<span class="ot">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="fu">define</span>(<span class="st">'MAX'</span><span class="ot">,</span> <span class="dv">20</span>)<span class="ot">;</span>  <span class="co">// Fatal error: Cannot redefine constant MAX</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Sintaxis alternativa con <code>const</code> (válida fuera de funciones):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">const</span> <span class="fu">PI</span> <span class="op">=</span> <span class="fl">3.14159</span><span class="ot">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="kw">echo</span> <span class="fu">PI</span><span class="ot">;</span>  <span class="co">// 3.14159</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="var_dumpisset-empty-y-unset" class="level2">
-<h2 class="anchored" data-anchor-id="var_dumpisset-empty-y-unset"><code>var_dump</code>,<code>isset()</code>, <code>empty()</code> y <code>unset()</code></h2>
-<ul>
-<li><p><code>var_dump()</code> es una herramienta para revisar código. Sirve para ver qué hay exactamente dentro de una variable. Muestra el tipo de dato, la longitud y el valor. Es muy útil para encontrar errores en tus programas.</p></li>
-<li><p><code>isset()</code> sirve para comprobar si una variable existe y tiene valor.</p></li>
-<li><p><code>empty()</code> sirve para comprobar si una variable está vacía.</p></li>
-<li><p><code>unset()</code> sirve para eliminar variables y liberar memoria del servidor.</p></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Ana"</span><span class="ot">;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="fu">var_dump</span>(<span class="kw">isset</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(true)  — existe y no es null</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(false) — tiene contenido</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a><span class="kw">unset</span>(<span class="va">$nombre</span>)<span class="ot">;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a><span class="fu">var_dump</span>(<span class="kw">isset</span>(<span class="va">$nombre</span>))<span class="ot">;</span>   <span class="co">// bool(false) — ya no existe</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>empty()</code> devuelve <code>true</code> en todos estos casos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">""</span>))<span class="ot">;</span>    <span class="co">// bool(true)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">"0"</span>))<span class="ot">;</span>   <span class="co">// bool(true)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="dv">0</span>))<span class="ot">;</span>     <span class="co">// bool(true)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>([]))<span class="ot">;</span>    <span class="co">// bool(true)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="kw">null</span>))<span class="ot">;</span>  <span class="co">// bool(true)</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="st">"hola"</span>))<span class="ot">;</span> <span class="co">// bool(false)</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="fu">var_dump</span>(<span class="kw">empty</span>(<span class="dv">1</span>))<span class="ot">;</span>      <span class="co">// bool(false)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Uso típico antes de acceder a un dato que puede no existir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a><span class="co">// Simulamos que un dato llega desde un formulario</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a><span class="va">$_POST</span>[<span class="st">'email'</span>] <span class="op">=</span> <span class="st">''</span><span class="ot">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'email'</span>]) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">empty</span>(<span class="va">$_POST</span>[<span class="st">'email'</span>])) {</span>
-<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a>    <span class="kw">echo</span> <span class="st">"Email: "</span> <span class="op">.</span> <span class="va">$_POST</span>[<span class="st">'email'</span>]<span class="ot">;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-label="7"></a>} <span class="cf">else</span> {</span>
-<span id="cb10-8"><a href="#cb10-8" aria-label="8"></a>    <span class="kw">echo</span> <span class="st">"El email está vacío o no se ha enviado."</span><span class="ot">;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-label="9"></a>}</span>
-<span id="cb10-10"><a href="#cb10-10" aria-label="10"></a><span class="co">// → El email está vacío o no se ha enviado.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
-<p><strong>EJ3 · Depurador: caza de errores</strong></p>
-<p>Corrige los cuatro fragmentos de código siguientes. Para cada fragmento, añade un comentario indicando la línea del error y la causa.</p>
-<p><strong>Fragmento A</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Laura"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a><span class="va">$edad</span> <span class="op">=</span> <span class="dv">25</span><span class="ot">;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-label="4"></a><span class="kw">echo</span> <span class="st">"Hola </span><span class="va">$nombre</span><span class="st">, tienes </span><span class="va">$edad</span><span class="st"> años."</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Fragmento B</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="va">$mensaje</span> <span class="op">=</span> <span class="st">"El resultado es "</span>correcto<span class="st">"."</span><span class="ot">;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$mensaje</span><span class="ot">;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Fragmento C</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-label="2"></a><span class="va">$a</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-label="3"></a><span class="co">/* Este es un comentario muy largo</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-label="4"></a><span class="co">$b = 10;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-label="5"></a><span class="co">echo $a + $b;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-label="6"></a><span class="co">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Fragmento D</strong> — este no tiene error de sintaxis, pero el resultado no es el esperado. Encuentra el error lógico.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a><span class="va">$base</span>   <span class="op">=</span> <span class="dv">4</span><span class="ot">;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-label="3"></a><span class="va">$altura</span> <span class="op">=</span> <span class="dv">3</span><span class="ot">;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-label="4"></a><span class="va">$area</span>   <span class="op">=</span> <span class="va">$base</span> <span class="op">+</span> <span class="va">$altura</span> <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span>   <span class="co">// Fórmula área de un triángulo</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">"Área: </span><span class="va">$area</span><span class="st">"</span><span class="ot">;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-label="6"></a><span class="co">// Resultado esperado: 6</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-label="7"></a><span class="co">// Resultado real: ???</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="ejercicio">
-<p><strong>EJ4 · Panel de configuración</strong></p>
-<p>Crea <code>config.php</code>. Declara al menos 6 variables (nombre de la tienda, moneda, descuento activo, número de productos, email de contacto, modo mantenimiento) y 2 constantes (<code>IVA_GENERAL</code> e <code>IVA_REDUCIDO</code>). Muéstralas en una tabla HTML con columnas «Variable», «Valor» y «Tipo» usando <code>gettype()</code>.</p>
-<p>Al final, intenta reasignar una de las constantes dentro de un comentario y escribe qué error produce PHP.</p>
+<p><strong>EJ3 · Vehículo y concesionario, con excepción propia</strong></p>
+<p>Crea una clase <code>Vehiculo</code>:</p>
+<ul>
+<li><code>marca</code>, <code>modelo</code> (string, no vacíos)</li>
+<li><code>velocidadActual</code> (float, valor inicial 0)</li>
+<li><code>velocidadMaxima</code> (float)</li>
+<li><code>totalVehiculosCreados</code> (contador <strong>común a todos los objetos</strong>, no propio de cada instancia)</li>
+</ul>
+<p>Métodos:</p>
+<ul>
+<li>Constructor con validaciones y <em>getters</em>/<em>setters</em> necesarios; incrementa <code>totalVehiculosCreados</code> cada vez que se crea un vehículo.</li>
+<li><code>acelerar(float $cantidad): void</code> — aumenta <code>velocidadActual</code>. Si la nueva velocidad superaría <code>velocidadMaxima</code>, <strong>lanza una excepción propia</strong> (créala tú, con el nombre que prefieras, extendiendo <code>Exception</code>) en vez de simplemente limitar el valor en silencio.</li>
+<li><code>frenar(float $cantidad): void</code> — reduce <code>velocidadActual</code>, sin bajar de 0 (aquí no hace falta excepción, simplemente no baja de 0).</li>
+<li><code>mostrarInfoVehiculo(): void</code> — imprime marca, modelo y velocidad actual/máxima.</li>
+</ul>
+<p>Crea también una clase <code>Concesionario</code>:</p>
+<ul>
+<li><code>nombre</code> (string, no vacío)</li>
+<li>Lista de vehículos, representada como un <strong><code>array</code></strong> de objetos <code>Vehiculo</code> (PHP no tiene una clase de lista aparte: un array normal, con <code>[]</code> para añadir).</li>
+</ul>
+<p>Métodos:</p>
+<ul>
+<li>Constructor con validación y <em>getters</em>/<em>setters</em> necesarios.</li>
+<li><code>agregarVehiculo(Vehiculo $v): void</code></li>
+<li><code>buscarVehiculo(string $marca, string $modelo): ?Vehiculo</code> — devuelve el vehículo si existe, <code>null</code> si no.</li>
+<li><code>venderVehiculo(Vehiculo $v): void</code> — lo quita de la lista.</li>
+<li><code>imprimirCatalogoVehiculos(): void</code></li>
+<li><code>mostrarStockTotalVehiculos(): int</code></li>
+</ul>
+<p>Demuestra, con un <code>try</code>/<code>catch</code>, qué pasa si intentas acelerar un vehículo por encima de su velocidad máxima: captura tu excepción propia y muestra un mensaje entendible, sin que el script se detenga con un error fatal.</p>
 </div>
 
 
@@ -1024,13 +1113,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD2/01-generacion-embebida.html" class="pagination-link" aria-label="Generación embebida, tecnologías y delimitadores">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></span>
+      <a href="../UD4/02-constructores-y-encapsulacion.html" class="pagination-link" aria-label="Constructores y encapsulación">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Constructores y encapsulación</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD2/03-tipos-conversion.html" class="pagination-link" aria-label="Tipos de datos y conversión">
-        <span class="nav-page-text"><span class="chapter-title">Tipos de datos y conversión</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/04-poo-avanzada.html" class="pagination-link" aria-label="Clases estáticas, clonado, abstractas e interfaces">
+        <span class="nav-page-text"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

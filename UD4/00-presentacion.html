@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD1. Arquitecturas y tecnologías de programación Web en entorno servidor – Desarrollo Web en Entorno Servidor</title>
+<title>UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/01-modelo-ejecucion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../UD4/01-ambito-y-clases.html" rel="next">
+<link href="../UD1/06-herramientas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -291,13 +291,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -332,13 +332,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
@@ -419,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</h1>
+<h1 class="title">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</h1>
 </div>
 
 
@@ -440,73 +440,71 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
 <section id="qué-aprenderás" class="level3">
 <h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.</p>
+<p>En esta unidad das el salto a la Programación Orientada a Objetos en PHP y la usas para resolver el problema central de cualquier aplicación web: <strong>recordar quién es el usuario</strong> entre una petición y la siguiente. Al terminar, tendrás un sistema de login completo, con sesiones, cookies seguras y control de acceso por roles.</p>
 </section>
 <section id="objetivos" class="level3">
 <h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
 <ul>
-<li>Distinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.</li>
-<li>Reconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).</li>
-<li>Diferenciar un servidor web de un servidor de aplicaciones.</li>
-<li>Comparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.</li>
-<li>Identificar los delimitadores que separan el código de servidor del HTML en un documento mixto.</li>
-<li>Poner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).</li>
+<li>Escribir clases en PHP nativo: propiedades, métodos, constructores, encapsulación, herencia y namespaces.</li>
+<li>Comparar y elegir entre cookies y sesiones según el caso de uso.</li>
+<li>Implementar sesiones para mantener el estado de una aplicación (carritos, login).</li>
+<li>Almacenar y recuperar información en el cliente mediante cookies seguras.</li>
+<li>Construir un sistema de login y registro con contraseñas cifradas correctamente.</li>
+<li>Aplicar control de acceso por roles y depurar aplicaciones con estado.</li>
 </ul>
 </section>
 <section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
 <h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
 <blockquote class="blockquote">
-<p><strong>RA1.</strong> Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.</p>
+<p><strong>RA4.</strong> Desarrolla aplicaciones web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.</p>
 </blockquote>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 13%">
+<col style="width: 86%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>CE</th>
-<th>Descripción</th>
+<th>Criterio de evaluación</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>CE1.a</td>
-<td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</td>
+<td>CE4.a</td>
+<td>Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</td>
 </tr>
 <tr class="even">
-<td>CE1.b</td>
-<td>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</td>
+<td>CE4.b</td>
+<td>Se han utilizado mecanismos para mantener el estado de las aplicaciones web.</td>
 </tr>
 <tr class="odd">
-<td>CE1.c</td>
-<td>Se han identificado los mecanismos de ejecución de código en los servidores Web.</td>
+<td>CE4.c</td>
+<td>Se han utilizado mecanismos para almacenar información en el cliente web y para recuperar su contenido.</td>
 </tr>
 <tr class="even">
-<td>CE1.d</td>
-<td>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</td>
+<td>CE4.d</td>
+<td>Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios.</td>
 </tr>
 <tr class="odd">
-<td>CE1.e</td>
-<td>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</td>
+<td>CE4.e</td>
+<td>Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios.</td>
 </tr>
 <tr class="even">
-<td>CE1.f</td>
-<td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</td>
-</tr>
-<tr class="odd">
-<td>CE1.g</td>
-<td>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</td>
+<td>CE4.f</td>
+<td>Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</td>
 </tr>
 </tbody>
 </table>
+<p>El bloque de POO (apartados 1-4) no tiene un CE propio: es la base necesaria sin la que no se puede escribir con garantías el código de CE4.e.</p>
 </section>
 <section id="contenidos" class="level3">
 <h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
+<p>Se divide en dos bloques bien diferenciados:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">Bloque</th>
+<th style="text-align: center;">POO en PHP</th>
 <th>Título</th>
 <th style="text-align: center;">CE</th>
 </tr>
@@ -514,33 +512,64 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td>Modelos de ejecución: cliente y servidor</td>
-<td style="text-align: center;">CE1.a</td>
+<td>Ámbito de variables y clases</td>
+<td style="text-align: center;">CE5.g</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td>Páginas estáticas y dinámicas</td>
-<td style="text-align: center;">CE1.b</td>
+<td>Constructores y encapsulación</td>
+<td style="text-align: center;">CE5.g</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td>Servidor web y servidor de aplicaciones</td>
-<td style="text-align: center;">CE1.c-d</td>
+<td>Herencia, namespaces, excepciones</td>
+<td style="text-align: center;">CE5.g</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td>Lenguajes y tecnologías en entorno servidor</td>
-<td style="text-align: center;">CE1.e</td>
+<td>Clases estáticas, clonado, abstractas e interfaces</td>
+<td style="text-align: center;">CE5.g</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Funcionalidades Web</th>
+<th>Título</th>
+<th style="text-align: center;">CE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>Sesiones</td>
+<td style="text-align: center;">CE4.a-b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>Cookies</td>
+<td style="text-align: center;">CE4.a-c</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td>Autenticación, redirecciones e inclusiones</td>
+<td style="text-align: center;">CE4.a-d</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td>Login y registro</td>
+<td style="text-align: center;">CE4.e</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td>Integración con lenguajes de marcas</td>
-<td style="text-align: center;">CE1.f</td>
+<td>Cookies persistentes y control de acceso por roles</td>
+<td style="text-align: center;">CE4.c-e</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td>Herramientas de desarrollo</td>
-<td style="text-align: center;">CE1.c-e</td>
+<td>Pruebas y depuración</td>
+<td style="text-align: center;">CE4.f</td>
 </tr>
 </tbody>
 </table>
@@ -572,6 +601,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 26%">
+<col style="width: 36%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Ejercicio</th>
@@ -582,32 +616,82 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">EJ1</td>
-<td>Clasificación por lugar de ejecución</td>
+<td>Registro de libros con contador global</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ2</td>
-<td>¿Estático, dinámico embebido o script independiente?</td>
+<td>Cuenta bancaria con validación en el constructor</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ3</td>
-<td>Identificación de roles en una arquitectura real</td>
+<td>Jerarquía de empleados con excepción propia</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ4</td>
-<td>Análisis comparativo de escenarios</td>
+<td>Figuras con clase abstracta e interfaz</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">EJ5</td>
-<td>Trazado manual de la salida</td>
+<td>Contador estático y clonado</td>
 <td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">EJ6</td>
-<td>Puesta en marcha del entorno</td>
+<td>Carrito de la compra con clase y sesión</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ7</td>
+<td>Sesión con expiración, regeneración y protección básica de fijación</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ8</td>
+<td>Preferencias combinadas en cookie JSON</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ9</td>
+<td>Banner de consentimiento de cookies</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ10</td>
+<td>Sistema de bloqueo tras intentos fallidos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ11</td>
+<td>Login con repositorio real</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ12</td>
+<td>Registro con validación completa</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ13</td>
+<td>«Recordarme» con rotación de token</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ14</td>
+<td>Tres roles con mapa de permisos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ15</td>
+<td>Depuración de una aplicación con varios fallos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ16</td>
+<td>Mini-aplicación con registro, login y panel protegido</td>
 <td style="text-align: center;">Sí</td>
 </tr>
 </tbody>
@@ -1038,13 +1122,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="📋 Presentación del módulo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📋 Presentación del módulo</span>
+      <a href="../UD1/06-herramientas.html" class="pagination-link" aria-label="Herramientas de desarrollo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Herramientas de desarrollo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/01-modelo-ejecucion.html" class="pagination-link" aria-label="Modelos de ejecución: cliente y servidor">
-        <span class="nav-page-text"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/01-ambito-y-clases.html" class="pagination-link" aria-label="Ámbito de variables y clases">
+        <span class="nav-page-text"><span class="chapter-title">Ámbito de variables y clases</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD1. Arquitecturas y tecnologías de programación Web en entorno servidor – Desarrollo Web en Entorno Servidor</title>
+<title>Sesiones – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/01-modelo-ejecucion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../UD4/06-cookies.html" rel="next">
+<link href="../UD4/04-poo-avanzada.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -255,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/05-sesiones.html"><span class="chapter-title">Sesiones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -291,13 +326,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -334,11 +369,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
@@ -361,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -401,15 +436,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
+  <li><a href="#mecanismos-de-mantenimiento-de-información-de-cliente" id="toc-mecanismos-de-mantenimiento-de-información-de-cliente" class="nav-link active" data-scroll-target="#mecanismos-de-mantenimiento-de-información-de-cliente">Mecanismos de mantenimiento de información de cliente</a></li>
+  <li><a href="#sesiones" id="toc-sesiones" class="nav-link" data-scroll-target="#sesiones">Sesiones</a></li>
+  <li><a href="#sesiones-con-objetos" id="toc-sesiones-con-objetos" class="nav-link" data-scroll-target="#sesiones-con-objetos">Sesiones con objetos</a></li>
+  <li><a href="#mensajes-flash-datos-de-un-solo-uso" id="toc-mensajes-flash-datos-de-un-solo-uso" class="nav-link" data-scroll-target="#mensajes-flash-datos-de-un-solo-uso">Mensajes flash: datos de un solo uso</a>
   <ul class="collapse">
-  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
-  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
-  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
+  <li><a href="#traza-de-peticiones" id="toc-traza-de-peticiones" class="nav-link" data-scroll-target="#traza-de-peticiones">Traza de peticiones</a></li>
   </ul></li>
+  <li><a href="#expiración-y-regeneración-de-sesión" id="toc-expiración-y-regeneración-de-sesión" class="nav-link" data-scroll-target="#expiración-y-regeneración-de-sesión">Expiración y regeneración de sesión</a></li>
+  <li><a href="#fijación-de-sesión-y-fingerprint-del-navegador" id="toc-fijación-de-sesión-y-fingerprint-del-navegador" class="nav-link" data-scroll-target="#fijación-de-sesión-y-fingerprint-del-navegador">Fijación de sesión y “fingerprint” del navegador</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
     </div>
@@ -417,9 +453,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/05-sesiones.html"><span class="chapter-title">Sesiones</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</h1>
+<h1 class="title"><span class="chapter-title">Sesiones</span></h1>
 </div>
 
 
@@ -436,185 +472,268 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-de-la-unidad" class="level2">
-<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
-<section id="qué-aprenderás" class="level3">
-<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.</p>
-</section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
-<ul>
-<li>Distinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.</li>
-<li>Reconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).</li>
-<li>Diferenciar un servidor web de un servidor de aplicaciones.</li>
-<li>Comparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.</li>
-<li>Identificar los delimitadores que separan el código de servidor del HTML en un documento mixto.</li>
-<li>Poner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).</li>
-</ul>
-</section>
-<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
-<blockquote class="blockquote">
-<p><strong>RA1.</strong> Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.</p>
-</blockquote>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>CE</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CE1.a</td>
-<td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</td>
-</tr>
-<tr class="even">
-<td>CE1.b</td>
-<td>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.c</td>
-<td>Se han identificado los mecanismos de ejecución de código en los servidores Web.</td>
-</tr>
-<tr class="even">
-<td>CE1.d</td>
-<td>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.e</td>
-<td>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</td>
-</tr>
-<tr class="even">
-<td>CE1.f</td>
-<td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</td>
-</tr>
-<tr class="odd">
-<td>CE1.g</td>
-<td>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="contenidos" class="level3">
-<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bloque</th>
-<th>Título</th>
-<th style="text-align: center;">CE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Modelos de ejecución: cliente y servidor</td>
-<td style="text-align: center;">CE1.a</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Páginas estáticas y dinámicas</td>
-<td style="text-align: center;">CE1.b</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Servidor web y servidor de aplicaciones</td>
-<td style="text-align: center;">CE1.c-d</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Lenguajes y tecnologías en entorno servidor</td>
-<td style="text-align: center;">CE1.e</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Integración con lenguajes de marcas</td>
-<td style="text-align: center;">CE1.f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Herramientas de desarrollo</td>
-<td style="text-align: center;">CE1.c-e</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="recursos-y-materiales" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
-<ul>
-<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
-<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
-<li>Navegador con herramientas de desarrollador (F12)</li>
-<li>Editor de código (VS Code recomendado)</li>
-</ul>
-</section>
-<section id="evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
-<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
+<ul>
+<li><strong>CE4.a.</strong> — Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</li>
+<li><strong>CE4.b.</strong> — Se han utilizado mecanismos para mantener el estado de las aplicaciones web.</li>
+</ul>
 </div>
 </div>
-<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
+<section id="mecanismos-de-mantenimiento-de-información-de-cliente" class="level2">
+<h2 class="anchored" data-anchor-id="mecanismos-de-mantenimiento-de-información-de-cliente">Mecanismos de mantenimiento de información de cliente</h2>
+<p>HTTP no tiene memoria: cada petición es independiente. Tres familias de mecanismos simulan ese “recordar”:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
+<th>Mecanismo</th>
+<th>¿Dónde vive?</th>
+<th>Persistencia</th>
+<th>Uso típico</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">EJ1</td>
-<td>Clasificación por lugar de ejecución</td>
-<td style="text-align: center;">No</td>
+<td>Cookies</td>
+<td>Navegador</td>
+<td>Configurable (hasta años)</td>
+<td>Preferencias, «recordarme»</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">EJ2</td>
-<td>¿Estático, dinámico embebido o script independiente?</td>
-<td style="text-align: center;">No</td>
+<td>Sesiones</td>
+<td>Servidor (cliente solo guarda el ID)</td>
+<td>Duración de la sesión</td>
+<td>Carrito, login activo</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">EJ3</td>
-<td>Identificación de roles en una arquitectura real</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ4</td>
-<td>Análisis comparativo de escenarios</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ5</td>
-<td>Trazado manual de la salida</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ6</td>
-<td>Puesta en marcha del entorno</td>
-<td style="text-align: center;">Sí</td>
+<td>URL / campos ocultos</td>
+<td>Se repite en cada petición</td>
+<td>Ninguna</td>
+<td>Desaconsejado hoy</td>
 </tr>
 </tbody>
 </table>
-
-
 </section>
+<section id="sesiones" class="level2">
+<h2 class="anchored" data-anchor-id="sesiones">Sesiones</h2>
+<p><code>session_start()</code> inicia la sesión (debe ir antes de cualquier salida). <code>$_SESSION</code> guarda y lee datos que persisten entre peticiones.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>session_start()</code> genera un ID único, lo envía al navegador como cookie (<code>PHPSESSID</code>) y guarda los datos en el servidor. El navegador solo conoce el ID, nunca los datos.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="co">// pagina1.php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="va">$_SESSION</span>[<span class="st">'nombre'</span>] <span class="op">=</span> <span class="st">'Ana'</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="co">// pagina2.php (petición siguiente, mismo navegador)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$_SESSION</span>[<span class="st">'nombre'</span>]<span class="ot">;</span> <span class="co">// Ana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sesiones-con-objetos" class="level2">
+<h2 class="anchored" data-anchor-id="sesiones-con-objetos">Sesiones con objetos</h2>
+<p>Guardar datos sueltos en <code>$_SESSION</code> funciona para casos triviales, pero en cuanto la lógica crece (varios métodos, validaciones, cálculos) conviene envolverla en una clase (enlazando con lo visto en el bloque de POO) y guardar <strong>el objeto serializado</strong> en la sesión. El patrón es siempre el mismo, lo veas donde lo veas: reconstruir el objeto al principio del script, y volver a guardarlo al final.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">class</span> ListaTareas {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">array</span> <span class="va">$tareas</span> <span class="op">=</span> []<span class="ot">;</span> <span class="co">// [['texto' =&gt; ..., 'hecha' =&gt; bool], ...]</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> agregar(<span class="dt">string</span> <span class="va">$texto</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>        <span class="va">$this</span>-&gt;tareas[] <span class="op">=</span> [<span class="st">'texto'</span> =&gt; <span class="va">$texto</span><span class="ot">,</span> <span class="st">'hecha'</span> =&gt; <span class="kw">false</span>]<span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>    }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> completar(<span class="dt">int</span> <span class="va">$indice</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>        <span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$this</span>-&gt;tareas[<span class="va">$indice</span>])) {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>            <span class="va">$this</span>-&gt;tareas[<span class="va">$indice</span>][<span class="st">'hecha'</span>] <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>        }</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a>    }</span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>    <span class="kw">public</span> <span class="kw">function</span> pendientes()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>        <span class="cf">return</span> <span class="fu">array_filter</span>(<span class="va">$this</span>-&gt;tareas<span class="ot">,</span> <span class="kw">fn</span>(<span class="va">$t</span>) =&gt; <span class="op">!</span><span class="va">$t</span>[<span class="st">'hecha'</span>])<span class="ot">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="co">// PHP no guarda objetos "vivos" entre peticiones: hay que reconstruirlo cada vez</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="va">$lista</span> <span class="op">=</span> <span class="va">$_SESSION</span>[<span class="st">'lista'</span>] <span class="op">??</span> <span class="kw">new</span> ListaTareas()<span class="ot">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span> <span class="op">&amp;&amp;</span> <span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'texto'</span>])) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>    <span class="va">$lista</span>-&gt;agregar(<span class="va">$_POST</span>[<span class="st">'texto'</span>])<span class="ot">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a><span class="va">$_SESSION</span>[<span class="st">'lista'</span>] <span class="op">=</span> <span class="va">$lista</span><span class="ot">;</span> <span class="co">// PHP serializa el objeto automáticamente al guardarlo en $_SESSION</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a><span class="kw">echo</span> <span class="st">'Pendientes: '</span> <span class="op">.</span> <span class="fu">count</span>(<span class="va">$lista</span>-&gt;pendientes())<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si cambias la definición de una clase (por ejemplo, renombras una propiedad) mientras hay sesiones activas con objetos de esa clase ya guardados, <code>unserialize()</code> puede fallar o dejar el objeto en un estado incoherente al recuperarlo. En producción, versiona los cambios de estructura o limpia las sesiones activas tras un despliegue que toque estas clases.</p>
+</div>
+</div>
+</section>
+<section id="mensajes-flash-datos-de-un-solo-uso" class="level2">
+<h2 class="anchored" data-anchor-id="mensajes-flash-datos-de-un-solo-uso">Mensajes flash: datos de un solo uso</h2>
+<p>Cuando procesas un formulario, quieres mostrar “Producto añadido al carrito”, y rediriges a otra página (patrón <em>Post/Redirect/Get</em> que ya conoces). Pero si guardas el mensaje en la sesión sin más, seguiría apareciendo cada vez que el usuario recargue esa página después (la sesión no “olvida” nada por sí sola).</p>
+<p>Un <strong>mensaje flash</strong> resuelve esto: se guarda en sesión, se muestra la primera vez que se lee, y se <strong>borra automáticamente</strong> al leerlo. Así solo aparece una vez, sin que tengas que acordarte de borrarlo tú a mano en ningún sitio.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="kw">function</span> mensajeFlash(<span class="dt">string</span> <span class="va">$texto</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="va">$_SESSION</span>[<span class="st">'flash'</span>] <span class="op">=</span> <span class="va">$texto</span><span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a><span class="kw">function</span> leerFlash()<span class="ot">:</span> <span class="ot">?</span><span class="dt">string</span> {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>    }</span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>    <span class="va">$texto</span> <span class="op">=</span> <span class="va">$_SESSION</span>[<span class="st">'flash'</span>]<span class="ot">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>    <span class="kw">unset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])<span class="ot">;</span> <span class="co">// se borra en cuanto se lee: solo se muestra una vez</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>    <span class="cf">return</span> <span class="va">$texto</span><span class="ot">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="traza-de-peticiones" class="level3">
+<h3 class="anchored" data-anchor-id="traza-de-peticiones">Traza de peticiones</h3>
+<p>Veamos el ciclo completo:</p>
+<p><strong>Petición 1 — se procesa el formulario</strong> (por ejemplo, <code>añadir_al_carrito.php</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="co">// Tras procesar el formulario:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>mensajeFlash(<span class="st">'Producto añadido al carrito'</span>)<span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="fu">header</span>(<span class="st">'Location: /carrito.php'</span>)<span class="ot">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Aquí solo se <strong>guarda</strong> el mensaje en <code>$_SESSION['flash']</code>. Todavía no se muestra nada, el navegador es redirigido inmediatamente a <code>carrito.php</code>.</p>
+<p><strong>Petición 2 — carga <code>carrito.php</code> por primera vez</strong> (la redirección de arriba):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// carrito.php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="va">$mensaje</span> <span class="op">=</span> leerFlash()<span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="cf">if</span> (<span class="va">$mensaje</span> <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>    <span class="kw">echo</span> <span class="st">"&lt;p&gt;</span><span class="va">$mensaje</span><span class="st">&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>leerFlash()</code> encuentra el mensaje guardado, lo devuelve <strong>y lo borra</strong> de la sesión en el mismo paso (<code>unset</code>). El usuario ve “Producto añadido al carrito” en pantalla.</p>
+<p><strong>Petición 3 — el usuario recarga <code>carrito.php</code> (F5)</strong>: Se ejecuta el mismo código de <code>leerFlash()</code>, pero como el mensaje ya se borró en la petición 2, <code>isset($_SESSION['flash'])</code> es <code>false</code> — no se muestra nada. El mensaje ha desaparecido, exactamente como se esperaba.</p>
+</section>
+</section>
+<section id="expiración-y-regeneración-de-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="expiración-y-regeneración-de-sesión">Expiración y regeneración de sesión</h2>
+<p>Por seguridad, tras un login conviene regenerar el ID de sesión, y toda sesión debería caducar tras un tiempo de inactividad:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="va">$limite</span> <span class="op">=</span> <span class="dv">600</span><span class="ot">;</span> <span class="co">// 10 minutos de inactividad</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'ultimo_acceso'</span>]) <span class="op">&amp;&amp;</span> (<span class="fu">time</span>() <span class="op">-</span> <span class="va">$_SESSION</span>[<span class="st">'ultimo_acceso'</span>]) <span class="op">&gt;</span> <span class="va">$limite</span>) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>    <span class="fu">session_unset</span>()<span class="ot">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>    <span class="fu">session_destroy</span>()<span class="ot">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>    <span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a>}</span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a><span class="va">$_SESSION</span>[<span class="st">'ultimo_acceso'</span>] <span class="op">=</span> <span class="fu">time</span>()<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="co">// Tras validar credenciales en un login:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="fu">session_regenerate_id</span>(<span class="kw">true</span>)<span class="ot">;</span> <span class="co">// evita fijación de sesión (session fixation)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getId()<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>session_start()</code> debe ser la primera instrucción del script, antes de cualquier <code>echo</code>, espacio en blanco o salida HTML. Si ves el error “headers already sent”, casi siempre hay algo (aunque sea una línea en blanco) antes de <code>&lt;?php</code>.</p>
+</div>
+</div>
+</section>
+<section id="fijación-de-sesión-y-fingerprint-del-navegador" class="level2">
+<h2 class="anchored" data-anchor-id="fijación-de-sesión-y-fingerprint-del-navegador">Fijación de sesión y “fingerprint” del navegador</h2>
+<p>Un atacante que consiga el ID de sesión de otra persona (robado, interceptado, o simplemente adivinado si el ID es predecible) puede <strong>suplantarla</strong> sin necesidad de conocer su contraseña — esto se llama <strong>fijación de sesión</strong> (<em>session fixation</em>).</p>
+<p>Una capa adicional de defensa es comprobar que quien usa la sesión sigue siendo, aproximadamente, el mismo navegador que la inició. <code>$_SERVER['HTTP_USER_AGENT']</code> contiene una cadena de texto que el navegador envía en cada petición, identificando el propio navegador y sistema operativo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a><span class="kw">echo</span> <span class="va">$_SERVER</span>[<span class="st">'HTTP_USER_AGENT'</span>]<span class="ot">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a><span class="co">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Guardando un <strong>hash corto</strong> de ese valor al iniciar sesión, y comparándolo en cada petición posterior, puedes detectar (sin certeza absoluta, pero como capa extra) si la sesión se está usando desde un navegador distinto al que la creó:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">$fingerprint</span> <span class="op">=</span> <span class="fu">substr</span>(<span class="fu">md5</span>(<span class="va">$_SERVER</span>[<span class="st">'HTTP_USER_AGENT'</span>])<span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">12</span>)<span class="ot">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a><span class="va">$_SESSION</span>[<span class="st">'fingerprint'</span>] <span class="op">=</span> <span class="va">$fingerprint</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No es una protección infalible: un atacante puede falsificar su propio <code>User-Agent</code> para que coincida. Es una capa adicional, no un sustituto de HTTPS ni de <code>httponly</code>/<code>samesite</code>.</p>
+</div>
+</div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ6 · Carrito de la compra con clase y sesión</strong></p>
+<p>Implementa una versión completa del carrito: debe permitir añadir un producto (sumando cantidad si ya existe), quitar un producto por completo, y calcular el total en euros. La página debe mostrar la lista de líneas del carrito (nombre, cantidad, precio, subtotal) y el total general.</p>
+<p>No se te da la clase resuelta — parte de este esqueleto y complétalo tú:</p>
+<p>(<strong>SKU</strong> = <em>Stock Keeping Unit</em>, el identificador único de cada producto en el inventario. Lo usaremos como clave para saber a qué línea del carrito pertenece cada producto).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">class</span> Carrito {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">array</span> <span class="va">$lineas</span> <span class="op">=</span> []<span class="ot">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> añadir(<span class="dt">string</span> <span class="va">$sku</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">,</span> <span class="dt">float</span> <span class="va">$precio</span><span class="ot">,</span> <span class="dt">int</span> <span class="va">$cantidad</span> <span class="op">=</span> <span class="dv">1</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-label="5"></a>        <span class="co">// </span><span class="al">TODO</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a>    }</span>
+<span id="cb12-7"><a href="#cb12-7" aria-label="7"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> quitar(<span class="dt">string</span> <span class="va">$sku</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-label="9"></a>        <span class="co">// </span><span class="al">TODO</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-label="10"></a>    }</span>
+<span id="cb12-11"><a href="#cb12-11" aria-label="11"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> cantidadTotal()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb12-13"><a href="#cb12-13" aria-label="13"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: suma de todas las cantidades (no el número de líneas distintas)</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-label="14"></a>    }</span>
+<span id="cb12-15"><a href="#cb12-15" aria-label="15"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-label="16"></a>    <span class="kw">public</span> <span class="kw">function</span> total()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb12-17"><a href="#cb12-17" aria-label="17"></a>        <span class="co">// </span><span class="al">TODO</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-label="18"></a>    }</span>
+<span id="cb12-19"><a href="#cb12-19" aria-label="19"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-label="20"></a>    <span class="kw">public</span> <span class="kw">function</span> lineas()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb12-21"><a href="#cb12-21" aria-label="21"></a>        <span class="co">// </span><span class="al">TODO</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-label="22"></a>    }</span>
+<span id="cb12-23"><a href="#cb12-23" aria-label="23"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Traza de ejecución esperada (añadir SKU “A” x2, SKU “B” x1, precio A=10, precio B=5, luego añadir otra vez SKU “A” x1, luego quitar “B”):</p>
+<pre><code>Líneas: A (cantidad 3, subtotal 30.00 €)
+Cantidad total de artículos: 3
+Total del carrito: 30.00 €</code></pre>
+</div>
+<div class="ejercicio">
+<p><strong>EJ7 · Sesión con expiración, regeneración y protección básica de fijación</strong></p>
+<p>Amplía el mecanismo de expiración anterior con dos capas adicionales de seguridad:</p>
+<ol type="1">
+<li>Al iniciar sesión (login simulado), regenera el ID y guarda también un “fingerprint” ligero calculado a partir de <code>$_SERVER['HTTP_USER_AGENT']</code> (por ejemplo, un hash corto).</li>
+<li>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</li>
+</ol>
+<p>No hay código de partida para este ejercicio: documenta primero, en pseudocódigo o en una lista de pasos, qué comprobaciones haces y en qué orden, y después impleméntalo en PHP.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1038,13 +1157,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="📋 Presentación del módulo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📋 Presentación del módulo</span>
+      <a href="../UD4/04-poo-avanzada.html" class="pagination-link" aria-label="Clases estáticas, clonado, abstractas e interfaces">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/01-modelo-ejecucion.html" class="pagination-link" aria-label="Modelos de ejecución: cliente y servidor">
-        <span class="nav-page-text"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/06-cookies.html" class="pagination-link" aria-label="Cookies">
+        <span class="nav-page-text"><span class="chapter-title">Cookies</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

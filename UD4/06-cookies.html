@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD1. Arquitecturas y tecnologías de programación Web en entorno servidor – Desarrollo Web en Entorno Servidor</title>
+<title>Cookies – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/01-modelo-ejecucion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../UD4/07-autenticacion.html" rel="next">
+<link href="../UD4/05-sesiones.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -255,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/06-cookies.html"><span class="chapter-title">Cookies</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -291,13 +326,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -334,11 +369,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
@@ -366,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -401,15 +436,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
-  <ul class="collapse">
-  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
-  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
-  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
-  </ul></li>
+  <li><a href="#sec-preferencias-combinadas" id="toc-sec-preferencias-combinadas" class="nav-link active" data-scroll-target="#sec-preferencias-combinadas">Varias preferencias en una sola cookie</a></li>
+  <li><a href="#flags-de-seguridad" id="toc-flags-de-seguridad" class="nav-link" data-scroll-target="#flags-de-seguridad">Flags de seguridad</a></li>
+  <li><a href="#cookies-condicionadas-al-consentimiento" id="toc-cookies-condicionadas-al-consentimiento" class="nav-link" data-scroll-target="#cookies-condicionadas-al-consentimiento">Cookies condicionadas al consentimiento</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
     </div>
@@ -417,9 +447,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/06-cookies.html"><span class="chapter-title">Cookies</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</h1>
+<h1 class="title"><span class="chapter-title">Cookies</span></h1>
 </div>
 
 
@@ -436,28 +466,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-de-la-unidad" class="level2">
-<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
-<section id="qué-aprenderás" class="level3">
-<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.</p>
-</section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Distinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.</li>
-<li>Reconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).</li>
-<li>Diferenciar un servidor web de un servidor de aplicaciones.</li>
-<li>Comparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.</li>
-<li>Identificar los delimitadores que separan el código de servidor del HTML en un documento mixto.</li>
-<li>Poner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).</li>
+<li><strong>CE4.a.</strong> — Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</li>
+<li><strong>CE4.c.</strong> — Se han utilizado mecanismos para almacenar información en el cliente web y para recuperar su contenido.</li>
 </ul>
+</div>
+</div>
+<p>Se hace uso de <code>setcookie(nombre, valor, opciones)</code>, que crea una cookie que el navegador guardará y reenviará en peticiones futuras:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="fu">setcookie</span>(<span class="st">'idioma'</span><span class="ot">,</span> <span class="st">'es'</span><span class="ot">,</span> [</span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span>  <span class="co">// 30 días</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>setcookie()</code> crea una cookie antes de cualquier salida al navegador. <code>$_COOKIE</code> la lee, pero <strong>solo a partir de la siguiente petición</strong> (no en la misma en la que se crea).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una cookie recién creada con <code>setcookie()</code> no aparece todavía en <code>$_COOKIE</code> durante esa misma ejecución del script: viaja al navegador y vuelve en la petición siguiente.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">setcookie</span>(<span class="st">'tema'</span><span class="ot">,</span> <span class="st">'oscuro'</span><span class="ot">,</span> <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span>)<span class="ot">;</span> <span class="co">// 30 días</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="co">// En la siguiente petición:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="va">$tema</span> <span class="op">=</span> <span class="va">$_COOKIE</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'claro'</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$tema</span><span class="ot">;</span> <span class="co">// oscuro</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="sec-preferencias-combinadas" class="level2">
+<h2 class="anchored" data-anchor-id="sec-preferencias-combinadas">Varias preferencias en una sola cookie</h2>
+<p>Cuando hay más de un valor que guardar, en vez de crear una cookie por cada preferencia, es más limpio agrupar todo en una sola cookie con un valor JSON:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="va">$preferencias</span> <span class="op">=</span> [</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="st">'tema'</span>    =&gt; <span class="st">'oscuro'</span><span class="ot">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>    <span class="st">'idioma'</span>  =&gt; <span class="st">'es'</span><span class="ot">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="st">'moneda'</span>  =&gt; <span class="st">'EUR'</span><span class="ot">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>]<span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="fu">setcookie</span>(<span class="st">'preferencias'</span><span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$preferencias</span>)<span class="ot">,</span> [</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// En la siguiente petición:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="va">$preferencias</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$_COOKIE</span>[<span class="st">'preferencias'</span>] <span class="op">??</span> <span class="st">'{}'</span><span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="va">$tema</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'claro'</span><span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$idioma</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'idioma'</span>] <span class="op">??</span> <span class="st">'es'</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>json_decode()</code> devuelve <code>null</code> si la cadena no es JSON válido (por ejemplo, si el usuario ha manipulado la cookie a mano desde las herramientas del navegador). Usa siempre <code>?? []</code> o <code>?? '{}'</code> como respaldo, y no asumas que la cookie tiene el formato que esperas: valídala antes de usarla.</p>
+</div>
+</div>
 </section>
-<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
-<blockquote class="blockquote">
-<p><strong>RA1.</strong> Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.</p>
-</blockquote>
+<section id="flags-de-seguridad" class="level2">
+<h2 class="anchored" data-anchor-id="flags-de-seguridad">Flags de seguridad</h2>
+<p>Desde PHP 7.3, <code>setcookie()</code> acepta un array de opciones con flags imprescindibles en producción:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="fu">setcookie</span>(<span class="st">'sesion_pref'</span><span class="ot">,</span> <span class="st">'compacta'</span><span class="ot">,</span> [</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span>   <span class="co">// no accesible desde JavaScript (mitiga XSS)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    <span class="st">'secure'</span>   =&gt; <span class="kw">true</span><span class="ot">,</span>   <span class="co">// solo viaja por HTTPS</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Strict'</span><span class="ot">,</span> <span class="co">// no se envía en peticiones de origen cruzado (mitiga CSRF)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -465,156 +558,79 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>CE</th>
-<th>Descripción</th>
+<th>Flag</th>
+<th>Qué evita si falta</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>CE1.a</td>
-<td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</td>
+<td><code>httponly</code></td>
+<td>Robo de la cookie mediante JavaScript malicioso (XSS)</td>
 </tr>
 <tr class="even">
-<td>CE1.b</td>
-<td>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</td>
+<td><code>secure</code></td>
+<td>Envío de la cookie sin cifrar por HTTP</td>
 </tr>
 <tr class="odd">
-<td>CE1.c</td>
-<td>Se han identificado los mecanismos de ejecución de código en los servidores Web.</td>
-</tr>
-<tr class="even">
-<td>CE1.d</td>
-<td>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.e</td>
-<td>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</td>
-</tr>
-<tr class="even">
-<td>CE1.f</td>
-<td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</td>
-</tr>
-<tr class="odd">
-<td>CE1.g</td>
-<td>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</td>
+<td><code>samesite</code></td>
+<td>Envío automático de la cookie en peticiones iniciadas desde otro sitio (CSRF)</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="contenidos" class="level3">
-<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bloque</th>
-<th>Título</th>
-<th style="text-align: center;">CE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Modelos de ejecución: cliente y servidor</td>
-<td style="text-align: center;">CE1.a</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Páginas estáticas y dinámicas</td>
-<td style="text-align: center;">CE1.b</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Servidor web y servidor de aplicaciones</td>
-<td style="text-align: center;">CE1.c-d</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Lenguajes y tecnologías en entorno servidor</td>
-<td style="text-align: center;">CE1.e</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Integración con lenguajes de marcas</td>
-<td style="text-align: center;">CE1.f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Herramientas de desarrollo</td>
-<td style="text-align: center;">CE1.c-e</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="recursos-y-materiales" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
-<ul>
-<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
-<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
-<li>Navegador con herramientas de desarrollador (F12)</li>
-<li>Editor de código (VS Code recomendado)</li>
-</ul>
-</section>
-<section id="evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
-<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
+<p>Poner <code>secure: true</code> en un entorno de desarrollo local sin HTTPS hace que la cookie nunca se guarde, y el fallo es silencioso (no hay ningún error visible). Si una cookie “desaparece” en local, revisa primero este flag.</p>
 </div>
 </div>
-<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">EJ1</td>
-<td>Clasificación por lugar de ejecución</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ2</td>
-<td>¿Estático, dinámico embebido o script independiente?</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ3</td>
-<td>Identificación de roles en una arquitectura real</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ4</td>
-<td>Análisis comparativo de escenarios</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ5</td>
-<td>Trazado manual de la salida</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ6</td>
-<td>Puesta en marcha del entorno</td>
-<td style="text-align: center;">Sí</td>
-</tr>
-</tbody>
-</table>
-
-
 </section>
+<section id="cookies-condicionadas-al-consentimiento" class="level2">
+<h2 class="anchored" data-anchor-id="cookies-condicionadas-al-consentimiento">Cookies condicionadas al consentimiento</h2>
+<p>Un caso realista: algunas cookies (analíticas, marketing) no deben crearse hasta que el usuario las acepte explícitamente. La idea central es simple, aunque montar el banner completo con varias categorías no lo sea:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// Solo se crea la cookie de analítica si el usuario la ha aceptado</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'acepta_analiticas'</span>])) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>    <span class="fu">setcookie</span>(<span class="st">'analytics_id'</span><span class="ot">,</span> <span class="fu">bin2hex</span>(<span class="fu">random_bytes</span>(<span class="dv">8</span>))<span class="ot">,</span> [</span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>        <span class="st">'expires'</span> =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">365</span><span class="ot">,</span> <span class="st">'path'</span> =&gt; <span class="st">'/'</span><span class="ot">,</span> <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span> <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    ])<span class="ot">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a><span class="co">// Si no se ha aceptado, la cookie simplemente no se crea: no hay "cookie desactivada",</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a><span class="co">// no existe en absoluto hasta que hay consentimiento.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las cookies estrictamente necesarias (sesión, carrito) no requieren consentimiento porque el sitio no puede funcionar sin ellas. Las demás categorías (analíticas, marketing) sí, y <strong>no deben crearse hasta que el usuario las acepte explícitamente</strong> — crearlas antes y luego “respetar” el rechazo no cumple. El ejercicio de esta sección te pide extender esta idea a un banner con varias categorías independientes.</p>
+</div>
+</div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ8 · Preferencias combinadas en una cookie JSON</strong></p>
+<p>Crea una página con un formulario que permita elegir idioma (‘es’/‘en’) <strong>y</strong> tamaño de fuente (‘normal’/‘grande’), guardando ambos valores en una única cookie <code>preferencias</code> codificada en JSON, con 30 días de expiración. En cada carga de página, decodifica la cookie y aplica ambos valores, usando ‘es’ y ‘normal’ como valores por defecto si la cookie no existe o está corrupta.</p>
+<p>No se da código de partida: a partir de lo visto en la sección <a href="#sec-preferencias-combinadas" class="quarto-xref"><span>Varias preferencias en una sola cookie</span></a>, diseña tú la estructura del array y el formulario.</p>
+<p>Resultado esperado la primera vez (sin cookie): <code>Idioma: es | Tamaño: normal</code>. Tras elegir “en” y “grande”: <code>Idioma: en | Tamaño: grande</code>. Si manipulas la cookie a mano dejándola con un JSON inválido: la página debe seguir funcionando con los valores por defecto, sin errores visibles.</p>
+</div>
+<div class="ejercicio">
+<p><strong>EJ9 · Banner de consentimiento de cookies</strong></p>
+<p>Implementa un banner de consentimiento con tres categorías (necesarias, analíticas, marketing). Las necesarias no son opcionales y no requieren cookie de consentimiento propia. Las otras dos se activan de forma independiente según lo que marque el usuario, y las cookies asociadas a cada categoría <strong>solo se crean si esa categoría fue aceptada</strong>. Añade también un botón “rechazar todo” que no cree ninguna cookie de analítica ni marketing, y una forma de que el usuario pueda cambiar su decisión más adelante (por ejemplo, un enlace “gestionar cookies” que vuelva a mostrar el banner).</p>
+<p>Aplica también los flags de seguridad vistos en la sección anterior a cualquier cookie que crees.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1038,13 +1054,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="📋 Presentación del módulo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📋 Presentación del módulo</span>
+      <a href="../UD4/05-sesiones.html" class="pagination-link" aria-label="Sesiones">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Sesiones</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/01-modelo-ejecucion.html" class="pagination-link" aria-label="Modelos de ejecución: cliente y servidor">
-        <span class="nav-page-text"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/07-autenticacion.html" class="pagination-link" aria-label="Autenticación, redirecciones e inclusiones">
+        <span class="nav-page-text"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD1. Arquitecturas y tecnologías de programación Web en entorno servidor – Desarrollo Web en Entorno Servidor</title>
+<title>Depuración y cierre de la unidad – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/01-modelo-ejecucion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../UD4/09-recordarme-y-roles.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -255,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/10-depuracion-y-cierre.html"><span class="chapter-title">Depuración y cierre de la unidad</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -291,13 +325,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -334,11 +368,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
@@ -386,7 +420,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
@@ -401,15 +435,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
+  <li><a href="#herramientas-de-depuración" id="toc-herramientas-de-depuración" class="nav-link active" data-scroll-target="#herramientas-de-depuración">Herramientas de depuración</a>
   <ul class="collapse">
-  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
-  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
-  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
+  <li><a href="#configurar-xdebug-una-sola-vez-por-proyecto" id="toc-configurar-xdebug-una-sola-vez-por-proyecto" class="nav-link" data-scroll-target="#configurar-xdebug-una-sola-vez-por-proyecto">Configurar Xdebug (una sola vez por proyecto)</a></li>
+  <li><a href="#usarlo-cada-vez-que-depures" id="toc-usarlo-cada-vez-que-depures" class="nav-link" data-scroll-target="#usarlo-cada-vez-que-depures">Usarlo (cada vez que depures)</a></li>
   </ul></li>
+  <li><a href="#un-caso-con-varios-fallos-a-la-vez" id="toc-un-caso-con-varios-fallos-a-la-vez" class="nav-link" data-scroll-target="#un-caso-con-varios-fallos-a-la-vez">Un caso con varios fallos a la vez</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#proyecto-integrador" id="toc-proyecto-integrador" class="nav-link" data-scroll-target="#proyecto-integrador">Proyecto integrador</a></li>
+  <li><a href="#cierre-de-la-unidad" id="toc-cierre-de-la-unidad" class="nav-link" data-scroll-target="#cierre-de-la-unidad">Cierre de la unidad</a></li>
   </ul>
 </nav>
     </div>
@@ -417,9 +451,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/10-depuracion-y-cierre.html"><span class="chapter-title">Depuración y cierre de la unidad</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</h1>
+<h1 class="title"><span class="chapter-title">Depuración y cierre de la unidad</span></h1>
 </div>
 
 
@@ -436,185 +470,208 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-de-la-unidad" class="level2">
-<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
-<section id="qué-aprenderás" class="level3">
-<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.</p>
-</section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
-<ul>
-<li>Distinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.</li>
-<li>Reconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).</li>
-<li>Diferenciar un servidor web de un servidor de aplicaciones.</li>
-<li>Comparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.</li>
-<li>Identificar los delimitadores que separan el código de servidor del HTML en un documento mixto.</li>
-<li>Poner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).</li>
-</ul>
-</section>
-<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
-<blockquote class="blockquote">
-<p><strong>RA1.</strong> Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.</p>
-</blockquote>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>CE</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CE1.a</td>
-<td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</td>
-</tr>
-<tr class="even">
-<td>CE1.b</td>
-<td>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.c</td>
-<td>Se han identificado los mecanismos de ejecución de código en los servidores Web.</td>
-</tr>
-<tr class="even">
-<td>CE1.d</td>
-<td>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.e</td>
-<td>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</td>
-</tr>
-<tr class="even">
-<td>CE1.f</td>
-<td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</td>
-</tr>
-<tr class="odd">
-<td>CE1.g</td>
-<td>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="contenidos" class="level3">
-<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bloque</th>
-<th>Título</th>
-<th style="text-align: center;">CE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Modelos de ejecución: cliente y servidor</td>
-<td style="text-align: center;">CE1.a</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Páginas estáticas y dinámicas</td>
-<td style="text-align: center;">CE1.b</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Servidor web y servidor de aplicaciones</td>
-<td style="text-align: center;">CE1.c-d</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Lenguajes y tecnologías en entorno servidor</td>
-<td style="text-align: center;">CE1.e</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Integración con lenguajes de marcas</td>
-<td style="text-align: center;">CE1.f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Herramientas de desarrollo</td>
-<td style="text-align: center;">CE1.c-e</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="recursos-y-materiales" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
-<ul>
-<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
-<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
-<li>Navegador con herramientas de desarrollador (F12)</li>
-<li>Editor de código (VS Code recomendado)</li>
-</ul>
-</section>
-<section id="evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
-<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
+<p><strong>CE4.f.</strong> — Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</p>
 </div>
 </div>
-<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">EJ1</td>
-<td>Clasificación por lugar de ejecución</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ2</td>
-<td>¿Estático, dinámico embebido o script independiente?</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ3</td>
-<td>Identificación de roles en una arquitectura real</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ4</td>
-<td>Análisis comparativo de escenarios</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ5</td>
-<td>Trazado manual de la salida</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ6</td>
-<td>Puesta en marcha del entorno</td>
-<td style="text-align: center;">Sí</td>
-</tr>
-</tbody>
-</table>
-
-
+<section id="herramientas-de-depuración" class="level2">
+<h2 class="anchored" data-anchor-id="herramientas-de-depuración">Herramientas de depuración</h2>
+<p>Depurar aplicaciones con estado (sesiones, cookies) tiene una particularidad: el error no siempre es visible en la petición actual, sino en la siguiente.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="fu">var_dump</span>(<span class="va">$_SESSION</span>)<span class="ot">;</span> <span class="co">// inspección rápida de todo lo que hay guardado</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">print_r</span>(<span class="va">$_COOKIE</span>)<span class="ot">;</span> <span class="co">// igual, pero para cookies</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p><code>var_dump()</code>/<code>print_r()</code> son rápidas y no requieren instalar nada, pero tienen un límite: solo muestran lo que tú decidas imprimir, en el punto exacto donde pongas la línea.</p></li>
+<li><p>Cuando el fallo no es evidente a simple vista, <strong>Xdebug</strong> permite parar la ejecución en cualquier línea e inspeccionar <em>todas</em> las variables en ese momento, sin tener que ir añadiendo <code>var_dump()</code> uno a uno.</p></li>
+</ul>
+<section id="configurar-xdebug-una-sola-vez-por-proyecto" class="level3">
+<h3 class="anchored" data-anchor-id="configurar-xdebug-una-sola-vez-por-proyecto">Configurar Xdebug (una sola vez por proyecto)</h3>
+<p><strong>Instalación</strong> (igual en los dos casos, cambia solo cómo la activas después):</p>
+<ul>
+<li>Con <strong>Docker</strong>, en tu <code>Dockerfile</code>:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">RUN</span> <span class="ex">pecl</span> install xdebug <span class="kw">&amp;&amp;</span> <span class="ex">docker-php-ext-enable</span> xdebug</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Con <strong>XAMPP</strong>, descarga la DLL de Xdebug correspondiente a tu versión de PHP desde <a href="https://xdebug.org/wizard">xdebug.org/wizard</a> y colócala en la carpeta <code>ext/</code> de tu instalación de PHP.</li>
+</ul>
+<p><strong>Configuración:</strong></p>
+<ul>
+<li>Con <strong>Docker</strong>, en tu <code>docker-compose.yml</code>, junto al resto de variables del servicio <code>web</code>:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="at">  </span><span class="fu">web</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="at">      </span><span class="kw">-</span><span class="at"> XDEBUG_MODE=debug</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a><span class="at">      </span><span class="kw">-</span><span class="at"> XDEBUG_CONFIG=client_host=host.docker.internal</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="co">      # ...el resto de variables que ya tengas (DB_HOST, etc.)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Con <strong>XAMPP</strong>, en tu <code>php.ini</code> (accesible desde el panel de control de XAMPP → “Config” → PHP (php.ini)):</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource ini number-lines code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="dt">zend_extension</span><span class="ot">=</span><span class="st">xdebug</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="dt">xdebug.mode</span><span class="ot">=</span><span class="st">debug</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="dt">xdebug.start_with_request</span><span class="ot">=</span><span class="kw">yes</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="dt">xdebug.client_host</span><span class="ot">=</span><span class="kw">localhost</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Después de editar <code>php.ini</code>, reinicia Apache desde el panel de XAMPP para que el cambio surta efecto.</p>
+<p><strong>Editor (igual en los dos casos):</strong></p>
+<ol type="1">
+<li>Instala la extensión <strong>“PHP Debug”</strong> en VS Code (marketplace de extensiones).</li>
+<li><code>Ctrl+Shift+D</code> → “crear archivo launch.json” → elige “PHP” — VS Code genera la configuración por defecto, que suele funcionar sin tocar nada más.</li>
+</ol>
 </section>
+<section id="usarlo-cada-vez-que-depures" class="level3">
+<h3 class="anchored" data-anchor-id="usarlo-cada-vez-que-depures">Usarlo (cada vez que depures)</h3>
+<ol start="3" type="1">
+<li>Clic a la izquierda del número de línea donde quieras parar (aparece un punto rojo).</li>
+<li><code>F5</code> para arrancar la depuración, y <strong>después</strong> haz la petición desde el navegador — el editor se para en tu punto de ruptura, mostrando el valor de cada variable en el panel lateral.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Practica con el ejemplo de al lado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Practica con el ejemplo de al lado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de EJ15, prueba Xdebug sobre el <code>login.php</code> con los 3 fallos que tienes justo debajo: pon un punto de ruptura en la línea del <code>if ($usuario-&gt;verificarPassword(...))</code> y observa qué vale <code>$usuario</code> cuando el email no existe — verás en directo por qué revienta, sin necesidad de que te lo cuente el texto.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="un-caso-con-varios-fallos-a-la-vez" class="level2">
+<h2 class="anchored" data-anchor-id="un-caso-con-varios-fallos-a-la-vez">Un caso con varios fallos a la vez</h2>
+<p>En una aplicación real, los bugs rara vez vienen solos. Este fragmento de una página de login tiene <strong>tres</strong> fallos distintos — la depuración eficaz consiste en aislarlos uno a uno, no en cambiar cosas al azar hasta que “parezca” que funciona.</p>
+<p>Antes del fragmento, esto es lo que necesitas para poder ejecutarlo (no forma parte de los fallos a buscar, es solo el andamiaje):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Usuario.php'</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/UsuarioRepository.php'</span><span class="ot">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="va">$repositorio</span> <span class="op">=</span> <span class="kw">new</span> UsuarioRepository(<span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/datos/usuarios.json'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Y ahora sí, el fragmento con los tres fallos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// login.php — versión con errores</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">echo</span> <span class="st">"&lt;h1&gt;Iniciar sesión&lt;/h1&gt;"</span><span class="ot">;</span> <span class="co">// (1)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span>) {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>    <span class="va">$usuario</span> <span class="op">=</span> <span class="va">$repositorio</span>-&gt;buscarPorEmail(<span class="va">$_POST</span>[<span class="st">'email'</span>])<span class="ot">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>    <span class="cf">if</span> (<span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>])) { <span class="co">// (2)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span> <span class="co">// (3)</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a>        <span class="kw">echo</span> <span class="st">'Redirigiendo...'</span><span class="ot">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a>        <span class="kw">echo</span> <span class="st">'Credenciales incorrectas'</span><span class="ot">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-label="15"></a>    }</span>
+<span id="cb7-16"><a href="#cb7-16" aria-label="16"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Proceso de diagnóstico, paso a paso:</p>
+<ol type="1">
+<li><strong>Síntoma</strong>: nada más cargar la página, PHP muestra un aviso “headers already sent” y la sesión no se guarda. <strong>Causa</strong>: el <code>echo "&lt;h1&gt;..."</code> en la línea (1) envía salida antes de <code>session_start()</code>. <strong>Corrección</strong>: mover <code>session_start()</code> a la primera línea del script.</li>
+<li><strong>Síntoma</strong>: con un email que no existe, la página da un error fatal en vez de mostrar “Credenciales incorrectas”. <strong>Causa</strong>: en la línea (2), si <code>buscarPorEmail()</code> devuelve <code>null</code>, llamar a <code>$usuario-&gt;verificarPassword()</code> sobre <code>null</code> revienta el script. <strong>Corrección</strong>: comprobar <code>$usuario !== null</code> antes de usarlo, exactamente como en la de login y registro.</li>
+<li><strong>Síntoma</strong>: tras un login correcto, el navegador no redirige, y además puede aparecer un error “headers already sent” en la línea del <code>header()</code>. <strong>Causa</strong>: falta <code>exit;</code> después del <code>header()</code> en la línea (3), y además el <code>echo 'Redirigiendo...'</code> intenta escribir salida después de haber llamado a <code>header()</code>. <strong>Corrección</strong>: añadir <code>exit;</code> justo después del <code>header()</code> y quitar ese <code>echo</code>.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="co">// login.php — corregido</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span> <span class="co">// (1) corregido: primera línea, sin salida antes</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span>) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>    <span class="va">$usuario</span> <span class="op">=</span> <span class="va">$repositorio</span>-&gt;buscarPorEmail(<span class="va">$_POST</span>[<span class="st">'email'</span>])<span class="ot">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>    <span class="cf">if</span> (<span class="va">$usuario</span> <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>])) { <span class="co">// (2) corregido</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-label="10"></a>        <span class="cf">exit</span><span class="ot">;</span> <span class="co">// (3) corregido</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-label="11"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-label="12"></a>        <span class="kw">echo</span> <span class="st">'Credenciales incorrectas'</span><span class="ot">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-label="13"></a>    }</span>
+<span id="cb8-14"><a href="#cb8-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando encuentres un bug, resiste la tentación de arreglar el primer síntoma y dar por cerrado el caso. Vuelve a probar el flujo completo (usuario correcto, usuario inexistente, contraseña incorrecta) después de cada corrección: es habitual que un mismo script tenga más de un fallo independiente, como en el ejemplo anterior.</p>
+</div>
+</div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ15 · Depuración de una aplicación con varios fallos</strong></p>
+<p>Se te entrega el siguiente fragmento de una página de “recordarme” con <strong>dos fallos independientes</strong>. Localízalos con <code>var_dump()</code>/Xdebug (no te limites a leer el código: ejecútalo y observa el comportamiento real) y documenta, para cada uno, el síntoma que provocó, la causa y la corrección — igual que en la tabla de diagnóstico de esta sección.</p>
+<p>Antes del fragmento con los fallos, necesitas estas piezas mínimas para poder ejecutarlo (no forman parte de los fallos a buscar, son solo el andamiaje para que el script funcione):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="co">// Simulación mínima de apoyo — no contiene ninguno de los dos fallos</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="kw">class</span> UsuarioSimulado {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> getEmail()<span class="ot">:</span> <span class="dt">string</span> { <span class="cf">return</span> <span class="st">'ana@example.com'</span><span class="ot">;</span> }</span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="va">$usuario</span> <span class="op">=</span> <span class="kw">new</span> UsuarioSimulado()<span class="ot">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="kw">function</span> guardarTokenParaUsuario(<span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$token</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-label="9"></a>    <span class="va">$datos</span> <span class="op">=</span> <span class="fu">file_exists</span>(<span class="st">'tokens.json'</span>) <span class="ot">?</span> <span class="fu">json_decode</span>(<span class="fu">file_get_contents</span>(<span class="st">'tokens.json'</span>)<span class="ot">,</span> <span class="kw">true</span>) <span class="ot">:</span> []<span class="ot">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-label="10"></a>    <span class="va">$datos</span>[<span class="va">$token</span>] <span class="op">=</span> <span class="va">$email</span><span class="ot">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-label="11"></a>    <span class="fu">file_put_contents</span>(<span class="st">'tokens.json'</span><span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$datos</span>))<span class="ot">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-label="12"></a>}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-label="13"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-label="14"></a><span class="kw">function</span> buscarUsuarioPorToken(<span class="ot">?</span><span class="dt">string</span> <span class="va">$token</span>)<span class="ot">:</span> <span class="ot">?</span><span class="dt">string</span> {</span>
+<span id="cb9-15"><a href="#cb9-15" aria-label="15"></a>    <span class="cf">if</span> (<span class="va">$token</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span><span class="fu">file_exists</span>(<span class="st">'tokens.json'</span>)) {</span>
+<span id="cb9-16"><a href="#cb9-16" aria-label="16"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-label="17"></a>    }</span>
+<span id="cb9-18"><a href="#cb9-18" aria-label="18"></a>    <span class="va">$datos</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="fu">file_get_contents</span>(<span class="st">'tokens.json'</span>)<span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-label="19"></a>    <span class="cf">return</span> <span class="va">$datos</span>[<span class="va">$token</span>] <span class="op">??</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-label="20"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Y ahora sí, el fragmento con los dos fallos a localizar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'recordarme'</span>])) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a>    <span class="va">$token</span> <span class="op">=</span> <span class="fu">bin2hex</span>(<span class="fu">random_bytes</span>(<span class="dv">32</span>))<span class="ot">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a>    <span class="fu">setcookie</span>(<span class="st">'recordarme'</span><span class="ot">,</span> <span class="va">$token</span><span class="ot">,</span> <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span>)<span class="ot">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a>    guardarTokenParaUsuario(<span class="va">$usuario</span>-&gt;getEmail()<span class="ot">,</span> <span class="va">$token</span>)<span class="ot">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-label="7"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-label="8"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-label="9"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>])) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-label="10"></a>    <span class="va">$email</span> <span class="op">=</span> buscarUsuarioPorToken(<span class="va">$_COOKIE</span>[<span class="st">'recordarme'</span>])<span class="ot">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-label="11"></a>    <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$email</span><span class="ot">;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-label="12"></a>}</span>
+<span id="cb10-13"><a href="#cb10-13" aria-label="13"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-label="14"></a><span class="fu">var_dump</span>(<span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">??</span> <span class="st">'no hay sesión'</span>)<span class="ot">;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-label="15"></a><span class="fu">var_dump</span>(<span class="kw">isset</span>(<span class="va">$_COOKIE</span>[<span class="st">'recordarme'</span>]) <span class="ot">?</span> <span class="st">'cookie presente'</span> <span class="ot">:</span> <span class="st">'cookie ausente'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="proyecto-integrador" class="level2">
+<h2 class="anchored" data-anchor-id="proyecto-integrador">Proyecto integrador</h2>
+<div class="ejercicio">
+<p><strong>EJ16 · Mini-aplicación con registro, login y panel protegido</strong></p>
+<p>Construye una pequeña aplicación que combine, en un único flujo coherente, todo lo trabajado en esta unidad. Puedes —y debes— reutilizar el código de ejercicios anteriores en vez de escribirlo desde cero: lo que se evalúa aquí es que todas las piezas encajen entre sí, no que cada pieza sea nueva.</p>
+<p>Debe incluir:</p>
+<ol type="1">
+<li><strong>Registro</strong>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email y que no exista ya.</li>
+<li><strong>Login</strong>: valida credenciales con <code>password_verify()</code> e inicia sesión regenerando el ID.</li>
+<li><strong>Una preferencia en cookie</strong>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</li>
+<li><strong>Panel protegido</strong>: una página solo accesible con sesión activa, que redirige a login si no la hay.</li>
+</ol>
+</div>
+</section>
+<section id="cierre-de-la-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="cierre-de-la-unidad">Cierre de la unidad</h2>
+<p>Con esto tienes todo lo necesario para construir una aplicación web con estado: clases bien diseñadas, sesiones para el estado activo, cookies para lo persistente, contraseñas cifradas correctamente y control de acceso por roles. Es exactamente la base sobre la que trabajarás en la siguiente unidad, donde este mismo código se reorganiza usando un framework (Laravel) en lugar de escribirlo a mano.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1038,14 +1095,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="📋 Presentación del módulo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📋 Presentación del módulo</span>
+      <a href="../UD4/09-recordarme-y-roles.html" class="pagination-link" aria-label="Cookies persistentes y control de acceso por roles">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/01-modelo-ejecucion.html" class="pagination-link" aria-label="Modelos de ejecución: cliente y servidor">
-        <span class="nav-page-text"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
