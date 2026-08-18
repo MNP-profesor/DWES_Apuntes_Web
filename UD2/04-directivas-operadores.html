@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Directivas y operadores – Desarrollo Web en Entorno Servidor</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD2/05-ambito.html" rel="next">
+<link href="../UD2/03-tipos-conversion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/04-directivas-operadores.html"><span class="chapter-title">Directivas y operadores</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📋 Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Directivas y operadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#directivas-de-error" id="toc-directivas-de-error" class="nav-link active" data-scroll-target="#directivas-de-error">Directivas de error</a>
+  <ul class="collapse">
+  <li><a href="#mostrar-errores-en-desarrollo" id="toc-mostrar-errores-en-desarrollo" class="nav-link" data-scroll-target="#mostrar-errores-en-desarrollo">Mostrar errores en desarrollo</a></li>
+  <li><a href="#ocultar-errores-en-producción" id="toc-ocultar-errores-en-producción" class="nav-link" data-scroll-target="#ocultar-errores-en-producción">Ocultar errores en producción</a></li>
+  <li><a href="#declarestrict_types1" id="toc-declarestrict_types1" class="nav-link" data-scroll-target="#declarestrict_types1"><code>declare(strict_types=1)</code></a></li>
+  </ul></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#operadores" id="toc-operadores" class="nav-link" data-scroll-target="#operadores">Operadores</a>
+  <ul class="collapse">
+  <li><a href="#aritméticos" id="toc-aritméticos" class="nav-link" data-scroll-target="#aritméticos">Aritméticos</a></li>
+  <li><a href="#asignación-compuesta" id="toc-asignación-compuesta" class="nav-link" data-scroll-target="#asignación-compuesta">Asignación compuesta</a></li>
+  <li><a href="#incremento-y-decremento" id="toc-incremento-y-decremento" class="nav-link" data-scroll-target="#incremento-y-decremento">Incremento y decremento</a></li>
+  <li><a href="#comparación" id="toc-comparación" class="nav-link" data-scroll-target="#comparación">Comparación</a></li>
+  <li><a href="#lógicos" id="toc-lógicos" class="nav-link" data-scroll-target="#lógicos">Lógicos</a></li>
+  <li><a href="#concatenación" id="toc-concatenación" class="nav-link" data-scroll-target="#concatenación">Concatenación</a></li>
+  <li><a href="#operador-ternario" id="toc-operador-ternario" class="nav-link" data-scroll-target="#operador-ternario">Operador ternario</a></li>
+  </ul></li>
+  <li><a href="#precedencia-y-la-trampa-de-andor" id="toc-precedencia-y-la-trampa-de-andor" class="nav-link" data-scroll-target="#precedencia-y-la-trampa-de-andor">Precedencia y la trampa de <code>and</code>/<code>or</code></a></li>
+  <li><a href="#actividades-1" id="toc-actividades-1" class="nav-link" data-scroll-target="#actividades-1">Actividades</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/04-directivas-operadores.html"><span class="chapter-title">Directivas y operadores</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Directivas y operadores</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="directivas-de-error" class="level2">
+<h2 class="anchored" data-anchor-id="directivas-de-error">Directivas de error</h2>
+<p>Las directivas configuran el comportamiento del intérprete, no generan salida HTML.</p>
+<section id="mostrar-errores-en-desarrollo" class="level3">
+<h3 class="anchored" data-anchor-id="mostrar-errores-en-desarrollo">Mostrar errores en desarrollo</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="fu">error_reporting</span>(<span class="cn">E_ALL</span>)<span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="fu">ini_set</span>(<span class="st">'display_errors'</span><span class="ot">,</span> <span class="st">'1'</span>)<span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="kw">echo</span> <span class="va">$variable_que_no_existe</span><span class="ot">;</span>  <span class="co">// Warning: Undefined variable</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="kw">echo</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span><span class="ot">;</span>                   <span class="co">// Warning: Division by zero</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida visible en pantalla:</p>
+<pre><code>Warning: Undefined variable $variable_que_no_existe in /var/www/html/test.php on line 4
+Warning: Division by zero in /var/www/html/test.php on line 5</code></pre>
+</section>
+<section id="ocultar-errores-en-producción" class="level3">
+<h3 class="anchored" data-anchor-id="ocultar-errores-en-producción">Ocultar errores en producción</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="fu">ini_set</span>(<span class="st">'display_errors'</span><span class="ot">,</span> <span class="st">'0'</span>)<span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="fu">ini_set</span>(<span class="st">'log_errors'</span><span class="ot">,</span>     <span class="st">'1'</span>)<span class="ot">;</span>   <span class="co">// guardar en el log del servidor</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="kw">echo</span> <span class="va">$variable_que_no_existe</span><span class="ot">;</span>  <span class="co">// El error ocurre pero el usuario no lo ve</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a><span class="kw">echo</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida visible: <em>(nada — la página parece funcionar, pero el log del servidor registra los errores)</em></p>
+</section>
+<section id="declarestrict_types1" class="level3">
+<h3 class="anchored" data-anchor-id="declarestrict_types1"><code>declare(strict_types=1)</code></h3>
+<p>Obliga a que los tipos de los parámetros de funciones tipadas coincidan exactamente. Debe ser la <strong>primera línea</strong> del archivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="kw">declare</span>(strict_types<span class="op">=</span><span class="dv">1</span>)<span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="kw">function</span> duplicar(<span class="dt">int</span> <span class="va">$n</span>)<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>    <span class="cf">return</span> <span class="va">$n</span> <span class="op">*</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="kw">echo</span> duplicar(<span class="dv">5</span>)<span class="ot">;</span>     <span class="co">// 10</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="kw">echo</span> duplicar(<span class="st">"5"</span>)<span class="ot">;</span>   <span class="co">// TypeError: sin strict_types PHP convertiría "5" a 5 automáticamente;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>                      <span class="co">// con strict_types lanza excepción</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ9 · Desarrollo vs.&nbsp;producción</strong></p>
+<p>Crea <code>errores.php</code> con este código de partida:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="co">// Configura aquí las directivas</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$x</span> <span class="op">=</span> <span class="va">$variable_indefinida</span> <span class="op">+</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="va">$y</span> <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a><span class="kw">echo</span> <span class="st">"x = </span><span class="va">$x</span><span class="st">, y = </span><span class="va">$y</span><span class="st">"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Configura el modo desarrollo y anota exactamente qué mensajes aparecen.</li>
+<li>Cambia a modo producción y describe qué ve el usuario.</li>
+<li>Añade <code>declare(strict_types=1)</code> y explica en un comentario qué cambiaría si <code>$variable_indefinida</code> fuera el parámetro de una función tipada como <code>int</code>.</li>
+</ol>
+</div>
+</section>
+<section id="operadores" class="level2">
+<h2 class="anchored" data-anchor-id="operadores">Operadores</h2>
+<section id="aritméticos" class="level3">
+<h3 class="anchored" data-anchor-id="aritméticos">Aritméticos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="va">$a</span> <span class="op">=</span> <span class="dv">17</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="va">$b</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">+</span> <span class="va">$b</span><span class="ot">;</span>   <span class="co">// 22</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">-</span> <span class="va">$b</span><span class="ot">;</span>   <span class="co">// 12</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">*</span> <span class="va">$b</span><span class="ot">;</span>   <span class="co">// 85</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">/</span> <span class="va">$b</span><span class="ot">;</span>   <span class="co">// 3.4</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">%</span> <span class="va">$b</span><span class="ot">;</span>   <span class="co">// 2   ← resto de la división entera</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span>   <span class="co">// 289 ← potencia (17²)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="kw">echo</span> <span class="va">$b</span> <span class="op">**</span> <span class="dv">3</span><span class="ot">;</span>   <span class="co">// 125 ← 5³</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="asignación-compuesta" class="level3">
+<h3 class="anchored" data-anchor-id="asignación-compuesta">Asignación compuesta</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="va">$precio</span> <span class="op">=</span> <span class="dv">100</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="va">$precio</span> <span class="op">+=</span> <span class="dv">20</span><span class="ot">;</span>   <span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>  <span class="co">// 120</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a><span class="va">$precio</span> <span class="op">-=</span> <span class="dv">5</span><span class="ot">;</span>    <span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>  <span class="co">// 115</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="va">$precio</span> <span class="op">*=</span> <span class="fl">1.1</span><span class="ot">;</span>  <span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>  <span class="co">// 126.5</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a><span class="va">$precio</span> <span class="op">/=</span> <span class="dv">2</span><span class="ot">;</span>    <span class="kw">echo</span> <span class="va">$precio</span><span class="ot">;</span>  <span class="co">// 63.25</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a><span class="va">$precio</span>  <span class="op">=</span> <span class="dv">100</span><span class="ot">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a><span class="va">$texto</span>  <span class="op">=</span> <span class="st">"Hola"</span><span class="ot">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a><span class="va">$texto</span> <span class="op">.=</span> <span class="st">", mundo"</span><span class="ot">;</span>   <span class="kw">echo</span> <span class="va">$texto</span><span class="ot">;</span>  <span class="co">// Hola, mundo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="incremento-y-decremento" class="level3">
+<h3 class="anchored" data-anchor-id="incremento-y-decremento">Incremento y decremento</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="va">$i</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$i</span><span class="op">++</span><span class="ot">;</span>   <span class="co">// 5  ← muestra primero, luego incrementa</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="kw">echo</span> <span class="va">$i</span><span class="ot">;</span>     <span class="co">// 6</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="kw">echo</span> <span class="op">++</span><span class="va">$i</span><span class="ot">;</span>   <span class="co">// 7  ← incrementa primero, luego muestra</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a><span class="kw">echo</span> <span class="va">$i</span><span class="op">--</span><span class="ot">;</span>   <span class="co">// 7  ← muestra primero, luego decrementa</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a><span class="kw">echo</span> <span class="va">$i</span><span class="ot">;</span>     <span class="co">// 6</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comparación" class="level3">
+<h3 class="anchored" data-anchor-id="comparación">Comparación</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">&gt;</span>  <span class="dv">3</span>)<span class="ot">;</span>     <span class="co">// bool(true)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">&lt;</span>  <span class="dv">3</span>)<span class="ot">;</span>     <span class="co">// bool(false)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">&gt;=</span> <span class="dv">5</span>)<span class="ot">;</span>     <span class="co">// bool(true)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">&lt;=</span> <span class="dv">4</span>)<span class="ot">;</span>     <span class="co">// bool(false)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">==</span> <span class="st">"5"</span>)<span class="ot">;</span>   <span class="co">// bool(true)  ← convierte antes de comparar</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">===</span> <span class="st">"5"</span>)<span class="ot">;</span>  <span class="co">// bool(false) ← tipo distinto: int vs string</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">!=</span> <span class="dv">3</span>)<span class="ot">;</span>     <span class="co">// bool(true)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-label="9"></a><span class="fu">var_dump</span>(<span class="dv">5</span> <span class="op">!==</span> <span class="st">"5"</span>)<span class="ot">;</span>  <span class="co">// bool(true)  ← tipo distinto</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="lógicos" class="level3">
+<h3 class="anchored" data-anchor-id="lógicos">Lógicos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a><span class="va">$edad</span>   <span class="op">=</span> <span class="dv">20</span><span class="ot">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a><span class="va">$carnet</span> <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="va">$edad</span> <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">&amp;&amp;</span> <span class="va">$carnet</span>)<span class="ot">;</span>  <span class="co">// bool(true)  — ambas verdaderas</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="va">$edad</span> <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="va">$carnet</span>)<span class="ot">;</span> <span class="co">// bool(false) — segunda es false</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-label="7"></a><span class="fu">var_dump</span>(<span class="va">$edad</span> <span class="op">&lt;</span> <span class="dv">18</span> <span class="op">||</span> <span class="va">$carnet</span>)<span class="ot">;</span>   <span class="co">// bool(true)  — al menos una verdadera</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-label="8"></a><span class="fu">var_dump</span>(<span class="op">!</span>(<span class="va">$edad</span> <span class="op">&gt;=</span> <span class="dv">18</span>))<span class="ot">;</span>          <span class="co">// bool(false) — negación</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="concatenación" class="level3">
+<h3 class="anchored" data-anchor-id="concatenación">Concatenación</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Ana"</span><span class="ot">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a><span class="va">$ciudad</span> <span class="op">=</span> <span class="st">"Valencia"</span><span class="ot">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-label="4"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-label="5"></a><span class="kw">echo</span> <span class="va">$nombre</span> <span class="op">.</span> <span class="st">" vive en "</span> <span class="op">.</span> <span class="va">$ciudad</span> <span class="op">.</span> <span class="st">"."</span><span class="ot">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-label="6"></a><span class="co">// → Ana vive en Valencia.</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-label="7"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-label="8"></a><span class="va">$msg</span>  <span class="op">=</span> <span class="st">"Hola"</span><span class="ot">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-label="9"></a><span class="va">$msg</span> <span class="op">.=</span> <span class="st">", </span><span class="va">$nombre</span><span class="st">!"</span><span class="ot">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$msg</span><span class="ot">;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-label="11"></a><span class="co">// → Hola, Ana!</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="operador-ternario" class="level3">
+<h3 class="anchored" data-anchor-id="operador-ternario">Operador ternario</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="va">$edad</span> <span class="op">=</span> <span class="dv">20</span><span class="ot">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="va">$acceso</span> <span class="op">=</span> (<span class="va">$edad</span> <span class="op">&gt;=</span> <span class="dv">18</span>) <span class="ot">?</span> <span class="st">"Permitido"</span> <span class="ot">:</span> <span class="st">"Denegado"</span><span class="ot">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a><span class="kw">echo</span> <span class="va">$acceso</span><span class="ot">;</span>  <span class="co">// Permitido</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-label="5"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a><span class="co">// Forma corta: si la condición es truthy, usa el propio valor</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-label="7"></a><span class="va">$nombre</span> <span class="op">=</span> <span class="st">""</span> <span class="ot">?:</span> <span class="st">"Anónimo"</span><span class="ot">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-label="8"></a><span class="kw">echo</span> <span class="va">$nombre</span><span class="ot">;</span>  <span class="co">// Anónimo   ← "" es falsy, usa el valor de la derecha</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="precedencia-y-la-trampa-de-andor" class="level2">
+<h2 class="anchored" data-anchor-id="precedencia-y-la-trampa-de-andor">Precedencia y la trampa de <code>and</code>/<code>or</code></h2>
+<p>Como en cualquier lenguaje de programación, PHP resuelve los operadores por precedencia.</p>
+<table class="table-striped caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operadores</th>
+<th style="text-align: left;">Tipo / Información adicional</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>**</code></td>
+<td style="text-align: left;">Potencia (Aritmética)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>++</code> <code>--</code></td>
+<td style="text-align: left;">Incremento y decremento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>*</code> <code>/</code> <code>%</code></td>
+<td style="text-align: left;">Multiplicación, división y resto (Módulo)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>+</code> <code>-</code> <code>.</code></td>
+<td style="text-align: left;">Suma, resta y <strong>Concatenación de strings</strong> (<code>.</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td>
+<td style="text-align: left;">Comparaciones relacionales</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>==</code> <code>!=</code> <code>===</code> <code>!==</code></td>
+<td style="text-align: left;">Igualdad e identidad (compara valor y tipo)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;&amp;</code></td>
+<td style="text-align: left;">Lógico Y (AND con mayor precedencia)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>||</code></td>
+<td style="text-align: left;">Lógico O (OR con mayor precedencia)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>??</code></td>
+<td style="text-align: left;">Coalescencia nula (básico para recibir datos de formularios)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>? :</code></td>
+<td style="text-align: left;">Operador ternario (condicional compacto)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>=</code> <code>+=</code> <code>-=</code> <code>.=</code></td>
+<td style="text-align: left;">Asignación directa y asignaciones combinadas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>and</code> <code>or</code></td>
+<td style="text-align: left;">Lógicos con muy baja precedencia</td>
+</tr>
+</tbody>
+</table>
+<p>Ante cualquier duda, usa paréntesis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-label="2"></a><span class="kw">echo</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">4</span><span class="ot">;</span>      <span class="co">// 14  ← * antes que +</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-label="3"></a><span class="kw">echo</span> (<span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">4</span><span class="ot">;</span>    <span class="co">// 20  ← el paréntesis fuerza el orden</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>and</code>/<code>or</code> tienen precedencia menor que <code>=</code></strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a><span class="va">$a</span> <span class="op">=</span> <span class="kw">false</span> <span class="op">||</span> <span class="kw">true</span><span class="ot">;</span>   <span class="co">// $a = true   ← || evalúa antes que =</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-label="3"></a><span class="va">$b</span> <span class="op">=</span> <span class="kw">false</span> <span class="op">or</span> <span class="kw">true</span><span class="ot">;</span>   <span class="co">// $b = false  ← = asigna primero, luego or se descarta</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-label="4"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="va">$a</span>)<span class="ot">;</span>  <span class="co">// bool(true)</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="va">$b</span>)<span class="ot">;</span>  <span class="co">// bool(false)  ← ¡sorpresa!</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La segunda línea se parsea como <code>($b = false) or true</code>: primero asigna <code>false</code> a <code>$b</code>, y luego evalúa <code>false or true</code> (resultado <code>true</code>) que se descarta sin asignar a nada.</p>
+<p><strong>Regla:</strong> usa siempre <code>&amp;&amp;</code> y <code>||</code> en condiciones. <code>and</code>/<code>or</code> solo en construcciones de control de flujo donde la baja precedencia es intencionada.</p>
+</div>
+</div>
+</section>
+<section id="actividades-1" class="level2">
+<h2 class="anchored" data-anchor-id="actividades-1">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ10 · Motor de descuentos</strong></p>
+<p>Crea <code>descuentos.php</code> con este código de partida y completa los cálculos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb15-1"><a href="#cb15-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-label="2"></a><span class="va">$precio_base</span>  <span class="op">=</span> <span class="fl">120.0</span><span class="ot">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-label="3"></a><span class="va">$es_socio</span>     <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-label="4"></a><span class="va">$unidades</span>     <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-label="5"></a><span class="va">$codigo_promo</span> <span class="op">=</span> <span class="st">"VERANO10"</span><span class="ot">;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-label="6"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-label="7"></a><span class="co">// 1. Aplica 15% de descuento si $es_socio es true</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-label="8"></a><span class="co">//    Guarda el resultado en $precio_tras_socio</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-label="9"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-label="10"></a><span class="co">// 2. Aplica 10% adicional si $codigo_promo === "VERANO10"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-label="11"></a><span class="co">//    (sobre el precio ya descontado, no sobre el base)</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-label="12"></a><span class="co">//    Guarda en $precio_tras_promo</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-label="13"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-label="14"></a><span class="co">// 3. Multiplica por $unidades y redondea a 2 decimales → $precio_final</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-label="15"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-label="16"></a><span class="co">// 4. Calcula $envio_gratis: true si (es socio Y más de 3 unidades)</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-label="17"></a><span class="co">//    O si el precio final supera 400 €</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-label="18"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-label="19"></a><span class="co">// 5. Muestra todos los valores intermedios y el resultado final</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Resultado esperado:</p>
+<pre><code>Precio base:          120.00 €
+Tras descuento socio: 102.00 €
+Tras descuento promo:  91.80 €
+Precio final (×5):    459.00 €
+Envío gratuito:       Sí</code></pre>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../UD2/03-tipos-conversion.html" class="pagination-link" aria-label="Tipos de datos y conversión">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Tipos de datos y conversión</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../UD2/05-ambito.html" class="pagination-link" aria-label="Ámbito de las variables">
+        <span class="nav-page-text"><span class="chapter-title">Ámbito de las variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Manel Navarro Pérez | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>DWES | 2º DAW | Módulo 0613</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

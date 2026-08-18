@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manel Navarro Pérez">
 
-<title>Desarrollo Web en Entorno Servidor</title>
+<title>UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -30,28 +29,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./UD1/00-presentacion.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD3/01-condicionales.html" rel="next">
+<link href="../UD2/05-ambito.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">📋 Presentación del módulo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Desarrollo Web en Entorno Servidor</a> 
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -285,13 +285,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">📋 Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -300,39 +300,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -341,75 +341,75 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -418,52 +418,52 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
@@ -478,10 +478,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-del-módulo" id="toc-presentación-del-módulo" class="nav-link active" data-scroll-target="#presentación-del-módulo">Presentación del módulo</a>
+  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
   <ul class="collapse">
-  <li><a href="#estructura-del-módulo" id="toc-estructura-del-módulo" class="nav-link" data-scroll-target="#estructura-del-módulo">Estructura del módulo</a></li>
-  <li><a href="#cómo-usar-estos-apuntes" id="toc-cómo-usar-estos-apuntes" class="nav-link" data-scroll-target="#cómo-usar-estos-apuntes">Cómo usar estos apuntes</a></li>
+  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
+  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
+  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
+  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -492,20 +496,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Desarrollo Web en Entorno Servidor</h1>
-<p class="subtitle lead">2º DAW | Cód. Módulo 0613 | 200 horas</p>
+<h1 class="title">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Manel Navarro Pérez </p>
-          </div>
-  </div>
     
   
     
@@ -516,198 +513,238 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-del-módulo" class="level1 unnumbered">
-<h1 class="unnumbered">Presentación del módulo</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="theme/cover.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:38.0%"></p>
-</figure>
-</div>
-<p>Bienvenido/a a los apuntes del módulo <strong>Desarrollo Web en Entorno Servidor</strong> (DWES, código 0613) de 2º curso del ciclo formativo de grado superior de <strong>Desarrollo de Aplicaciones Web</strong> (DAW).</p>
-<table class="caption-top table">
-<caption>Ficha del módulo</caption>
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Duración</strong></td>
-<td>200 horas (6 h/semana)</td>
-</tr>
-<tr class="even">
-<td><strong>Equivalencia</strong></td>
-<td>12 créditos ECTS</td>
-</tr>
-<tr class="odd">
-<td><strong>Lenguaje principal</strong></td>
-<td>PHP 8.2+</td>
-</tr>
-<tr class="even">
-<td><strong>Framework</strong></td>
-<td>Laravel 13.x</td>
-</tr>
-<tr class="odd">
-<td><strong>Acceso a datos</strong></td>
-<td>PDO</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled" title="Marco normativo">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Marco normativo
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="presentación-de-la-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
+<section id="qué-aprenderás" class="level3">
+<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
+<p>En esta unidad aprendemos a dar lógica real a tus páginas: condicionales, bucles, funciones, y a recoger y validar datos de un formulario.</p>
+</section>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
 <ul>
-<li>Los Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE) del módulo están fijados por el <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2010-9269"><strong>RD 686/2010, de 20 de mayo</strong></a>. Su posterior actualización en el <a href="https://www.boe.es/eli/es/rd/2023/05/29/405"><strong>RD 405/2023, de 29 de mayo</strong></a> <strong>no modificó este módulo</strong>.</li>
-<li>El currículo vigente en la Comunitat Valenciana se establece en el <a href="https://dogv.gva.es/es/eli/es-vc/d/2025/07/29/114/dof/spa/html"><strong>Decreto 114/2025, de 29 de julio</strong> (DOGV)</a>.</li>
+<li>Aplicar estructuras condicionales para controlar el flujo de un programa PHP.</li>
+<li>Utilizar bucles para automatizar tareas repetitivas.</li>
+<li>Diseñar funciones reutilizables con parámetros y valores de retorno.</li>
+<li>Construir formularios HTML y recoger sus datos desde PHP.</li>
+<li>Validar y sanear los datos recibidos de un formulario antes de procesarlos.</li>
 </ul>
-</div>
-</div>
-<section id="estructura-del-módulo" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="estructura-del-módulo">Estructura del módulo</h2>
-<p>El módulo se organiza en <strong>9 unidades didácticas</strong>, cada una asociada a un Resultado de Aprendizaje:</p>
+</section>
+<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
+<blockquote class="blockquote">
+<p><strong>RA3.</strong> Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</p>
+</blockquote>
 <table class="caption-top table">
-<caption>Distribución de unidades (200 horas totales)</caption>
 <colgroup>
-<col style="width: 17%">
-<col style="width: 34%">
-<col style="width: 17%">
-<col style="width: 30%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">UD</th>
+<th>CE</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CE3.a</td>
+<td>Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</td>
+</tr>
+<tr class="even">
+<td>CE3.b</td>
+<td>Se han utilizado bucles y se ha verificado su funcionamiento.</td>
+</tr>
+<tr class="odd">
+<td>CE3.c</td>
+<td>Se han utilizado matrices (arrays) para almacenar y recuperar conjuntos de datos.</td>
+</tr>
+<tr class="even">
+<td>CE3.d</td>
+<td>Se han creado y utilizado funciones.</td>
+</tr>
+<tr class="odd">
+<td>CE3.e</td>
+<td>Se han utilizado formularios web para interactuar con el usuario del navegador web.</td>
+</tr>
+<tr class="even">
+<td>CE3.f</td>
+<td>Se han empleado métodos para recuperar la información introducida en el formulario.</td>
+</tr>
+<tr class="odd">
+<td>CE3.g</td>
+<td>Se han añadido comentarios al código.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contenidos" class="level3">
+<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 40%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Bloque</th>
 <th>Título</th>
-<th style="text-align: center;">RA</th>
-<th style="text-align: center;">Horas</th>
+<th style="text-align: center;">CE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td>Arquitecturas y tecnologías de programación Web en entorno servidor</td>
-<td style="text-align: center;">RA1</td>
-<td style="text-align: center;">6</td>
+<td>Condicionales: <code>if/elseif/else</code>, ternario, <code>??</code>, <code>switch</code> / <code>match</code></td>
+<td style="text-align: center;">CE3.a</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td>Fundamentos de PHP: variables, operadores y sintaxis embebida</td>
-<td style="text-align: center;">RA2</td>
-<td style="text-align: center;">16</td>
+<td>Bucles <code>while</code>, <code>do-while</code>, <code>for</code>, <code>foreach</code>, <code>break</code>/<code>continue</code></td>
+<td style="text-align: center;">CE3.b</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td>Estructuras de control, funciones y formularios en PHP</td>
-<td style="text-align: center;">RA3</td>
-<td style="text-align: center;">18</td>
+<td>Arrays indexados y asociativos, multidimensionales y funciones de orden superior</td>
+<td style="text-align: center;">CE3.c</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td>POO en PHP y Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</td>
-<td style="text-align: center;">RA4</td>
-<td style="text-align: center;">32</td>
+<td>Funciones: parámetros, retorno, referencia, ámbito</td>
+<td style="text-align: center;">CE3.d</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td>Separación de la lógica de negocio: MVC con Laravel</td>
-<td style="text-align: center;">RA5</td>
-<td style="text-align: center;">34</td>
+<td>Formularios HTML: GET vs POST</td>
+<td style="text-align: center;">CE3.e</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td>Acceso a BBDD con PDO: seguridad e integridad</td>
-<td style="text-align: center;">RA6</td>
-<td style="text-align: center;">32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>Servicios Web: API REST con Laravel (Resources y Sanctum)</td>
-<td style="text-align: center;">RA7</td>
-<td style="text-align: center;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td>Generación dinámica de páginas Web</td>
-<td style="text-align: center;">RA8</td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td>Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</td>
-<td style="text-align: center;">RA9</td>
-<td style="text-align: center;">10</td>
+<td>Recogida y validación de datos</td>
+<td style="text-align: center;">CE3.e-f</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="cómo-usar-estos-apuntes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="cómo-usar-estos-apuntes">Cómo usar estos apuntes</h2>
+<section id="recursos-y-materiales" class="level3">
+<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
 <ul>
-<li>La <strong>teoría y los ejercicios</strong> están intercalados: practica cada concepto justo después de estudiarlo.</li>
-<li>Los bloques de código PHP son <strong>completos y ejecutables</strong>: pruébalos en tu entorno.</li>
-<li>Las cajas de color tienen un significado fijo en los apuntes:</li>
+<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
+<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
+<li>Navegador con herramientas de desarrollador (F12)</li>
+<li>Editor de código (VS Code recomendado)</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+</section>
+<section id="evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
+<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
+<span class="screen-reader-only">Importante</span>Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Definiciones y fundamentos que debes dominar.</p>
+<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Ejercicio</th>
+<th>Título</th>
+<th style="text-align: center;">¿Entrega?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">EJ1</td>
+<td>Clasificador de tarifas</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ2</td>
+<td>Selector de plan de hosting</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ3</td>
+<td>Generador de tablas de multiplicar</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ4</td>
+<td>Filtro de inventario</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ5</td>
+<td>Catálogo de cursos</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ6</td>
+<td>Inventario multinivel de almacén</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ7</td>
+<td>Ejercicios extras de Arrays</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ8</td>
+<td>Librería de funciones de validación</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ9</td>
+<td>Ejercicios extras de funciones</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ10</td>
+<td>Formulario de inscripción</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">EJ11</td>
+<td>Procesador de inscripción con validación</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EJ12</td>
+<td>Tienda online — ejercicio de integración</td>
+<td style="text-align: center;">Sí</td>
+</tr>
+</tbody>
+</table>
+<p>Para obtener el <strong>apto</strong> es necesario:</p>
+<ul>
+<li>El código produce el resultado esperado en los ficheros entregados.</li>
+<li>La estructura elegida es adecuada al problema.</li>
+<li>Todas las funciones incluyen PHPDoc completo y el código tiene comentarios en la lógica más compleja.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Analogía Java
+<span class="screen-reader-only">Importante</span>Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Comparativa con lo que ya conoces de la programación Java de 1º curso.</p>
+<ul>
+<li>El EJ12 engloba todos los contenidos de la unidad.</li>
+<li>Los comentarios (<strong>CE3.g</strong>) son obligatorios en la entrega. Pon los que consideres apropiados.</li>
+</ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Advertencia</span>Errores frecuentes
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Consejos para saber cómo evitarlos.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Normativa | RA-CE">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Normativa | RA-CE
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Vinculación del contenido con los Criterios de Evaluación oficiales.</p>
-</div>
-</div>
-<!--En la página de [Descargas](descargas.qmd) tienes el libro completo y cada unidad en **PDF** y **EPUB**.-->
-<hr>
-<p><em>Estos materiales se publican bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>.</em></p>
 
 
 </section>
@@ -1134,10 +1171,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../UD2/05-ambito.html" class="pagination-link" aria-label="Ámbito de las variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ámbito de las variables</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./UD1/00-presentacion.html" class="pagination-link" aria-label="UD1. Arquitecturas y tecnologías de programación Web en entorno servidor">
-        <span class="nav-page-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD3/01-condicionales.html" class="pagination-link" aria-label="Estructuras condicionales">
+        <span class="nav-page-text"><span class="chapter-title">Estructuras condicionales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1159,5 +1199,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

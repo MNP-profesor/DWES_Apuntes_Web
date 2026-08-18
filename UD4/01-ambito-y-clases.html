@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manel Navarro Pérez">
 
-<title>Desarrollo Web en Entorno Servidor</title>
+<title>Ámbito de variables y clases – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./UD1/00-presentacion.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD4/02-constructores-y-encapsulacion.html" rel="next">
+<link href="../UD4/00-presentacion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -255,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">📋 Presentación del módulo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/01-ambito-y-clases.html"><span class="chapter-title">Ámbito de variables y clases</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -270,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Desarrollo Web en Entorno Servidor</a> 
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -285,13 +320,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">📋 Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -300,39 +335,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -341,34 +376,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -377,93 +412,93 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
@@ -478,11 +513,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-del-módulo" id="toc-presentación-del-módulo" class="nav-link active" data-scroll-target="#presentación-del-módulo">Presentación del módulo</a>
-  <ul class="collapse">
-  <li><a href="#estructura-del-módulo" id="toc-estructura-del-módulo" class="nav-link" data-scroll-target="#estructura-del-módulo">Estructura del módulo</a></li>
-  <li><a href="#cómo-usar-estos-apuntes" id="toc-cómo-usar-estos-apuntes" class="nav-link" data-scroll-target="#cómo-usar-estos-apuntes">Cómo usar estos apuntes</a></li>
-  </ul></li>
+  <li><a href="#ámbito-de-variables" id="toc-ámbito-de-variables" class="nav-link active" data-scroll-target="#ámbito-de-variables">Ámbito de variables</a></li>
+  <li><a href="#clases-y-objetos" id="toc-clases-y-objetos" class="nav-link" data-scroll-target="#clases-y-objetos">Clases y objetos</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
     </div>
@@ -490,22 +523,15 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/01-ambito-y-clases.html"><span class="chapter-title">Ámbito de variables y clases</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Desarrollo Web en Entorno Servidor</h1>
-<p class="subtitle lead">2º DAW | Cód. Módulo 0613 | 200 horas</p>
+<h1 class="title"><span class="chapter-title">Ámbito de variables y clases</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Manel Navarro Pérez </p>
-          </div>
-  </div>
     
   
     
@@ -516,156 +542,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-del-módulo" class="level1 unnumbered">
-<h1 class="unnumbered">Presentación del módulo</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="theme/cover.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:38.0%"></p>
-</figure>
-</div>
-<p>Bienvenido/a a los apuntes del módulo <strong>Desarrollo Web en Entorno Servidor</strong> (DWES, código 0613) de 2º curso del ciclo formativo de grado superior de <strong>Desarrollo de Aplicaciones Web</strong> (DAW).</p>
-<table class="caption-top table">
-<caption>Ficha del módulo</caption>
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Duración</strong></td>
-<td>200 horas (6 h/semana)</td>
-</tr>
-<tr class="even">
-<td><strong>Equivalencia</strong></td>
-<td>12 créditos ECTS</td>
-</tr>
-<tr class="odd">
-<td><strong>Lenguaje principal</strong></td>
-<td>PHP 8.2+</td>
-</tr>
-<tr class="even">
-<td><strong>Framework</strong></td>
-<td>Laravel 13.x</td>
-</tr>
-<tr class="odd">
-<td><strong>Acceso a datos</strong></td>
-<td>PDO</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled" title="Marco normativo">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Marco normativo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Los Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE) del módulo están fijados por el <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2010-9269"><strong>RD 686/2010, de 20 de mayo</strong></a>. Su posterior actualización en el <a href="https://www.boe.es/eli/es/rd/2023/05/29/405"><strong>RD 405/2023, de 29 de mayo</strong></a> <strong>no modificó este módulo</strong>.</li>
-<li>El currículo vigente en la Comunitat Valenciana se establece en el <a href="https://dogv.gva.es/es/eli/es-vc/d/2025/07/29/114/dof/spa/html"><strong>Decreto 114/2025, de 29 de julio</strong> (DOGV)</a>.</li>
-</ul>
-</div>
-</div>
-<section id="estructura-del-módulo" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="estructura-del-módulo">Estructura del módulo</h2>
-<p>El módulo se organiza en <strong>9 unidades didácticas</strong>, cada una asociada a un Resultado de Aprendizaje:</p>
-<table class="caption-top table">
-<caption>Distribución de unidades (200 horas totales)</caption>
-<colgroup>
-<col style="width: 17%">
-<col style="width: 34%">
-<col style="width: 17%">
-<col style="width: 30%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">UD</th>
-<th>Título</th>
-<th style="text-align: center;">RA</th>
-<th style="text-align: center;">Horas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Arquitecturas y tecnologías de programación Web en entorno servidor</td>
-<td style="text-align: center;">RA1</td>
-<td style="text-align: center;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Fundamentos de PHP: variables, operadores y sintaxis embebida</td>
-<td style="text-align: center;">RA2</td>
-<td style="text-align: center;">16</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Estructuras de control, funciones y formularios en PHP</td>
-<td style="text-align: center;">RA3</td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>POO en PHP y Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</td>
-<td style="text-align: center;">RA4</td>
-<td style="text-align: center;">32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Separación de la lógica de negocio: MVC con Laravel</td>
-<td style="text-align: center;">RA5</td>
-<td style="text-align: center;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Acceso a BBDD con PDO: seguridad e integridad</td>
-<td style="text-align: center;">RA6</td>
-<td style="text-align: center;">32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>Servicios Web: API REST con Laravel (Resources y Sanctum)</td>
-<td style="text-align: center;">RA7</td>
-<td style="text-align: center;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td>Generación dinámica de páginas Web</td>
-<td style="text-align: center;">RA8</td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td>Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</td>
-<td style="text-align: center;">RA9</td>
-<td style="text-align: center;">10</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cómo-usar-estos-apuntes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="cómo-usar-estos-apuntes">Cómo usar estos apuntes</h2>
-<ul>
-<li>La <strong>teoría y los ejercicios</strong> están intercalados: practica cada concepto justo después de estudiarlo.</li>
-<li>Los bloques de código PHP son <strong>completos y ejecutables</strong>: pruébalos en tu entorno.</li>
-<li>Las cajas de color tienen un significado fijo en los apuntes:</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Definiciones y fundamentos que debes dominar.</p>
-</div>
-</div>
+<section id="ámbito-de-variables" class="level2">
+<h2 class="anchored" data-anchor-id="ámbito-de-variables">Ámbito de variables</h2>
+<p>Una variable declarada fuera de una función es <strong>global</strong>; una declarada dentro es <strong>local</strong> a esa función. Hasta aquí, como en la mayoría de lenguajes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="va">$contador</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="kw">function</span> verContador() {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    <span class="kw">echo</span> <span class="va">$contador</span><span class="ot">;</span> <span class="co">// Aviso: variable indefinida. $contador no es visible aquí.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>verContador()<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -676,9 +562,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Comparativa con lo que ya conoces de la programación Java de 1º curso.</p>
+<p>En Java, una variable de instancia es visible en todos los métodos de la clase sin nada especial. En PHP, una variable global <strong>no</strong> entra automáticamente en una función: hay que declararla con <code>global</code>. Es la sorpresa más común al llegar a PHP desde Java.</p>
 </div>
 </div>
+<p>Para acceder a una variable global dentro de una función, se declara explícitamente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="va">$contador</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="kw">function</span> incrementar() {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>    <span class="kw">global</span> <span class="va">$contador</span><span class="ot">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>    <span class="va">$contador</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>incrementar()<span class="ot">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>incrementar()<span class="ot">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$contador</span><span class="ot">;</span> <span class="co">// 2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>static</code> declara una variable local que <strong>conserva su valor</strong> entre llamadas sucesivas a la misma función:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">function</span> siguienteId() {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>    <span class="kw">static</span> <span class="va">$ultimoId</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>    <span class="va">$ultimoId</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="cf">return</span> <span class="va">$ultimoId</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a><span class="kw">echo</span> siguienteId()<span class="ot">;</span> <span class="co">// 1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a><span class="kw">echo</span> siguienteId()<span class="ot">;</span> <span class="co">// 2</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a><span class="kw">echo</span> siguienteId()<span class="ot">;</span> <span class="co">// 3</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -689,28 +596,95 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consejos para saber cómo evitarlos.</p>
+<p>Olvidar <code>global</code> es la causa más habitual de “esta variable no se actualiza” en scripts sencillos de PHP. Si una función necesita leer o modificar una variable externa, decláralo explícitamente o, mejor aún, pásala como parámetro y devuélvela (es más limpio que depender de <code>global</code>).</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Normativa | RA-CE">
+<div class="callout callout-style-default callout-tip callout-titled" title="Curiosidad">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Normativa | RA-CE
+<span class="screen-reader-only">Tip</span>Curiosidad
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vinculación del contenido con los Criterios de Evaluación oficiales.</p>
+<p>PHP permite <strong>variables variables</strong> (<code>$$nombre</code>), donde el valor de una variable se usa como nombre de otra:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="va">$clave</span> <span class="op">=</span> <span class="st">'color'</span><span class="ot">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="va">$$clave</span> <span class="op">=</span> <span class="st">'azul'</span><span class="ot">;</span> <span class="co">// equivale a $color = 'azul'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$color</span><span class="ot">;</span> <span class="co">// azul</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<!--En la página de [Descargas](descargas.qmd) tienes el libro completo y cada unidad en **PDF** y **EPUB**.-->
-<hr>
-<p><em>Estos materiales se publican bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>.</em></p>
-
-
 </section>
+<section id="clases-y-objetos" class="level2">
+<h2 class="anchored" data-anchor-id="clases-y-objetos">Clases y objetos</h2>
+<p>Una clase es una plantilla; un objeto es una instancia concreta de esa clase.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>class</code> define la plantilla. <code>new</code> crea un objeto. <code>-&gt;</code> accede a propiedades y métodos del objeto.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">class</span> Producto {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>    <span class="kw">public</span> <span class="dt">float</span> <span class="va">$precio</span><span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>    <span class="kw">public</span> <span class="kw">function</span> descripcion()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>        <span class="cf">return</span> <span class="st">"</span>{<span class="va">$this</span>-&gt;nombre}<span class="st">: </span>{<span class="va">$this</span>-&gt;precio}<span class="st"> €"</span><span class="ot">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>    }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a><span class="va">$p</span> <span class="op">=</span> <span class="kw">new</span> Producto()<span class="ot">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="va">$p</span>-&gt;nombre <span class="op">=</span> <span class="st">'Teclado'</span><span class="ot">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a><span class="va">$p</span>-&gt;precio <span class="op">=</span> <span class="fl">25.90</span><span class="ot">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a><span class="kw">echo</span> <span class="va">$p</span>-&gt;descripcion()<span class="ot">;</span> <span class="co">// Teclado: 25.9 €</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Más ejemplos rápidos, mismo patrón:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">class</span> Libro {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$titulo</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="va">$paginas</span><span class="ot">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a><span class="va">$l1</span> <span class="op">=</span> <span class="kw">new</span> Libro()<span class="ot">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a><span class="va">$l1</span>-&gt;titulo <span class="op">=</span> <span class="st">'PHP para todos'</span><span class="ot">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a><span class="va">$l1</span>-&gt;paginas <span class="op">=</span> <span class="dv">320</span><span class="ot">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="va">$l2</span> <span class="op">=</span> <span class="kw">new</span> Libro()<span class="ot">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="va">$l2</span>-&gt;titulo <span class="op">=</span> <span class="st">'Domina Laravel'</span><span class="ot">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a><span class="va">$l2</span>-&gt;paginas <span class="op">=</span> <span class="dv">210</span><span class="ot">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a><span class="kw">echo</span> <span class="va">$l1</span>-&gt;titulo <span class="op">.</span> <span class="st">' - '</span> <span class="op">.</span> <span class="va">$l1</span>-&gt;paginas <span class="op">.</span> <span class="st">' páginas'</span><span class="ot">;</span> <span class="co">// PHP para todos - 320 páginas</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a><span class="kw">echo</span> <span class="va">$l2</span>-&gt;titulo <span class="op">.</span> <span class="st">' - '</span> <span class="op">.</span> <span class="va">$l2</span>-&gt;paginas <span class="op">.</span> <span class="st">' páginas'</span><span class="ot">;</span> <span class="co">// Domina Laravel - 210 páginas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">class</span> Coche {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$marca</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="va">$velocidad</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    <span class="kw">public</span> <span class="kw">function</span> acelerar(<span class="dt">int</span> <span class="va">$incremento</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>        <span class="va">$this</span>-&gt;velocidad <span class="op">+=</span> <span class="va">$incremento</span><span class="ot">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>    }</span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a>}</span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a><span class="va">$c</span> <span class="op">=</span> <span class="kw">new</span> Coche()<span class="ot">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a><span class="va">$c</span>-&gt;marca <span class="op">=</span> <span class="st">'Toyota'</span><span class="ot">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a><span class="va">$c</span>-&gt;acelerar(<span class="dv">30</span>)<span class="ot">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a><span class="va">$c</span>-&gt;acelerar(<span class="dv">20</span>)<span class="ot">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a><span class="kw">echo</span> <span class="va">$c</span>-&gt;velocidad<span class="ot">;</span> <span class="co">// 50</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ1 · Registro de libros con contador global</strong></p>
+<p>Crea una clase <code>Libro</code> con propiedades <code>titulo</code> y <code>autor</code>. Usando una variable global (no una propiedad de la clase) y la palabra clave <code>global</code> vista en esta sección, lleva la cuenta de cuántos objetos <code>Libro</code> se han creado en total, incrementando el contador cada vez que instancies uno nuevo con <code>new Libro(...)</code>.</p>
+<p>Pista: la forma más directa es incrementar el contador global justo después de cada <code>new Libro(...)</code>, sin tocar la clase; para un contador que viva realmente “dentro” de la clase sin depender de una variable externa, tendrás que esperar a la sección de clases estáticas.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1134,10 +1108,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../UD4/00-presentacion.html" class="pagination-link" aria-label="UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./UD1/00-presentacion.html" class="pagination-link" aria-label="UD1. Arquitecturas y tecnologías de programación Web en entorno servidor">
-        <span class="nav-page-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/02-constructores-y-encapsulacion.html" class="pagination-link" aria-label="Constructores y encapsulación">
+        <span class="nav-page-text"><span class="chapter-title">Constructores y encapsulación</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1159,5 +1136,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

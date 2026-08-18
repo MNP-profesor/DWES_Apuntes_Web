@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manel Navarro Pérez">
 
-<title>Desarrollo Web en Entorno Servidor</title>
+<title>Autenticación, redirecciones e inclusiones – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./UD1/00-presentacion.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD4/08-login-registro.html" rel="next">
+<link href="../UD4/06-cookies.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -255,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">📋 Presentación del módulo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/07-autenticacion.html"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -270,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Desarrollo Web en Entorno Servidor</a> 
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -285,13 +320,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">📋 Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -300,39 +335,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -341,34 +376,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -377,93 +412,93 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
@@ -478,11 +513,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-del-módulo" id="toc-presentación-del-módulo" class="nav-link active" data-scroll-target="#presentación-del-módulo">Presentación del módulo</a>
-  <ul class="collapse">
-  <li><a href="#estructura-del-módulo" id="toc-estructura-del-módulo" class="nav-link" data-scroll-target="#estructura-del-módulo">Estructura del módulo</a></li>
-  <li><a href="#cómo-usar-estos-apuntes" id="toc-cómo-usar-estos-apuntes" class="nav-link" data-scroll-target="#cómo-usar-estos-apuntes">Cómo usar estos apuntes</a></li>
-  </ul></li>
+  <li><a href="#mecanismos-de-autenticación" id="toc-mecanismos-de-autenticación" class="nav-link active" data-scroll-target="#mecanismos-de-autenticación">Mecanismos de autenticación</a></li>
+  <li><a href="#protección-frente-a-fuerza-bruta" id="toc-protección-frente-a-fuerza-bruta" class="nav-link" data-scroll-target="#protección-frente-a-fuerza-bruta">Protección frente a fuerza bruta</a></li>
+  <li><a href="#redirecciones" id="toc-redirecciones" class="nav-link" data-scroll-target="#redirecciones">Redirecciones</a></li>
+  <li><a href="#inclusiones-un-pequeño-enrutador" id="toc-inclusiones-un-pequeño-enrutador" class="nav-link" data-scroll-target="#inclusiones-un-pequeño-enrutador">Inclusiones: un pequeño enrutador</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
     </div>
@@ -490,22 +525,15 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</a></li><li class="breadcrumb-item"><a href="../UD4/07-autenticacion.html"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Desarrollo Web en Entorno Servidor</h1>
-<p class="subtitle lead">2º DAW | Cód. Módulo 0613 | 200 horas</p>
+<h1 class="title"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Manel Navarro Pérez </p>
-          </div>
-  </div>
     
   
     
@@ -516,143 +544,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-del-módulo" class="level1 unnumbered">
-<h1 class="unnumbered">Presentación del módulo</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="theme/cover.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:38.0%"></p>
-</figure>
-</div>
-<p>Bienvenido/a a los apuntes del módulo <strong>Desarrollo Web en Entorno Servidor</strong> (DWES, código 0613) de 2º curso del ciclo formativo de grado superior de <strong>Desarrollo de Aplicaciones Web</strong> (DAW).</p>
-<table class="caption-top table">
-<caption>Ficha del módulo</caption>
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Duración</strong></td>
-<td>200 horas (6 h/semana)</td>
-</tr>
-<tr class="even">
-<td><strong>Equivalencia</strong></td>
-<td>12 créditos ECTS</td>
-</tr>
-<tr class="odd">
-<td><strong>Lenguaje principal</strong></td>
-<td>PHP 8.2+</td>
-</tr>
-<tr class="even">
-<td><strong>Framework</strong></td>
-<td>Laravel 13.x</td>
-</tr>
-<tr class="odd">
-<td><strong>Acceso a datos</strong></td>
-<td>PDO</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled" title="Marco normativo">
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Marco normativo
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Los Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE) del módulo están fijados por el <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2010-9269"><strong>RD 686/2010, de 20 de mayo</strong></a>. Su posterior actualización en el <a href="https://www.boe.es/eli/es/rd/2023/05/29/405"><strong>RD 405/2023, de 29 de mayo</strong></a> <strong>no modificó este módulo</strong>.</li>
-<li>El currículo vigente en la Comunitat Valenciana se establece en el <a href="https://dogv.gva.es/es/eli/es-vc/d/2025/07/29/114/dof/spa/html"><strong>Decreto 114/2025, de 29 de julio</strong> (DOGV)</a>.</li>
+<li><strong>CE4.a.</strong> — Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.</li>
+<li><strong>CE4.d.</strong> — Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios.</li>
 </ul>
 </div>
 </div>
-<section id="estructura-del-módulo" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="estructura-del-módulo">Estructura del módulo</h2>
-<p>El módulo se organiza en <strong>9 unidades didácticas</strong>, cada una asociada a un Resultado de Aprendizaje:</p>
-<table class="caption-top table">
-<caption>Distribución de unidades (200 horas totales)</caption>
-<colgroup>
-<col style="width: 17%">
-<col style="width: 34%">
-<col style="width: 17%">
-<col style="width: 30%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">UD</th>
-<th>Título</th>
-<th style="text-align: center;">RA</th>
-<th style="text-align: center;">Horas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Arquitecturas y tecnologías de programación Web en entorno servidor</td>
-<td style="text-align: center;">RA1</td>
-<td style="text-align: center;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Fundamentos de PHP: variables, operadores y sintaxis embebida</td>
-<td style="text-align: center;">RA2</td>
-<td style="text-align: center;">16</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Estructuras de control, funciones y formularios en PHP</td>
-<td style="text-align: center;">RA3</td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>POO en PHP y Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</td>
-<td style="text-align: center;">RA4</td>
-<td style="text-align: center;">32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Separación de la lógica de negocio: MVC con Laravel</td>
-<td style="text-align: center;">RA5</td>
-<td style="text-align: center;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Acceso a BBDD con PDO: seguridad e integridad</td>
-<td style="text-align: center;">RA6</td>
-<td style="text-align: center;">32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>Servicios Web: API REST con Laravel (Resources y Sanctum)</td>
-<td style="text-align: center;">RA7</td>
-<td style="text-align: center;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td>Generación dinámica de páginas Web</td>
-<td style="text-align: center;">RA8</td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td>Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</td>
-<td style="text-align: center;">RA9</td>
-<td style="text-align: center;">10</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cómo-usar-estos-apuntes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="cómo-usar-estos-apuntes">Cómo usar estos apuntes</h2>
-<ul>
-<li>La <strong>teoría y los ejercicios</strong> están intercalados: practica cada concepto justo después de estudiarlo.</li>
-<li>Los bloques de código PHP son <strong>completos y ejecutables</strong>: pruébalos en tu entorno.</li>
-<li>Las cajas de color tienen un significado fijo en los apuntes:</li>
-</ul>
+<section id="mecanismos-de-autenticación" class="level2">
+<h2 class="anchored" data-anchor-id="mecanismos-de-autenticación">Mecanismos de autenticación</h2>
+<p>Autenticar significa comprobar que alguien es quien dice ser. Nunca se guarda una contraseña en texto plano ni cifrada de forma reversible: se aplica una función <em>hash</em> de un solo sentido.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -663,22 +573,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Definiciones y fundamentos que debes dominar.</p>
+<p><code>password_hash()</code> genera un hash seguro (bcrypt por defecto, con “salt” aleatorio incluido). <code>password_verify()</code> comprueba una contraseña en texto plano contra ese hash. No hace falta guardar el salt aparte: va incluido en el propio hash.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Analogía Java
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Comparativa con lo que ya conoces de la programación Java de 1º curso.</p>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="va">$hash</span> <span class="op">=</span> <span class="fu">password_hash</span>(<span class="st">'MiClave123'</span><span class="ot">,</span> <span class="cn">PASSWORD_DEFAULT</span>)<span class="ot">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="kw">echo</span> <span class="va">$hash</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="co">// $2y$10$eImiTXuWVxfM37uY4JANjQ==... (cadena distinta cada vez que lo ejecutas)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="fu">var_dump</span>(<span class="fu">password_verify</span>(<span class="st">'MiClave123'</span><span class="ot">,</span> <span class="va">$hash</span>))<span class="ot">;</span> <span class="co">// true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="fu">var_dump</span>(<span class="fu">password_verify</span>(<span class="st">'otraClave'</span><span class="ot">,</span> <span class="va">$hash</span>))<span class="ot">;</span>  <span class="co">// false</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="co">// MAL — nunca hagas esto</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="cf">if</span> (<span class="va">$_POST</span>[<span class="st">'password'</span>] <span class="op">===</span> <span class="va">$passwordGuardadaEnTextoPlano</span>) { <span class="co">/* ... */</span> }</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="co">// MAL — md5/sha1 no están pensados para contraseñas (son muy rápidos de romper por fuerza bruta)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="cf">if</span> (<span class="fu">md5</span>(<span class="va">$_POST</span>[<span class="st">'password'</span>]) <span class="op">===</span> <span class="va">$hashGuardado</span>) { <span class="co">/* ... */</span> }</span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a><span class="co">// BIEN</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a><span class="cf">if</span> (<span class="fu">password_verify</span>(<span class="va">$_POST</span>[<span class="st">'password'</span>]<span class="ot">,</span> <span class="va">$hashGuardado</span>)) { <span class="co">/* ... */</span> }</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -689,28 +600,119 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consejos para saber cómo evitarlos.</p>
+<p><code>password_hash()</code> devuelve un hash distinto cada vez que lo llamas con la misma contraseña (el salt es aleatorio). Esto es correcto: nunca compares dos hashes entre sí, compara siempre con <code>password_verify()</code>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Normativa | RA-CE">
+</section>
+<section id="protección-frente-a-fuerza-bruta" class="level2">
+<h2 class="anchored" data-anchor-id="protección-frente-a-fuerza-bruta">Protección frente a fuerza bruta</h2>
+<p>Verificar contraseñas no es suficiente si un atacante puede probar miles de combinaciones seguidas: conviene limitar los intentos, guardando un contador en sesión y bloqueando temporalmente tras varios fallos consecutivos.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="co">// Idea básica: cada fallo incrementa un contador en sesión</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a><span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>] <span class="op">=</span> (<span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>] <span class="op">??</span> <span class="dv">0</span>) <span class="op">+</span> <span class="dv">1</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">'Intentos fallidos hasta ahora: '</span> <span class="op">.</span> <span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>]<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Normativa | RA-CE
+<span class="screen-reader-only">Nota</span>Concepto clave
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vinculación del contenido con los Criterios de Evaluación oficiales.</p>
+<p>Un contador por sí solo no basta: hace falta decidir a partir de qué número de fallos se bloquea, durante cuánto tiempo, y sobre todo, <strong>en qué momento exacto de la petición se comprueba el bloqueo</strong> (antes de mirar la contraseña, no después) para que un intento bloqueado no cuente además como un fallo más. El ejercicio de esta sección te pide construir ese mecanismo completo.</p>
 </div>
 </div>
-<!--En la página de [Descargas](descargas.qmd) tienes el libro completo y cada unidad en **PDF** y **EPUB**.-->
-<hr>
-<p><em>Estos materiales se publican bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>.</em></p>
-
-
+<p>Para que este mecanismo se pueda reutilizar en el login (EJ11), conviene encapsularlo en funciones con nombre, no dejarlo como código suelto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">function</span> intentosFallidos()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="co">// Devuelve el número de fallos consecutivos registrados hasta ahora</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="kw">function</span> registrarIntentoFallido()<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>    <span class="co">// Incrementa el contador; si llega a 5, activa el bloqueo temporal</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="kw">function</span> loginBloqueado()<span class="ot">:</span> <span class="dt">bool</span> {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="co">// true si el bloqueo sigue activo en este momento</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a><span class="kw">function</span> reiniciarIntentos()<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>    <span class="co">// Pone el contador a 0 (se llama tras un login correcto)</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Analogía Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este contador en <code>$_SESSION</code> es una solución mínima pensada para clase. En un sistema real querrás que el bloqueo sobreviva aunque el atacante borre sus cookies (por ejemplo, contando intentos por IP o por cuenta en una base de datos), algo que en Java resolverías con un servicio compartido (caché, base de datos) en lugar de con el estado de sesión de un único cliente.</p>
+</div>
+</div>
 </section>
+<section id="redirecciones" class="level2">
+<h2 class="anchored" data-anchor-id="redirecciones">Redirecciones</h2>
+<p><code>header('Location: url')</code> redirige el navegador. Debe llamarse antes de cualquier salida (igual que <code>session_start()</code> o <code>setcookie()</code>).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="cf">exit</span><span class="ot">;</span> <span class="co">// imprescindible: detén el script tras redirigir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="co">// Redirección condicional típica: si no hay sesión, vuelve al login</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>])) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    <span class="cf">exit</span><span class="ot">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="inclusiones-un-pequeño-enrutador" class="level2">
+<h2 class="anchored" data-anchor-id="inclusiones-un-pequeño-enrutador">Inclusiones: un pequeño enrutador</h2>
+<p><code>include</code>/<code>require</code> dividen el código en ficheros reutilizables. La diferencia es la gravedad si el fichero no existe: <code>include</code> avisa y continúa; <code>require</code> detiene el script con error fatal. Las variantes <code>_once</code> evitan duplicados.</p>
+<p>Más allá de incluir una clase suelta, un patrón habitual es un <strong>front controller</strong>: un único punto de entrada que decide qué página cargar según un parámetro, en vez de tener una URL por fichero <code>.php</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// index.php — único punto de entrada</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/Usuario.php'</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/config.php'</span><span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a><span class="va">$paginasPermitidas</span> <span class="op">=</span> [<span class="st">'inicio'</span><span class="ot">,</span> <span class="st">'login'</span><span class="ot">,</span> <span class="st">'registro'</span><span class="ot">,</span> <span class="st">'panel'</span>]<span class="ot">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="va">$pagina</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">'pagina'</span>] <span class="op">??</span> <span class="st">'inicio'</span><span class="ot">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a><span class="cf">if</span> (<span class="op">!</span><span class="fu">in_array</span>(<span class="va">$pagina</span><span class="ot">,</span> <span class="va">$paginasPermitidas</span><span class="ot">,</span> <span class="kw">true</span>)) {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>    <span class="fu">http_response_code</span>(<span class="dv">404</span>)<span class="ot">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>    <span class="cf">exit</span>(<span class="st">'Página no encontrada'</span>)<span class="ot">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a><span class="kw">require</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">"/paginas/</span>{<span class="va">$pagina</span>}<span class="st">.php"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si el nombre de la página viniera directamente de <code>$_GET</code> sin validarlo contra una lista blanca (<code>$paginasPermitidas</code>), un atacante podría intentar incluir ficheros arbitrarios del servidor (<code>?pagina=../../../../etc/passwd</code>) — un fallo real llamado <em>Local File Inclusion</em>. Nunca construyas la ruta de un <code>include</code>/<code>require</code> directamente a partir de datos del usuario sin validarla antes.</p>
+</div>
+</div>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ10 · Sistema de bloqueo tras intentos fallidos</strong></p>
+<p>Implementa el mecanismo completo de bloqueo por intentos fallidos, integrado en un login simulado (no hace falta usuarios reales ni base de datos: basta con una contraseña fija para comparar). Encapsúlalo en las cuatro funciones vistas arriba (<code>intentosFallidos()</code>, <code>registrarIntentoFallido()</code>, <code>loginBloqueado()</code>, <code>reiniciarIntentos()</code>) — las reutilizarás tal cual en EJ11. Debe cumplir:</p>
+<ul>
+<li>Cada intento con contraseña incorrecta incrementa el contador de fallos.</li>
+<li>Al llegar a 5 fallos consecutivos, el login queda bloqueado 5 minutos (300 segundos), y cualquier intento durante ese tiempo se rechaza sin comprobar siquiera la contraseña.</li>
+<li>Un login correcto reinicia el contador a 0.</li>
+<li>Pasado el tiempo de bloqueo, se puede volver a intentar con normalidad.</li>
+</ul>
+<p>Escribe también un pequeño script de prueba que simule 6 intentos fallidos seguidos y muestre en pantalla, para cada uno, si se registró como fallo o si fue rechazado por bloqueo — debe verse claramente que el intento 6 ya está bloqueado.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1134,10 +1136,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../UD4/06-cookies.html" class="pagination-link" aria-label="Cookies">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cookies</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./UD1/00-presentacion.html" class="pagination-link" aria-label="UD1. Arquitecturas y tecnologías de programación Web en entorno servidor">
-        <span class="nav-page-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD4/08-login-registro.html" class="pagination-link" aria-label="Login y registro">
+        <span class="nav-page-text"><span class="chapter-title">Login y registro</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1159,5 +1164,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
