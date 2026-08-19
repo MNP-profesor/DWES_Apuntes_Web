@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Rutas y controladores – Desarrollo Web en Entorno Servidor</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UD5/04-blade.html" rel="next">
+<link href="../UD5/02-instalacion-laravel.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="robots" content="noindex, nofollow">
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD5/00-presentacion.html">UD5. Separación de la lógica de negocio: MVC con Laravel</a></li><li class="breadcrumb-item"><a href="../UD5/03-rutas-controladores.html"><span class="chapter-title">Rutas y controladores</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Desarrollo Web en Entorno Servidor</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📋 Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD5. Separación de la lógica de negocio: MVC con Laravel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Rutas y controladores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UD7. Servicios Web: API REST con Laravel (Resources y Sanctum)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#rutas-la-puerta-de-entrada" id="toc-rutas-la-puerta-de-entrada" class="nav-link active" data-scroll-target="#rutas-la-puerta-de-entrada">Rutas: la puerta de entrada</a>
+  <ul class="collapse">
+  <li><a href="#con-closures-para-probar-cosas" id="toc-con-closures-para-probar-cosas" class="nav-link" data-scroll-target="#con-closures-para-probar-cosas">Con closures (para probar cosas)</a></li>
+  <li><a href="#con-parámetros" id="toc-con-parámetros" class="nav-link" data-scroll-target="#con-parámetros">Con parámetros</a></li>
+  <li><a href="#con-restricciones" id="toc-con-restricciones" class="nav-link" data-scroll-target="#con-restricciones">Con restricciones</a></li>
+  <li><a href="#con-nombre-la-buena-práctica-que-exigiremos-siempre" id="toc-con-nombre-la-buena-práctica-que-exigiremos-siempre" class="nav-link" data-scroll-target="#con-nombre-la-buena-práctica-que-exigiremos-siempre">Con nombre (la buena práctica que exigiremos siempre)</a></li>
+  </ul></li>
+  <li><a href="#controladores" id="toc-controladores" class="nav-link" data-scroll-target="#controladores">Controladores</a></li>
+  <li><a href="#resource-controllers-las-siete-acciones-de-un-crud" id="toc-resource-controllers-las-siete-acciones-de-un-crud" class="nav-link" data-scroll-target="#resource-controllers-las-siete-acciones-de-un-crud">Resource controllers: las siete acciones de un CRUD</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD5/00-presentacion.html">UD5. Separación de la lógica de negocio: MVC con Laravel</a></li><li class="breadcrumb-item"><a href="../UD5/03-rutas-controladores.html"><span class="chapter-title">Rutas y controladores</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ud5-rutas" class="quarto-section-identifier"><span class="chapter-title">Rutas y controladores</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este bloque trabaja <strong>CE5.b</strong> (mecanismos del framework), <strong>CE5.c</strong> (generación del aspecto visual desde el servidor) y, de forma transversal, <strong>CE5.h</strong> (documentación y prueba del código).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Laravel usa <strong>camelCase</strong> para variables y métodos ($totalPedido, calcularDescuento()), a diferencia del snake_case que has usado en PHP nativo hasta ahora. No es que uno esté “mal”, ya que cada ecosistema tiene su propia convención, y al trabajar dentro de un framework se sigue la suya. Fuera de Laravel (scripts sueltos, WordPress…), snake_case sigue siendo lo habitual.</p>
+</div>
+</div>
+<section id="rutas-la-puerta-de-entrada" class="level2">
+<h2 class="anchored" data-anchor-id="rutas-la-puerta-de-entrada">Rutas: la puerta de entrada</h2>
+<p>Una ruta asocia <strong>método HTTP + URL</strong> con el código que la atiende. Se definen en <code>routes/web.php</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Route::get</code> registra la ruta para peticiones <strong>GET</strong> — las que solo <em>leen</em>, nunca deberían cambiar nada en el servidor (visitar una página, recargarla, volver atrás con el navegador…). Cuando una acción <em>cambia</em> algo (guardar un formulario, añadir algo a una cesta), la ruta será <code>Route::post</code>, lo verás en el bloque de formularios. Por ahora, todo lo que ves aquí es de solo lectura.</p>
+</div>
+</div>
+<section id="con-closures-para-probar-cosas" class="level3">
+<h3 class="anchored" data-anchor-id="con-closures-para-probar-cosas">Con closures (para probar cosas)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">use</span> Illuminate\Support\Facades\Route<span class="ot">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>Route::get(<span class="st">'/hola'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; <span class="st">'Hola Manel'</span>)<span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>Route::get(<span class="st">'/fecha'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; <span class="fu">date</span>(<span class="st">'d/m/Y'</span>))<span class="ot">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>Route::get(<span class="st">'/suma'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>fn (...) =&gt; expresión</code> es la forma <strong>flecha</strong> de escribir una función anónima (de UD3 ya conoces la forma clásica), <code>function (...) { return ...; }</code>. La flecha es solo un atajo para cuando el cuerpo es una única expresión: no lleva <code>{ }</code> ni <code>return</code> (lo que hay después de <code>=&gt;</code> ya es el valor devuelto), y <strong>captura sola</strong> las variables externas que use, sin necesidad de <code>use (...)</code>. Para cuerpos de más de una línea, sigue haciendo falta la forma clásica.</p>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>URL visitada</th>
+<th>Respuesta en el navegador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/hola</code></td>
+<td><code>Hola Manel</code></td>
+</tr>
+<tr class="even">
+<td><code>/fecha</code></td>
+<td><code>23/07/2026</code> (la fecha del día)</td>
+</tr>
+<tr class="odd">
+<td><code>/suma</code></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="con-parámetros" class="level3">
+<h3 class="anchored" data-anchor-id="con-parámetros">Con parámetros</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Route::get(<span class="st">'/saludo/{nombre}'</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="dt">string</span> <span class="va">$nombre</span>) =&gt; <span class="st">"Hola, </span><span class="va">$nombre</span><span class="st">"</span>)<span class="ot">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="co">// Parámetro opcional con valor por defecto</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Route::get(<span class="st">'/adios/{nombre?}'</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="dt">string</span> <span class="va">$nombre</span> <span class="op">=</span> <span class="st">'anónimo'</span>) =&gt; <span class="st">"Adiós, </span><span class="va">$nombre</span><span class="st">"</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>URL visitada</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/saludo/Aitana</code></td>
+<td><code>Hola, Aitana</code></td>
+</tr>
+<tr class="even">
+<td><code>/saludo/Marc</code></td>
+<td><code>Hola, Marc</code></td>
+</tr>
+<tr class="odd">
+<td><code>/saludo</code></td>
+<td>error 404 (el parámetro es obligatorio)</td>
+</tr>
+<tr class="even">
+<td><code>/adios</code></td>
+<td><code>Adiós, anónimo</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="con-restricciones" class="level3">
+<h3 class="anchored" data-anchor-id="con-restricciones">Con restricciones</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a>Route::get(<span class="st">'/contactos/{id}'</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="dt">int</span> <span class="va">$id</span>) =&gt; <span class="st">"Ficha del contacto </span><span class="va">$id</span><span class="st">"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>     -&gt;whereNumber(<span class="st">'id'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>URL visitada</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/contactos/3</code></td>
+<td><code>Ficha del contacto 3</code></td>
+</tr>
+<tr class="even">
+<td><code>/contactos/abc</code></td>
+<td>error 404 — la ruta ni siquiera se ejecuta</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="con-nombre-la-buena-práctica-que-exigiremos-siempre" class="level3">
+<h3 class="anchored" data-anchor-id="con-nombre-la-buena-práctica-que-exigiremos-siempre">Con nombre (la buena práctica que exigiremos siempre)</h3>
+<p><strong>Restringir en la ruta corta el problema en la “puerta”</strong>. Sin <code>whereNumber</code>, <code>/contactos/abc</code> entraría en tu código (dentro de tu lógica de negocio) con <code>"abc"</code> como id y sería más difícil de rastrear.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a>Route::get(<span class="st">'/contactos/{id}'</span><span class="ot">,</span> <span class="co">/* ... */</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>     -&gt;whereNumber(<span class="st">'id'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>     -&gt;name(<span class="st">'contactos.show'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A partir de ahora, cualquier enlace a esta ruta se genera con <code>route()</code> en lugar de escribir la URL a mano. <code>route()</code> no depende de Blade: es una función de Laravel disponible en cualquier parte de tu código PHP, lo que pasa es que <em>casi siempre</em> la vas a usar <strong>dentro de un enlace</strong>, así:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a>route(<span class="st">'contactos.show'</span><span class="ot">,</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>http://localhost:8000/contactos/3</code></pre>
+<p>Eso es lo que devuelve la función sola: solo el texto de la URL. Para que sea un enlace de verdad, hace falta meterlo dentro de un <code>&lt;a href=""&gt;</code> en una vista Blade (lo verás en la próxima sección) se escribe así:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource blade number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>&lt;a href="{{ route('contactos.show', 3) }}"&gt;Ver ficha&lt;/a&gt;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>HTML que recibe el navegador:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://localhost:8000/contactos/3"</span><span class="dt">&gt;</span>Ver ficha<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El segundo parámetro de <code>route()</code> (aquí, <code>3</code>) rellena el <code>{id}</code> de la ruta. Si el contacto lo tienes en una variable (<code>$id</code> en vez del <code>3</code> literal), se escribe igual: <code>route('contactos.show', $id)</code>.</p>
+<p>Si mañana la URL cambia a <code>/agenda/contactos/{id}</code>, se cambia <strong>una</strong> línea en <code>web.php</code> y toda la aplicación sigue funcionando. Cada <code>route('contactos.show', ...)</code> que hayas escrito, sea donde sea, genera la URL nueva sin que toques nada más.</p>
+</section>
+</section>
+<section id="controladores" class="level2">
+<h2 class="anchored" data-anchor-id="controladores">Controladores</h2>
+<p>Las closures valen para probar; una aplicación real agrupa las acciones de cada recurso en un <strong>controlador</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan make:controller ContactoController</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>   INFO  Controller [app/Http/Controllers/ContactoController.php] created successfully.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="kw">&lt;?php</span> <span class="co">// app/Http/Controllers/ContactoController.php</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a><span class="kw">namespace</span> App\Http\Controllers<span class="ot">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-label="4"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-label="5"></a><span class="kw">class</span> ContactoController <span class="kw">extends</span> Controller</span>
+<span id="cb11-6"><a href="#cb11-6" aria-label="6"></a>{</span>
+<span id="cb11-7"><a href="#cb11-7" aria-label="7"></a>    <span class="co">/** Datos de trabajo en memoria (el modelo real llegará en </span><span class="an">@sec-ud5-eloquent).</span><span class="co"> */</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-label="8"></a>    <span class="kw">private</span> <span class="dt">array</span> <span class="va">$contactos</span> <span class="op">=</span> [</span>
+<span id="cb11-9"><a href="#cb11-9" aria-label="9"></a>        <span class="dv">1</span> =&gt; [<span class="st">'nombre'</span> =&gt; <span class="st">'Aitana'</span><span class="ot">,</span> <span class="st">'tlf'</span> =&gt; <span class="st">'600111222'</span>]<span class="ot">,</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-label="10"></a>        <span class="dv">2</span> =&gt; [<span class="st">'nombre'</span> =&gt; <span class="st">'Marc'</span><span class="ot">,</span>   <span class="st">'tlf'</span> =&gt; <span class="st">'600333444'</span>]<span class="ot">,</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-label="11"></a>        <span class="dv">3</span> =&gt; [<span class="st">'nombre'</span> =&gt; <span class="st">'Júlia'</span><span class="ot">,</span>  <span class="st">'tlf'</span> =&gt; <span class="st">'611222333'</span>]<span class="ot">,</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-label="12"></a>    ]<span class="ot">;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-label="13"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-label="14"></a>    <span class="co">/**</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-label="15"></a><span class="co">     * Muestra el listado completo de contactos.</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-label="16"></a><span class="co">     */</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-label="17"></a>    <span class="kw">public</span> <span class="kw">function</span> index()</span>
+<span id="cb11-18"><a href="#cb11-18" aria-label="18"></a>    {</span>
+<span id="cb11-19"><a href="#cb11-19" aria-label="19"></a>        <span class="cf">return</span> view(<span class="st">'contactos.index'</span><span class="ot">,</span> [<span class="st">'contactos'</span> =&gt; <span class="va">$this</span>-&gt;contactos])<span class="ot">;</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-label="20"></a>    }</span>
+<span id="cb11-21"><a href="#cb11-21" aria-label="21"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-label="22"></a>    <span class="co">/**</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-label="23"></a><span class="co">     * Muestra la ficha de un contacto.</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-label="24"></a><span class="co">     *</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-label="25"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">int</span><span class="co"> $id Identificador recibido en la ruta.</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-label="26"></a><span class="co">     */</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-label="27"></a>    <span class="kw">public</span> <span class="kw">function</span> show(<span class="dt">int</span> <span class="va">$id</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-label="28"></a>    {</span>
+<span id="cb11-29"><a href="#cb11-29" aria-label="29"></a>        <span class="va">$contacto</span> <span class="op">=</span> <span class="va">$this</span>-&gt;contactos[<span class="va">$id</span>] <span class="op">??</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-label="30"></a>        <span class="cf">return</span> view(<span class="st">'contactos.show'</span><span class="ot">,</span> [<span class="st">'contacto'</span> =&gt; <span class="va">$contacto</span><span class="ot">,</span> <span class="st">'id'</span> =&gt; <span class="va">$id</span>])<span class="ot">;</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-label="31"></a>    }</span>
+<span id="cb11-32"><a href="#cb11-32" aria-label="32"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Y las rutas delegan en él:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">use</span> App\Http\Controllers\ContactoController<span class="ot">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a>Route::get(<span class="st">'/contactos'</span><span class="ot">,</span> [ContactoController::<span class="kw">class</span><span class="ot">,</span> <span class="st">'index'</span>])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a>     -&gt;name(<span class="st">'contactos.index'</span>)<span class="ot">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-label="5"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a>Route::get(<span class="st">'/contactos/{id}'</span><span class="ot">,</span> [ContactoController::<span class="kw">class</span><span class="ot">,</span> <span class="st">'show'</span>])</span>
+<span id="cb12-7"><a href="#cb12-7" aria-label="7"></a>     -&gt;whereNumber(<span class="st">'id'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-label="8"></a>     -&gt;name(<span class="st">'contactos.show'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tres detalles del código anterior:</p>
+<ul>
+<li><p><code>ContactoController::class</code> no ejecuta nada. Es una constante de PHP (no de Laravel) que se resuelve al nombre completo de la clase como <em>string</em>: <code>"App\Http\Controllers\ContactoController"</code>. Podrías escribir ese texto a mano, pero así el editor te autocompleta y, si algún día renombras la clase, el propio IDE actualiza esta línea; con el texto suelto, un error de tecleo no se detecta hasta que la ruta falla en tiempo de ejecución.</p></li>
+<li><p>El array <code>[ContactoController::class, 'index']</code> (clase + nombre del método como texto) es la forma de decirle a Laravel “no ejecutes nada ahora; cuando llegue una petición a esta ruta, crea esta clase y llama a este método”. Es distinto de escribir el código directamente en la ruta (como hacías con las <em>closures</em> de arriba): aquí el controlador solo se ejecuta si de verdad llega la petición, y el mismo controlador puede reutilizarse desde varias rutas.</p></li>
+<li><p><code>class ContactoController extends Controller</code>: heredar de la clase base <code>Controller</code> de Laravel no es obligatorio para que un controlador funcione, pero es la convención. Esa clase base es donde más adelante encontrarás helpers comunes (autorización, validación) que no necesitas todavía.</p></li>
+<li><p><code>view('contactos.index', [...])</code> busca <code>resources/views/contactos/index.blade.php</code> (el punto es el separador de carpetas) y le pasa los datos como variables: en la vista existirá <code>$contactos</code>.</p></li>
+<li><p>El parámetro <code>{id}</code> de la ruta llega como argumento <code>$id</code> del método. Laravel los casa por nombre.</p></li>
+</ul>
+<p>Comprobación con <code>route:list</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan route:list <span class="at">--except-vendor</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>  GET|HEAD  contactos ......... contactos.index › ContactoController@index
+  GET|HEAD  contactos/{id} ...... contactos.show › ContactoController@show</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Filtrado aplicado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Filtrado aplicado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>--except-vendor</code> omite las rutas que registran paquetes de terceros instalados vía Composer, es decir, filtra por el código que has escrito tú.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si visitas <code>/contactos</code> ahora mismo desde el navegador, verás un error <code>View [contactos.index] not found</code>. Esto es normal, ya que las vistas Blade se crean en el siguiente sección.</p>
+</div>
+</div>
+</section>
+<section id="resource-controllers-las-siete-acciones-de-un-crud" class="level2">
+<h2 class="anchored" data-anchor-id="resource-controllers-las-siete-acciones-de-un-crud">Resource controllers: las siete acciones de un CRUD</h2>
+<p>Para un recurso completo, con el siguiente comando <strong>Laravel genera la estructura vacía</strong> de las siete acciones de un CRUD:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan make:controller ContactoController <span class="at">--resource</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb16-1"><a href="#cb16-1" aria-label="1"></a>Route::<span class="kw">resource</span>(<span class="st">'contactos'</span><span class="ot">,</span> ContactoController::<span class="kw">class</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Método</th>
+<th>URI</th>
+<th>Acción</th>
+<th>Para qué</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GET</td>
+<td><code>/productos</code></td>
+<td><code>index</code></td>
+<td>Listado</td>
+</tr>
+<tr class="even">
+<td>GET</td>
+<td><code>/productos/create</code></td>
+<td><code>create</code></td>
+<td>Formulario de alta</td>
+</tr>
+<tr class="odd">
+<td>POST</td>
+<td><code>/productos</code></td>
+<td><code>store</code></td>
+<td>Guardar el alta</td>
+</tr>
+<tr class="even">
+<td>GET</td>
+<td><code>/productos/{id}</code></td>
+<td><code>show</code></td>
+<td>Ficha</td>
+</tr>
+<tr class="odd">
+<td>GET</td>
+<td><code>/productos/{id}/edit</code></td>
+<td><code>edit</code></td>
+<td>Formulario de edición</td>
+</tr>
+<tr class="even">
+<td>PUT/PATCH</td>
+<td><code>/productos/{id}</code></td>
+<td><code>update</code></td>
+<td>Guardar la edición</td>
+</tr>
+<tr class="odd">
+<td>DELETE</td>
+<td><code>/productos/{id}</code></td>
+<td><code>destroy</code></td>
+<td>Borrar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Esta convención es universal en Laravel y será la base de la API REST de la UD7.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Escribir URLs a mano en las vistas (<code>/contactos/3</code>) en lugar de <code>route('contactos.show', 3)</code>.</li>
+<li>Olvidar el <code>use App\Http\Controllers\ContactoController;</code> en <code>web.php</code>: da error <code>Class not found</code>.</li>
+<li>Definir la ruta <code>/contactos/create</code> <strong>después</strong> de <code>/contactos/{id}</code>: <code>{id}</code> captura la palabra <code>create</code> y el formulario nunca se muestra. Las rutas fijas van antes que las variables (o se restringe <code>{id}</code> con <code>whereNumber</code>).</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Información">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Información
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ejercicio de este bloque lo encontrarás al final del bloque siguiente (<a href="04-blade.html" class="quarto-xref"><span>Vistas con Blade</span></a>): necesita las vistas Blade para poder completarse, así que enrutado, controlador y vistas se ejercitan juntos sobre tu aplicación de préstamos.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../UD5/02-instalacion-laravel.html" class="pagination-link" aria-label="Laravel: instalación y estructura">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Laravel: instalación y estructura</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../UD5/04-blade.html" class="pagination-link" aria-label="Vistas con Blade">
+        <span class="nav-page-text"><span class="chapter-title">Vistas con Blade</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Manel Navarro Pérez | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>DWES | 2º DAW | Módulo 0613</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
