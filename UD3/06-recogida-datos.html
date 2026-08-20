@@ -740,7 +740,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#validación-con-expresiones-regulares-preg_match" id="toc-validación-con-expresiones-regulares-preg_match" class="nav-link" data-scroll-target="#validación-con-expresiones-regulares-preg_match">Validación con Expresiones Regulares (<code>preg_match</code>)</a></li>
   <li><a href="#htmlspecialchars-proteger-la-salida" id="toc-htmlspecialchars-proteger-la-salida" class="nav-link" data-scroll-target="#htmlspecialchars-proteger-la-salida"><code>htmlspecialchars()</code> — proteger la salida</a></li>
   <li><a href="#patrón-completo-de-procesamiento" id="toc-patrón-completo-de-procesamiento" class="nav-link" data-scroll-target="#patrón-completo-de-procesamiento">Patrón completo de procesamiento</a></li>
-  <li><a href="#phpdoc-ce3.g" id="toc-phpdoc-ce3.g" class="nav-link" data-scroll-target="#phpdoc-ce3.g">PHPDoc (CE3.g)</a></li>
+  <li><a href="#phpdoc" id="toc-phpdoc" class="nav-link" data-scroll-target="#phpdoc">PHPDoc</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-procesarcontacto" id="toc-ejemplo-procesarcontacto" class="nav-link" data-scroll-target="#ejemplo-procesarcontacto">Ejemplo <code>procesarContacto</code></a></li>
+  </ul></li>
   <li><a href="#seguridad-introducción-a-la-inyección-sql" id="toc-seguridad-introducción-a-la-inyección-sql" class="nav-link" data-scroll-target="#seguridad-introducción-a-la-inyección-sql">Seguridad: Introducción a la Inyección SQL</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   <li><a href="#proyecto-integrador" id="toc-proyecto-integrador" class="nav-link" data-scroll-target="#proyecto-integrador">Proyecto integrador</a></li>
@@ -1015,15 +1018,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-40"><a href="#cb11-40" aria-label="40"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="phpdoc-ce3.g" class="level2">
-<h2 class="anchored" data-anchor-id="phpdoc-ce3.g">PHPDoc (CE3.g)</h2>
-<p>Documenta tus funciones con bloques PHPDoc. Los IDEs leen estos bloques y ofrecen autocompletado:</p>
+<section id="phpdoc" class="level2">
+<h2 class="anchored" data-anchor-id="phpdoc">PHPDoc</h2>
+<section id="ejemplo-procesarcontacto" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-procesarcontacto">Ejemplo <code>procesarContacto</code></h3>
+<p>Complementario al de <a href="04-funciones.html#sec-ud3-funciones" class="quarto-xref"><span>PHPDoc</span></a>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="co">/**</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="co"> * Valida y limpia los datos de un formulario de contacto.</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-label="4"></a><span class="co"> *</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-label="5"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">array</span><span class="co"> $post  Datos de $_POST.</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> array       Array con 'datos' (limpios) y 'errores' (lista de mensajes).</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> array Array con 'datos' (limpios) y 'errores' (lista de mensajes).</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-label="7"></a><span class="co"> */</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-label="8"></a><span class="kw">function</span> procesarContacto(<span class="dt">array</span> <span class="va">$post</span>)<span class="ot">:</span> <span class="dt">array</span> {</span>
 <span id="cb12-9"><a href="#cb12-9" aria-label="9"></a>    <span class="va">$nombre</span>  <span class="op">=</span> <span class="fu">trim</span>(<span class="va">$post</span>[<span class="st">'nombre'</span>]  <span class="op">??</span> <span class="st">''</span>)<span class="ot">;</span></span>
@@ -1052,6 +1057,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-32"><a href="#cb12-32" aria-label="32"></a>}</span>
 <span id="cb12-33"><a href="#cb12-33" aria-label="33"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
+</section>
 </section>
 <section id="seguridad-introducción-a-la-inyección-sql" class="level2">
 <h2 class="anchored" data-anchor-id="seguridad-introducción-a-la-inyección-sql">Seguridad: Introducción a la Inyección SQL</h2>

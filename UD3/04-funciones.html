@@ -736,7 +736,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ámbito-de-variables" id="toc-ámbito-de-variables" class="nav-link" data-scroll-target="#ámbito-de-variables">Ámbito de variables</a></li>
   <li><a href="#funciones-anónimas-y-closures" id="toc-funciones-anónimas-y-closures" class="nav-link" data-scroll-target="#funciones-anónimas-y-closures">Funciones anónimas y Closures</a></li>
   <li><a href="#funciones-variádicas" id="toc-funciones-variádicas" class="nav-link" data-scroll-target="#funciones-variádicas">Funciones variádicas</a></li>
-  <li><a href="#phpdoc" id="toc-phpdoc" class="nav-link" data-scroll-target="#phpdoc">PHPDoc</a></li>
+  <li><a href="#sec-ud3-funciones" id="toc-sec-ud3-funciones" class="nav-link" data-scroll-target="#sec-ud3-funciones">PHPDoc</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-validardni" id="toc-ejemplo-validardni" class="nav-link" data-scroll-target="#ejemplo-validardni">Ejemplo <code>validarDNI</code></a></li>
+  </ul></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -1119,9 +1122,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-12"><a href="#cb20-12" aria-label="12"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="phpdoc" class="level2">
-<h2 class="anchored" data-anchor-id="phpdoc">PHPDoc</h2>
-<p>Documenta tus funciones con bloques <a href="https://phpdoc.org/">PHPDoc</a> — los IDEs los leen y ofrecen autocompletado y validación.</p>
+<section id="sec-ud3-funciones" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ud3-funciones">PHPDoc</h2>
+<p>Documenta tus funciones con bloques <a href="https://phpdoc.org/">PHPDoc</a>. Los IDEs leen estos bloques y ofrecen autocompletado y validación.</p>
+<section id="ejemplo-validardni" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-validardni">Ejemplo <code>validarDNI</code></h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb21-1"><a href="#cb21-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-label="2"></a><span class="co">/**</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-label="3"></a><span class="co"> * Valida el formato de un DNI español.</span></span>
@@ -1139,11 +1144,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-15"><a href="#cb21-15" aria-label="15"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
+</section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
 <p><strong>EJ8 · Librería de funciones de validación</strong></p>
-<p>Crea un fichero <code>libreria_validacion.php</code> con estas cuatro funciones. Todas llevan PHPDoc completo y tipado en parámetros y retorno:</p>
+<p>Crea un fichero <code>libreria_validacion.php</code> con estas cuatro funciones. Fíjate en que todas llevan PHPDoc completo y tipado en parámetros y retorno:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb22-1"><a href="#cb22-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-label="2"></a><span class="co">/**</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-label="3"></a><span class="co"> * Valida el formato de un DNI español (8 dígitos + letra mayúscula).</span></span>
