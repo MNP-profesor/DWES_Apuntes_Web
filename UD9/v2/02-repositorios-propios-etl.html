@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer) – Desarrollo Web en Entorno Servidor</title>
+<title>Crear repositorios propios: ETL – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,32 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../UD9/01-aplicaciones-hibridas.html" rel="next">
-<link href="../UD8/06-proyecto.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../UD9/v2/03-proyecto.html" rel="next">
+<link href="../../UD9/v2/01-composer-guzzle-librerias.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -256,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD9/00-presentacion.html">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../UD9/v2/00-presentacion.html">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</a></li><li class="breadcrumb-item"><a href="../../UD9/v2/02-repositorios-propios-etl.html"><span class="chapter-title">Crear repositorios propios: ETL</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -271,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Desarrollo Web en Entorno Servidor</a> 
+      <a href="../../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -286,13 +321,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">📋 Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -301,39 +336,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  <a href="../../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  <a href="../../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  <a href="../../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  <a href="../../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -342,34 +377,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -378,39 +413,39 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -419,59 +454,59 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  <a href="../../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  <a href="../../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  <a href="../../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  <a href="../../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  <a href="../../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  <a href="../../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  <a href="../../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD5. Separación de la lógica de negocio: MVC con Laravel</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -480,59 +515,59 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
+  <a href="../../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
+  <a href="../../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas y controladores</span></a>
+  <a href="../../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas y controladores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
+  <a href="../../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
+  <a href="../../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
+  <a href="../../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
+  <a href="../../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
+  <a href="../../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
+  <a href="../../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
+  <a href="../../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -541,44 +576,44 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
+  <a href="../../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
+  <a href="../../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
+  <a href="../../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
+  <a href="../../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
+  <a href="../../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
+  <a href="../../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
+  <a href="../../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD7. Servicios Web: API REST con Laravel (Resources y Sanctum)</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -587,54 +622,54 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
+  <a href="../../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
+  <a href="../../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
+  <a href="../../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
+  <a href="../../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
+  <a href="../../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
+  <a href="../../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
+  <a href="../../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
+  <a href="../../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
+  <a href="../../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD8/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD8/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD8. Generación dinámica de páginas Web</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -643,39 +678,24 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/01-modelos-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor y cliente: dos modelos de ejecución</span></a>
+  <a href="../../UD8/v2/01-conceptos-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/02-tecnologias-frameworks.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías y frameworks de generación dinámica interactiva</span></a>
+  <a href="../../UD8/v2/02-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/03-interaccion-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Obtención remota de información: fetch, JSON y consumo de APIs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/04-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/05-dom-dinamico.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modificación dinámica del contenido y la estructura</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/06-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
+  <a href="../../UD8/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD9/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../../UD9/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -684,37 +704,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/01-aplicaciones-hibridas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aplicaciones Web híbridas</span></a>
+  <a href="../../UD9/v2/01-composer-guzzle-librerias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer, Guzzle y librerías de terceros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/02-composer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer en profundidad</span></a>
+  <a href="../../UD9/v2/02-repositorios-propios-etl.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/03-consumo-repositorios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir repositorios existentes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/04-repositorios-propios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/05-librerias-terceros.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Librerías de terceros: PDF y QR</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/06-analitica-bigdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Analítica, Big Data e inteligencia de negocios</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/07-prueba-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Probar, depurar y documentar</span></a>
+  <a href="../../UD9/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto: cuadro de mando</span></a>
   </div>
 </li>
       </ul>
@@ -729,16 +729,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
-  <ul class="collapse">
-  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
-  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
-  <li><a href="#el-proyecto-de-la-unidad" id="toc-el-proyecto-de-la-unidad" class="nav-link" data-scroll-target="#el-proyecto-de-la-unidad">El proyecto de la unidad</a></li>
-  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
-  </ul></li>
+  <li><a href="#las-tres-fases" id="toc-las-tres-fases" class="nav-link active" data-scroll-target="#las-tres-fases">Las tres fases</a></li>
+  <li><a href="#el-comando-artisan-de-importación" id="toc-el-comando-artisan-de-importación" class="nav-link" data-scroll-target="#el-comando-artisan-de-importación">El comando Artisan de importación</a></li>
+  <li><a href="#del-repositorio-al-dashboard-kpi-con-colecciones" id="toc-del-repositorio-al-dashboard-kpi-con-colecciones" class="nav-link" data-scroll-target="#del-repositorio-al-dashboard-kpi-con-colecciones">Del repositorio al dashboard: KPI con colecciones</a></li>
   </ul>
 </nav>
     </div>
@@ -746,9 +739,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../UD9/v2/00-presentacion.html">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</a></li><li class="breadcrumb-item"><a href="../../UD9/v2/02-repositorios-propios-etl.html"><span class="chapter-title">Crear repositorios propios: ETL</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</h1>
+<h1 class="title"><span class="chapter-title">Crear repositorios propios: ETL</span></h1>
 </div>
 
 
@@ -765,265 +758,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-de-la-unidad" class="level2">
-<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
-<section id="qué-aprenderás" class="level3">
-<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>Esta unidad cierra el módulo con un cambio de enfoque: hasta ahora habéis construido cada pieza desde cero; aquí el objetivo es <strong>reutilizar</strong>. Una <strong>aplicación Web híbrida</strong> combina código propio, librerías de terceros e información procedente de repositorios heterogéneos (APIs, datos abiertos, ficheros CSV/JSON, bases de datos propias o ajenas).</p>
-<p>La aplicación Laravel de las unidades anteriores es la base de trabajo, y la API REST que construisteis en la UD7 se consume aquí como una fuente más: cerráis el círculo del módulo actuando a la vez como proveedores y consumidores.</p>
-</section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
-<ul>
-<li>Valorar las ventajas de reutilizar código e información existente frente a desarrollar desde cero.</li>
-<li>Gestionar dependencias con Composer: <code>composer.json</code>, versionado semántico y autoload PSR-4.</li>
-<li>Consumir repositorios de información existentes desde el servidor con Guzzle, incluidas APIs autenticadas.</li>
-<li>Crear repositorios propios a partir de fuentes externas con un proceso ETL (extraer, transformar, cargar).</li>
-<li>Incorporar funcionalidades completas mediante librerías de terceros: generación de PDF y códigos QR.</li>
-<li>Construir un cuadro de mando con indicadores calculados sobre datos reales (analítica e inteligencia de negocios).</li>
-<li>Probar, depurar y documentar aplicaciones que dependen de fuentes externas.</li>
-</ul>
-</section>
-<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
-<blockquote class="blockquote">
-<p><strong>RA9.</strong> Desarrolla aplicaciones web híbridas seleccionando y utilizando tecnologías, frameworks servidor y repositorios heterogéneos de información.</p>
-</blockquote>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>CE</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CE9.a</td>
-<td>Se han reconocido las ventajas que proporciona la reutilización de código y el aprovechamiento de información ya existente.</td>
-</tr>
-<tr class="even">
-<td>CE9.b</td>
-<td>Se han identificado tecnologías y frameworks aplicables en la creación de aplicaciones web híbridas.</td>
-</tr>
-<tr class="odd">
-<td>CE9.c</td>
-<td>Se ha creado una aplicación web que recupere y procese repositorios de información ya existentes.</td>
-</tr>
-<tr class="even">
-<td>CE9.d</td>
-<td>Se han creado repositorios específicos a partir de información existente en almacenes de información.</td>
-</tr>
-<tr class="odd">
-<td>CE9.e</td>
-<td>Se han utilizado librerías de código y frameworks para incorporar funcionalidades específicas a una aplicación web.</td>
-</tr>
-<tr class="even">
-<td>CE9.f</td>
-<td>Se han programado servicios y aplicaciones web utilizando como base información y código generados por terceros.</td>
-</tr>
-<tr class="odd">
-<td>CE9.g</td>
-<td>Se han analizado y utilizado librerías de código relacionadas con Big Data e inteligencia de negocios, para incorporar análisis e inteligencia de datos proveniente de repositorios.</td>
-</tr>
-<tr class="even">
-<td>CE9.h</td>
-<td>Se han probado, depurado y documentado las aplicaciones generadas.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="contenidos" class="level3">
-<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 40%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bloque</th>
-<th>Título</th>
-<th style="text-align: center;">CE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Aplicaciones Web híbridas: Concepto, ventajas de la reutilización y ecosistema</td>
-<td style="text-align: center;">CE9.a-b</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Composer en profundidad: Dependencias, semver, <code>composer.lock</code> y autoload PSR-4</td>
-<td style="text-align: center;">CE9.b</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Consumir repositorios existentes: APIs públicas y API autenticada de la UD7</td>
-<td style="text-align: center;">CE9.c-f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Crear repositorios propios: Proceso ETL con comandos Artisan y <code>league/csv</code></td>
-<td style="text-align: center;">CE9.d</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Librerías de terceros: PDF con dompdf y códigos QR con endroid/qr-code</td>
-<td style="text-align: center;">CE9.e-f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Analítica, Big Data y BI: Agregaciones con colecciones y cuadro de mando</td>
-<td style="text-align: center;">CE9.c-f</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>Probar, depurar y documentar: Fuentes caídas, logs, PHPDoc y README</td>
-<td style="text-align: center;">CE9.g</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="el-proyecto-de-la-unidad" class="level3">
-<h3 class="anchored" data-anchor-id="el-proyecto-de-la-unidad">El proyecto de la unidad</h3>
-<p>Los ejercicios de proyecto encadenan sobre una misma aplicación: la fuente que consumes alimenta tu repositorio propio, que a su vez es la base del PDF, del QR y del cuadro de mando final. Cada sección deja el punto de partida listo para el siguiente.</p>
-</section>
-<section id="recursos-y-materiales" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
-<ul>
-<li>Docker (obligatorio desde esta unidad — ver <a href="../UD5/02-instalacion-laravel.html" class="quarto-xref"><span>Laravel: instalación y estructura</span></a>)</li>
-<li>MySQL/MariaDB (vía el servicio <code>db</code> del <code>docker-compose.yml</code>, no instalación aparte)</li>
-<li>PHP 8.2+, Composer y tu proyecto Laravel 13.x de las unidades anteriores (o uno nuevo).</li>
-<li>MySQL/MariaDB/PostreSQL/AmazonRDS con la base de datos de prácticas.</li>
-<li>Visual Studio Code con las extensiones de PHP y Laravel ya instaladas.</li>
-<li>Navegador con herramientas de desarrollador.</li>
-<li>Documentación de referencia: <a href="https://www.php.net/manual/es/">php.net</a> y <a href="https://packagist.org">Packagist</a> para localizar librerías de terceros.</li>
-</ul>
-</section>
-<section id="evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
-<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
-</div>
-</div>
-<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
-<section id="ejercicios-de-aprendizaje" class="level4">
-<h4 class="anchored" data-anchor-id="ejercicios-de-aprendizaje">Ejercicios de aprendizaje</h4>
-<p>Se resuelven en clase o en casa:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">EJ1</td>
-<td>Restricciones de versión</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ2</td>
-<td>Autoload PSR-4 propio</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ3</td>
-<td>Proyecto — dependencias con criterio</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ4</td>
-<td>Buscador sobre una API pública</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ5</td>
-<td>Proyecto — buscador de fuentes heterogéneas</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ6</td>
-<td>Comando importar:municipios</td>
-<td style="text-align: center;">No</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="ejercicios-de-proyecto" class="level4">
-<h4 class="anchored" data-anchor-id="ejercicios-de-proyecto">Ejercicios de proyecto</h4>
-<p>Varios ejercicios encadenan sobre una misma aplicación: el buscador de fuentes (EJ5) alimenta tu repositorio propio (EJ7), que a su vez es la base del PDF y el QR (EJ9) y del cuadro de mando final (EJ11). La unidad tiene una <strong>entrega única</strong>: el estado final de ese proyecto. Cada sección deja el punto de partida del siguiente, de modo que un bloqueo en una de ellas no bloquea el resto.</p>
-<p>Relacionados con la misma aplicación:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">EJ7</td>
-<td>Proyecto — tu repositorio específico</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ8</td>
-<td>QR embebido en el PDF</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ9</td>
-<td>Proyecto — dos funcionalidades de terceros</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ10</td>
-<td>Agregaciones sobre municipios</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ11</td>
-<td>Proyecto — cuadro de mando</td>
-<td style="text-align: center;">Sí</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="criterios-de-apto-en-los-ejercicios-de-proyecto" class="level4">
-<h4 class="anchored" data-anchor-id="criterios-de-apto-en-los-ejercicios-de-proyecto">Criterios de apto en los ejercicios de proyecto</h4>
-<p>Se entrega <strong>una sola vez</strong>, al cerrar EJ11, el estado final de la aplicación. Como los ejercicios de proyecto encadenan sobre la misma aplicación, esa entrega contiene por construcción el buscador de dos fuentes (EJ5), el repositorio propio con su comando de importación (EJ7), el PDF y el QR (EJ9) y el cuadro de mando (EJ11), junto con el README que incluye la justificación de dependencias de EJ3.</p>
-<p>La entrega es <strong>apta</strong> cuando cumple esta lista:</p>
-<ul>
-<li>La aplicación ejecuta sin errores (una entrega que no ejecuta no puede ser apta).</li>
-<li>El buscador consulta las dos fuentes con timeout, gestión de errores independiente por fuente y registro en el log.</li>
-<li>El comando de importación carga datos reales y, reejecutado, no duplica registros.</li>
-<li>La exportación a PDF y el código QR por registro funcionan sobre los datos del repositorio propio.</li>
-<li>El cuadro de mando muestra al menos cuatro KPI correctos y una gráfica alimentada desde el controlador.</li>
-<li>La memoria breve interpreta los indicadores en términos de negocio.</li>
-<li>El README recoge las dependencias con su justificación y las instrucciones de importación.</li>
-<li>Los servicios y comandos añadidos llevan PHPDoc.</li>
-</ul>
-<p>La copia entre entregas supone no apto para todas las partes implicadas.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1034,18 +768,82 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La entrega única está diseñada para que una sola corrección aporte evidencia de todos los criterios de evaluación del RA9: la justificación del README cubre CE9.a y CE9.b; el buscador, CE9.c y CE9.e; la importación, CE9.d; el PDF y el QR, CE9.e y CE9.f; el cuadro de mando y su memoria, CE9.g; y la documentación y las pruebas transversales, CE9.h. La prueba escrita evalúa, además, todos los criterios de forma individual.</p>
+<p>Este bloque desarrolla CE9.d: crear repositorios específicos a partir de información existente.</p>
 </div>
 </div>
+<section id="las-tres-fases" class="level2">
+<h2 class="anchored" data-anchor-id="las-tres-fases">Las tres fases</h2>
+<ul>
+<li><strong>Extract</strong>: obtener datos crudos (Guzzle, CSV, JSON).</li>
+<li><strong>Transform</strong>: limpiar (<code>trim</code>, <code>mb_substr</code>, tipar, valores por defecto).</li>
+<li><strong>Load</strong>: cargar sin duplicar (<code>updateOrCreate</code> con clave externa).</li>
+</ul>
 </section>
-<section id="la-prueba-objetiva" class="level4">
-<h4 class="anchored" data-anchor-id="la-prueba-objetiva">La prueba objetiva</h4>
-<p>El examen combina los contenidos teórico-prácticos sobre un supuesto <strong>distinto</strong> al trabajado en clase: la preparación debe centrarse entendiendo bien la implementación del proyecto de la uidad.</p>
-<p>Todo lo que aparece en las secciones de esta unidad (Composer y semver, consumo de repositorios, ETL, librerías de terceros, analítica y documentación) es contenido de esta prueba.</p>
+<section id="el-comando-artisan-de-importación" class="level2">
+<h2 class="anchored" data-anchor-id="el-comando-artisan-de-importación">El comando Artisan de importación</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan make:command ImportarLibros</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">class</span> ImportarLibros <span class="kw">extends</span> Command</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>    <span class="kw">protected</span> <span class="va">$signature</span>   <span class="op">=</span> <span class="st">'importar:libros {tema}'</span><span class="ot">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>    <span class="kw">protected</span> <span class="va">$description</span> <span class="op">=</span> <span class="st">'Carga libros de Open Library en la BD local'</span><span class="ot">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>    <span class="kw">public</span> <span class="kw">function</span> handle()<span class="ot">:</span> <span class="dt">int</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>    {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>        <span class="va">$cliente</span> <span class="op">=</span> <span class="kw">new</span> Client([<span class="st">'base_uri'</span> =&gt; <span class="st">'https://openlibrary.org'</span><span class="ot">,</span> <span class="st">'timeout'</span> =&gt; <span class="dv">10</span>])<span class="ot">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>        <span class="va">$r</span>    <span class="op">=</span> <span class="va">$cliente</span>-&gt;get(<span class="st">'/search.json'</span><span class="ot">,</span> [<span class="st">'query'</span> =&gt; [<span class="st">'q'</span> =&gt; <span class="va">$this</span>-&gt;argument(<span class="st">'tema'</span>)]])<span class="ot">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>        <span class="va">$docs</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$r</span>-&gt;getBody()<span class="ot">,</span> <span class="kw">true</span>)[<span class="st">'docs'</span>] <span class="op">??</span> []<span class="ot">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>        <span class="va">$n</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>        <span class="cf">foreach</span> (<span class="va">$docs</span> <span class="kw">as</span> <span class="va">$doc</span>) {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a>            <span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$doc</span>[<span class="st">'title'</span>])) <span class="cf">continue</span><span class="ot">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a>            Libro::updateOrCreate(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-label="16"></a>                [<span class="st">'clave_externa'</span> =&gt; <span class="va">$doc</span>[<span class="st">'key'</span>]]<span class="ot">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-label="17"></a>                [</span>
+<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>                    <span class="st">'titulo'</span> =&gt; <span class="fu">mb_substr</span>(<span class="va">$doc</span>[<span class="st">'title'</span>]<span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">255</span>)<span class="ot">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a>                    <span class="st">'anyo'</span>   =&gt; <span class="va">$doc</span>[<span class="st">'first_publish_year'</span>] <span class="op">??</span> <span class="kw">null</span><span class="ot">,</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-label="20"></a>                    <span class="st">'autor'</span>  =&gt; <span class="va">$doc</span>[<span class="st">'author_name'</span>][<span class="dv">0</span>] <span class="op">??</span> <span class="st">'Desconocido'</span><span class="ot">,</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-label="21"></a>                ]</span>
+<span id="cb2-22"><a href="#cb2-22" aria-label="22"></a>            )<span class="ot">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-label="23"></a>            <span class="va">$n</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-label="24"></a>        }</span>
+<span id="cb2-25"><a href="#cb2-25" aria-label="25"></a>        <span class="va">$this</span>-&gt;info(<span class="st">"</span>{<span class="va">$n</span>}<span class="st"> registros procesados."</span>)<span class="ot">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-label="26"></a>        <span class="cf">return</span> <span class="kw">self</span>::<span class="cn">SUCCESS</span><span class="ot">;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-label="27"></a>    }</span>
+<span id="cb2-28"><a href="#cb2-28" aria-label="28"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reejecutar el comando <strong>no duplica</strong> gracias a <code>updateOrCreate</code> con la <code>clave_externa</code>.</p>
+</section>
+<section id="del-repositorio-al-dashboard-kpi-con-colecciones" class="level2">
+<h2 class="anchored" data-anchor-id="del-repositorio-al-dashboard-kpi-con-colecciones">Del repositorio al dashboard: KPI con colecciones</h2>
+<p>Una vez cargados los datos, calcular indicadores clave (KPI) es directo con las colecciones de Eloquent:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="co">// En un controlador</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="kw">public</span> <span class="kw">function</span> dashboard()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="va">$libros</span> <span class="op">=</span> Libro::all()<span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>    <span class="va">$kpis</span> <span class="op">=</span> [</span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>        <span class="st">'total'</span>        =&gt; <span class="va">$libros</span>-&gt;<span class="fu">count</span>()<span class="ot">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>        <span class="st">'anyo_medio'</span>   =&gt; <span class="fu">round</span>(<span class="va">$libros</span>-&gt;avg(<span class="st">'anyo'</span>))<span class="ot">,</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>        <span class="st">'por_autor'</span>    =&gt; <span class="va">$libros</span>-&gt;groupBy(<span class="st">'autor'</span>)-&gt;map-&gt;<span class="fu">count</span>()-&gt;sortDesc()-&gt;take(<span class="dv">5</span>)<span class="ot">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>        <span class="st">'sin_anyo'</span>     =&gt; <span class="va">$libros</span>-&gt;whereNull(<span class="st">'anyo'</span>)-&gt;<span class="fu">count</span>()<span class="ot">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>    ]<span class="ot">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>    <span class="cf">return</span> view(<span class="st">'dashboard'</span><span class="ot">,</span> <span class="fu">compact</span>(<span class="st">'kpis'</span>))<span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>dashboard<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="op">&lt;</span>h2<span class="op">&gt;</span>Cuadro de mando<span class="op">&lt;/</span>h2<span class="op">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Total de libros<span class="ot">:</span> {{ <span class="va">$kpis</span>[<span class="st">'total'</span>] }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Año medio de publicación<span class="ot">:</span> {{ <span class="va">$kpis</span>[<span class="st">'anyo_medio'</span>] }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Libros <span class="fu">sin</span> año registrado<span class="ot">:</span> {{ <span class="va">$kpis</span>[<span class="st">'sin_anyo'</span>] }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="op">&lt;</span>h3<span class="op">&gt;</span>Top <span class="dv">5</span> autores<span class="op">&lt;/</span>h3<span class="op">&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="pp">@</span><span class="cf">foreach</span>(<span class="va">$kpis</span>[<span class="st">'por_autor'</span>] <span class="kw">as</span> <span class="va">$autor</span> =&gt; <span class="va">$cantidad</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>{{ <span class="va">$autor</span> }}<span class="ot">:</span> {{ <span class="va">$cantidad</span> }} libros<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a><span class="pp">@</span><span class="cf">endforeach</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a><span class="op">&lt;/</span>ul<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los métodos <code>count()</code>, <code>avg()</code>, <code>groupBy()</code>, <code>sortDesc()</code>, <code>whereNull()</code> son de la clase <code>Collection</code> de Laravel, que ya conoces de UD5. Un KPI no es más que una agregación sobre los datos que tienes en tu repositorio.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1469,13 +1267,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD8/06-proyecto.html" class="pagination-link" aria-label="Proyecto integrador: Aplicación web híbrida">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></span>
+      <a href="../../UD9/v2/01-composer-guzzle-librerias.html" class="pagination-link" aria-label="Composer, Guzzle y librerías de terceros">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Composer, Guzzle y librerías de terceros</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD9/01-aplicaciones-hibridas.html" class="pagination-link" aria-label="Aplicaciones Web híbridas">
-        <span class="nav-page-text"><span class="chapter-title">Aplicaciones Web híbridas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../UD9/v2/03-proyecto.html" class="pagination-link" aria-label="Proyecto: cuadro de mando">
+        <span class="nav-page-text"><span class="chapter-title">Proyecto: cuadro de mando</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1497,5 +1295,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

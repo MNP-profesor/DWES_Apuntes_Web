@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Consumir repositorios existentes – Desarrollo Web en Entorno Servidor</title>
+<title>Conceptos clave: modelos de ejecución, tecnologías y fetch – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -64,29 +64,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../UD9/04-repositorios-propios.html" rel="next">
-<link href="../UD9/02-composer.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../UD8/v2/02-verificacion-formularios.html" rel="next">
+<link href="../../UD8/v2/00-presentacion.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -291,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD9/00-presentacion.html">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</a></li><li class="breadcrumb-item"><a href="../UD9/03-consumo-repositorios.html"><span class="chapter-title">Consumir repositorios existentes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../UD8/v2/00-presentacion.html">UD8. Generación dinámica de páginas Web</a></li><li class="breadcrumb-item"><a href="../../UD8/v2/01-conceptos-fetch.html"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -306,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Desarrollo Web en Entorno Servidor</a> 
+      <a href="../../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -321,13 +321,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">📋 Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -336,39 +336,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
+  <a href="../../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
+  <a href="../../UD1/02-paginas-dinamicas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Páginas estáticas y dinámicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
+  <a href="../../UD1/03-servidor-web-aplicaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor web y servidor de aplicaciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
+  <a href="../../UD1/04-lenguajes-tecnologias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lenguajes y tecnologías en entorno servidor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
+  <a href="../../UD1/05-integracion-marcas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integración con lenguajes de marcas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
+  <a href="../../UD1/06-herramientas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herramientas de desarrollo</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -377,34 +377,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
+  <a href="../../UD2/02-sintaxis-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sintaxis, variables y constantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
+  <a href="../../UD2/03-tipos-conversion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tipos de datos y conversión</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
+  <a href="../../UD2/04-directivas-operadores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Directivas y operadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
+  <a href="../../UD2/05-ambito.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de las variables</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -413,39 +413,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
+  <a href="../../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
+  <a href="../../UD3/02-bucles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
+  <a href="../../UD3/03-arrays.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
+  <a href="../../UD3/04-funciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD4. POO en PHP + Desarrollo de funcionalidades Web: autenticación, sesiones y cookies</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -454,59 +454,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
+  <a href="../../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
+  <a href="../../UD4/02-constructores-y-encapsulacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Constructores y encapsulación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
+  <a href="../../UD4/03-herencia-namespaces-excepciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Herencia, namespaces y excepciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
+  <a href="../../UD4/04-poo-avanzada.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clases estáticas, clonado, abstractas e interfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
+  <a href="../../UD4/05-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
+  <a href="../../UD4/06-cookies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
+  <a href="../../UD4/07-autenticacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
+  <a href="../../UD4/08-login-registro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Login y registro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
+  <a href="../../UD4/09-recordarme-y-roles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cookies persistentes y control de acceso por roles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
+  <a href="../../UD4/10-depuracion-y-cierre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Depuración y cierre de la unidad</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD5/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD5. Separación de la lógica de negocio: MVC con Laravel</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -515,59 +515,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
+  <a href="../../UD5/01-mvc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Separación de capas y patrón MVC</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
+  <a href="../../UD5/02-instalacion-laravel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laravel: instalación y estructura</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas y controladores</span></a>
+  <a href="../../UD5/03-rutas-controladores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas y controladores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
+  <a href="../../UD5/04-blade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vistas con Blade</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
+  <a href="../../UD5/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios dinámicos: CSRF, validación y errores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
+  <a href="../../UD5/06-eloquent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eloquent y migraciones (herramienta de apoyo)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
+  <a href="../../UD5/07-sesiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sesiones y mantenimiento de estado</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
+  <a href="../../UD5/08-configuracion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuración de la aplicación por entornos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
+  <a href="../../UD5/09-poo-servicios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">POO aplicada: servicios e inyección de dependencias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
+  <a href="../../UD5/10-pruebas-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas, documentación y proyecto integrador</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD6/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD6. Acceso a BBDD con PDO: Seguridad e integridad</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -576,44 +576,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
+  <a href="../../UD6/01-tecnologias-acceso.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías de acceso a datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
+  <a href="../../UD6/02-conexion-pdo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conexión con PDO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
+  <a href="../../UD6/03-recuperacion-seguridad.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recuperación de datos y seguridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
+  <a href="../../UD6/04-publicacion-web.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publicación web de la información</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
+  <a href="../../UD6/05-conjuntos-datos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modos de recuperación y conjuntos de datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
+  <a href="../../UD6/06-crud-transacciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CRUD completo: transacciones e integridad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
+  <a href="../../UD6/07-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Gestión de la biblioteca</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD7/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD7. Servicios Web: API REST con Laravel (Resources y Sanctum)</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -622,134 +622,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
+  <a href="../../UD7/01-fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos de servicios web</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
+  <a href="../../UD7/02-rutas-api.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rutas API y controladores REST</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
+  <a href="../../UD7/03-api-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">API Resources: la capa de transformación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
+  <a href="../../UD7/04-validacion-codigos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Validación y códigos de estado</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
+  <a href="../../UD7/05-sanctum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autenticación por tokens con Sanctum</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
+  <a href="../../UD7/06-verificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación: Postman y pruebas HTTP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
+  <a href="../../UD7/07-consumo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Consumir el servicio desde PHP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
+  <a href="../../UD7/08-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: API REST completa</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
+  <a href="../../UD7/09-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Documentar la API con OpenAPI</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD8/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD8/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD8. Generación dinámica de páginas Web</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/01-modelos-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Servidor y cliente: dos modelos de ejecución</span></a>
+  <a href="../../UD8/v2/01-conceptos-fetch.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/02-tecnologias-frameworks.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tecnologías y frameworks de generación dinámica interactiva</span></a>
+  <a href="../../UD8/v2/02-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/03-interaccion-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Obtención remota de información: fetch, JSON y consumo de APIs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/04-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/05-dom-dinamico.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modificación dinámica del contenido y la estructura</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD8/06-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
+  <a href="../../UD8/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD9/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../../UD9/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/01-aplicaciones-hibridas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aplicaciones Web híbridas</span></a>
+  <a href="../../UD9/v2/01-composer-guzzle-librerias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer, Guzzle y librerías de terceros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/02-composer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer en profundidad</span></a>
+  <a href="../../UD9/v2/02-repositorios-propios-etl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/03-consumo-repositorios.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Consumir repositorios existentes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/04-repositorios-propios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/05-librerias-terceros.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Librerías de terceros: PDF y QR</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/06-analitica-bigdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Analítica, Big Data e inteligencia de negocios</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../UD9/07-prueba-documentacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Probar, depurar y documentar</span></a>
+  <a href="../../UD9/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto: cuadro de mando</span></a>
   </div>
 </li>
       </ul>
@@ -764,17 +729,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#la-primera-petición" id="toc-la-primera-petición" class="nav-link active" data-scroll-target="#la-primera-petición">La primera petición</a></li>
-  <li><a href="#procesar-la-respuesta-json" id="toc-procesar-la-respuesta-json" class="nav-link" data-scroll-target="#procesar-la-respuesta-json">Procesar la respuesta JSON</a></li>
-  <li><a href="#timeout-y-control-de-errores-obligatorios" id="toc-timeout-y-control-de-errores-obligatorios" class="nav-link" data-scroll-target="#timeout-y-control-de-errores-obligatorios">Timeout y control de errores: obligatorios</a></li>
-  <li><a href="#en-un-controlador-laravel" id="toc-en-un-controlador-laravel" class="nav-link" data-scroll-target="#en-un-controlador-laravel">En un controlador Laravel</a>
+  <li><a href="#dos-modelos-una-sola-aplicación" id="toc-dos-modelos-una-sola-aplicación" class="nav-link active" data-scroll-target="#dos-modelos-una-sola-aplicación">Dos modelos, una sola aplicación</a>
   <ul class="collapse">
-  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
+  <li><a href="#tecnologías-principales" id="toc-tecnologías-principales" class="nav-link" data-scroll-target="#tecnologías-principales">Tecnologías principales</a></li>
   </ul></li>
-  <li><a href="#repositorios-autenticados-tu-api-de-la-ud7" id="toc-repositorios-autenticados-tu-api-de-la-ud7" class="nav-link" data-scroll-target="#repositorios-autenticados-tu-api-de-la-ud7">Repositorios autenticados: tu API de la UD7</a>
-  <ul class="collapse">
-  <li><a href="#actividades-1" id="toc-actividades-1" class="nav-link" data-scroll-target="#actividades-1">Actividades</a></li>
-  </ul></li>
+  <li><a href="#fetch-pedir-datos-sin-recargar" id="toc-fetch-pedir-datos-sin-recargar" class="nav-link" data-scroll-target="#fetch-pedir-datos-sin-recargar">fetch: pedir datos sin recargar</a></li>
+  <li><a href="#consumir-la-api-rest-de-la-ud7-con-sanctum" id="toc-consumir-la-api-rest-de-la-ud7-con-sanctum" class="nav-link" data-scroll-target="#consumir-la-api-rest-de-la-ud7-con-sanctum">Consumir la API REST de la UD7 con Sanctum</a></li>
+  <li><a href="#del-json-al-documento-primer-contacto-con-el-dom" id="toc-del-json-al-documento-primer-contacto-con-el-dom" class="nav-link" data-scroll-target="#del-json-al-documento-primer-contacto-con-el-dom">Del JSON al documento: primer contacto con el DOM</a></li>
   </ul>
 </nav>
     </div>
@@ -782,9 +743,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD9/00-presentacion.html">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</a></li><li class="breadcrumb-item"><a href="../UD9/03-consumo-repositorios.html"><span class="chapter-title">Consumir repositorios existentes</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../UD8/v2/00-presentacion.html">UD8. Generación dinámica de páginas Web</a></li><li class="breadcrumb-item"><a href="../../UD8/v2/01-conceptos-fetch.html"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Consumir repositorios existentes</span></h1>
+<h1 class="title"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></h1>
 </div>
 
 
@@ -801,134 +762,169 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>El primer pilar de una aplicación híbrida es <strong>recuperar y procesar información ya existente</strong>. En la UD8 el navegador consumía APIs con <code>fetch</code>; aquí el consumo se hace <strong>desde el servidor</strong>, lo que permite ocultar claves, cachear, combinar fuentes antes de responder y almacenar lo recuperado. La herramienta estándar es <strong>Guzzle</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="ex">docker</span> compose exec web composer require guzzlehttp/guzzle</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="la-primera-petición" class="level2">
-<h2 class="anchored" data-anchor-id="la-primera-petición">La primera petición</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">use</span> GuzzleHttp\Client<span class="ot">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="va">$cliente</span> <span class="op">=</span> <span class="kw">new</span> Client([<span class="st">'base_uri'</span> =&gt; <span class="st">'https://openlibrary.org'</span>])<span class="ot">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="va">$respuesta</span> <span class="op">=</span> <span class="va">$cliente</span>-&gt;get(<span class="st">'/search.json'</span><span class="ot">,</span> [</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>    <span class="st">'query'</span> =&gt; [<span class="st">'q'</span> =&gt; <span class="st">'laravel'</span><span class="ot">,</span> <span class="st">'limit'</span> =&gt; <span class="dv">3</span>]<span class="ot">,</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>])<span class="ot">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a><span class="kw">echo</span> <span class="va">$respuesta</span>-&gt;getStatusCode() <span class="op">.</span> <span class="cn">PHP_EOL</span><span class="ot">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="kw">echo</span> <span class="va">$respuesta</span>-&gt;getHeaderLine(<span class="st">'Content-Type'</span>) <span class="op">.</span> <span class="cn">PHP_EOL</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a>200</span>
-<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>application/json</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Guzzle construye la URL final (<code>/search.json?q=laravel&amp;limit=3</code>) y codifica los parámetros por ti.</p>
-</section>
-<section id="procesar-la-respuesta-json" class="level2">
-<h2 class="anchored" data-anchor-id="procesar-la-respuesta-json">Procesar la respuesta JSON</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="va">$datos</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$respuesta</span>-&gt;getBody()<span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="kw">echo</span> <span class="st">'Total de resultados: '</span> <span class="op">.</span> <span class="va">$datos</span>[<span class="st">'numFound'</span>] <span class="op">.</span> <span class="cn">PHP_EOL</span><span class="ot">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="cf">foreach</span> (<span class="va">$datos</span>[<span class="st">'docs'</span>] <span class="kw">as</span> <span class="va">$libro</span>) {</span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>    <span class="kw">echo</span> <span class="st">'- '</span> <span class="op">.</span> <span class="va">$libro</span>[<span class="st">'title'</span>] <span class="op">.</span> <span class="st">' ('</span> <span class="op">.</span> (<span class="va">$libro</span>[<span class="st">'first_publish_year'</span>] <span class="op">??</span> <span class="st">'—'</span>) <span class="op">.</span> <span class="st">')'</span> <span class="op">.</span> <span class="cn">PHP_EOL</span><span class="ot">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Salida (recortada; los datos reales varían con el tiempo):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a>Total de resultados: 519</span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>- Laravel: Up &amp; Running (2016)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>- Laravel: Up and Running (2019)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>- Beginning Laravel (2017)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Con <code>true</code> como segundo argumento, <code>json_decode()</code> devuelve arrays asociativos: las mismas estructuras que recorréis desde la UD3. Fíjate en el operador <code>??</code> para campos que la fuente no siempre rellena: los datos ajenos <strong>nunca</strong> son tan regulares como los tuyos.</p>
-</section>
-<section id="timeout-y-control-de-errores-obligatorios" class="level2">
-<h2 class="anchored" data-anchor-id="timeout-y-control-de-errores-obligatorios">Timeout y control de errores: obligatorios</h2>
-<p>Una fuente externa caída o lenta no puede colgar tu aplicación. Configura siempre un tiempo máximo y captura el fallo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">use</span> GuzzleHttp\Client<span class="ot">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="kw">use</span> GuzzleHttp\<span class="bu">Exception</span>\RequestException<span class="ot">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="kw">use</span> Illuminate\Support\Facades\<span class="fu">Log</span><span class="ot">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="va">$cliente</span> <span class="op">=</span> <span class="kw">new</span> Client([</span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    <span class="st">'base_uri'</span> =&gt; <span class="st">'https://openlibrary.org'</span><span class="ot">,</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>    <span class="st">'timeout'</span>  =&gt; <span class="fl">5.0</span><span class="ot">,</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>])<span class="ot">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="cf">try</span> {</span>
-<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a>    <span class="va">$r</span> <span class="op">=</span> <span class="va">$cliente</span>-&gt;get(<span class="st">'/search.json'</span><span class="ot">,</span> [<span class="st">'query'</span> =&gt; [<span class="st">'q'</span> =&gt; <span class="st">'laravel'</span>]])<span class="ot">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a>    <span class="va">$datos</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$r</span>-&gt;getBody()<span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a>} <span class="cf">catch</span> (RequestException <span class="va">$e</span>) {</span>
-<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a>    <span class="fu">Log</span>::<span class="bu">error</span>(<span class="st">'Fallo al consultar Open Library: '</span> <span class="op">.</span> <span class="va">$e</span>-&gt;getMessage())<span class="ot">;</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a>    abort(<span class="dv">503</span><span class="ot">,</span> <span class="st">'El repositorio externo no está disponible.'</span>)<span class="ot">;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-label="16"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Si la fuente no responde en 5 segundos, en <code>storage/logs/laravel.log</code> aparece:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>[2026-09-14 10:32:07] local.ERROR: Fallo al consultar Open Library: cURL error 28:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>Operation timed out after 5001 milliseconds</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>…y el usuario recibe un error 503 digno en lugar de una página colgada.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Concepto clave
+<span class="screen-reader-only">Importante</span>Normativa · RA-CE
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El trío <code>timeout</code> + <code>try/catch</code> + registro en el log es el contrato mínimo de calidad al consumir cualquier fuente externa. Sin él, la disponibilidad de tu aplicación pasa a depender de la de un servidor que no controlas.</p>
+<p>Este bloque cubre los criterios <strong>CE8.a</strong> (diferencias servidor/cliente), <strong>CE8.b</strong> (ventajas de unir ambas tecnologías), <strong>CE8.c</strong> (tecnologías y frameworks) y <strong>CE8.d</strong> (interacción con el usuario) del RA8.</p>
+</div>
+</div>
+<section id="dos-modelos-una-sola-aplicación" class="level2">
+<h2 class="anchored" data-anchor-id="dos-modelos-una-sola-aplicación">Dos modelos, una sola aplicación</h2>
+<p>En una aplicación web moderna, el servidor y el cliente colaboran:</p>
+<ul>
+<li><strong>PHP genera la página</strong> (estructura HTML, datos iniciales, lógica de negocio, seguridad).</li>
+<li><strong>JavaScript en el navegador</strong> obtiene datos adicionales y actualiza la página sin recargar.</li>
+</ul>
+<p>La separación es nítida: el servidor <strong>decide qué datos</strong> se muestran y aplica las reglas de negocio; el cliente <strong>decide cómo</strong> se presentan y gestiona la interacción inmediata. Ninguno puede sustituir al otro: sin servidor no hay seguridad real; sin cliente no hay fluidez.</p>
+<section id="tecnologías-principales" class="level3">
+<h3 class="anchored" data-anchor-id="tecnologías-principales">Tecnologías principales</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 45%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Capa</th>
+<th>Tecnología</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Servidor</td>
+<td>PHP (nativo o Laravel)</td>
+<td>Genera HTML, expone endpoints JSON, valida, autentica</td>
+</tr>
+<tr class="even">
+<td>Servidor</td>
+<td>API REST (UD7)</td>
+<td>Fuente de datos estructurada con autenticación Sanctum</td>
+</tr>
+<tr class="odd">
+<td>Cliente</td>
+<td>JavaScript (<code>fetch</code>, DOM)</td>
+<td>Obtiene datos sin recargar, actualiza la página</td>
+</tr>
+<tr class="even">
+<td>Transversal</td>
+<td>JSON</td>
+<td>Formato de intercambio entre ambas capas</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Analogía Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En Java EE, las JSP generan el HTML y los Servlets exponen endpoints; en el ecosistema PHP, los ficheros <code>.php</code> hacen ambas cosas. El concepto es el mismo: separar lo que genera la página de lo que devuelve datos puros.</p>
 </div>
 </div>
 </section>
-<section id="en-un-controlador-laravel" class="level2">
-<h2 class="anchored" data-anchor-id="en-un-controlador-laravel">En un controlador Laravel</h2>
-<p>El patrón completo, con el parámetro de búsqueda llegando del formulario:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">public</span> <span class="kw">function</span> buscar(Request <span class="va">$request</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>{</span>
-<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a>    <span class="va">$q</span> <span class="op">=</span> <span class="va">$request</span>-&gt;<span class="dt">string</span>(<span class="st">'q'</span><span class="ot">,</span> <span class="st">'valencia'</span>)<span class="ot">;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>    <span class="va">$cliente</span> <span class="op">=</span> <span class="kw">new</span> Client([<span class="st">'base_uri'</span> =&gt; <span class="st">'https://openlibrary.org'</span><span class="ot">,</span> <span class="st">'timeout'</span> =&gt; <span class="dv">5</span>])<span class="ot">;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>    <span class="cf">try</span> {</span>
-<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>        <span class="va">$r</span> <span class="op">=</span> <span class="va">$cliente</span>-&gt;get(<span class="st">'/search.json'</span><span class="ot">,</span> [<span class="st">'query'</span> =&gt; [<span class="st">'q'</span> =&gt; <span class="dt">(string)</span> <span class="va">$q</span><span class="ot">,</span> <span class="st">'limit'</span> =&gt; <span class="dv">20</span>]])<span class="ot">;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a>        <span class="va">$docs</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$r</span>-&gt;getBody()<span class="ot">,</span> <span class="kw">true</span>)[<span class="st">'docs'</span>] <span class="op">??</span> []<span class="ot">;</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a>        <span class="va">$error</span> <span class="op">=</span> <span class="kw">null</span><span class="ot">;</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-label="10"></a>    } <span class="cf">catch</span> (RequestException <span class="va">$e</span>) {</span>
-<span id="cb8-11"><a href="#cb8-11" aria-label="11"></a>        <span class="fu">Log</span>::warning(<span class="st">'Open Library caída: '</span> <span class="op">.</span> <span class="va">$e</span>-&gt;getMessage())<span class="ot">;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-label="12"></a>        [<span class="va">$docs</span><span class="ot">,</span> <span class="va">$error</span>] <span class="op">=</span> [[]<span class="ot">,</span> <span class="st">'Fuente no disponible, inténtalo más tarde.'</span>]<span class="ot">;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-label="13"></a>    }</span>
-<span id="cb8-14"><a href="#cb8-14" aria-label="14"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-label="15"></a>    <span class="cf">return</span> view(<span class="st">'busqueda'</span><span class="ot">,</span> <span class="fu">compact</span>(<span class="st">'docs'</span><span class="ot">,</span> <span class="st">'error'</span>))<span class="ot">;</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-label="16"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Laravel trae además un wrapper propio sobre Guzzle, más compacto y válido en todos los ejercicios:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">use</span> Illuminate\Support\Facades\Http<span class="ot">;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="va">$docs</span> <span class="op">=</span> Http::timeout(<span class="dv">5</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a>    -&gt;get(<span class="st">'https://openlibrary.org/search.json'</span><span class="ot">,</span> [<span class="st">'q'</span> =&gt; <span class="st">'laravel'</span><span class="ot">,</span> <span class="st">'limit'</span> =&gt; <span class="dv">20</span>])</span>
-<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a>    -&gt;json(<span class="st">'docs'</span><span class="ot">,</span> [])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="actividades" class="level3">
-<h3 class="anchored" data-anchor-id="actividades">Actividades</h3>
-<div class="ejercicio">
-<p><strong>EJ4 · Buscador sobre una API pública</strong></p>
-<p>Crea un controlador con una acción que consulte Open Library (u otra API pública sin clave que prefieras), filtre por un parámetro recibido de un formulario de búsqueda y muestre en una vista Blade el título, el año y el primer autor de cada resultado. Gestiona el caso de fuente caída con un mensaje amigable en la misma vista. Diseño libre de la vista.</p>
+</section>
+<section id="fetch-pedir-datos-sin-recargar" class="level2">
+<h2 class="anchored" data-anchor-id="fetch-pedir-datos-sin-recargar">fetch: pedir datos sin recargar</h2>
+<p><code>fetch</code> es la API del navegador para hacer peticiones HTTP desde JavaScript. Devuelve una promesa; con <code>async</code>/<code>await</code> se lee de forma secuencial:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">cargarDatos</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>  <span class="cf">try</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>    <span class="kw">const</span> respuesta <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">'api/peliculas.php'</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    <span class="cf">if</span> (<span class="op">!</span>respuesta<span class="op">.</span><span class="at">ok</span>) <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'HTTP '</span> <span class="op">+</span> respuesta<span class="op">.</span><span class="at">status</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>    <span class="kw">const</span> datos <span class="op">=</span> <span class="cf">await</span> respuesta<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="fu">pintarDatos</span>(datos)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#aviso'</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>      <span class="st">'Error: '</span> <span class="op">+</span> error<span class="op">.</span><span class="at">message</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>  }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a><span class="fu">cargarDatos</span>()<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tres situaciones posibles:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situación</th>
+<th>Qué sucede</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>El endpoint responde 200</td>
+<td>Se parsea el JSON y se pinta</td>
+</tr>
+<tr class="even">
+<td>El endpoint responde 404/500</td>
+<td>Se lanza error y lo captura el <code>catch</code></td>
+</tr>
+<tr class="odd">
+<td>El servidor está apagado</td>
+<td><code>fetch</code> falla directamente con error de red</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="consumir-la-api-rest-de-la-ud7-con-sanctum" class="level2">
+<h2 class="anchored" data-anchor-id="consumir-la-api-rest-de-la-ud7-con-sanctum">Consumir la API REST de la UD7 con Sanctum</h2>
+<p>La API de la UD7 exige token Sanctum. El <code>fetch</code> añade la cabecera <code>Authorization</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">cargarDesdeApi</span>(token) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>  <span class="kw">const</span> respuesta <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>    <span class="st">'http://localhost:8000/api/v1/juegos'</span><span class="op">,</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>    <span class="dt">headers</span><span class="op">:</span> {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>      <span class="st">'Authorization'</span><span class="op">:</span> <span class="st">'Bearer '</span> <span class="op">+</span> token<span class="op">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>      <span class="st">'Accept'</span><span class="op">:</span> <span class="st">'application/json'</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>    }</span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>  })<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>  <span class="cf">if</span> (respuesta<span class="op">.</span><span class="at">status</span> <span class="op">===</span> <span class="dv">401</span>) {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'Token inválido o caducado'</span>)<span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>  }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>  <span class="kw">const</span> cuerpo <span class="op">=</span> <span class="cf">await</span> respuesta<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>  <span class="cf">return</span> cuerpo<span class="op">.</span><span class="at">data</span><span class="op">;</span>   <span class="co">// los Resources envuelven en data</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>CORS.</strong> Si la página se sirve desde un puerto y la API desde otro, el navegador bloqueará la respuesta. Laravel trae el middleware CORS configurable en <code>config/cors.php</code>. Basta con reconocer el error en consola y saber dónde se autoriza el origen.</p>
+</div>
 </div>
 </section>
-</section>
-<section id="repositorios-autenticados-tu-api-de-la-ud7" class="level2">
-<h2 class="anchored" data-anchor-id="repositorios-autenticados-tu-api-de-la-ud7">Repositorios autenticados: tu API de la UD7</h2>
-<p>Cuando el repositorio exige autenticación, el token viaja en la cabecera <code>Authorization</code>. Así consume otra aplicación la API que construisteis con Sanctum:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="va">$r</span> <span class="op">=</span> <span class="va">$cliente</span>-&gt;get(<span class="st">'http://localhost:8001/api/productos'</span><span class="ot">,</span> [</span>
-<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a>    <span class="st">'headers'</span> =&gt; [</span>
-<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a>        <span class="st">'Authorization'</span> =&gt; <span class="st">'Bearer '</span> <span class="op">.</span> config(<span class="st">'services.ud7.token'</span>)<span class="ot">,</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a>        <span class="st">'Accept'</span>        =&gt; <span class="st">'application/json'</span><span class="ot">,</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a>    ]<span class="ot">,</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>El token se guarda en configuración (<code>config/services.php</code> leyendo de <code>.env</code>), nunca en el código. Comprueba primero con tu cliente HTTP (Postman/Thunder Client) que el token es válido:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a>GET http://localhost:8001/api/productos</span>
-<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a>Authorization: Bearer 3|kD8s...</span>
-<span id="cb11-3"><a href="#cb11-3" aria-label="3"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-label="4"></a>200 OK</span>
-<span id="cb11-5"><a href="#cb11-5" aria-label="5"></a>[{"id":1,"nombre":"Teclado mecánico","precio":89.9}, ...]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>En la UD7 construisteis el servicio; en la UD8 lo consumió el navegador; aquí lo consume <strong>otro servidor</strong>. Sois a la vez proveedores y consumidores: el doble papel de cualquier empresa real.</p>
-<section id="actividades-1" class="level3">
-<h3 class="anchored" data-anchor-id="actividades-1">Actividades</h3>
-<div class="ejercicio">
-<p><strong>EJ5 · Proyecto — buscador de fuentes heterogéneas</strong></p>
-<p>Amplía tu proyecto con un buscador que consulte <strong>dos fuentes a la vez</strong>: la API pública de EJ4 y tu API de la UD7 (autenticada con Bearer). Unifica los resultados en una estructura común y preséntalos en una vista indicando la procedencia de cada dato. Requisitos: gestión de errores independiente por fuente (si una cae, la otra sigue mostrándose), registro en el log y PHPDoc en el servicio que encapsule las consultas.</p>
-</div>
+<section id="del-json-al-documento-primer-contacto-con-el-dom" class="level2">
+<h2 class="anchored" data-anchor-id="del-json-al-documento-primer-contacto-con-el-dom">Del JSON al documento: primer contacto con el DOM</h2>
+<p>Recibidos los datos, se incorporan al documento creando elementos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">function</span> <span class="fu">pintarDatos</span>(datos) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>  <span class="kw">const</span> contenedor <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#listado'</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>  contenedor<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>  <span class="cf">for</span> (<span class="kw">const</span> item <span class="kw">of</span> datos) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>    <span class="kw">const</span> ficha <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'article'</span>)<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>    ficha<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;h3&gt;</span><span class="sc">${</span>item<span class="op">.</span><span class="at">titulo</span><span class="sc">}</span><span class="vs">&lt;/h3&gt;&lt;p&gt;</span><span class="sc">${</span>item<span class="op">.</span><span class="at">genero</span><span class="sc">}</span><span class="vs">&lt;/p&gt;`</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>    contenedor<span class="op">.</span><span class="fu">appendChild</span>(ficha)<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>  }</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>PHP genera el esqueleto con un contenedor vacío; el script lo rellena. Si mañana la fuente cambia de array a Eloquent, la página no toca una línea.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1352,13 +1348,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD9/02-composer.html" class="pagination-link" aria-label="Composer en profundidad">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Composer en profundidad</span></span>
+      <a href="../../UD8/v2/00-presentacion.html" class="pagination-link" aria-label="UD8. Generación dinámica de páginas Web">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">UD8. Generación dinámica de páginas Web</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD9/04-repositorios-propios.html" class="pagination-link" aria-label="Crear repositorios propios: ETL">
-        <span class="nav-page-text"><span class="chapter-title">Crear repositorios propios: ETL</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../UD8/v2/02-verificacion-formularios.html" class="pagination-link" aria-label="Verificación de formularios en dos capas">
+        <span class="nav-page-text"><span class="chapter-title">Verificación de formularios en dos capas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1380,5 +1376,5 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

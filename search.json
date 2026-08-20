@@ -3338,8 +3338,8 @@
     ]
   },
   {
-    "objectID": "UD8/00-presentacion.html",
-    "href": "UD8/00-presentacion.html",
+    "objectID": "UD8/v2/00-presentacion.html",
+    "href": "UD8/v2/00-presentacion.html",
     "title": "UD8. Generación dinámica de páginas Web",
     "section": "",
     "text": "Presentación de la unidad",
@@ -3348,315 +3348,150 @@
     ]
   },
   {
-    "objectID": "UD8/00-presentacion.html#presentación-de-la-unidad",
-    "href": "UD8/00-presentacion.html#presentación-de-la-unidad",
+    "objectID": "UD8/v2/00-presentacion.html#presentación-de-la-unidad",
+    "href": "UD8/v2/00-presentacion.html#presentación-de-la-unidad",
     "title": "UD8. Generación dinámica de páginas Web",
     "section": "",
-    "text": "Qué aprenderás\nEsta unidad cierra el ciclo técnico del módulo integrando las dos mitades del desarrollo web: el código que se ejecuta en el servidor y el que se ejecuta en el navegador. Hasta ahora, todas las aplicaciones construidas siguen el ciclo clásico de petición-respuesta: el navegador solicita una página, el servidor la genera completa y el navegador la sustituye por entero. En esta unidad se aprende a romper ese ciclo cuando conviene, generando páginas que, una vez cargadas, obtienen información remota del servidor y modifican su propio contenido y estructura sin recargarse.\nEl enfoque tecnológico es continuista con el resto del módulo: PHP nativo como generador de las páginas, JavaScript básico, limitado a lo imprescindible (fetch y manipulación básica del DOM) como capa de interacción, y como fuente de datos remota tanto endpoints PHP propios como la API REST desarrollada en la unidad anterior con Laravel y Sanctum. De este modo, la API construida en la UD7 deja de ser un artefacto aislado que se prueba con Postman y pasa a alimentar una interfaz web real.\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEl JavaScript empleado en esta unidad se limita a lo imprescindible: peticiones fetch, tratamiento de JSON y manipulación básica del DOM. El estudio en profundidad del lenguaje JavaScript y sus frameworks corresponde al módulo DWEC, con el que esta unidad se coordina. Aquí el foco permanece en el servidor: qué genera, qué expone y cómo se combina con el cliente.\n\n\n\n\nObjetivos\n\nDistinguir con precisión qué código se ejecuta en el servidor y cuál en el navegador, y argumentar las ventajas de combinar ambos modelos en una misma aplicación.\nIdentificar y comparar las tecnologías y frameworks implicados en la generación de páginas dinámicas con guiones embebidos (PHP nativo, motores de plantillas, Blade, fetch/AJAX, JSON).\nConstruir endpoints PHP que expongan información en formato JSON con las cabeceras y códigos de estado adecuados.\nGenerar páginas web que obtengan información remota mediante fetch, tanto de endpoints propios como de la API REST autenticada desarrollada en la UD7.\nImplementar la verificación de formularios en dos capas (cliente y servidor), comprendiendo el papel de cada una y por qué la validación en servidor es irrenunciable.\nModificar dinámicamente el contenido y la estructura de una página (filtrado, ordenación, inserción y eliminación de elementos) a partir de datos servidos por el servidor.\nIntegrar todas las técnicas anteriores en una aplicación web híbrida completa, probada y documentada.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA8. Genera páginas web dinámicas analizando y utilizando tecnologías y frameworks del servidor web que añadan código al lenguaje de marcas.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE8.a\nSe han identificado las diferencias entre la ejecución de código en el servidor y en el cliente web.\n\n\nCE8.b\nSe han reconocido las ventajas de unir ambas tecnologías en el proceso de desarrollo de programas.\n\n\nCE8.c\nSe han identificado las tecnologías y frameworks relacionadas con la generación por parte del servidor de páginas web con guiones embebidos.\n\n\nCE8.d\nSe han utilizado estas tecnologías y frameworks para generar páginas web que incluyan interacción con el usuario.\n\n\nCE8.e\nSe han utilizado estas tecnologías y frameworks, para generar páginas web que incluyan verificación de formularios.\n\n\nCE8.f\nSe han utilizado estas tecnologías y frameworks para generar páginas web que incluyan modificación dinámica de su contenido y su estructura.\n\n\nCE8.g\nSe han aplicado estas tecnologías y frameworks en la programación de aplicaciones web.\n\n\n\n\n\nContenidos\nLa unidad se organiza en seis bloques que progresan desde el análisis conceptual hasta la integración final:\n\n\n\n\n\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nServidor y cliente: dos modelos de ejecución, una sola aplicación\nCE8.a-b\n\n\n2\nTecnologías y frameworks de generación dinámica interactiva\nCE8.c\n\n\n3\nObtención remota de información: fetch, JSON y consumo de APIs\nCE8.b-d\n\n\n4\nVerificación de formularios en dos capas\nCE8.e\n\n\n5\nModificación dinámica del contenido y la estructura\nCE8.f\n\n\n6\nProyecto integrador: aplicación web híbrida\nCE8.d-e-f-g\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nHilo conductor. Todos los ejemplos y actividades giran en torno a una misma aplicación: una cartelera de cine que muestra películas y sesiones. Se empieza analizándola como página estática generada por PHP (B1), se le añade la obtención remota de la lista de películas (B3), un formulario de valoración verificado en dos capas (B4) y filtrado y ordenación sin recargar (B5), hasta desembocar en el proyecto integrador (B6), donde cada estudiante construye su propia versión completa conectada a la API de la UD7.\n\n\n\n\nRecursos y materiales\n\nServidor local PHP para el frontend de este ejercicio (XAMPP, PHP embebido o Docker).\nProyecto Laravel de la UD7 con la API REST y Sanctum funcionando en local vía Docker (requisito imprescindible a partir del bloque 3).\nEditor Visual Studio Code con las extensiones ya instaladas en unidades anteriores (PHP Intelephense, Live Server).\nNavegador con herramientas de desarrollo (las pestañas Consola, Red y Elementos serán de uso constante).\nPostman o Thunder Client para inspeccionar las respuestas de los endpoints antes de consumirlos.\nDocumentación de referencia: php.net (json_encode/json_decode), MDN Web Docs (fetch, DOM) y la documentación OpenAPI generada por ti en la UD7.\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\n¿Clásico o híbrido?\nNo\n\n\nEJ2\nAnálisis comparativo servidor/cliente\nNo\n\n\nEJ3\nClasificación por capas\nNo\n\n\nEJ4\nFicha de tecnologías y frameworks\nNo\n\n\nEJ5\nEndpoint de géneros y fallos provocados\nNo\n\n\nEJ6\nEndpoint propio + pintado en página\nNo\n\n\nEJ7\nCliente web de la propia API (UD7)\nNo\n\n\nEJ8\nLa capa cliente no basta\nNo\n\n\nEJ9\nFormulario de valoraciones con verificación en dos capas\nNo\n\n\nEJ10\nOcultar, contar, restaurar\nNo\n\n\nEJ11\nCartelera interactiva: filtrado y ordenación sin recarga\nNo\n\n\nEJ12\nProyecto integrador: “Mi cartelera conectada”\nSí\n\n\n\n\n\n\n\n\n\nImportanteNormativa · RA-CE\n\n\n\nCada bloque de contenidos indica al comienzo qué criterios de evaluación del RA8 desarrolla. El proyecto integrador es la actividad de mayor peso del bloque de actividades porque es la única que acredita CE8.g: aplicar todas las tecnologías juntas en una aplicación web completa.",
+    "text": "Qué aprenderás\nEsta unidad cierra el recorrido servidor con la pieza que falta: hacer que la página generada por PHP interactúe con el usuario y con servicios remotos sin recargar. El vehículo principal es la API REST que construisteis en la UD7, consumida ahora desde una página web real con fetch y verificación de formularios en dos capas.\n\n\n\n\n\n\nNotaA tener en cuenta\n\n\n\nEl JavaScript empleado se limita a lo imprescindible: peticiones fetch, tratamiento de JSON y manipulación básica del DOM. El estudio en profundidad del lenguaje JavaScript y sus frameworks corresponde al módulo DWEC, con el que esta unidad se coordina. Aquí el foco permanece en el servidor: qué genera, qué expone y cómo se combina con el cliente.\n\n\n\n\nObjetivos\n\nDistinguir con precisión qué código se ejecuta en el servidor y cuál en el navegador, y argumentar las ventajas de combinar ambos modelos en una misma aplicación.\nIdentificar las tecnologías implicadas en la generación de páginas dinámicas interactivas (PHP nativo, JSON, fetch, DOM básico).\nObtener información remota mediante fetch desde una página generada por PHP, incluyendo la autenticación por token (Sanctum) contra la API REST desarrollada en la UD7.\nImplementar la verificación de formularios en dos capas (cliente y servidor), comprendiendo el papel de cada una y por qué la validación en servidor es irrenunciable.\nIntegrar las técnicas anteriores en una aplicación web híbrida conectada a una API REST real.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA8. Genera páginas web dinámicas analizando y utilizando tecnologías y frameworks del servidor web que añadan código al lenguaje de marcas.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE8.a\nSe han identificado las diferencias entre la ejecución de código en el servidor y en el cliente web.\n\n\nCE8.b\nSe han reconocido las ventajas de unir ambas tecnologías en el proceso de desarrollo de programas.\n\n\nCE8.c\nSe han identificado las tecnologías y frameworks relacionadas con la generación por parte del servidor de páginas web con guiones embebidos.\n\n\nCE8.d\nSe han utilizado estas tecnologías y frameworks para generar páginas web que incluyan interacción con el usuario.\n\n\nCE8.e\nSe han utilizado estas tecnologías y frameworks, para generar páginas web que incluyan verificación de formularios.\n\n\nCE8.f\nSe han utilizado estas tecnologías y frameworks para generar páginas web que incluyan modificación dinámica de su contenido y su estructura.\n\n\nCE8.g\nSe han aplicado estas tecnologías y frameworks en la programación de aplicaciones web.\n\n\n\n\n\nContenidos\n\n\n\n\n\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nConceptos clave: modelos de ejecución, tecnologías y fetch\nCE8.a-b-c-d\n\n\n2\nVerificación de formularios en dos capas\nCE8.e\n\n\n3\nProyecto integrador: aplicación web híbrida\nCE8.d-e-f-g\n\n\n\n\n\n\n\n\n\nNotaNota\n\n\n\nHay bloques como DOM dinámico (filtrado, ordenación, inserción/eliminación de nodos) se han omitido de la unidad porque DWEC los cubre con mucha más profundidad desde el lado cliente.\nTodo el trabajo práctico aplica directamente en la única entrega de la unidad.\n\n\n\n\nRecursos y materiales\n\nProyecto Laravel de la UD7 con la API REST y Sanctum funcionando en local vía Docker (requisito imprescindible).\nDocumentación OpenAPI generada en la UD7.\nDocumentación de referencia: php.net (json_encode/json_decode), MDN Web Docs (fetch, DOM).\nVisual Studio Code con las extensiones ya instaladas (PHP Intelephense, Live Server).\nNavegador con herramientas de desarrollo (pestañas Consola, Red y Elementos).\nPostman (escritorio o web) para inspeccionar las respuestas de los endpoints antes de consumirlos.\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nProyecto integrador: “Mi cartelera conectada”\nSí",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web"
     ]
   },
   {
-    "objectID": "UD8/01-modelos-ejecucion.html",
-    "href": "UD8/01-modelos-ejecucion.html",
-    "title": "Servidor y cliente: dos modelos de ejecución",
+    "objectID": "UD8/v2/01-conceptos-fetch.html",
+    "href": "UD8/v2/01-conceptos-fetch.html",
+    "title": "Conceptos clave: modelos de ejecución, tecnologías y fetch",
     "section": "",
-    "text": "Dónde se ejecuta cada cosa\nEn la UD1 se caracterizaron los modelos de ejecución en servidor y en cliente como alternativas: o la lógica corre en el servidor (PHP) o corre en el navegador (JavaScript). Esta unidad cambia el punto de vista: en las aplicaciones web modernas ambos modelos conviven en la misma página y el trabajo del desarrollador de entorno servidor consiste, en buena parte, en decidir qué responsabilidad se asigna a cada lado.\nVeámoslo sobre código real. Una misma página, cartelera.php, puede contener fragmentos de los dos mundos:\nSi el navegador pide esta página y hay 12 películas, lo que recibe (y lo que muestra “Ver código fuente”) es:\nEl PHP ha desaparecido: solo viaja su resultado. El JavaScript, en cambio, viaja íntegro y se ejecuta en la máquina del usuario. Esta asimetría explica la fila “Confianza” de la tabla: todo lo que hace el cliente es manipulable, porque el usuario tiene el código en su poder.\nUna prueba rápida más para fijar el criterio. ¿Dónde se ejecuta cada uno de estos cuatro fragmentos?\nF1 y F3 solo pueden ejecutarse en el servidor: el acceso a la base de datos con PDO y las sesiones son capacidades exclusivas del entorno servidor. F2 y F4 solo existen en el navegador: los eventos del DOM y fetch son APIs del cliente.",
+    "text": "Dos modelos, una sola aplicación\nEn una aplicación web moderna, el servidor y el cliente colaboran:\nLa separación es nítida: el servidor decide qué datos se muestran y aplica las reglas de negocio; el cliente decide cómo se presentan y gestiona la interacción inmediata. Ninguno puede sustituir al otro: sin servidor no hay seguridad real; sin cliente no hay fluidez.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Servidor y cliente: dos modelos de ejecución</span>"
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Conceptos clave: modelos de ejecución, tecnologías y fetch</span>"
     ]
   },
   {
-    "objectID": "UD8/01-modelos-ejecucion.html#dónde-se-ejecuta-cada-cosa",
-    "href": "UD8/01-modelos-ejecucion.html#dónde-se-ejecuta-cada-cosa",
-    "title": "Servidor y cliente: dos modelos de ejecución",
+    "objectID": "UD8/v2/01-conceptos-fetch.html#dos-modelos-una-sola-aplicación",
+    "href": "UD8/v2/01-conceptos-fetch.html#dos-modelos-una-sola-aplicación",
+    "title": "Conceptos clave: modelos de ejecución, tecnologías y fetch",
     "section": "",
-    "text": "Aspecto\nServidor (PHP)\nCliente (JavaScript)\n\n\n\n\nMomento\nAntes de enviar la respuesta HTTP\nDespués de cargar la página, en el navegador\n\n\nAcceso a datos\nDirecto: PDO, Eloquent, ficheros\nSolo a través de peticiones HTTP al servidor\n\n\nVisibilidad del código\nNunca llega al navegador\nDescargable e inspeccionable por el usuario\n\n\nConfianza\nEntorno controlado: apto para seguridad\nEntorno hostil: manipulable por el usuario\n\n\nCoste de cada acción\nUna petición-respuesta completa\nInmediato, sin ida y vuelta a la red\n\n\nEstado\nSesiones, base de datos\nVariables JS, almacenamiento del navegador\n\n\n\n\n&lt;?php\n// SERVIDOR: se ejecuta ANTES de enviar la página.\n// El navegador jamás verá esta línea, solo su resultado.\n$conexion = new PDO('mysql:host=localhost;dbname=cine', 'dwes', 'dwes');\n$total = $conexion-&gt;query('SELECT COUNT(*) FROM peliculas')-&gt;fetchColumn();\n?&gt;\n&lt;p&gt;Hay &lt;?= $total ?&gt; películas en cartel.&lt;/p&gt;\n\n&lt;button id=\"saludo\"&gt;Saludar&lt;/button&gt;\n&lt;script&gt;\n// CLIENTE: se ejecuta DESPUÉS, en el navegador, con la página ya cargada.\n// Cualquiera puede leerlo con \"Ver código fuente\".\ndocument.querySelector('#saludo').addEventListener('click', () =&gt; {\n  alert('¡Hola desde el navegador!');\n});\n&lt;/script&gt;\n\n&lt;p&gt;Hay 12 películas en cartel.&lt;/p&gt;\n\n&lt;button id=\"saludo\"&gt;Saludar&lt;/button&gt;\n&lt;script&gt;\ndocument.querySelector('#saludo').addEventListener('click', () =&gt; {\n  alert('¡Hola desde el navegador!');\n});\n&lt;/script&gt;\n\n\n// F1\n$stmt = $pdo-&gt;query(\"SELECT * FROM peliculas\");\n// F2\nboton.addEventListener('click', ocultarSinopsis);\n// F3\nsession_start();\n$usuario = $_SESSION['usuario'];\n// F4\nconst r = await fetch('api/peliculas.php');",
+    "text": "PHP genera la página (estructura HTML, datos iniciales, lógica de negocio, seguridad).\nJavaScript en el navegador obtiene datos adicionales y actualiza la página sin recargar.\n\n\n\nTecnologías principales\n\n\n\n\n\n\n\n\nCapa\nTecnología\nPapel\n\n\n\n\nServidor\nPHP (nativo o Laravel)\nGenera HTML, expone endpoints JSON, valida, autentica\n\n\nServidor\nAPI REST (UD7)\nFuente de datos estructurada con autenticación Sanctum\n\n\nCliente\nJavaScript (fetch, DOM)\nObtiene datos sin recargar, actualiza la página\n\n\nTransversal\nJSON\nFormato de intercambio entre ambas capas\n\n\n\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nEn Java EE, las JSP generan el HTML y los Servlets exponen endpoints; en el ecosistema PHP, los ficheros .php hacen ambas cosas. El concepto es el mismo: separar lo que genera la página de lo que devuelve datos puros.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Servidor y cliente: dos modelos de ejecución</span>"
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Conceptos clave: modelos de ejecución, tecnologías y fetch</span>"
     ]
   },
   {
-    "objectID": "UD8/01-modelos-ejecucion.html#el-ciclo-clásico-y-su-límite",
-    "href": "UD8/01-modelos-ejecucion.html#el-ciclo-clásico-y-su-límite",
-    "title": "Servidor y cliente: dos modelos de ejecución",
-    "section": "El ciclo clásico y su límite",
-    "text": "El ciclo clásico y su límite\nTodo lo construido desde la UD2 sigue el ciclo clásico: el navegador pide una URL, PHP genera el HTML completo y el navegador reemplaza la página entera.\n\n\n\n\n\n\nEste modelo es simple y robusto, pero tiene un límite visible: cualquier interacción, por pequeña que sea, obliga a regenerar y retransmitir toda la página. Marcar una película como favorita, filtrar la cartelera por género o comprobar si un nombre de usuario está libre no deberían costar una recarga completa.\nUn ejemplo con números lo hace tangible. Supongamos que la página de la cartelera pesa 45 KB y el usuario solo quiere ver las comedias:\n\n\n\n\n\n\n\n\n\nCiclo clásico\nModelo híbrido\n\n\n\n\nQué viaja por la red\nPágina completa (45 KB)\nSolo los datos (2 KB de JSON)\n\n\nQué hace el servidor\nRegenerar todo el HTML\nEjecutar una consulta y serializar\n\n\nQué ve el usuario\nPantalla en blanco + página nueva\nLa lista cambia al instante, sin parpadeo",
+    "objectID": "UD8/v2/01-conceptos-fetch.html#fetch-pedir-datos-sin-recargar",
+    "href": "UD8/v2/01-conceptos-fetch.html#fetch-pedir-datos-sin-recargar",
+    "title": "Conceptos clave: modelos de ejecución, tecnologías y fetch",
+    "section": "fetch: pedir datos sin recargar",
+    "text": "fetch: pedir datos sin recargar\nfetch es la API del navegador para hacer peticiones HTTP desde JavaScript. Devuelve una promesa; con async/await se lee de forma secuencial:\nasync function cargarDatos() {\n  try {\n    const respuesta = await fetch('api/peliculas.php');\n    if (!respuesta.ok) throw new Error('HTTP ' + respuesta.status);\n    const datos = await respuesta.json();\n    pintarDatos(datos);\n  } catch (error) {\n    document.querySelector('#aviso').textContent =\n      'Error: ' + error.message;\n  }\n}\ncargarDatos();\nTres situaciones posibles:\n\n\n\n\n\n\n\nSituación\nQué sucede\n\n\n\n\nEl endpoint responde 200\nSe parsea el JSON y se pinta\n\n\nEl endpoint responde 404/500\nSe lanza error y lo captura el catch\n\n\nEl servidor está apagado\nfetch falla directamente con error de red",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Servidor y cliente: dos modelos de ejecución</span>"
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Conceptos clave: modelos de ejecución, tecnologías y fetch</span>"
     ]
   },
   {
-    "objectID": "UD8/01-modelos-ejecucion.html#el-modelo-híbrido-ventajas-de-unir-ambas-tecnologías",
-    "href": "UD8/01-modelos-ejecucion.html#el-modelo-híbrido-ventajas-de-unir-ambas-tecnologías",
-    "title": "Servidor y cliente: dos modelos de ejecución",
-    "section": "El modelo híbrido: ventajas de unir ambas tecnologías",
-    "text": "El modelo híbrido: ventajas de unir ambas tecnologías\nEn el modelo híbrido, el servidor genera la página inicial y, a partir de ahí, el JavaScript de esa página solicita al servidor únicamente los datos que necesita (habitualmente en JSON) y actualiza solo la parte afectada del documento.\n\n\n\n\n\n\nLas ventajas de unir ambas tecnologías son concretas y medibles:\n\nExperiencia de usuario: la página responde al instante y no parpadea; solo cambia lo que debe cambiar.\nEficiencia de red y de servidor: se transmiten datos (unos pocos KB de JSON) en lugar de páginas completas; el servidor deja de regenerar HTML repetido.\nSeparación de responsabilidades: el servidor se especializa en exponer datos y aplicar reglas de negocio; el cliente, en presentarlos. Es la misma filosofía de separación que motivó el MVC en la UD5, ahora aplicada entre máquinas.\nReutilización: el mismo endpoint que alimenta la página puede alimentar una app móvil o a un tercero. La API de la UD7 es el ejemplo perfecto: ya existe y esta unidad la convierte en el motor de una interfaz web.\nDefensa en profundidad: el cliente puede validar y filtrar para mejorar la usabilidad, mientras el servidor mantiene la última palabra sobre seguridad e integridad.\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nConvertirlo todo en JavaScript. No todo debe ser híbrido: páginas de contenido esencialmente estático, formularios sencillos de un solo envío o procesos donde la recarga es natural (un pago, un cierre de sesión) funcionan mejor y son más robustos con el ciclo clásico. El criterio profesional no es “usar la técnica más moderna”, sino asignar cada responsabilidad al lugar donde aporta más y cuesta menos.",
+    "objectID": "UD8/v2/01-conceptos-fetch.html#consumir-la-api-rest-de-la-ud7-con-sanctum",
+    "href": "UD8/v2/01-conceptos-fetch.html#consumir-la-api-rest-de-la-ud7-con-sanctum",
+    "title": "Conceptos clave: modelos de ejecución, tecnologías y fetch",
+    "section": "Consumir la API REST de la UD7 con Sanctum",
+    "text": "Consumir la API REST de la UD7 con Sanctum\nLa API de la UD7 exige token Sanctum. El fetch añade la cabecera Authorization:\nasync function cargarDesdeApi(token) {\n  const respuesta = await fetch(\n    'http://localhost:8000/api/v1/juegos', {\n    headers: {\n      'Authorization': 'Bearer ' + token,\n      'Accept': 'application/json'\n    }\n  });\n  if (respuesta.status === 401) {\n    throw new Error('Token inválido o caducado');\n  }\n  const cuerpo = await respuesta.json();\n  return cuerpo.data;   // los Resources envuelven en data\n}\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nCORS. Si la página se sirve desde un puerto y la API desde otro, el navegador bloqueará la respuesta. Laravel trae el middleware CORS configurable en config/cors.php. Basta con reconocer el error en consola y saber dónde se autoriza el origen.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Servidor y cliente: dos modelos de ejecución</span>"
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Conceptos clave: modelos de ejecución, tecnologías y fetch</span>"
     ]
   },
   {
-    "objectID": "UD8/01-modelos-ejecucion.html#actividades",
-    "href": "UD8/01-modelos-ejecucion.html#actividades",
-    "title": "Servidor y cliente: dos modelos de ejecución",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ1 · ¿Clásico o híbrido?\nPara cada una de las siguientes funcionalidades, indica razonadamente si la resolverías con el ciclo clásico (recarga) o con el modelo híbrido (fetch):\n\nAutocompletar el buscador de películas mientras se escribe.\nProcesar el pago de una entrada.\nMostrar u ocultar la sinopsis de una película.\nComprobar en el registro si un correo ya está en uso.\nCerrar la sesión del usuario.\n\n\n\nEJ2 · Análisis comparativo servidor/cliente — CE8.a, CE8.b\nA partir de la cartelera clásica proporcionada por el docente (cartelera.php, versión UD3), elabora un informe breve de dos partes:\nParte 1. Tabla comparativa propia de los dos modelos de ejecución, identificando en el código real de la aplicación tres fragmentos que solo pueden ejecutarse en el servidor y justificando por qué.\nParte 2. Propuesta razonada de tres mejoras concretas de la cartelera que justificarían pasar al modelo híbrido, indicando para cada una qué ventaja del apartado anterior la sustenta.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Servidor y cliente: dos modelos de ejecución</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html",
-    "href": "UD8/02-tecnologias-frameworks.html",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "",
-    "text": "El mapa tecnológico\nConviene ordenar el ecosistema en tres capas:",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html#el-mapa-tecnológico",
-    "href": "UD8/02-tecnologias-frameworks.html#el-mapa-tecnológico",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "",
-    "text": "Generación en el servidor: PHP nativo (echo, include, plantillas propias), motores de plantillas (Blade en Laravel, Twig en Symfony) y equivalentes en otros ecosistemas (JSP/Thymeleaf en Java, EJS en Node.js). Todos comparten el mismo principio ya conocido: lenguaje de marcas con código embebido.\nTransporte de datos: el protocolo HTTP y el formato JSON como lengua franca del intercambio, con XML como formato histórico aún presente en sistemas corporativos.\nInteracción en el cliente: JavaScript embebido en la página generada, con la API fetch como mecanismo estándar de obtención remota (sucesora del histórico objeto XMLHttpRequest, origen del término AJAX) y la API del DOM para modificar el documento.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html#de-xmlhttprequest-a-fetch-un-poco-de-historia-útil",
-    "href": "UD8/02-tecnologias-frameworks.html#de-xmlhttprequest-a-fetch-un-poco-de-historia-útil",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "De XMLHttpRequest a fetch: un poco de historia útil",
-    "text": "De XMLHttpRequest a fetch: un poco de historia útil\nEl término AJAX (Asynchronous JavaScript And XML) se acuñó en 2005 para nombrar la técnica de pedir datos al servidor sin recargar, entonces basada en el objeto XMLHttpRequest y en XML como formato. Dos décadas después, la técnica es la misma pero las piezas han cambiado: fetch sustituye a XMLHttpRequest con una interfaz basada en promesas, y JSON ha desplazado a XML por su ligereza y su encaje natural con JavaScript.\n 1999                2005                 2015 →  hoy\n XMLHttpRequest ───▶ se acuña \"AJAX\" ───▶ fetch (promesas) + JSON\n (IE5, propietario)  (XHR + XML)          estándar actual\nEncontrarás XMLHttpRequest en código heredado; en código nuevo, fetch es el estándar.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html#json-en-php-json_encode-y-json_decode",
-    "href": "UD8/02-tecnologias-frameworks.html#json-en-php-json_encode-y-json_decode",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "JSON en PHP: json_encode y json_decode",
-    "text": "JSON en PHP: json_encode y json_decode\nPHP incorpora de serie la conversión entre sus estructuras (arrays y objetos) y JSON. Es la pieza que convierte cualquier script PHP en un posible endpoint.\nSerializar (de PHP a JSON):\n&lt;?php\n$pelicula = [\n    'titulo'   =&gt; 'Dune: Parte Tres',\n    'genero'   =&gt; 'Ciencia ficción',\n    'duracion' =&gt; 165,\n    'sesiones' =&gt; ['16:00', '19:30', '22:45']\n];\necho json_encode($pelicula, JSON_UNESCAPED_UNICODE);\nSalida:\n{\"titulo\":\"Dune: Parte Tres\",\"genero\":\"Ciencia ficción\",\"duracion\":165,\"sesiones\":[\"16:00\",\"19:30\",\"22:45\"]}\nDeserializar (de JSON a PHP):\n&lt;?php\n$json  = '{\"titulo\":\"Alien: Origen\",\"duracion\":118}';\n$datos = json_decode($json, true);   // true =&gt; array asociativo\necho $datos['titulo'], ' dura ', $datos['duracion'], ' minutos';\nSalida:\nAlien: Origen dura 118 minutos\nDos detalles importan en la práctica: JSON_UNESCAPED_UNICODE evita que las tildes se codifiquen como secuencias \\uXXXX, y el segundo parámetro true de json_decode devuelve arrays asociativos en lugar de objetos stdClass, más cómodos con lo aprendido en UD3. Compara ambas salidas:\n&lt;?php\n$pelicula = ['titulo' =&gt; 'Añorados años'];\n\necho json_encode($pelicula), \"\\n\";                          // sin flag\necho json_encode($pelicula, JSON_UNESCAPED_UNICODE), \"\\n\";  // con flag\n\n$obj = json_decode('{\"nota\": 8.7}');        // sin true =&gt; stdClass\n$arr = json_decode('{\"nota\": 8.7}', true);  // con true =&gt; array\necho $obj-&gt;nota, ' = ', $arr['nota'];\nSalida:\n{\"titulo\":\"A\\u00f1orados a\\u00f1os\"}\n{\"titulo\":\"Añorados años\"}\n8.7 = 8.7\nLos arrays anidados se serializan sin trabajo adicional, lo que permite exponer estructuras completas de un plumazo:\n&lt;?php\n$cartelera = [\n    ['id' =&gt; 1, 'titulo' =&gt; 'Dune: Parte Tres',  'nota' =&gt; 8.7],\n    ['id' =&gt; 2, 'titulo' =&gt; 'Torrente 6',        'nota' =&gt; 5.9],\n];\necho json_encode($cartelera, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);\nSalida:\n[\n    {\n        \"id\": 1,\n        \"titulo\": \"Dune: Parte Tres\",\n        \"nota\": 8.7\n    },\n    {\n        \"id\": 2,\n        \"titulo\": \"Torrente 6\",\n        \"nota\": 5.9\n    }\n]\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nEn Java, serializar a JSON exige una librería (Jackson, Gson) y normalmente una clase POJO con getters. En PHP no hay nada que configurar: json_encode() acepta directamente cualquier array asociativo, y json_decode(..., true) devuelve otro array sin necesidad de definir una clase destino. Es la consecuencia natural del tipado dinámico: donde Java exige un ObjectMapper.readValue(json, Pelicula.class), PHP se conforma con json_decode($json, true).",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html#plantillas-en-php-nativo-y-comparativa-con-blade",
-    "href": "UD8/02-tecnologias-frameworks.html#plantillas-en-php-nativo-y-comparativa-con-blade",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "Plantillas en PHP nativo y comparativa con Blade",
-    "text": "Plantillas en PHP nativo y comparativa con Blade\nGenerar la página inicial sigue siendo tarea del servidor. En PHP nativo, la separación de presentación se consigue con las inclusiones vistas en la UD4 (require de cabecera y pie) y fragmentos de plantilla que reciben datos. Blade, ya conocido de la UD5, industrializa exactamente esa idea. La comparativa es directa:\n\n\n\n\n\n\n\n\nNecesidad\nPHP nativo\nBlade (Laravel)\n\n\n\n\nMostrar variable escapada\n&lt;?= htmlspecialchars($t) ?&gt;\n{ $t }\n\n\nRecorrer colección\n&lt;?php foreach ($ps as $p): ?&gt;\n@foreach ($ps as $p)\n\n\nReutilizar cabecera/pie\nrequire 'header.php';\n@extends('layout')\n\n\nFragmento parametrizado\ninclude con variables en ámbito\n@include('card', [...])\n\n\nCondicional\n&lt;?php if ($vip): ?&gt;\n@if ($vip)\n\n\n\nEl mismo fragmento de cartelera, escrito en las dos tecnologías:\n&lt;!-- PHP nativo: cartelera.php --&gt;\n&lt;?php foreach ($peliculas as $p): ?&gt;\n  &lt;article&gt;\n    &lt;h3&gt;&lt;?= htmlspecialchars($p['titulo']) ?&gt;&lt;/h3&gt;\n    &lt;?php if ($p['nota'] &gt;= 8): ?&gt;&lt;span&gt;TOP&lt;/span&gt;&lt;?php endif; ?&gt;\n  &lt;/article&gt;\n&lt;?php endforeach; ?&gt;\n{{-- Blade: cartelera.blade.php --}}\n@foreach ($peliculas as $p)\n  &lt;article&gt;\n    &lt;h3&gt;{{ $p['titulo'] }}&lt;/h3&gt;\n    @if ($p['nota'] &gt;= 8)&lt;span&gt;TOP&lt;/span&gt;@endif\n  &lt;/article&gt;\n@endforeach\nAmbos producen exactamente el mismo HTML. En esta unidad se trabaja con PHP nativo, que es la pila evaluable del módulo en generación de páginas; Blade se mantiene como referencia comparativa para reconocer que el concepto de framework de plantillas es transversal a todos los ecosistemas.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/02-tecnologias-frameworks.html#actividades",
-    "href": "UD8/02-tecnologias-frameworks.html#actividades",
-    "title": "Tecnologías y frameworks de generación dinámica interactiva",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ3 · Clasificación por capas\nClasifica las siguientes tecnologías en las tres capas del mapa tecnológico (generación en servidor, transporte, interacción en cliente): Blade, fetch, JSON, Twig, DOM, HTTP, XMLHttpRequest, JSP, XML, PHP nativo.\nAñade una tecnología más por capa que no haya aparecido en la unidad, buscando en la documentación.\n\n\nEJ4 · Ficha de tecnologías y frameworks — CE8.c\nElabora una ficha técnica (máximo dos caras) del ecosistema de generación dinámica interactiva. Debe contener:\n\nEl mapa de las tres capas con al menos ocho tecnologías correctamente situadas.\nUna línea temporal XMLHttpRequest → AJAX → fetch con las fechas clave.\nLa comparativa PHP nativo / Blade con un ejemplo de código propio (no copiado de los apuntes) por cada fila.\nUn párrafo argumentando qué combinación elegirías para un proyecto nuevo y por qué.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Tecnologías y frameworks de generación dinámica interactiva</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/03-interaccion-fetch.html",
-    "href": "UD8/03-interaccion-fetch.html",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
-    "section": "",
-    "text": "El endpoint: un PHP que no devuelve HTML\nUn endpoint es un script del servidor cuya respuesta no es una página, sino datos. En PHP nativo basta con tres decisiones: declarar la cabecera Content-Type adecuada, devolver el código de estado HTTP correcto y serializar con json_encode. El siguiente endpoint expone la cartelera:\nAl visitar http://localhost/api/peliculas.php (o pedirlo desde Postman), la respuesta es:\nEn un caso real, el array procedería de una consulta PDO como las de la UD6; el resto del endpoint no cambia. Esa es precisamente la gracia del diseño: la fuente de datos es un detalle interno del servidor que el cliente nunca ve.\nUn endpoint completo también contempla los casos de error. Esta variante devuelve una película concreta o un 404:\nProbándolo con dos peticiones:",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/03-interaccion-fetch.html#el-endpoint-un-php-que-no-devuelve-html",
-    "href": "UD8/03-interaccion-fetch.html#el-endpoint-un-php-que-no-devuelve-html",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
-    "section": "",
-    "text": "&lt;?php\n// api/peliculas.php — endpoint JSON de la cartelera\nheader('Content-Type: application/json; charset=utf-8');\n\n$peliculas = [\n    ['id' =&gt; 1, 'titulo' =&gt; 'Dune: Parte Tres',\n     'genero' =&gt; 'Ciencia ficción', 'duracion' =&gt; 165, 'nota' =&gt; 8.7],\n    ['id' =&gt; 2, 'titulo' =&gt; 'La sociedad de la nieve II',\n     'genero' =&gt; 'Drama', 'duracion' =&gt; 138, 'nota' =&gt; 8.1],\n    ['id' =&gt; 3, 'titulo' =&gt; 'Torrente 6',\n     'genero' =&gt; 'Comedia', 'duracion' =&gt; 97, 'nota' =&gt; 5.9],\n];\n\nhttp_response_code(200);\necho json_encode($peliculas, JSON_UNESCAPED_UNICODE);\n\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n\n[{\"id\":1,\"titulo\":\"Dune: Parte Tres\",\"genero\":\"Ciencia ficción\",\"duracion\":165,\"nota\":8.7},{\"id\":2,\"titulo\":\"La sociedad de la nieve II\",\"genero\":\"Drama\",\"duracion\":138,\"nota\":8.1},{\"id\":3,\"titulo\":\"Torrente 6\",\"genero\":\"Comedia\",\"duracion\":97,\"nota\":5.9}]\n\n\n&lt;?php\n// api/pelicula.php?id=N — una película o error 404\nheader('Content-Type: application/json; charset=utf-8');\n\n$peliculas = [\n    1 =&gt; ['titulo' =&gt; 'Dune: Parte Tres', 'nota' =&gt; 8.7],\n    2 =&gt; ['titulo' =&gt; 'Torrente 6',       'nota' =&gt; 5.9],\n];\n\n$id = filter_var($_GET['id'] ?? '', FILTER_VALIDATE_INT);\n\nif ($id === false || !isset($peliculas[$id])) {\n    http_response_code(404);\n    echo json_encode(['error' =&gt; 'Película no encontrada']);\n    exit;\n}\n\necho json_encode($peliculas[$id], JSON_UNESCAPED_UNICODE);\n\nGET api/pelicula.php?id=1   →  200  {\"titulo\":\"Dune: Parte Tres\",\"nota\":8.7}\nGET api/pelicula.php?id=99  →  404  {\"error\":\"Película no encontrada\"}\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl error más frecuente en el aula: mezclar HTML con JSON en la misma respuesta. Un endpoint que imprime un aviso con echo antes del json_encode produce JSON corrupto que rompe el r.json() del cliente. Otros dos clásicos: olvidar la cabecera Content-Type: application/json (el navegador tratará la respuesta como texto) y devolver siempre 200 aunque haya error. El código de estado debe ser coherente: 200 si hay datos, 404 si el recurso no existe, 400 si la petición es inválida, 500 ante error interno.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/03-interaccion-fetch.html#fetch-pedir-y-esperar-sin-bloquear",
-    "href": "UD8/03-interaccion-fetch.html#fetch-pedir-y-esperar-sin-bloquear",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
-    "section": "fetch: pedir y esperar sin bloquear",
-    "text": "fetch: pedir y esperar sin bloquear\nEn la página generada por PHP se embebe el guion que solicita los datos. fetch devuelve una promesa: la petición viaja en segundo plano y el código indicado se ejecuta cuando llega la respuesta. La sintaxis moderna con async/await resulta muy legible:\n&lt;script&gt;\nasync function cargarCartelera() {\n  try {\n    const respuesta = await fetch('api/peliculas.php');\n    if (!respuesta.ok) {\n      throw new Error('HTTP ' + respuesta.status);\n    }\n    const peliculas = await respuesta.json();\n    pintarCartelera(peliculas);   // ver siguiente apartado\n  } catch (error) {\n    document.querySelector('#aviso').textContent =\n      'No se pudo cargar la cartelera: ' + error.message;\n  }\n}\ncargarCartelera();\n&lt;/script&gt;\nTres situaciones posibles y qué ocurre en cada una:\n\n\n\n\n\n\n\nSituación\nQué sucede\n\n\n\n\nEl endpoint responde 200\nrespuesta.ok es true; se parsea el JSON y se pinta\n\n\nEl endpoint responde 404/500\nrespuesta.ok es false; se lanza Error('HTTP 404') y lo captura el catch\n\n\nEl servidor está apagado\nfetch falla directamente; el catch recibe un error de red (Failed to fetch)\n\n\n\nEn los dos casos de error, el usuario ve en la página:\nNo se pudo cargar la cartelera: HTTP 404\nNinguna operación de red debe darse por infalible: el try/catch que envuelve la petición cumple el mismo papel que el manejo de excepciones estudiado en la UD4.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/03-interaccion-fetch.html#del-json-al-documento-primer-contacto-con-el-dom",
-    "href": "UD8/03-interaccion-fetch.html#del-json-al-documento-primer-contacto-con-el-dom",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
+    "objectID": "UD8/v2/01-conceptos-fetch.html#del-json-al-documento-primer-contacto-con-el-dom",
+    "href": "UD8/v2/01-conceptos-fetch.html#del-json-al-documento-primer-contacto-con-el-dom",
+    "title": "Conceptos clave: modelos de ejecución, tecnologías y fetch",
     "section": "Del JSON al documento: primer contacto con el DOM",
-    "text": "Del JSON al documento: primer contacto con el DOM\nRecibidos los datos, hay que incorporarlos al documento. El DOM (Document Object Model) es la representación en memoria de la página que JavaScript puede consultar y modificar. Para este bloque bastan tres operaciones: localizar un contenedor, crear elementos y añadirlos.\nfunction pintarCartelera(peliculas) {\n  const contenedor = document.querySelector('#cartelera');\n  contenedor.innerHTML = '';           // vaciar antes de repintar\n  for (const p of peliculas) {\n    const ficha = document.createElement('article');\n    ficha.className = 'pelicula';\n    ficha.innerHTML = `\n      &lt;h3&gt;${p.titulo}&lt;/h3&gt;\n      &lt;p&gt;${p.genero} · ${p.duracion} min · nota ${p.nota}&lt;/p&gt;`;\n    contenedor.appendChild(ficha);\n  }\n}\nLa página completa que une las tres piezas es sorprendentemente corta. PHP genera el esqueleto con un contenedor vacío; el guion lo rellena:\n&lt;?php // cartelera.php — página híbrida mínima completa ?&gt;\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;&lt;meta charset=\"utf-8\"&gt;&lt;title&gt;Cartelera&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Cartelera&lt;/h1&gt;\n  &lt;p id=\"aviso\"&gt;&lt;/p&gt;\n  &lt;div id=\"cartelera\"&gt;&lt;/div&gt;\n\n  &lt;script&gt;\n    function pintarCartelera(peliculas) { /* la de arriba */ }\n    async function cargarCartelera()    { /* la del apartado anterior */ }\n    cargarCartelera();\n  &lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nResultado en el navegador tras la carga:\nCartelera\n\nDune: Parte Tres\nCiencia ficción · 165 min · nota 8.7\n\nLa sociedad de la nieve II\nDrama · 138 min · nota 8.1\n\nTorrente 6\nComedia · 97 min · nota 5.9\nObserva la división de trabajo que define toda la unidad: PHP genera la página con un contenedor vacío y expone los datos; JavaScript los obtiene y los presenta. Si mañana la fuente pasa de un array a PDO o a Eloquent, la página no cambia una sola línea.",
+    "text": "Del JSON al documento: primer contacto con el DOM\nRecibidos los datos, se incorporan al documento creando elementos:\nfunction pintarDatos(datos) {\n  const contenedor = document.querySelector('#listado');\n  contenedor.innerHTML = '';\n  for (const item of datos) {\n    const ficha = document.createElement('article');\n    ficha.innerHTML = `&lt;h3&gt;${item.titulo}&lt;/h3&gt;&lt;p&gt;${item.genero}&lt;/p&gt;`;\n    contenedor.appendChild(ficha);\n  }\n}\nPHP genera el esqueleto con un contenedor vacío; el script lo rellena. Si mañana la fuente cambia de array a Eloquent, la página no toca una línea.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Conceptos clave: modelos de ejecución, tecnologías y fetch</span>"
     ]
   },
   {
-    "objectID": "UD8/03-interaccion-fetch.html#actividades",
-    "href": "UD8/03-interaccion-fetch.html#actividades",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ5 · Endpoint de géneros y fallos provocados\nCrea el endpoint api/generos.php que devuelva el array de géneros disponibles y una página generos.html cuyo JavaScript los obtenga con fetch y los muestre como lista (ul).\nProvoca después dos fallos a propósito (renombra el endpoint; elimina la cabecera Content-Type) y anota en el cuaderno qué observas en la pestaña Red y en la Consola en cada caso.\n\n\nEJ6 · Endpoint propio + pintado en página — CE8.d\nConstruye el par completo endpoint + página para las sesiones de cine:\n\napi/sesiones.php debe devolver en JSON las sesiones de una película recibida por parámetro GET (id), con código 404 y mensaje JSON de error si el id no existe.\nLa página sesiones.php, generada con PHP, debe obtener los datos con fetch al cargarse y mostrarlos en una tabla generada desde JavaScript, con tratamiento visible del caso de error.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/03-interaccion-fetch.html#consumir-la-api-rest-de-la-ud7-desde-una-página-web",
-    "href": "UD8/03-interaccion-fetch.html#consumir-la-api-rest-de-la-ud7-desde-una-página-web",
-    "title": "Obtención remota de información: fetch, JSON y consumo de APIs",
-    "section": "Consumir la API REST de la UD7 desde una página web",
-    "text": "Consumir la API REST de la UD7 desde una página web\nHasta aquí, los endpoints eran scripts PHP sueltos. El salto profesional consiste en alimentar la página desde una API REST completa: la construida en la UD7 con Laravel, API Resources y Sanctum. Nada cambia conceptualmente —sigue siendo fetch contra una URL que devuelve JSON—, pero aparecen dos elementos nuevos: la autenticación por token y la estructura de respuesta de los Resources.\n// La API de la UD7 exige token Sanctum: se añade la cabecera\n// Authorization igual que se hacía en Postman.\nasync function cargarDesdeApi(token) {\n  const respuesta = await fetch(\n    'http://localhost:8000/api/v1/peliculas', {\n    headers: {\n      'Authorization': 'Bearer ' + token,\n      'Accept': 'application/json'\n    }\n  });\n  if (respuesta.status === 401) {\n    throw new Error('Token inválido o caducado');\n  }\n  const cuerpo = await respuesta.json();\n  return cuerpo.data;   // los Resources envuelven en data\n}\nRecordatorio de la forma de la respuesta que ya conoces de la UD7 (por eso se lee cuerpo.data):\n{\n  \"data\": [\n    { \"id\": 1, \"titulo\": \"Dune: Parte Tres\", \"nota\": 8.7 },\n    { \"id\": 2, \"titulo\": \"Torrente 6\", \"nota\": 5.9 }\n  ]\n}\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl aviso CORS aparecerá. Si la página se sirve desde XAMPP (puerto 80) y la API desde artisan serve (puerto 8000), el navegador considera que son orígenes distintos y aplica la política CORS: bloqueará la respuesta salvo que la API la autorice. El error en consola tiene este aspecto:\nAccess to fetch at 'http://localhost:8000/api/v1/peliculas' from origin\n'http://localhost' has been blocked by CORS policy: No\n'Access-Control-Allow-Origin' header is present on the requested resource.\nLaravel trae el middleware CORS configurable en config/cors.php; en clase se autorizará el origen como demostración guiada. Comprender en profundidad CORS excede esta unidad: basta con reconocer el error en consola y saber dónde se autoriza el origen.\n\n\n\nEJ7 · Cliente web de la propia API (UD7) — CE8.b, CE8.d\nCon tu proyecto Laravel de la UD7 arrancado en local, construye una página PHP nativa (fuera de Laravel) que:\n\nObtenga mediante fetch el listado del recurso principal de tu API con el token Sanctum en la cabecera.\nLo presente en tarjetas generadas desde JavaScript.\nMuestre un mensaje claro y diferenciado ante los estados 401 (token inválido) y de error de red.\nIncluya al pie un breve párrafo (en la propia página) argumentando dos ventajas del modelo híbrido que esta actividad demuestra en la práctica.\n\n\n\n\n\n\n\nImportanteRequisito previo\n\n\n\nAPI de la UD7 operativa con al menos un token válido. Quien no la conserve funcional dispondrá del proyecto de referencia del docente.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Obtención remota de información: fetch, JSON y consumo de APIs</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/04-verificacion-formularios.html",
-    "href": "UD8/04-verificacion-formularios.html",
+    "objectID": "UD8/v2/02-verificacion-formularios.html",
+    "href": "UD8/v2/02-verificacion-formularios.html",
     "title": "Verificación de formularios en dos capas",
     "section": "",
-    "text": "El principio: el cliente ayuda, el servidor decide\nLa verificación de formularios es el terreno donde la combinación servidor-cliente muestra su lógica con más claridad. La capa cliente valida para ayudar al usuario: avisa al instante, antes de enviar, sin coste de red. La capa servidor valida para proteger la aplicación: es la única barrera real, porque todo lo que hace el cliente puede desactivarse (basta abrir las herramientas de desarrollo o enviar la petición desde Postman saltándose la página).",
+    "text": "El principio: el cliente ayuda, el servidor decide\nLa capa cliente valida para ayudar al usuario: avisa al instante, sin coste de red. La capa servidor valida para proteger la aplicación: es la única barrera real, porque todo lo que hace el cliente puede desactivarse.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/04-verificacion-formularios.html#el-principio-el-cliente-ayuda-el-servidor-decide",
-    "href": "UD8/04-verificacion-formularios.html#el-principio-el-cliente-ayuda-el-servidor-decide",
+    "objectID": "UD8/v2/02-verificacion-formularios.html#el-principio-el-cliente-ayuda-el-servidor-decide",
+    "href": "UD8/v2/02-verificacion-formularios.html#el-principio-el-cliente-ayuda-el-servidor-decide",
     "title": "Verificación de formularios en dos capas",
     "section": "",
-    "text": "NotaConcepto clave\n\n\n\nRegla de oro (memorizable): la validación en cliente es una cortesía; la validación en servidor es una obligación. Un formulario sin validación de cliente es incómodo; un formulario sin validación de servidor es una vulnerabilidad.",
+    "text": "NotaConcepto clave\n\n\n\nRegla de oro: la validación en cliente es una cortesía; la validación en servidor es una obligación.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/04-verificacion-formularios.html#primera-capa-html5-y-la-constraint-validation-api",
-    "href": "UD8/04-verificacion-formularios.html#primera-capa-html5-y-la-constraint-validation-api",
+    "objectID": "UD8/v2/02-verificacion-formularios.html#primera-capa-html5-y-la-constraint-validation-api",
+    "href": "UD8/v2/02-verificacion-formularios.html#primera-capa-html5-y-la-constraint-validation-api",
     "title": "Verificación de formularios en dos capas",
     "section": "Primera capa: HTML5 y la Constraint Validation API",
-    "text": "Primera capa: HTML5 y la Constraint Validation API\nEl propio HTML aporta la validación declarativa (required, minlength, max, type=\"email\", pattern), que el navegador aplica sin una línea de JavaScript. Cuando se necesita lógica adicional o mensajes propios, JavaScript intercepta el envío:\n&lt;form id=\"fValoracion\" novalidate&gt;\n  &lt;input name=\"autor\"  required minlength=\"3\"&gt;\n  &lt;input name=\"nota\"   type=\"number\" min=\"0\" max=\"10\" required&gt;\n  &lt;textarea name=\"texto\" required minlength=\"15\"&gt;&lt;/textarea&gt;\n  &lt;button&gt;Enviar valoración&lt;/button&gt;\n  &lt;p id=\"errores\" class=\"error\"&gt;&lt;/p&gt;\n&lt;/form&gt;\n\n&lt;script&gt;\nconst form = document.querySelector('#fValoracion');\nform.addEventListener('submit', async (evento) =&gt; {\n  evento.preventDefault();          // detener el envío clásico\n  if (!form.checkValidity()) {      // Constraint Validation API\n    document.querySelector('#errores').textContent =\n      'Revisa los campos marcados antes de enviar.';\n    return;\n  }\n  await enviarValoracion(new FormData(form));  // ver más abajo\n});\n&lt;/script&gt;\nDos piezas merecen atención: preventDefault() cancela el envío clásico con recarga para sustituirlo por fetch, y FormData empaqueta los campos del formulario tal cual los espera PHP en $_POST, sin construir el cuerpo a mano.\nQué ve el usuario según lo que escriba (antes de que nada viaje al servidor):\nautor = \"An\", nota = 7, texto = \"Buena\"   →  \"Revisa los campos marcados antes de enviar.\"\nautor = \"Ana\", nota = 15                  →  \"Revisa los campos marcados antes de enviar.\"\nautor = \"Ana\", nota = 9, texto correcto   →  se ejecuta enviarValoracion(...)\nCada input que incumple sus restricciones queda marcado como inválido por el navegador (:invalid en CSS permite resaltarlo), y checkValidity() devuelve false mientras haya alguno.",
+    "text": "Primera capa: HTML5 y la Constraint Validation API\n&lt;form id=\"fValoracion\" novalidate&gt;\n  &lt;input name=\"autor\"  required minlength=\"3\"&gt;\n  &lt;input name=\"nota\"   type=\"number\" min=\"0\" max=\"10\" required&gt;\n  &lt;textarea name=\"texto\" required minlength=\"15\"&gt;&lt;/textarea&gt;\n  &lt;button&gt;Enviar valoración&lt;/button&gt;\n  &lt;p id=\"errores\" class=\"error\"&gt;&lt;/p&gt;\n&lt;/form&gt;\n\n&lt;script&gt;\nconst form = document.querySelector('#fValoracion');\nform.addEventListener('submit', async (evento) =&gt; {\n  evento.preventDefault();\n  if (!form.checkValidity()) {\n    document.querySelector('#errores').textContent =\n      'Revisa los campos marcados antes de enviar.';\n    return;\n  }\n  await enviarValoracion(new FormData(form));\n});\n&lt;/script&gt;",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/04-verificacion-formularios.html#segunda-capa-el-servidor-valida-y-responde-en-json",
-    "href": "UD8/04-verificacion-formularios.html#segunda-capa-el-servidor-valida-y-responde-en-json",
+    "objectID": "UD8/v2/02-verificacion-formularios.html#segunda-capa-el-servidor-valida-y-responde-en-json",
+    "href": "UD8/v2/02-verificacion-formularios.html#segunda-capa-el-servidor-valida-y-responde-en-json",
     "title": "Verificación de formularios en dos capas",
     "section": "Segunda capa: el servidor valida y responde en JSON",
-    "text": "Segunda capa: el servidor valida y responde en JSON\nEl endpoint receptor reutiliza todo lo aprendido en UD3 y UD4 (filter_var, trim, htmlspecialchars) con un único cambio de contrato: la respuesta ya no es una página, sino JSON con el resultado, y el código de estado comunica el veredicto (201 creado, 422 datos inválidos).\n&lt;?php\n// api/valoraciones.php — recibe POST del formulario\nheader('Content-Type: application/json; charset=utf-8');\n\n$errores = [];\n$autor = trim($_POST['autor'] ?? '');\n$nota  = filter_var($_POST['nota'] ?? '', FILTER_VALIDATE_INT,\n         ['options' =&gt; ['min_range' =&gt; 0, 'max_range' =&gt; 10]]);\n$texto = trim($_POST['texto'] ?? '');\n\nif (mb_strlen($autor) &lt; 3)  { $errores['autor'] = 'Mínimo 3 caracteres'; }\nif ($nota === false)        { $errores['nota']  = 'Entero entre 0 y 10'; }\nif (mb_strlen($texto) &lt; 15) { $errores['texto'] = 'Mínimo 15 caracteres'; }\n\nif ($errores) {\n    http_response_code(422);\n    echo json_encode(['ok' =&gt; false, 'errores' =&gt; $errores]);\n    exit;\n}\n\n// Aquí se persistiría con PDO (UD6). Escapado al mostrar (UD4).\nhttp_response_code(201);\necho json_encode(['ok' =&gt; true, 'autor' =&gt; htmlspecialchars($autor)]);\nLas dos respuestas posibles, tal como se ven en Postman o en la pestaña Red:\nPOST con autor=Ana, nota=9, texto=\"Gran banda sonora y ritmo\"\n→ 201 Created\n  {\"ok\":true,\"autor\":\"Ana\"}\n\nPOST con autor=A, nota=veinte, texto=\"corto\"\n→ 422 Unprocessable Content\n  {\"ok\":false,\"errores\":{\"autor\":\"Mínimo 3 caracteres\",\n   \"nota\":\"Entero entre 0 y 10\",\"texto\":\"Mínimo 15 caracteres\"}}\nY el cliente que envía y trata ese veredicto:\nasync function enviarValoracion(datos) {\n  const r = await fetch('api/valoraciones.php', {\n    method: 'POST',\n    body: datos                      // FormData: sin cabeceras manuales\n  });\n  const cuerpo = await r.json();\n  if (r.status === 422) {\n    mostrarErrores(cuerpo.errores);  // pinta cada error junto a su campo\n  } else if (r.status === 201) {\n    form.reset();\n    document.querySelector('#errores').textContent =\n      'Gracias, ' + cuerpo.autor + '. Valoración registrada.';\n  }\n}\nUna implementación sencilla de mostrarErrores que pinta cada mensaje junto a su campo:\nfunction mostrarErrores(errores) {\n  for (const [campo, mensaje] of Object.entries(errores)) {\n    const input = form.elements[campo];\n    let aviso = input.nextElementSibling;\n    if (!aviso || !aviso.classList.contains('aviso-campo')) {\n      aviso = document.createElement('small');\n      aviso.className = 'aviso-campo';\n      input.after(aviso);\n    }\n    aviso.textContent = mensaje;\n  }\n}\nCon la respuesta 422 del ejemplo anterior, el usuario ve bajo cada campo:\n[autor]  Mínimo 3 caracteres\n[nota]   Entero entre 0 y 10\n[texto]  Mínimo 15 caracteres\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nAtención al detalle de filter_var(..., FILTER_VALIDATE_INT) devolviendo false: en Java, un Integer.parseInt(\"veinte\") lanza excepción y el flujo se corta solo; en PHP, filter_var devuelve false y el programa continúa, así que olvidarse de comprobar === false deja pasar el dato inválido en silencio. Es el tipado débil de PHP obligando a una comprobación explícita que en Java sería automática.",
+    "text": "Segunda capa: el servidor valida y responde en JSON\n&lt;?php\n// api/valoraciones.php — recibe POST del formulario\nheader('Content-Type: application/json; charset=utf-8');\n\n$errores = [];\n$autor = trim($_POST['autor'] ?? '');\n$nota  = filter_var($_POST['nota'] ?? '', FILTER_VALIDATE_INT,\n         ['options' =&gt; ['min_range' =&gt; 0, 'max_range' =&gt; 10]]);\n$texto = trim($_POST['texto'] ?? '');\n\nif (mb_strlen($autor) &lt; 3)  { $errores['autor'] = 'Mínimo 3 caracteres'; }\nif ($nota === false)        { $errores['nota']  = 'Entero entre 0 y 10'; }\nif (mb_strlen($texto) &lt; 15) { $errores['texto'] = 'Mínimo 15 caracteres'; }\n\nif ($errores) {\n    http_response_code(422);\n    echo json_encode(['ok' =&gt; false, 'errores' =&gt; $errores]);\n    exit;\n}\n\nhttp_response_code(201);\necho json_encode(['ok' =&gt; true, 'autor' =&gt; htmlspecialchars($autor)]);\nY el cliente que envía y trata el veredicto:\nasync function enviarValoracion(datos) {\n  const r = await fetch('api/valoraciones.php', {\n    method: 'POST',\n    body: datos\n  });\n  const cuerpo = await r.json();\n  if (r.status === 422) {\n    mostrarErrores(cuerpo.errores);\n  } else if (r.status === 201) {\n    form.reset();\n    document.querySelector('#errores').textContent =\n      'Gracias, ' + cuerpo.autor + '. Valoración registrada.';\n  }\n}\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nfilter_var(..., FILTER_VALIDATE_INT) devuelve false en silencio: en Java, Integer.parseInt(\"veinte\") lanza excepción. En PHP hay que comprobar === false explícitamente.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/04-verificacion-formularios.html#actividades",
-    "href": "UD8/04-verificacion-formularios.html#actividades",
+    "objectID": "UD8/v2/02-verificacion-formularios.html#pintar-errores-campo-a-campo",
+    "href": "UD8/v2/02-verificacion-formularios.html#pintar-errores-campo-a-campo",
     "title": "Verificación de formularios en dos capas",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ8 · La capa cliente no basta\nDemuestra (realizando la prueba) por qué la capa cliente no basta. Con el formulario del primer listado de este bloque funcionando:\n\nElimina el atributo required desde la pestaña Elementos y envía datos vacíos.\nEnvía la misma petición POST desde Postman sin pasar por la página.\n\nAnaliza qué capa detiene cada intento.\n\n\nEJ9 · Formulario de valoraciones con verificación en dos capas — CE8.e\nParte 1: construye el formulario de valoración de películas con validación declarativa HTML5 completa, interceptación del envío con preventDefault y comprobación con la Constraint Validation API, mostrando los mensajes junto a cada campo.\nParte 2: implementa el endpoint PHP con la validación definitiva de todos los campos (reutilizando filter_var y las técnicas de UD3/UD4), respuesta JSON con códigos 201/422, y el tratamiento en cliente que pinte los errores devueltos por el servidor campo a campo.\n\n\n\n\n\n\nNotaPrueba a realizar\n\n\n\nVerificar con Postman que el servidor rechaza datos inválidos aunque la página no se use.",
+    "section": "Pintar errores campo a campo",
+    "text": "Pintar errores campo a campo\nUna implementación sencilla de mostrarErrores que coloca cada mensaje junto a su campo:\nfunction mostrarErrores(errores) {\n  // Limpiar avisos anteriores\n  form.querySelectorAll('.aviso-campo').forEach(el =&gt; el.remove());\n\n  for (const [campo, mensaje] of Object.entries(errores)) {\n    const input = form.elements[campo];\n    const aviso = document.createElement('small');\n    aviso.className = 'aviso-campo';\n    aviso.style.color = 'red';\n    aviso.textContent = mensaje;\n    input.after(aviso);\n  }\n}\nCon la respuesta 422 del ejemplo anterior, el usuario ve bajo cada campo:\n[autor]  Mínimo 3 caracteres\n[nota]   Entero entre 0 y 10\n[texto]  Mínimo 15 caracteres",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/05-dom-dinamico.html",
-    "href": "UD8/05-dom-dinamico.html",
-    "title": "Modificación dinámica del contenido y la estructura",
-    "section": "",
-    "text": "Más allá de pintar: transformar el documento\nEn el bloque anterior el DOM solo se usó para insertar datos al cargar; ahora la página debe reaccionar a las acciones del usuario reorganizándose: filtrar la cartelera por género, reordenarla por nota o duración, y añadir o retirar elementos sin tocar el servidor, porque los datos ya están en el cliente.\nEl patrón profesional consta de tres piezas:\nCon las tres películas del bloque anterior cargadas, la secuencia de interacciones produce:\nCompruébalo en la pestaña Red: tras la carga inicial, ninguna interacción genera peticiones. Los datos ya están en peliculas y todo ocurre en el navegador.",
+    "objectID": "UD8/v2/02-verificacion-formularios.html#pintar-errores-campo-a-campo-1",
+    "href": "UD8/v2/02-verificacion-formularios.html#pintar-errores-campo-a-campo-1",
+    "title": "Verificación de formularios en dos capas",
+    "section": "Pintar errores campo a campo",
+    "text": "Pintar errores campo a campo\nCuando el servidor responde 422 con un objeto de errores, el cliente los muestra junto a cada campo:\nfunction mostrarErrores(errores) {\n  // Limpiar avisos previos\n  document.querySelectorAll('.aviso-campo').forEach(el =&gt; el.remove());\n\n  for (const [campo, mensaje] of Object.entries(errores)) {\n    const input = form.elements[campo];\n    const aviso = document.createElement('small');\n    aviso.className = 'aviso-campo';\n    aviso.style.color = 'red';\n    aviso.textContent = mensaje;\n    input.after(aviso);\n  }\n}\nCon la respuesta 422 del ejemplo anterior, el usuario ve bajo cada campo:\n[autor]  Mínimo 3 caracteres\n[nota]   Entero entre 0 y 10\n[texto]  Mínimo 15 caracteres",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Modificación dinámica del contenido y la estructura</span>"
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Verificación de formularios en dos capas</span>"
     ]
   },
   {
-    "objectID": "UD8/05-dom-dinamico.html#más-allá-de-pintar-transformar-el-documento",
-    "href": "UD8/05-dom-dinamico.html#más-allá-de-pintar-transformar-el-documento",
-    "title": "Modificación dinámica del contenido y la estructura",
-    "section": "",
-    "text": "El estado: los datos en una variable JavaScript, obtenidos una sola vez del servidor.\nTransformaciones puras: funciones que derivan nuevas listas del estado (filter, sort) sin destruirlo.\nUna única función de repintado que reconstruye la zona afectada del documento a partir del resultado.\n\nlet peliculas = [];            // estado: datos del servidor\n\nasync function iniciar() {\n  peliculas = await (await fetch('api/peliculas.php')).json();\n  pintarCartelera(peliculas);\n}\n\n// Filtrado por género sin nueva petición\ndocument.querySelector('#filtroGenero')\n  .addEventListener('change', (e) =&gt; {\n    const g = e.target.value;\n    const visibles = (g === 'todos')\n      ? peliculas\n      : peliculas.filter(p =&gt; p.genero === g);\n    pintarCartelera(visibles);\n  });\n\n// Ordenación por nota descendente\ndocument.querySelector('#ordenarNota')\n  .addEventListener('click', () =&gt; {\n    const orden = [...peliculas].sort((a, b) =&gt; b.nota - a.nota);\n    pintarCartelera(orden);\n  });\n\n(carga inicial)            → Dune: Parte Tres · La sociedad de la nieve II · Torrente 6\nfiltro género = \"Drama\"    → La sociedad de la nieve II          (1 película, 0 peticiones)\nfiltro género = \"todos\"    → las tres de nuevo                   (0 peticiones)\nclic en \"Ordenar por nota\" → Dune (8.7) · La sociedad (8.1) · Torrente (5.9)\n\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nfilter y sort recuerdan a los Streams de Java, pero con una trampa importante: en Java, stream().sorted(...) nunca toca la colección original; en JavaScript, peliculas.sort(...) muta el array sobre el que se llama. Por eso el listado ordena sobre una copia: [...peliculas].sort(...). Olvidar la copia significa que el estado queda reordenado permanentemente y el botón “restaurar orden original” deja de tener sentido. filter, en cambio, sí devuelve un array nuevo, como en Java.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Modificación dinámica del contenido y la estructura</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/05-dom-dinamico.html#modificar-la-estructura-crear-mover-y-eliminar-nodos",
-    "href": "UD8/05-dom-dinamico.html#modificar-la-estructura-crear-mover-y-eliminar-nodos",
-    "title": "Modificación dinámica del contenido y la estructura",
-    "section": "Modificar la estructura: crear, mover y eliminar nodos",
-    "text": "Modificar la estructura: crear, mover y eliminar nodos\nAdemás de repintar listados, el DOM permite alterar la estructura del documento pieza a pieza:\n\nEl elemento &lt;template&gt; define fragmentos de marcado inertes que se clonan bajo demanda.\nremove() retira nodos.\ninsertBefore o appendChild los recolocan.\n\nCon ello se implementan patrones habituales: acordeones de sinopsis, paginación en cliente, cestas que crecen y encogen. Tres micro-ejemplos:\nAñadir un distintivo como nodo (no como texto concatenado):\nif (pelicula.nota &gt;= 8) {\n  const badge = document.createElement('span');\n  badge.textContent = 'TOP';\n  badge.className = 'top';\n  ficha.appendChild(badge);\n}\nRetirar una tarjeta del documento:\nficha.querySelector('.btnOcultar').addEventListener('click', () =&gt; {\n  ficha.remove();     // el nodo desaparece; el array peliculas NO cambia\n});\nClonar desde una plantilla inerte:\n&lt;template id=\"tplFicha\"&gt;\n  &lt;article class=\"pelicula\"&gt;&lt;h3&gt;&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;/article&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nconst tpl   = document.querySelector('#tplFicha');\nconst ficha = tpl.content.cloneNode(true);\nficha.querySelector('h3').textContent = 'Dune: Parte Tres';\ndocument.querySelector('#cartelera').appendChild(ficha);\n&lt;/script&gt;\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nLa regla de higiene es la misma del bloque anterior: cualquier dato de origen externo que se inyecte con innerHTML debe haberse escapado en el servidor, o insertarse con textContent, para no reabrir la puerta al XSS estudiado en la UD4. Un título de película que contuviera &lt;script&gt; o un &lt;img onerror=...&gt; se ejecutaría al inyectarse con innerHTML sin escapar. En caso de duda: textContent, siempre.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Modificación dinámica del contenido y la estructura</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/05-dom-dinamico.html#actividades",
-    "href": "UD8/05-dom-dinamico.html#actividades",
-    "title": "Modificación dinámica del contenido y la estructura",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ10 · Ocultar, contar, restaurar\nAñade a la cartelera del primer listado de este bloque:\n\nUn botón por película “Ocultar” que elimine su tarjeta del documento con remove().\nUn contador “Mostrando X de Y películas” que se actualice tras cada filtrado, ordenación u ocultación.\nUn botón “Restaurar” que repinte el estado completo.\n\nNo se permite ninguna petición adicional al servidor.\n\n\nEJ11 · Cartelera interactiva: filtrado y ordenación sin recarga — CE8.f\nPartiendo de tu página de la actividad E3 (o de la versión de referencia), incorpora:\n\nUn selector de género que filtre las películas mostradas.\nDos controles de ordenación (por nota y por duración) que reconstruyan el listado.\nLa inserción de un distintivo “TOP” en las tarjetas con nota igual o superior a 8, creado como nodo desde JavaScript.\nEl contador de resultados visibles.\n\nTodo sin ninguna petición al servidor posterior a la carga inicial.",
-    "crumbs": [
-      "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Modificación dinámica del contenido y la estructura</span>"
-    ]
-  },
-  {
-    "objectID": "UD8/06-proyecto.html",
-    "href": "UD8/06-proyecto.html",
+    "objectID": "UD8/v2/03-proyecto.html",
+    "href": "UD8/v2/03-proyecto.html",
     "title": "Proyecto integrador: Aplicación web híbrida",
     "section": "",
-    "text": "ImportanteNormativa · RA-CE\n\n\n\nEste bloque desarrolla el criterio CE8.g del RA8 (aplicar estas tecnologías y frameworks en la programación de aplicaciones web), integrando además CE8.d, CE8.e y CE8.f.\n\n\nEl bloque final no introduce técnicas nuevas: exige aplicarlas juntas. El proyecto E7 reproduce el flujo de trabajo profesional completo de esta unidad —página generada en servidor, datos remotos, formulario verificado en dos capas y estructura viva— sobre la API construida por cada estudiante en la UD7.\n\n\n\n\n\n\n\nEJ12 · Proyecto integrador: “Mi cartelera conectada” — CE8.d, CE8.e, CE8.f, CE8.g\nConstruye una aplicación web híbrida completa, en PHP nativo más JavaScript básico, conectada a tu API de la UD7, que cumpla los cuatro requisitos siguientes:\nR1 — Obtención remota (CE8.d). La página principal, generada con PHP, carga mediante fetch el listado del recurso principal de tu API con autenticación Sanctum, con tratamiento diferenciado de los errores 401 y de red.\nR2 — Verificación en dos capas (CE8.e). Un formulario de alta o de comentario validado en cliente (HTML5 + Constraint Validation API) y en servidor (endpoint con respuesta 201/422), con los errores del servidor pintados campo a campo.\nR3 — Estructura dinámica (CE8.f). Al menos un filtrado y una ordenación sobre los datos ya cargados, más una inserción o eliminación de nodos, todo sin recargar.\nR4 — Aplicación completa (CE8.g). Las tres piezas integradas en una única aplicación coherente, con el código comentado y una memoria breve (una cara) que indique qué se ejecuta en el servidor, qué en el cliente y por qué.\n\n\n\n\n\n\n\nImportanteEntrega\n\n\n\nEnlace a GitHub con la aplicación y la memoria (es obligatoria).",
+    "text": "ImportanteNormativa · RA-CE\n\n\n\n\nCE8.e. — Se han utilizado estas tecnologías y frameworks, para generar páginas web que incluyan verificación de formularios.\nCE8.d. — Se han utilizado estas tecnologías y frameworks para generar páginas web que incluyan interacción con el usuario.\nCE8.g. — Se han aplicado estas tecnologías y frameworks en la programación de aplicaciones web.\n\n\n\nEl proyecto exige aplicar juntas las dos técnicas de la unidad — obtención remota con fetch autenticado y verificación de formularios en dos capas — sobre la API de la UD7.\n\nEJ1 · Proyecto integrador: “Mi cartelera conectada” — CE8.d, CE8.e, CE8.g\nConstruye una aplicación web híbrida, en PHP nativo más JavaScript básico, conectada a tu API de la UD7, que cumpla los siguientes requisitos:\nR1 — Obtención remota (CE8.d). La página principal, generada con PHP, carga mediante fetch el listado del recurso principal de tu API con autenticación Sanctum, distinguiendo el error 401 (token inválido) del error de red.\nR2 — Verificación en dos capas (CE8.e). Un formulario de alta o de comentario validado en cliente (HTML5 + Constraint Validation API) y en servidor (endpoint con respuesta 201/422), con los errores del servidor pintados campo a campo.\nR3 — Aplicación integrada (CE8.g). Las dos piezas integradas en una única aplicación coherente, con el código comentado y una memoria breve (una cara) que indique qué se ejecuta en el servidor, qué en el cliente y por qué.\n\n\n\n\n\n\n\nImportanteEntrega\n\n\n\nEnlace a GitHub con la aplicación y la memoria (obligatoria).\n\n\n\n\n\n\n\n\nImportanteRequisito previo\n\n\n\nAPI de la UD7 operativa con al menos un token válido. Quien no la conserve funcional dispondrá del proyecto de referencia del docente.",
     "crumbs": [
       "UD8. Generación dinámica de páginas Web",
-      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Proyecto integrador: Aplicación web híbrida</span>"
+      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Proyecto integrador: Aplicación web híbrida</span>"
     ]
   },
   {
-    "objectID": "UD9/00-presentacion.html",
-    "href": "UD9/00-presentacion.html",
+    "objectID": "UD9/v2/00-presentacion.html",
+    "href": "UD9/v2/00-presentacion.html",
     "title": "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
     "section": "",
     "text": "Presentación de la unidad",
@@ -3665,387 +3500,123 @@
     ]
   },
   {
-    "objectID": "UD9/00-presentacion.html#presentación-de-la-unidad",
-    "href": "UD9/00-presentacion.html#presentación-de-la-unidad",
+    "objectID": "UD9/v2/00-presentacion.html#presentación-de-la-unidad",
+    "href": "UD9/v2/00-presentacion.html#presentación-de-la-unidad",
     "title": "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
     "section": "",
-    "text": "Qué aprenderás\nEsta unidad cierra el módulo con un cambio de enfoque: hasta ahora habéis construido cada pieza desde cero; aquí el objetivo es reutilizar. Una aplicación Web híbrida combina código propio, librerías de terceros e información procedente de repositorios heterogéneos (APIs, datos abiertos, ficheros CSV/JSON, bases de datos propias o ajenas).\nLa aplicación Laravel de las unidades anteriores es la base de trabajo, y la API REST que construisteis en la UD7 se consume aquí como una fuente más: cerráis el círculo del módulo actuando a la vez como proveedores y consumidores.\n\n\nObjetivos\n\nValorar las ventajas de reutilizar código e información existente frente a desarrollar desde cero.\nGestionar dependencias con Composer: composer.json, versionado semántico y autoload PSR-4.\nConsumir repositorios de información existentes desde el servidor con Guzzle, incluidas APIs autenticadas.\nCrear repositorios propios a partir de fuentes externas con un proceso ETL (extraer, transformar, cargar).\nIncorporar funcionalidades completas mediante librerías de terceros: generación de PDF y códigos QR.\nConstruir un cuadro de mando con indicadores calculados sobre datos reales (analítica e inteligencia de negocios).\nProbar, depurar y documentar aplicaciones que dependen de fuentes externas.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA9. Desarrolla aplicaciones web híbridas seleccionando y utilizando tecnologías, frameworks servidor y repositorios heterogéneos de información.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE9.a\nSe han reconocido las ventajas que proporciona la reutilización de código y el aprovechamiento de información ya existente.\n\n\nCE9.b\nSe han identificado tecnologías y frameworks aplicables en la creación de aplicaciones web híbridas.\n\n\nCE9.c\nSe ha creado una aplicación web que recupere y procese repositorios de información ya existentes.\n\n\nCE9.d\nSe han creado repositorios específicos a partir de información existente en almacenes de información.\n\n\nCE9.e\nSe han utilizado librerías de código y frameworks para incorporar funcionalidades específicas a una aplicación web.\n\n\nCE9.f\nSe han programado servicios y aplicaciones web utilizando como base información y código generados por terceros.\n\n\nCE9.g\nSe han analizado y utilizado librerías de código relacionadas con Big Data e inteligencia de negocios, para incorporar análisis e inteligencia de datos proveniente de repositorios.\n\n\nCE9.h\nSe han probado, depurado y documentado las aplicaciones generadas.\n\n\n\n\n\nContenidos\n\n\n\n\n\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nAplicaciones Web híbridas: Concepto, ventajas de la reutilización y ecosistema\nCE9.a-b\n\n\n2\nComposer en profundidad: Dependencias, semver, composer.lock y autoload PSR-4\nCE9.b\n\n\n3\nConsumir repositorios existentes: APIs públicas y API autenticada de la UD7\nCE9.c-f\n\n\n4\nCrear repositorios propios: Proceso ETL con comandos Artisan y league/csv\nCE9.d\n\n\n5\nLibrerías de terceros: PDF con dompdf y códigos QR con endroid/qr-code\nCE9.e-f\n\n\n6\nAnalítica, Big Data y BI: Agregaciones con colecciones y cuadro de mando\nCE9.c-f\n\n\n7\nProbar, depurar y documentar: Fuentes caídas, logs, PHPDoc y README\nCE9.g\n\n\n\n\n\nEl proyecto de la unidad\nLos ejercicios de proyecto encadenan sobre una misma aplicación: la fuente que consumes alimenta tu repositorio propio, que a su vez es la base del PDF, del QR y del cuadro de mando final. Cada sección deja el punto de partida listo para el siguiente.\n\n\nRecursos y materiales\n\nDocker (obligatorio desde esta unidad — ver Laravel: instalación y estructura)\nMySQL/MariaDB (vía el servicio db del docker-compose.yml, no instalación aparte)\nPHP 8.2+, Composer y tu proyecto Laravel 13.x de las unidades anteriores (o uno nuevo).\nMySQL/MariaDB/PostreSQL/AmazonRDS con la base de datos de prácticas.\nVisual Studio Code con las extensiones de PHP y Laravel ya instaladas.\nNavegador con herramientas de desarrollador.\nDocumentación de referencia: php.net y Packagist para localizar librerías de terceros.\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\nEjercicios de aprendizaje\nSe resuelven en clase o en casa:\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nRestricciones de versión\nNo\n\n\nEJ2\nAutoload PSR-4 propio\nNo\n\n\nEJ3\nProyecto — dependencias con criterio\nNo\n\n\nEJ4\nBuscador sobre una API pública\nNo\n\n\nEJ5\nProyecto — buscador de fuentes heterogéneas\nNo\n\n\nEJ6\nComando importar:municipios\nNo\n\n\n\n\n\nEjercicios de proyecto\nVarios ejercicios encadenan sobre una misma aplicación: el buscador de fuentes (EJ5) alimenta tu repositorio propio (EJ7), que a su vez es la base del PDF y el QR (EJ9) y del cuadro de mando final (EJ11). La unidad tiene una entrega única: el estado final de ese proyecto. Cada sección deja el punto de partida del siguiente, de modo que un bloqueo en una de ellas no bloquea el resto.\nRelacionados con la misma aplicación:\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ7\nProyecto — tu repositorio específico\nNo\n\n\nEJ8\nQR embebido en el PDF\nNo\n\n\nEJ9\nProyecto — dos funcionalidades de terceros\nNo\n\n\nEJ10\nAgregaciones sobre municipios\nNo\n\n\nEJ11\nProyecto — cuadro de mando\nSí\n\n\n\n\n\nCriterios de apto en los ejercicios de proyecto\nSe entrega una sola vez, al cerrar EJ11, el estado final de la aplicación. Como los ejercicios de proyecto encadenan sobre la misma aplicación, esa entrega contiene por construcción el buscador de dos fuentes (EJ5), el repositorio propio con su comando de importación (EJ7), el PDF y el QR (EJ9) y el cuadro de mando (EJ11), junto con el README que incluye la justificación de dependencias de EJ3.\nLa entrega es apta cuando cumple esta lista:\n\nLa aplicación ejecuta sin errores (una entrega que no ejecuta no puede ser apta).\nEl buscador consulta las dos fuentes con timeout, gestión de errores independiente por fuente y registro en el log.\nEl comando de importación carga datos reales y, reejecutado, no duplica registros.\nLa exportación a PDF y el código QR por registro funcionan sobre los datos del repositorio propio.\nEl cuadro de mando muestra al menos cuatro KPI correctos y una gráfica alimentada desde el controlador.\nLa memoria breve interpreta los indicadores en términos de negocio.\nEl README recoge las dependencias con su justificación y las instrucciones de importación.\nLos servicios y comandos añadidos llevan PHPDoc.\n\nLa copia entre entregas supone no apto para todas las partes implicadas.\n\n\n\n\n\n\nImportanteNormativa · RA-CE\n\n\n\nLa entrega única está diseñada para que una sola corrección aporte evidencia de todos los criterios de evaluación del RA9: la justificación del README cubre CE9.a y CE9.b; el buscador, CE9.c y CE9.e; la importación, CE9.d; el PDF y el QR, CE9.e y CE9.f; el cuadro de mando y su memoria, CE9.g; y la documentación y las pruebas transversales, CE9.h. La prueba escrita evalúa, además, todos los criterios de forma individual.\n\n\n\n\nLa prueba objetiva\nEl examen combina los contenidos teórico-prácticos sobre un supuesto distinto al trabajado en clase: la preparación debe centrarse entendiendo bien la implementación del proyecto de la uidad.\nTodo lo que aparece en las secciones de esta unidad (Composer y semver, consumo de repositorios, ETL, librerías de terceros, analítica y documentación) es contenido de esta prueba.",
+    "text": "Qué aprenderás\nEsta unidad cierra el módulo con un cambio de enfoque: hasta ahora habéis construido cada pieza desde cero; aquí el objetivo es reutilizar. Una aplicación Web híbrida combina código propio, librerías de terceros e información procedente de repositorios heterogéneos.\nLa aplicación Laravel de las unidades anteriores es la base de trabajo, y la API REST de la UD7 se consume aquí como una fuente más.\n\n\nObjetivos\n\nValorar las ventajas de reutilizar código e información existente frente a desarrollar desde cero.\nGestionar dependencias con Composer: require, composer.lock y versionado semántico básico.\nConsumir repositorios de información existentes desde el servidor con Guzzle, con timeout y gestión de errores.\nCrear un repositorio propio a partir de una fuente externa mediante un proceso ETL empaquetado en un comando Artisan.\nIncorporar al menos una funcionalidad de terceros (generación de PDF o código QR) mediante una librería instalada con Composer.\nCalcular indicadores clave (KPI) sobre los datos importados y presentarlos en un cuadro de mando.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA9. Desarrolla aplicaciones web híbridas seleccionando y utilizando tecnologías, frameworks servidor y repositorios heterogéneos de información.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE9.a\nSe han reconocido las ventajas que proporciona la reutilización de código y el aprovechamiento de información ya existente.\n\n\nCE9.b\nSe han identificado tecnologías y frameworks aplicables en la creación de aplicaciones web híbridas.\n\n\nCE9.c\nSe ha creado una aplicación web que recupere y procese repositorios de información ya existentes.\n\n\nCE9.d\nSe han creado repositorios específicos a partir de información existente en almacenes de información.\n\n\nCE9.e\nSe han utilizado librerías de código y frameworks para incorporar funcionalidades específicas a una aplicación web.\n\n\nCE9.f\nSe han programado servicios y aplicaciones web utilizando como base información y código generados por terceros.\n\n\nCE9.g\nSe han analizado y utilizado librerías de código relacionadas con Big Data e inteligencia de negocios, para incorporar análisis e inteligencia de datos proveniente de repositorios.\n\n\nCE9.h\nSe han probado, depurado y documentado las aplicaciones generadas.\n\n\n\n\n\nContenidos\n\n\n\n\n\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nComposer, Guzzle, consumo de repositorios y librerías de terceros\nCE9.a-b-c-e-f\n\n\n2\nETL: crear repositorios propios\nCE9.d\n\n\n3\nProyecto: cuadro de mando con analítica\nCE9.c-d-e-f-g-h\n\n\n\n\n\n\n\n\n\nNotaNota\n\n\n\nTodo el trabajo práctico aplica directamente en la única entrega de la unidad.\n\n\n\n\nRecursos y materiales\n\nDocker (obligatorio — ver Laravel: instalación y estructura).\nPHP 8.2+, Composer y tu proyecto Laravel 13.x de las unidades anteriores.\nMySQL/MariaDB (vía el servicio db del docker-compose.yml).\nVisual Studio Code con las extensiones de PHP y Laravel ya instaladas.\nNavegador con herramientas de desarrollador.\nDocumentación de referencia: php.net, Packagist, Guzzle, dompdf, endroid/qr-code.\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\n\n\n\n\n\n\nImportanteImportante\n\n\n\nPara poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.\n\n\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nProyecto: cuadro de mando\nSí",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)"
     ]
   },
   {
-    "objectID": "UD9/01-aplicaciones-hibridas.html",
-    "href": "UD9/01-aplicaciones-hibridas.html",
-    "title": "Aplicaciones Web híbridas",
+    "objectID": "UD9/v2/01-composer-guzzle-librerias.html",
+    "href": "UD9/v2/01-composer-guzzle-librerias.html",
+    "title": "Composer, Guzzle y librerías de terceros",
     "section": "",
-    "text": "Por qué reutilizar: un caso concreto\nEn realidad llevas todo el curso construyendo una aplicación híbrida sin llamarla así: tu proyecto combina Laravel (código de terceros), tus controladores y modelos (código propio) y tu base de datos (información). Esta unidad hace explícito ese enfoque y lo abre hacia fuera: consumir información ajena, importarla a repositorios propios e incorporar librerías especializadas.\nSupón que el cliente pide “exportar el listado a PDF”. Generar un PDF a mano implica implementar el formato binario del estándar: cabeceras, objetos, flujos comprimidos, fuentes… miles de líneas. Con una librería:\nResultado: un PDF descargable, funcional, en menos de cinco minutos. Ese contraste resume las ventajas de la reutilización:",
+    "text": "Composer: lo justo\nComposer gestiona las dependencias PHP. Los conceptos imprescindibles:",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Aplicaciones Web híbridas</span>"
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Composer, Guzzle y librerías de terceros</span>"
     ]
   },
   {
-    "objectID": "UD9/01-aplicaciones-hibridas.html#por-qué-reutilizar-un-caso-concreto",
-    "href": "UD9/01-aplicaciones-hibridas.html#por-qué-reutilizar-un-caso-concreto",
-    "title": "Aplicaciones Web híbridas",
+    "objectID": "UD9/v2/01-composer-guzzle-librerias.html#composer-lo-justo",
+    "href": "UD9/v2/01-composer-guzzle-librerias.html#composer-lo-justo",
+    "title": "Composer, Guzzle y librerías de terceros",
     "section": "",
-    "text": "docker compose exec web composer require barryvdh/laravel-dompdf\nuse Barryvdh\\DomPDF\\Facade\\Pdf;\n\nRoute::get('/informe', function () {\n    return Pdf::loadHTML('&lt;h1&gt;Informe&lt;/h1&gt;&lt;p&gt;Generado en 3 líneas.&lt;/p&gt;')\n              -&gt;download('informe.pdf');\n});\n\n\nCoste y tiempo: funcionalidades complejas en minutos, no en semanas.\nCalidad: código probado por miles de proyectos y corregido continuamente por la comunidad.\nMantenimiento: los parches de seguridad llegan con composer update.\nInformación existente: los portales de datos abiertos y las APIs públicas ofrecen datos ya recopilados, listos para procesar.\nInteroperabilidad: los formatos estándar (JSON, CSV, XML) hacen cooperar sistemas construidos con tecnologías distintas.",
+    "text": "composer require paquete/nombre → instala y añade a composer.json.\ncomposer.lock → versiones exactas instaladas; se versiona en Git.\ncomposer install → reproduce el entorno exacto del .lock.\nSemver: ^2.0 acepta hasta 2.x.x; ~2.1 acepta hasta 2.1.x.",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Aplicaciones Web híbridas</span>"
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Composer, Guzzle y librerías de terceros</span>"
     ]
   },
   {
-    "objectID": "UD9/01-aplicaciones-hibridas.html#reutilizar-información-fuentes-reales",
-    "href": "UD9/01-aplicaciones-hibridas.html#reutilizar-información-fuentes-reales",
-    "title": "Aplicaciones Web híbridas",
-    "section": "Reutilizar información: fuentes reales",
-    "text": "Reutilizar información: fuentes reales\nNo solo se reutiliza código. Ejemplos de repositorios de información que puedes consumir hoy mismo:\nOpen Library      https://openlibrary.org/search.json?q=laravel   (libros, JSON, sin clave)\ndatos.gob.es      catálogo estatal de datos abiertos (CSV, JSON)\ndades.gva.es      datos abiertos de la Generalitat Valenciana\nTu API de la UD7  http://localhost:8001/api/...  (¡también es un repositorio!)\nPrueba la primera en el navegador: es una petición GET normal que devuelve JSON, exactamente como las respuestas que tu propia API generaba en la UD7.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nSi vas a consumir la API de UD7 desde este proyecto, no pueden arrancar los dos con el mismo puerto: ambos docker-compose.yml mapean por defecto 8000:8000. Cambia el de uno de los dos proyectos (por ejemplo, \"8001:8000\" en el compose de la API de UD7) y arráncalos a la vez con docker compose up -d en cada carpeta.",
+    "objectID": "UD9/v2/01-composer-guzzle-librerias.html#guzzle-consumir-apis-desde-el-servidor",
+    "href": "UD9/v2/01-composer-guzzle-librerias.html#guzzle-consumir-apis-desde-el-servidor",
+    "title": "Composer, Guzzle y librerías de terceros",
+    "section": "Guzzle: consumir APIs desde el servidor",
+    "text": "Guzzle: consumir APIs desde el servidor\ndocker compose exec web composer require guzzlehttp/guzzle\nuse GuzzleHttp\\Client;\n\n$cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org', 'timeout' =&gt; 5]);\n$r = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; 'laravel', 'limit' =&gt; 3]]);\n$datos = json_decode($r-&gt;getBody(), true);\nEl trío obligatorio: timeout + try/catch + registro en log:\nuse GuzzleHttp\\Exception\\RequestException;\nuse Illuminate\\Support\\Facades\\Log;\n\ntry {\n    $r = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; 'laravel']]);\n    $datos = json_decode($r-&gt;getBody(), true);\n} catch (RequestException $e) {\n    Log::error('Fallo: ' . $e-&gt;getMessage());\n    abort(503, 'Fuente no disponible.');\n}\nLaravel trae un wrapper más compacto:\nuse Illuminate\\Support\\Facades\\Http;\n\n$docs = Http::timeout(5)\n    -&gt;get('https://openlibrary.org/search.json', ['q' =&gt; 'laravel'])\n    -&gt;json('docs', []);\n\nRepositorios autenticados: tu API de la UD7\n$r = $cliente-&gt;get('http://localhost:8001/api/juegos', [\n    'headers' =&gt; [\n        'Authorization' =&gt; 'Bearer ' . config('services.ud7.token'),\n        'Accept'        =&gt; 'application/json',\n    ],\n]);",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Aplicaciones Web híbridas</span>"
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Composer, Guzzle y librerías de terceros</span>"
     ]
   },
   {
-    "objectID": "UD9/01-aplicaciones-hibridas.html#el-ecosistema-del-desarrollo-híbrido-en-php",
-    "href": "UD9/01-aplicaciones-hibridas.html#el-ecosistema-del-desarrollo-híbrido-en-php",
-    "title": "Aplicaciones Web híbridas",
-    "section": "El ecosistema del desarrollo híbrido en PHP",
-    "text": "El ecosistema del desarrollo híbrido en PHP\n\n\n\n\n\n\n\n\nPieza\nHerramienta\nPara qué\n\n\n\n\nGestión de dependencias\nComposer + Packagist\ndeclarar, instalar y actualizar paquetes\n\n\nCliente HTTP\nGuzzle (o el wrapper Http de Laravel)\nconsumir APIs desde el servidor\n\n\nFuentes de información\nAPIs REST, open data, CSV/JSON\ndatos de terceros\n\n\nLibrerías funcionales\ndompdf, endroid/qr-code, league/csv…\nfuncionalidades completas listas para usar\n\n\n\nCuando el valor de una aplicación nace precisamente de cruzar varias fuentes, se habla de mashup: por ejemplo, combinar la previsión meteorológica con la agenda cultural de una ciudad para recomendar planes.",
+    "objectID": "UD9/v2/01-composer-guzzle-librerias.html#pdf-con-dompdf",
+    "href": "UD9/v2/01-composer-guzzle-librerias.html#pdf-con-dompdf",
+    "title": "Composer, Guzzle y librerías de terceros",
+    "section": "PDF con dompdf",
+    "text": "PDF con dompdf\ndocker compose exec web composer require barryvdh/laravel-dompdf\nuse Barryvdh\\DomPDF\\Facade\\Pdf;\n\npublic function ficha(Libro $libro)\n{\n    $pdf = Pdf::loadView('libros.ficha', ['libro' =&gt; $libro]);\n    return $pdf-&gt;download('ficha-' . $libro-&gt;id . '.pdf');\n}",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Aplicaciones Web híbridas</span>"
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Composer, Guzzle y librerías de terceros</span>"
     ]
   },
   {
-    "objectID": "UD9/02-composer.html",
-    "href": "UD9/02-composer.html",
-    "title": "Composer en profundidad",
-    "section": "",
-    "text": "composer.json: el contrato del proyecto\nComposer se ha usado como herramienta desde que instalasteis Laravel. Ahora pasa a ser objeto de estudio: qué declara composer.json, cómo se resuelven las versiones y cómo funciona la carga automática de clases.\nLos tres comandos del día a día:",
+    "objectID": "UD9/v2/01-composer-guzzle-librerias.html#códigos-qr-con-endroidqr-code",
+    "href": "UD9/v2/01-composer-guzzle-librerias.html#códigos-qr-con-endroidqr-code",
+    "title": "Composer, Guzzle y librerías de terceros",
+    "section": "Códigos QR con endroid/qr-code",
+    "text": "Códigos QR con endroid/qr-code\ndocker compose exec web composer require endroid/qr-code\nuse Endroid\\QrCode\\Builder\\Builder;\n\n$qr = Builder::create()\n    -&gt;data(route('libros.show', $libro))\n    -&gt;size(200)\n    -&gt;build();\n\nreturn response($qr-&gt;getString(), 200)\n    -&gt;header('Content-Type', $qr-&gt;getMimeType());",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Composer en profundidad</span>"
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Composer, Guzzle y librerías de terceros</span>"
     ]
   },
   {
-    "objectID": "UD9/02-composer.html#composer.json-el-contrato-del-proyecto",
-    "href": "UD9/02-composer.html#composer.json-el-contrato-del-proyecto",
-    "title": "Composer en profundidad",
-    "section": "",
-    "text": "{\n    \"name\": \"iesnovelda/hibridas\",\n    \"require\": {\n        \"php\": \"^8.2\",\n        \"guzzlehttp/guzzle\": \"^7.9\",\n        \"league/csv\": \"^9.16\"\n    },\n    \"require-dev\": {\n        \"phpunit/phpunit\": \"^11.0\"\n    },\n    \"autoload\": {\n        \"psr-4\": { \"App\\\\\": \"src/\" }\n    }\n}\n\nrequire: dependencias necesarias en producción.\nrequire-dev: solo en desarrollo (pruebas, análisis). En el servidor se instalan sin ellas con composer install --no-dev.\nautoload: dónde vive tu propio código (lo vemos más abajo).\n\n\ndocker compose exec web composer require league/csv     # añade la dependencia y la instala\ndocker compose exec web composer install                # instala EXACTAMENTE lo que dice composer.lock\ndocker compose exec web composer update                 # recalcula versiones dentro de las restricciones y reescribe el lock\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEn un equipo recién clonado, el primer comando es siempre composer install, nunca composer update: install reproduce las versiones exactas que el resto del equipo ya ha probado; update podría introducir versiones nuevas sin probar.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Composer en profundidad</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/02-composer.html#versionado-semántico-semver",
-    "href": "UD9/02-composer.html#versionado-semántico-semver",
-    "title": "Composer en profundidad",
-    "section": "Versionado semántico (semver)",
-    "text": "Versionado semántico (semver)\nLas versiones siguen el esquema MAYOR.MENOR.PARCHE (por ejemplo, 7.9.2). Las restricciones más habituales:\n\n\n\n\n\n\n\n\n\nRestricción\nAcepta\nRechaza\nUso\n\n\n\n\n^7.9\n7.9.0 … 7.99.99\n8.0.0\nla habitual: menores y parches compatibles\n\n\n~7.9.1\n7.9.1 … 7.9.99\n7.10.0\nsolo parches de la rama 7.9\n\n\n7.9.2\nsolo 7.9.2\ntodo lo demás\nexacta; bloquea parches de seguridad, evítala\n\n\n\nComprueba lo que Composer resolvería sin instalar nada:\ndocker compose exec web composer why-not guzzlehttp/guzzle 8.0\nguzzlehttp/guzzle 8.0 conflicts with iesnovelda/hibridas (requires guzzlehttp/guzzle ^7.9)\n\n\n\n\n\n\nTipAnalogía Java\n\n\n\nEn Maven, pom.xml suele fijar versiones exactas y no existe fichero de bloqueo. Composer funciona al revés: composer.json declara rangos flexibles y composer.lock congela las versiones exactas resueltas. Por eso el lock se versiona en Git: es lo que garantiza que todo el equipo (y el servidor) instale lo mismo.\n\n\n\nActividades\n\nEJ1 · Restricciones de versión\nDado un composer.json con las restricciones ^2.4, ~3.1.5 y 5.0.1, indica razonadamente cuáles de estas versiones aceptaría cada una: 2.3.9, 2.4.1, 2.9.7, 3.0.0, 3.1.6, 3.1.12, 3.2.0, 5.0.1, 5.0.2. Explica después qué diferencia práctica hay entre ejecutar composer install y composer update en un equipo recién clonado.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Composer en profundidad</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/02-composer.html#autoload-psr-4-adiós-a-los-require",
-    "href": "UD9/02-composer.html#autoload-psr-4-adiós-a-los-require",
-    "title": "Composer en profundidad",
-    "section": "Autoload PSR-4: adiós a los require",
-    "text": "Autoload PSR-4: adiós a los require\nEl estándar PSR-4 establece la correspondencia entre espacio de nombres y ruta de fichero: si el prefijo App\\ vive en src/, la clase App\\Servicios\\ClienteApi debe estar en src/Servicios/ClienteApi.php. Composer genera el cargador en vendor/autoload.php; con incluir ese único fichero, cualquier clase se carga sola al usarla.\nMontémoslo desde cero, sin Laravel:\nmkdir psr4-demo && cd psr4-demo\ndocker run --rm -v \"${PWD}:/app\" -w /app composer init --no-interaction --name=demo/psr4\nAñade a composer.json la sección de autoload:\n{\n    \"autoload\": {\n        \"psr-4\": { \"Biblioteca\\\\\": \"src/\" }\n    }\n}\nCrea la clase en la ruta que dicta la convención:\n&lt;?php\n// src/Util/Saludo.php\nnamespace Biblioteca\\Util;\n\nclass Saludo\n{\n    public static function hola(string $nombre): string\n    {\n        return \"Hola, {$nombre}\";\n    }\n}\nRegenera el cargador y consume la clase:\ndocker run --rm -v \"${PWD}:/app\" -w /app composer dump-autoload\n&lt;?php\n// index.php\nrequire __DIR__ . '/vendor/autoload.php';\n\necho \\Biblioteca\\Util\\Saludo::hola('DAW2');\nphp index.php\nHola, DAW2\nNi un solo require de la clase: el cargador la localiza por su namespace.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nTras tocar la sección autoload de composer.json, la clase “no existe” hasta que ejecutes composer dump-autoload. Es el despiste clásico de esta unidad. El segundo: que el namespace del fichero no coincida exactamente (mayúsculas incluidas) con la ruta.\n\n\n\nActividades\n\nEJ2 · Autoload PSR-4 propio\nReproduce el proyecto anterior con un cambio: la clase debe ser Biblioteca\\Texto\\Invertidor, con un método estático invertir(string $s): string que devuelva la cadena invertida (pista: strrev()). Consúmela desde index.php incluyendo únicamente vendor/autoload.php.\nResultado esperado:\nphp index.php\n2WAD ,aloH\n\n\nEJ3 · Proyecto — dependencias con criterio\nNecesitas para el proyecto de la unidad: un cliente HTTP, un lector de CSV y un generador de códigos QR. Busca en Packagist los paquetes adecuados y, para cada uno, justifica la elección con cuatro datos: descargas, fecha del último mantenimiento, licencia y compatibilidad con tu versión de PHP. Decláralos con restricciones de versión razonadas en un proyecto nuevo y añade una clase propia cargada por PSR-4. Cierra con un párrafo: ¿qué te habría costado desarrollar cada una de esas tres piezas desde cero?",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Composer en profundidad</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html",
-    "href": "UD9/03-consumo-repositorios.html",
-    "title": "Consumir repositorios existentes",
-    "section": "",
-    "text": "La primera petición\nEl primer pilar de una aplicación híbrida es recuperar y procesar información ya existente. En la UD8 el navegador consumía APIs con fetch; aquí el consumo se hace desde el servidor, lo que permite ocultar claves, cachear, combinar fuentes antes de responder y almacenar lo recuperado. La herramienta estándar es Guzzle:\nGuzzle construye la URL final (/search.json?q=laravel&limit=3) y codifica los parámetros por ti.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html#la-primera-petición",
-    "href": "UD9/03-consumo-repositorios.html#la-primera-petición",
-    "title": "Consumir repositorios existentes",
-    "section": "",
-    "text": "use GuzzleHttp\\Client;\n\n$cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org']);\n\n$respuesta = $cliente-&gt;get('/search.json', [\n    'query' =&gt; ['q' =&gt; 'laravel', 'limit' =&gt; 3],\n]);\n\necho $respuesta-&gt;getStatusCode() . PHP_EOL;\necho $respuesta-&gt;getHeaderLine('Content-Type') . PHP_EOL;\n200\napplication/json",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html#procesar-la-respuesta-json",
-    "href": "UD9/03-consumo-repositorios.html#procesar-la-respuesta-json",
-    "title": "Consumir repositorios existentes",
-    "section": "Procesar la respuesta JSON",
-    "text": "Procesar la respuesta JSON\n$datos = json_decode($respuesta-&gt;getBody(), true);\n\necho 'Total de resultados: ' . $datos['numFound'] . PHP_EOL;\nforeach ($datos['docs'] as $libro) {\n    echo '- ' . $libro['title'] . ' (' . ($libro['first_publish_year'] ?? '—') . ')' . PHP_EOL;\n}\nSalida (recortada; los datos reales varían con el tiempo):\nTotal de resultados: 519\n- Laravel: Up & Running (2016)\n- Laravel: Up and Running (2019)\n- Beginning Laravel (2017)\nCon true como segundo argumento, json_decode() devuelve arrays asociativos: las mismas estructuras que recorréis desde la UD3. Fíjate en el operador ?? para campos que la fuente no siempre rellena: los datos ajenos nunca son tan regulares como los tuyos.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html#timeout-y-control-de-errores-obligatorios",
-    "href": "UD9/03-consumo-repositorios.html#timeout-y-control-de-errores-obligatorios",
-    "title": "Consumir repositorios existentes",
-    "section": "Timeout y control de errores: obligatorios",
-    "text": "Timeout y control de errores: obligatorios\nUna fuente externa caída o lenta no puede colgar tu aplicación. Configura siempre un tiempo máximo y captura el fallo:\nuse GuzzleHttp\\Client;\nuse GuzzleHttp\\Exception\\RequestException;\nuse Illuminate\\Support\\Facades\\Log;\n\n$cliente = new Client([\n    'base_uri' =&gt; 'https://openlibrary.org',\n    'timeout'  =&gt; 5.0,\n]);\n\ntry {\n    $r = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; 'laravel']]);\n    $datos = json_decode($r-&gt;getBody(), true);\n} catch (RequestException $e) {\n    Log::error('Fallo al consultar Open Library: ' . $e-&gt;getMessage());\n    abort(503, 'El repositorio externo no está disponible.');\n}\nSi la fuente no responde en 5 segundos, en storage/logs/laravel.log aparece:\n[2026-09-14 10:32:07] local.ERROR: Fallo al consultar Open Library: cURL error 28:\nOperation timed out after 5001 milliseconds\n…y el usuario recibe un error 503 digno en lugar de una página colgada.\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEl trío timeout + try/catch + registro en el log es el contrato mínimo de calidad al consumir cualquier fuente externa. Sin él, la disponibilidad de tu aplicación pasa a depender de la de un servidor que no controlas.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html#en-un-controlador-laravel",
-    "href": "UD9/03-consumo-repositorios.html#en-un-controlador-laravel",
-    "title": "Consumir repositorios existentes",
-    "section": "En un controlador Laravel",
-    "text": "En un controlador Laravel\nEl patrón completo, con el parámetro de búsqueda llegando del formulario:\npublic function buscar(Request $request)\n{\n    $q = $request-&gt;string('q', 'valencia');\n\n    $cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org', 'timeout' =&gt; 5]);\n    try {\n        $r = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; (string) $q, 'limit' =&gt; 20]]);\n        $docs = json_decode($r-&gt;getBody(), true)['docs'] ?? [];\n        $error = null;\n    } catch (RequestException $e) {\n        Log::warning('Open Library caída: ' . $e-&gt;getMessage());\n        [$docs, $error] = [[], 'Fuente no disponible, inténtalo más tarde.'];\n    }\n\n    return view('busqueda', compact('docs', 'error'));\n}\nLaravel trae además un wrapper propio sobre Guzzle, más compacto y válido en todos los ejercicios:\nuse Illuminate\\Support\\Facades\\Http;\n\n$docs = Http::timeout(5)\n    -&gt;get('https://openlibrary.org/search.json', ['q' =&gt; 'laravel', 'limit' =&gt; 20])\n    -&gt;json('docs', []);\n\nActividades\n\nEJ4 · Buscador sobre una API pública\nCrea un controlador con una acción que consulte Open Library (u otra API pública sin clave que prefieras), filtre por un parámetro recibido de un formulario de búsqueda y muestre en una vista Blade el título, el año y el primer autor de cada resultado. Gestiona el caso de fuente caída con un mensaje amigable en la misma vista. Diseño libre de la vista.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/03-consumo-repositorios.html#repositorios-autenticados-tu-api-de-la-ud7",
-    "href": "UD9/03-consumo-repositorios.html#repositorios-autenticados-tu-api-de-la-ud7",
-    "title": "Consumir repositorios existentes",
-    "section": "Repositorios autenticados: tu API de la UD7",
-    "text": "Repositorios autenticados: tu API de la UD7\nCuando el repositorio exige autenticación, el token viaja en la cabecera Authorization. Así consume otra aplicación la API que construisteis con Sanctum:\n$r = $cliente-&gt;get('http://localhost:8001/api/productos', [\n    'headers' =&gt; [\n        'Authorization' =&gt; 'Bearer ' . config('services.ud7.token'),\n        'Accept'        =&gt; 'application/json',\n    ],\n]);\nEl token se guarda en configuración (config/services.php leyendo de .env), nunca en el código. Comprueba primero con tu cliente HTTP (Postman/Thunder Client) que el token es válido:\nGET http://localhost:8001/api/productos\nAuthorization: Bearer 3|kD8s...\n\n200 OK\n[{\"id\":1,\"nombre\":\"Teclado mecánico\",\"precio\":89.9}, ...]\nEn la UD7 construisteis el servicio; en la UD8 lo consumió el navegador; aquí lo consume otro servidor. Sois a la vez proveedores y consumidores: el doble papel de cualquier empresa real.\n\nActividades\n\nEJ5 · Proyecto — buscador de fuentes heterogéneas\nAmplía tu proyecto con un buscador que consulte dos fuentes a la vez: la API pública de EJ4 y tu API de la UD7 (autenticada con Bearer). Unifica los resultados en una estructura común y preséntalos en una vista indicando la procedencia de cada dato. Requisitos: gestión de errores independiente por fuente (si una cae, la otra sigue mostrándose), registro en el log y PHPDoc en el servicio que encapsule las consultas.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Consumir repositorios existentes</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/04-repositorios-propios.html",
-    "href": "UD9/04-repositorios-propios.html",
+    "objectID": "UD9/v2/02-repositorios-propios-etl.html",
+    "href": "UD9/v2/02-repositorios-propios-etl.html",
     "title": "Crear repositorios propios: ETL",
     "section": "",
-    "text": "Las tres fases, por separado\nEl segundo pilar es el inverso del anterior: en lugar de consultar la fuente ajena en cada petición, construyes un repositorio propio a partir de su información. Es el proceso ETL: Extract (extraer de la fuente), Transform (limpiar y normalizar) y Load (cargar en tu almacén).\nExtract — obtener los datos crudos (lo aprendido en la sección anterior):\nTransform — los datos externos siempre llegan sucios. Limpiezas típicas sobre un registro:\nLoad — cargar sin duplicar. La clave es guardar el identificador de origen y usar updateOrCreate:",
+    "text": "Las tres fases",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>63</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
     ]
   },
   {
-    "objectID": "UD9/04-repositorios-propios.html#las-tres-fases-por-separado",
-    "href": "UD9/04-repositorios-propios.html#las-tres-fases-por-separado",
+    "objectID": "UD9/v2/02-repositorios-propios-etl.html#las-tres-fases",
+    "href": "UD9/v2/02-repositorios-propios-etl.html#las-tres-fases",
     "title": "Crear repositorios propios: ETL",
     "section": "",
-    "text": "$r = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; 'php']]);\n$docs = json_decode($r-&gt;getBody(), true)['docs'] ?? [];\necho count($docs) . ' registros extraídos';\n100 registros extraídos\n\n$doc = ['title' =&gt; '  El PHP definitivo   ', 'first_publish_year' =&gt; '2019', 'author_name' =&gt; []];\n\n$titulo = mb_substr(trim($doc['title']), 0, 255);   // recortar espacios y longitud\n$anyo   = (int) ($doc['first_publish_year'] ?? 0) ?: null;  // tipar, null si falta\n$autor  = $doc['author_name'][0] ?? 'Desconocido';  // valor por defecto\n\nvar_dump($titulo, $anyo, $autor);\nstring(17) \"El PHP definitivo\"\nint(2019)\nstring(11) \"Desconocido\"\n\nLibro::updateOrCreate(\n    ['clave_externa' =&gt; $doc['key']],          // si ya existe, actualiza\n    ['titulo' =&gt; $titulo, 'anyo' =&gt; $anyo, 'autor' =&gt; $autor]\n);",
+    "text": "Extract: obtener datos crudos (Guzzle, CSV, JSON).\nTransform: limpiar (trim, mb_substr, tipar, valores por defecto).\nLoad: cargar sin duplicar (updateOrCreate con clave externa).",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>63</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
     ]
   },
   {
-    "objectID": "UD9/04-repositorios-propios.html#el-comando-artisan-de-importación",
-    "href": "UD9/04-repositorios-propios.html#el-comando-artisan-de-importación",
+    "objectID": "UD9/v2/02-repositorios-propios-etl.html#el-comando-artisan-de-importación",
+    "href": "UD9/v2/02-repositorios-propios-etl.html#el-comando-artisan-de-importación",
     "title": "Crear repositorios propios: ETL",
     "section": "El comando Artisan de importación",
-    "text": "El comando Artisan de importación\nLa forma idiomática de empaquetar un ETL en Laravel es un comando de consola:\ndocker compose exec web php artisan make:command ImportarLibros\n&lt;?php\n\nnamespace App\\Console\\Commands;\n\nuse App\\Models\\Libro;\nuse GuzzleHttp\\Client;\nuse Illuminate\\Console\\Command;\n\nclass ImportarLibros extends Command\n{\n    protected $signature   = 'importar:libros {tema}';\n    protected $description = 'Extrae libros de Open Library y los carga en la BD local';\n\n    public function handle(): int\n    {\n        $cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org', 'timeout' =&gt; 10]);\n        $r    = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; $this-&gt;argument('tema')]]);\n        $docs = json_decode($r-&gt;getBody(), true)['docs'] ?? [];\n\n        $n = 0;\n        foreach ($docs as $doc) {\n            if (empty($doc['title'])) {          // TRANSFORM: descartar incompletos\n                continue;\n            }\n            Libro::updateOrCreate(\n                ['clave_externa' =&gt; $doc['key']],\n                [\n                    'titulo' =&gt; mb_substr($doc['title'], 0, 255),\n                    'anyo'   =&gt; $doc['first_publish_year'] ?? null,\n                    'autor'  =&gt; $doc['author_name'][0] ?? 'Desconocido',\n                ]\n            );\n            $n++;\n        }\n\n        $this-&gt;info(\"{$n} registros procesados.\");\n        return self::SUCCESS;\n    }\n}\nLa prueba decisiva es ejecutarlo dos veces:\ndocker compose exec web php artisan importar:libros php\n97 registros procesados.\ndocker compose exec web php artisan importar:libros php\ndocker compose exec web php artisan tinker --execute=\"echo App\\Models\\Libro::count();\"\n97 registros procesados.\n97\nLa segunda ejecución procesa los mismos registros pero la tabla sigue teniendo 97 filas: la importación es idempotente gracias a updateOrCreate sobre la clave externa.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nUsar create() en lugar de updateOrCreate() duplica todo el repositorio en cada reejecución. El segundo clásico: no guardar la clave del origen (clave_externa), con lo que no hay forma fiable de saber si un registro ya se importó.",
+    "text": "El comando Artisan de importación\ndocker compose exec web php artisan make:command ImportarLibros\nclass ImportarLibros extends Command\n{\n    protected $signature   = 'importar:libros {tema}';\n    protected $description = 'Carga libros de Open Library en la BD local';\n\n    public function handle(): int\n    {\n        $cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org', 'timeout' =&gt; 10]);\n        $r    = $cliente-&gt;get('/search.json', ['query' =&gt; ['q' =&gt; $this-&gt;argument('tema')]]);\n        $docs = json_decode($r-&gt;getBody(), true)['docs'] ?? [];\n\n        $n = 0;\n        foreach ($docs as $doc) {\n            if (empty($doc['title'])) continue;\n            Libro::updateOrCreate(\n                ['clave_externa' =&gt; $doc['key']],\n                [\n                    'titulo' =&gt; mb_substr($doc['title'], 0, 255),\n                    'anyo'   =&gt; $doc['first_publish_year'] ?? null,\n                    'autor'  =&gt; $doc['author_name'][0] ?? 'Desconocido',\n                ]\n            );\n            $n++;\n        }\n        $this-&gt;info(\"{$n} registros procesados.\");\n        return self::SUCCESS;\n    }\n}\nReejecutar el comando no duplica gracias a updateOrCreate con la clave_externa.",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>63</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
     ]
   },
   {
-    "objectID": "UD9/04-repositorios-propios.html#cuando-la-fuente-es-un-fichero-leaguecsv",
-    "href": "UD9/04-repositorios-propios.html#cuando-la-fuente-es-un-fichero-leaguecsv",
+    "objectID": "UD9/v2/02-repositorios-propios-etl.html#del-repositorio-al-dashboard-kpi-con-colecciones",
+    "href": "UD9/v2/02-repositorios-propios-etl.html#del-repositorio-al-dashboard-kpi-con-colecciones",
     "title": "Crear repositorios propios: ETL",
-    "section": "Cuando la fuente es un fichero: league/csv",
-    "text": "Cuando la fuente es un fichero: league/csv\nLos portales de datos abiertos suelen publicar CSV. league/csv lee en streaming (procesa ficheros enormes sin cargarlos enteros en memoria):\ndocker compose exec web composer require league/csv\nuse League\\Csv\\Reader;\n\n$csv = Reader::createFromPath(storage_path('app/municipios.csv'));\n$csv-&gt;setHeaderOffset(0);                       // la fila 0 son las cabeceras\n\nforeach ($csv-&gt;getRecords() as $fila) {\n    echo $fila['municipio'] . ' → ' . $fila['poblacion'] . PHP_EOL;\n}\nCon un municipios.csv como este:\nmunicipio;provincia;poblacion\nNovelda;Alicante;26016\nElda;Alicante;52551\nAspe;Alicante;20941\nla salida es:\nNovelda → 26016\nElda → 52551\nAspe → 20941\n(Si tu CSV usa ; como separador, añade $csv-&gt;setDelimiter(';'); antes de leer.) La transformación y la carga son idénticas a las del caso API: la fase Extract es lo único que cambia.",
+    "section": "Del repositorio al dashboard: KPI con colecciones",
+    "text": "Del repositorio al dashboard: KPI con colecciones\nUna vez cargados los datos, calcular indicadores clave (KPI) es directo con las colecciones de Eloquent:\n// En un controlador\npublic function dashboard()\n{\n    $libros = Libro::all();\n\n    $kpis = [\n        'total'        =&gt; $libros-&gt;count(),\n        'anyo_medio'   =&gt; round($libros-&gt;avg('anyo')),\n        'por_autor'    =&gt; $libros-&gt;groupBy('autor')-&gt;map-&gt;count()-&gt;sortDesc()-&gt;take(5),\n        'sin_anyo'     =&gt; $libros-&gt;whereNull('anyo')-&gt;count(),\n    ];\n\n    return view('dashboard', compact('kpis'));\n}\n{{-- resources/views/dashboard.blade.php --}}\n&lt;h2&gt;Cuadro de mando&lt;/h2&gt;\n&lt;p&gt;Total de libros: {{ $kpis['total'] }}&lt;/p&gt;\n&lt;p&gt;Año medio de publicación: {{ $kpis['anyo_medio'] }}&lt;/p&gt;\n&lt;p&gt;Libros sin año registrado: {{ $kpis['sin_anyo'] }}&lt;/p&gt;\n\n&lt;h3&gt;Top 5 autores&lt;/h3&gt;\n&lt;ul&gt;\n@foreach($kpis['por_autor'] as $autor =&gt; $cantidad)\n    &lt;li&gt;{{ $autor }}: {{ $cantidad }} libros&lt;/li&gt;\n@endforeach\n&lt;/ul&gt;\nLos métodos count(), avg(), groupBy(), sortDesc(), whereNull() son de la clase Collection de Laravel, que ya conoces de UD5. Un KPI no es más que una agregación sobre los datos que tienes en tu repositorio.",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>63</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
     ]
   },
   {
-    "objectID": "UD9/04-repositorios-propios.html#actividades",
-    "href": "UD9/04-repositorios-propios.html#actividades",
-    "title": "Crear repositorios propios: ETL",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ6 · Comando importar:municipios\nImplementa un comando importar:municipios que lea un CSV de datos abiertos con las columnas municipio, provincia y poblacion, descarte las filas sin población, convierta la población a entero y cargue los datos en una tabla propia. La reejecución no debe duplicar registros.\nResultado esperado de dos ejecuciones seguidas:\n$ php artisan importar:municipios\n141 municipios cargados.\n$ php artisan importar:municipios\n141 municipios cargados.        # y la tabla sigue con 141 filas\n\n\nEJ7 · Proyecto — tu repositorio específico\nDiseña la migración y el modelo de un repositorio propio para tu proyecto y aliméntalo con un comando Artisan que extraiga datos reales de la fuente que trabajaste en EJ5 (API u open data en CSV). Aplica al menos tres transformaciones de limpieza documentadas con comentarios en el código, garantiza la idempotencia y haz que el comando informe por consola del número de registros procesados.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>63</span>  <span class='chapter-title'>Crear repositorios propios: ETL</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/05-librerias-terceros.html",
-    "href": "UD9/05-librerias-terceros.html",
-    "title": "Librerías de terceros: PDF y QR",
+    "objectID": "UD9/v2/03-proyecto.html",
+    "href": "UD9/v2/03-proyecto.html",
+    "title": "Proyecto: cuadro de mando",
     "section": "",
-    "text": "PDF con dompdf\nEl tercer pilar es incorporar funcionalidades completas mediante librerías especializadas. El patrón es siempre el mismo: localizar el paquete en Packagist, evaluar su calidad, instalarlo con composer require, leer su documentación y programar contra su API pública. Lo practicamos con dos casos representativos.\nLa librería renderiza una vista Blade normal a PDF: todo lo que sabes de plantillas se reutiliza tal cual.\nVisita /libros/1/ficha y el navegador descarga ficha-1.pdf con el contenido maquetado. Para un listado completo, la misma idea con una colección:\nPiensa en lo que acaba de pasar: tu funcionalidad (“fichas imprimibles”) se apoya en un motor de renderizado de miles de líneas que no has escrito. Eso es programar sobre código de terceros.",
+    "text": "ImportanteNormativa · RA-CE\n\n\n\nEste bloque integra CE9.c-d-e-f-g-h: la entrega única que cierra el módulo.\n\n\n\nEJ1 · Proyecto: cuadro de mando — Entrega única de la unidad\nConstruye una aplicación Laravel que:\n\nBuscador (CE9.c-e-f): consulte al menos una fuente con Guzzle (API pública o tu API de UD7 con Bearer), con timeout y gestión de errores.\nImportación (CE9.d): un comando Artisan que cargue datos en tu BD local. Reejecutado, no duplica registros.\nPDF o QR (CE9.e-f): al menos una de las dos funcionalidades operativa sobre los datos importados.\nDashboard (CE9.g): al menos 2 KPI correctos calculados con colecciones, presentados en una vista.\nREADME (CE9.a-b-h): con las dependencias justificadas y las instrucciones de importación. PHPDoc en los servicios y comandos añadidos.\n\n\n\n\n\n\n\n\nImportanteEntrega\n\n\n\nEnlace a GitHub con el proyecto completo y el README. La copia entre entregas supone no apto para todas las partes implicadas.",
     "crumbs": [
       "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>64</span>  <span class='chapter-title'>Librerías de terceros: PDF y QR</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/05-librerias-terceros.html#pdf-con-dompdf",
-    "href": "UD9/05-librerias-terceros.html#pdf-con-dompdf",
-    "title": "Librerías de terceros: PDF y QR",
-    "section": "",
-    "text": "docker compose exec web composer require barryvdh/laravel-dompdf\n\n// routes/web.php\nRoute::get('/libros/{libro}/ficha', [LibroController::class, 'ficha'])-&gt;name('libros.ficha');\n// app/Http/Controllers/LibroController.php\nuse Barryvdh\\DomPDF\\Facade\\Pdf;\n\npublic function ficha(Libro $libro)\n{\n    $pdf = Pdf::loadView('libros.ficha', ['libro' =&gt; $libro]);\n    return $pdf-&gt;download('ficha-' . $libro-&gt;id . '.pdf');\n}\n{{-- resources/views/libros/ficha.blade.php --}}\n&lt;h1&gt;{{ $libro-&gt;titulo }}&lt;/h1&gt;\n&lt;p&gt;&lt;strong&gt;Autor:&lt;/strong&gt; {{ $libro-&gt;autor }}&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Año:&lt;/strong&gt; {{ $libro-&gt;anyo ?? 'desconocido' }}&lt;/p&gt;\n\npublic function programa()\n{\n    $libros = Libro::orderBy('titulo')-&gt;get();\n    return Pdf::loadView('libros.programa', compact('libros'))-&gt;download('programa.pdf');\n}",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>64</span>  <span class='chapter-title'>Librerías de terceros: PDF y QR</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/05-librerias-terceros.html#códigos-qr-con-endroidqr-code",
-    "href": "UD9/05-librerias-terceros.html#códigos-qr-con-endroidqr-code",
-    "title": "Librerías de terceros: PDF y QR",
-    "section": "Códigos QR con endroid/qr-code",
-    "text": "Códigos QR con endroid/qr-code\ndocker compose exec web composer require endroid/qr-code\nuse Endroid\\QrCode\\Builder\\Builder;\n\npublic function qr(Libro $libro)\n{\n    $qr = Builder::create()\n        -&gt;data(route('libros.show', $libro))   // el QR apunta a la ficha pública\n        -&gt;size(240)\n        -&gt;build();\n\n    return response($qr-&gt;getString())\n        -&gt;header('Content-Type', $qr-&gt;getMimeType());\n}\nLa respuesta es una imagen PNG servida directamente: en una vista basta &lt;img src=\"{{ route('libros.qr', $libro) }}\"&gt; y cada libro muestra su código escaneable.\n¿Y un QR dentro del PDF? dompdf no puede pedir la imagen a otra ruta, así que se incrusta en base64:\npublic function ficha(Libro $libro)\n{\n    $qr = Builder::create()-&gt;data(route('libros.show', $libro))-&gt;size(160)-&gt;build();\n    $qrBase64 = 'data:' . $qr-&gt;getMimeType() . ';base64,' . base64_encode($qr-&gt;getString());\n\n    return Pdf::loadView('libros.ficha', compact('libro', 'qrBase64'))\n              -&gt;download('ficha-' . $libro-&gt;id . '.pdf');\n}\n{{-- en la vista de la ficha --}}\n&lt;img src=\"{{ $qrBase64 }}\" width=\"120\"&gt;",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>64</span>  <span class='chapter-title'>Librerías de terceros: PDF y QR</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/05-librerias-terceros.html#elegir-librería-con-criterio",
-    "href": "UD9/05-librerias-terceros.html#elegir-librería-con-criterio",
-    "title": "Librerías de terceros: PDF y QR",
-    "section": "Elegir librería con criterio",
-    "text": "Elegir librería con criterio\nAntes de instalar un paquete desconocido, evalúa en su página de Packagist/GitHub:\n\n\n\n\n\n\n\n\nCriterio\nDónde mirar\nQué indica\n\n\n\n\nDescargas y estrellas\ncabecera de Packagist\nadopción real\n\n\nFecha del último commit\npestaña del repositorio\nmantenimiento vivo\n\n\nLicencia\ncomposer.json del paquete\nMIT/Apache permiten uso comercial\n\n\nCompatibilidad\nsección require\nque soporte tu versión de PHP\n\n\n\nCaso práctico: buscas “pdf” en Packagist y dudas entre dompdf/dompdf (última versión hace 2 meses, 190 M de descargas, LGPL) y un paquete con 4.000 descargas y último commit hace 3 años. El segundo puede funcionar hoy, pero instalar dependencias abandonadas es contraer deuda técnica: nadie corregirá sus fallos de seguridad.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>64</span>  <span class='chapter-title'>Librerías de terceros: PDF y QR</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/05-librerias-terceros.html#actividades",
-    "href": "UD9/05-librerias-terceros.html#actividades",
-    "title": "Librerías de terceros: PDF y QR",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ8 · QR embebido en el PDF\nPartiendo del controlador de la ficha PDF mostrado arriba, añade el código QR embebido y documenta el método resultante con PHPDoc completo (descripción, @param, @return). Comprueba escaneando el QR del PDF descargado que enlaza a la ficha correcta.\n\n\nEJ9 · Proyecto — dos funcionalidades de terceros\nIncorpora a tu proyecto dos funcionalidades completas basadas en librerías: la exportación a PDF de un listado de tu repositorio de EJ7 y un código QR por registro que enlace a su ficha pública. Justifica por escrito la elección de cada paquete aplicando los cuatro criterios de la tabla, gestiona los errores y documenta los métodos añadidos.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>64</span>  <span class='chapter-title'>Librerías de terceros: PDF y QR</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html",
-    "href": "UD9/06-analitica-bigdata.html",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "",
-    "text": "Agregaciones con colecciones\nBig Data designa los conjuntos de datos cuyo volumen, velocidad de generación y variedad (las “3 V”) desbordan las herramientas convencionales; su procesamiento real se apoya en plataformas distribuidas como Hadoop y Spark. La inteligencia de negocios (Business Intelligence, BI) es la disciplina que convierte datos en decisiones: indicadores clave (KPI), agregaciones, series temporales y cuadros de mando.\nSobre el repositorio propio de la sección anterior, las colecciones de Laravel calculan indicadores con una expresividad notable. Cada ejemplo es independiente; pruébalos en php artisan tinker.\nContar y promediar:\nAgrupar por una propiedad derivada (libros por década):\nRanking (los cinco autores con más libros):\nPorcentaje sobre el total:\nLas salidas mostradas corresponden a un repositorio de ejemplo; con tus datos importados los números serán otros, pero la forma de las estructuras será exactamente esta.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html#agregaciones-con-colecciones",
-    "href": "UD9/06-analitica-bigdata.html#agregaciones-con-colecciones",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "",
-    "text": "$libros = Libro::all();\n\necho $libros-&gt;count();\necho round($libros-&gt;avg('anyo'), 1);\n97\n1998.4\n\n$porDecada = $libros\n    -&gt;filter(fn ($l) =&gt; $l-&gt;anyo !== null)\n    -&gt;groupBy(fn ($l) =&gt; intdiv($l-&gt;anyo, 10) * 10)\n    -&gt;map-&gt;count()\n    -&gt;sortKeys();\n\nprint_r($porDecada-&gt;toArray());\nArray\n(\n    [1970] =&gt; 4\n    [1980] =&gt; 9\n    [1990] =&gt; 21\n    [2000] =&gt; 38\n    [2010] =&gt; 22\n    [2020] =&gt; 3\n)\n\n$topAutores = $libros-&gt;countBy('autor')-&gt;sortDesc()-&gt;take(5);\nprint_r($topAutores-&gt;toArray());\nArray\n(\n    [Desconocido] =&gt; 12\n    [Rasmus Lerdorf] =&gt; 5\n    [Kevin Tatroe] =&gt; 4\n    [Luke Welling] =&gt; 3\n    [Laura Thomson] =&gt; 3\n)\n\n$antiguos = $libros-&gt;where('anyo', '&lt;', 2000)-&gt;count();\necho round($antiguos / max($libros-&gt;count(), 1) * 100, 1) . ' %';\n35.1 %",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html#datasets-grandes-en-fichero",
-    "href": "UD9/06-analitica-bigdata.html#datasets-grandes-en-fichero",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "Datasets grandes en fichero",
-    "text": "Datasets grandes en fichero\nCuando la fuente es un CSV voluminoso, league/csv lee en streaming y las colecciones hacen el resto:\nuse League\\Csv\\Reader;\n\n$csv = Reader::createFromPath(storage_path('app/municipios.csv'));\n$csv-&gt;setHeaderOffset(0);\n\n$municipios = collect($csv-&gt;getRecords())\n    -&gt;map(fn ($f) =&gt; ['provincia' =&gt; $f['provincia'], 'poblacion' =&gt; (int) $f['poblacion']]);\n\n$porProvincia = $municipios-&gt;groupBy('provincia')-&gt;map-&gt;sum('poblacion')-&gt;sortDesc();\nprint_r($porProvincia-&gt;take(3)-&gt;toArray());\nArray\n(\n    [Valencia] =&gt; 2589312\n    [Alicante] =&gt; 1881762\n    [Castellón] =&gt; 587064\n)",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html#del-cálculo-al-cuadro-de-mando",
-    "href": "UD9/06-analitica-bigdata.html#del-cálculo-al-cuadro-de-mando",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "Del cálculo al cuadro de mando",
-    "text": "Del cálculo al cuadro de mando\nUn dashboard presenta los KPI en tarjetas y gráficas. La regla de oro: la analítica vive en el servidor; el controlador calcula y serializa, y el navegador solo dibuja. Con Chart.js, la gráfica necesita dos arrays:\npublic function dashboard()\n{\n    $libros = Libro::all();\n\n    $porDecada = $libros-&gt;filter(fn ($l) =&gt; $l-&gt;anyo !== null)\n        -&gt;groupBy(fn ($l) =&gt; intdiv($l-&gt;anyo, 10) * 10)\n        -&gt;map-&gt;count()-&gt;sortKeys();\n\n    return view('dashboard', [\n        'total'      =&gt; $libros-&gt;count(),\n        'anyoMedio'  =&gt; round($libros-&gt;avg('anyo'), 1),\n        'topAutores' =&gt; $libros-&gt;countBy('autor')-&gt;sortDesc()-&gt;take(5),\n        'grafica'    =&gt; [\n            'labels' =&gt; $porDecada-&gt;keys(),\n            'data'   =&gt; $porDecada-&gt;values(),\n        ],\n    ]);\n}\nEn la vista, los datos llegan ya listos:\n{{-- resources/views/dashboard.blade.php (fragmento) --}}\n&lt;canvas id=\"decadas\"&gt;&lt;/canvas&gt;\n&lt;script src=\"https://cdn.jsdelivr.net/npm/chart.js\"&gt;&lt;/script&gt;\n&lt;script&gt;\nnew Chart(document.getElementById('decadas'), {\n    type: 'bar',\n    data: {\n        labels: @json($grafica['labels']),\n        datasets: [{ label: 'Libros por década', data: @json($grafica['data']) }]\n    }\n});\n&lt;/script&gt;\nEl fragmento JavaScript se usa tal cual está: lo evaluable en este módulo es la preparación de los datos en el servidor, no el código de dibujo (que pertenece al módulo de entorno cliente).",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html#actividades",
-    "href": "UD9/06-analitica-bigdata.html#actividades",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "Actividades",
-    "text": "Actividades\n\nEJ10 · Agregaciones sobre municipios\nSobre la tabla de municipios de EJ6, calcula con colecciones: población total, media por provincia (redondeada), las cinco provincias más pobladas y el porcentaje de municipios con menos de 1.000 habitantes. Prepara además la estructura ['labels' =&gt; ..., 'data' =&gt; ...] que consumiría una gráfica de barras por provincia.\nResultado esperado (con el dataset de ejemplo del aula virtual):\nPoblación total: 5058138\nMedia Alicante: 13298\nTop-1: Valencia (2589312)\nMunicipios &lt; 1000 hab.: 42.3 %",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/06-analitica-bigdata.html#proyecto-integrador",
-    "href": "UD9/06-analitica-bigdata.html#proyecto-integrador",
-    "title": "Analítica, Big Data e inteligencia de negocios",
-    "section": "Proyecto integrador",
-    "text": "Proyecto integrador\n\nEJ11 · Proyecto — cuadro de mando\nConstruye la pantalla “Cuadro de mando” de tu proyecto: al menos cuatro KPI calculados con colecciones sobre tu repositorio de EJ7, una tabla resumen agrupada y una gráfica alimentada desde el controlador. Acompáñala de media página que interprete los indicadores en términos de negocio (¿qué decisión tomaría alguien mirando tu dashboard?) y documenta con PHPDoc el servicio de analítica.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>65</span>  <span class='chapter-title'>Analítica, Big Data e inteligencia de negocios</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/07-prueba-documentacion.html",
-    "href": "UD9/07-prueba-documentacion.html",
-    "title": "Probar, depurar y documentar",
-    "section": "",
-    "text": "Probar contra fuentes externas\nProbar, depurar y documentar no tiene apartado de teoría extensa: se aplica dentro de cada ejercicio de proyecto. En el contexto híbrido, eso sí, adquiere matices propios que conviene fijar. Presta especial atención a esta sección: varios puntos de la lista de comprobación de la entrega única (registro en el log, PHPDoc, README, ejecución sin errores) salen directamente de aquí.\nTu aplicación debe comportarse bien en tres escenarios: fuente disponible, fuente lenta y fuente caída. Los dos últimos se simulan fácilmente:\nEn ambos casos la comprobación es doble: el log registra el fallo y la vista muestra el mensaje amigable sin excepción visible. Así se ve el log tras la prueba de host caído:\nPara inspeccionar las respuestas reales de una API antes de programar contra ella, usa Postman o Thunder Client: verás el código de estado, las cabeceras y la estructura exacta del JSON.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>66</span>  <span class='chapter-title'>Probar, depurar y documentar</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/07-prueba-documentacion.html#probar-contra-fuentes-externas",
-    "href": "UD9/07-prueba-documentacion.html#probar-contra-fuentes-externas",
-    "title": "Probar, depurar y documentar",
-    "section": "",
-    "text": "// Fuente \"lenta\": baja el timeout a un valor imposible\n$cliente = new Client(['base_uri' =&gt; 'https://openlibrary.org', 'timeout' =&gt; 0.001]);\n// Fuente \"caída\": apunta a un host inexistente\n$cliente = new Client(['base_uri' =&gt; 'https://no-existe.invalid', 'timeout' =&gt; 3]);\n\n[2026-09-21 09:15:44] local.WARNING: Open Library caída: cURL error 6:\nCould not resolve host: no-existe.invalid",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>66</span>  <span class='chapter-title'>Probar, depurar y documentar</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/07-prueba-documentacion.html#depurar-estructuras-remotas",
-    "href": "UD9/07-prueba-documentacion.html#depurar-estructuras-remotas",
-    "title": "Probar, depurar y documentar",
-    "section": "Depurar estructuras remotas",
-    "text": "Depurar estructuras remotas\nEl JSON ajeno nunca tiene la forma que imaginas. Antes de recorrerlo, míralo:\n$datos = json_decode($r-&gt;getBody(), true);\ndd(array_keys($datos), $datos['docs'][0] ?? null);\narray:4 [ 0 =&gt; \"numFound\", 1 =&gt; \"start\", 2 =&gt; \"numFoundExact\", 3 =&gt; \"docs\" ]\narray:12 [ \"key\" =&gt; \"/works/OL20472W\", \"title\" =&gt; \"Laravel: Up & Running\", ... ]\ndd() corta la ejecución y muestra la estructura; dump() hace lo mismo sin cortar. Y storage/logs/laravel.log es la caja negra de todos los fallos de integración: acostúmbrate a tenerlo abierto en una pestaña del terminal con tail -f.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>66</span>  <span class='chapter-title'>Probar, depurar y documentar</span>"
-    ]
-  },
-  {
-    "objectID": "UD9/07-prueba-documentacion.html#documentar",
-    "href": "UD9/07-prueba-documentacion.html#documentar",
-    "title": "Probar, depurar y documentar",
-    "section": "Documentar",
-    "text": "Documentar\nPHPDoc en cada servicio y comando que toque fuentes externas:\n/**\n * Recupera la cartelera desde la fuente externa filtrada por género.\n *\n * @param  Request $request  Petición con el parámetro opcional \"genero\".\n * @return \\Illuminate\\View\\View  Vista con los resultados o mensaje de error.\n */\npublic function cartelera(Request $request)\nREADME del proyecto con lo mínimo que otro desarrollador (o tú en tres meses) necesita:\n## Dependencias\n- guzzlehttp/guzzle  — consumo de las fuentes externas\n- league/csv         — importación de datos abiertos\n- barryvdh/laravel-dompdf — exportación a PDF\n\n## Importaciones\nphp artisan importar:libros {tema}    # repositorio propio desde Open Library\nPor último, la trazabilidad de terceros: composer.lock versionado en Git y un ojo en los avisos de seguridad de tus dependencias (composer audit los lista).\ndocker compose exec web composer audit\nNo security vulnerability advisories found.",
-    "crumbs": [
-      "UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)",
-      "<span class='chapter-number'>66</span>  <span class='chapter-title'>Probar, depurar y documentar</span>"
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Proyecto: cuadro de mando</span>"
     ]
   }
 ]
