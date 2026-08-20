@@ -669,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD8/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD8/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD8. Generación dinámica de páginas Web</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -678,24 +678,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/v2/01-conceptos-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a>
+  <a href="../UD8/01-conceptos-fetch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conceptos clave: modelos de ejecución, tecnologías y fetch</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/v2/02-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
+  <a href="../UD8/02-verificacion-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verificación de formularios en dos capas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD8/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
+  <a href="../UD8/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto integrador: Aplicación web híbrida</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD9/v2/00-presentacion.html" class="sidebar-item-text sidebar-link">
+            <a href="../UD9/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD9. Aplicaciones Web híbridas: librerías y repositorios heterogéneos (Composer)</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -704,17 +704,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/v2/01-composer-guzzle-librerias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer, Guzzle y librerías de terceros</span></a>
+  <a href="../UD9/01-composer-guzzle-librerias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Composer, Guzzle y librerías de terceros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/v2/02-repositorios-propios-etl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
+  <a href="../UD9/02-repositorios-propios-etl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Crear repositorios propios: ETL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD9/v2/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto: cuadro de mando</span></a>
+  <a href="../UD9/03-proyecto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Proyecto: cuadro de mando</span></a>
   </div>
 </li>
       </ul>
@@ -732,6 +732,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#el-servidor-web" id="toc-el-servidor-web" class="nav-link active" data-scroll-target="#el-servidor-web">El servidor web</a></li>
   <li><a href="#el-servidor-de-aplicaciones" id="toc-el-servidor-de-aplicaciones" class="nav-link" data-scroll-target="#el-servidor-de-aplicaciones">El servidor de aplicaciones</a></li>
   <li><a href="#cómo-cooperan" id="toc-cómo-cooperan" class="nav-link" data-scroll-target="#cómo-cooperan">Cómo cooperan</a></li>
+  <li><a href="#el-balanceador-de-carga" id="toc-el-balanceador-de-carga" class="nav-link" data-scroll-target="#el-balanceador-de-carga">El balanceador de carga</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -762,7 +763,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En conversaciones informales se habla de «el servidor» como si fuera una única pieza. En la práctica, en una arquitectura web real suelen coexistir al menos dos tipos de servidor con responsabilidades distintas.</p>
 <section id="el-servidor-web" class="level2">
 <h2 class="anchored" data-anchor-id="el-servidor-web">El servidor web</h2>
-<p>El servidor web (Apache, Nginx, IIS) es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
+<p>El servidor web <strong>(Apache, Nginx, IIS)</strong> es el punto de entrada: recibe peticiones HTTP y decide qué hacer con ellas.</p>
 <p>Lo que sabe hacer solo:</p>
 <ul>
 <li>Devolver ficheros estáticos (HTML, CSS, imágenes, JS).</li>
@@ -780,7 +781,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Existen alternativas más recientes, como Caddy, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
+<p>Existen alternativas más recientes, como <strong>Caddy</strong>, que gestiona certificados HTTPS automáticamente sin configuración manual — una ventaja frente a Apache/Nginx, donde ese paso hay que montarlo aparte.</p>
 </div>
 </div>
 </section>
@@ -807,6 +808,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>   │</span>
 <span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>   ▼</span>
 <span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>Nginx devuelve la respuesta al navegador</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="el-balanceador-de-carga" class="level2">
+<h2 class="anchored" data-anchor-id="el-balanceador-de-carga">El balanceador de carga</h2>
+<p>En entornos de producción con alto tráfico, un solo servidor web no es suficiente. Se utiliza un componente de infraestructura llamado <strong>balanceador de carga</strong> (<em>Load Balancer</em>) como puerta de entrada a la red.</p>
+<ul>
+<li><p><strong>¿Qué hace?</strong> Recibe las peticiones de Internet y las distribuye entre varios servidores web (por ejemplo, dos instancias de Nginx) para que ninguno se sature. También comprueba si un servidor ha caído (<em>health check</em>) para dejar de enviarle tráfico.</p></li>
+<li><p><strong>¿Qué NO hace?</strong> No ejecuta código, no consulta bases de datos ni sirve ficheros estáticos. Opera a nivel de red/transporte (capas 4 y 7 OSI) enrutando paquetes de datos. Por tanto, <strong>no es ni un servidor web ni un servidor de aplicaciones</strong>.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>             Navegador / Cliente</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>                       │</span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>                       │  HTTP / HTTPS</span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>                       ▼</span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>             [ Balanceador de Carga ]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>            (Reparte el tráfico de red)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>                       │</span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>            ┌──────────┴──────────┐</span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>            ▼                     ▼</span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>        Nginx #1              Nginx #2</span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>    (Servidor Web)        (Servidor Web)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>        │     │               │     │</span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>        │     └───────┐       │     │</span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a>        ▼             ▼       ▼     ▼</span>
+<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a>  Estáticos       [ Pool PHP-FPM ]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-label="16"></a> (directo)        (Servidor Aplicaciones)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-label="17"></a>                      │</span>
+<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>                      ▼</span>
+<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a>                   MySQL</span>
+<span id="cb2-20"><a href="#cb2-20" aria-label="20"></a>               (Base de Datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -826,19 +855,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ejercicio">
 <p><strong>EJ3 · Identificación de roles en una arquitectura real</strong></p>
 <p>La siguiente arquitectura de producción tiene estos componentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>Internet</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>   │</span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>   ▼</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>Balanceador de carga</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>   │              │</span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>   ▼              ▼</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>   │</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>   ▼</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>   │</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>   ▼</span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a>Internet</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>   │</span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>   ▼</span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>Balanceador de carga</span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>   │              │</span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>   ▼              ▼</span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>Nginx #1       Nginx #2</span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>   │</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>   ▼</span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>PHP-FPM (pool de 3 procesos)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>   │</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a>   ▼</span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>MySQL</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Responde:</p>
 <ol type="1">
 <li>¿Qué componente actúa como <strong>servidor web</strong>?</li>
