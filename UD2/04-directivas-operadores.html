@@ -1020,19 +1020,17 @@ Warning: Division by zero in /var/www/html/test.php on line 5</code></pre>
 <span id="cb15-4"><a href="#cb15-4" aria-label="4"></a><span class="va">$unidades</span>     <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-label="5"></a><span class="va">$codigo_promo</span> <span class="op">=</span> <span class="st">"VERANO10"</span><span class="ot">;</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-label="6"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-label="7"></a><span class="co">// 1. Aplica 15% de descuento si $es_socio es true</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-label="8"></a><span class="co">//    Guarda el resultado en $precio_tras_socio</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-label="9"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-label="10"></a><span class="co">// 2. Aplica 10% adicional si $codigo_promo === "VERANO10"</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-label="11"></a><span class="co">//    (sobre el precio ya descontado, no sobre el base)</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-label="12"></a><span class="co">//    Guarda en $precio_tras_promo</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-label="7"></a><span class="co">// 1. Aplica 15% de descuento si es socio</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-label="8"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-label="9"></a><span class="co">// 2. Aplica 10% adicional si el código de la promoción es "VERANO10"</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-label="10"></a><span class="co">//    (sobre el precio ya descontado, no sobre el base)</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-label="11"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-label="12"></a><span class="co">// 3. Multiplica por $unidades y redondea a 2 decimales → $precio_final</span></span>
 <span id="cb15-13"><a href="#cb15-13" aria-label="13"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-label="14"></a><span class="co">// 3. Multiplica por $unidades y redondea a 2 decimales → $precio_final</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-label="15"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-label="16"></a><span class="co">// 4. Calcula $envio_gratis: true si (es socio Y más de 3 unidades)</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-label="17"></a><span class="co">//    O si el precio final supera 400 €</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-label="18"></a></span>
-<span id="cb15-19"><a href="#cb15-19" aria-label="19"></a><span class="co">// 5. Muestra todos los valores intermedios y el resultado final</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-14"><a href="#cb15-14" aria-label="14"></a><span class="co">// 4. Calcula $envio_gratis, que será true si (es socio y más de 3 unidades)</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-label="15"></a><span class="co">//    o si el precio final supera 400 €</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-label="16"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-label="17"></a><span class="co">// 5. Muestra todos los valores intermedios y el resultado final</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Resultado esperado:</p>
 <pre><code>Precio base:          120.00 €
 Tras descuento socio: 102.00 €

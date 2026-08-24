@@ -767,14 +767,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="qué-hace-el-servidor-con-un-archivo-php" class="level2">
 <h2 class="anchored" data-anchor-id="qué-hace-el-servidor-con-un-archivo-php">¿Qué hace el servidor con un archivo PHP?</h2>
 <p>El servidor recorre el archivo de arriba a abajo. Cuando encuentra HTML lo envía tal cual; cuando encuentra un bloque PHP lo ejecuta y envía el resultado. El navegador nunca ve código PHP.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="co">&lt;!-- archivo.php --&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Son las <span class="er">&lt;?</span><span class="co">php echo date("H:i:s"); ?&gt;</span>.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>El servidor tiene PHP <span class="er">&lt;?</span><span class="co">php echo PHP_VERSION; ?&gt;</span>.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="op">&lt;!--</span> archivo<span class="op">.</span>php <span class="op">-</span>-&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>  <span class="op">&lt;</span>p<span class="op">&gt;</span>Son las <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="fu">date</span>(<span class="st">"H:i:s"</span>)<span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>  <span class="op">&lt;</span>p<span class="op">&gt;</span>El servidor tiene <span class="cn">PHP</span> <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="cn">PHP_VERSION</span><span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Lo que recibe el navegador:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;

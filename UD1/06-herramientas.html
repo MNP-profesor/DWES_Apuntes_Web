@@ -775,8 +775,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="opción-b-docker-uso-de-contenedores" class="level2">
 <h2 class="anchored" data-anchor-id="opción-b-docker-uso-de-contenedores">Opción B — Docker (Uso de contenedores)</h2>
-<p><strong>Docker</strong> es un motor de contenedores: permite empaquetar una aplicación junto con todo lo que necesita para ejecutarse (sistema operativo base, dependencias, configuración) en una unidad aislada llamada <strong>contenedor</strong>. El contenedor se comporta igual en cualquier máquina, independientemente del sistema operativo del anfitrión.</p>
-<p><strong>Docker Compose</strong> es una herramienta que se construye sobre Docker y permite definir y orquestar varios contenedores a la vez mediante un único fichero de texto (<code>docker-compose.yml</code>). En lugar de lanzar cada contenedor manualmente con <code>docker run</code> (especificando imagen, puertos y volúmenes en la línea de comandos), con Compose defines todo eso en el fichero y levantas el entorno completo con un solo comando.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/02_docker_docker_compose.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li><p><strong>Docker</strong> es un motor de contenedores: permite empaquetar una aplicación junto con todo lo que necesita para ejecutarse (sistema operativo base, dependencias, configuración) en una unidad aislada llamada <strong>contenedor</strong>. El contenedor se comporta igual en cualquier máquina, independientemente del sistema operativo del anfitrión.</p></li>
+<li><p><strong>Docker Compose</strong> es una herramienta que se construye sobre Docker y permite definir y orquestar varios contenedores a la vez mediante un único fichero de texto (<code>docker-compose.yml</code>). En lugar de lanzar cada contenedor manualmente con <code>docker run</code> (especificando imagen, puertos y volúmenes en la línea de comandos), con Compose defines todo eso en el fichero y levantas el entorno completo con un solo comando.</p></li>
+</ol>
 <p>Para nuestros proyectos PHP, el fichero <code>docker-compose.yml</code> especifica:</p>
 <ul>
 <li>Qué imagen usar (<code>php:8.2-apache</code> — PHP con Apache ya integrado).</li>

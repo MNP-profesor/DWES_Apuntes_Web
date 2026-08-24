@@ -734,7 +734,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>EJ7 · Proyecto integrador: API REST completa</strong></p>
 <p>Sobre tu tienda de videojuegos, entrega una API que cumpla los cuatro requisitos:</p>
 <ol type="1">
-<li><p><strong>Tercer recurso.</strong> Añade un recurso relacionado con <code>Juego</code> que no aparezca en ningún capítulo de la unidad. De las siguientes dos opciones, <strong>elige una</strong>:</p>
+<li><p><strong>Tercer recurso.</strong> Añade un recurso relacionado con <code>Juego</code> que no aparezca en ninguna sección de la unidad. De las siguientes dos opciones, <strong>elige una</strong>:</p>
 <ul>
 <li><p><strong><code>Reseña</code> (relación 1:M) nueva</strong>: un juego tiene muchas reseñas, con puntuación y comentario.</p></li>
 <li><p><strong><code>Plataforma</code> (relación M:M con datos propios)</strong>: por ejemplo, <code>Plataforma</code> (PC, PS5, Xbox…) y una entidad intermedia, <code>PlataformaStock</code>, que registra el stock de cada juego en cada plataforma. Esta unidad no enseña <code>belongsToMany()</code> ni pivotes con datos propios. No te sirve una pivote clásica sin columnas. Constrúyela como una entidad normal: <code>id</code> autoincremental propio y dos <code>belongsTo()</code> (a <code>Juego</code> y a <code>Plataforma</code>). Dos requisitos que se derivan de esto:</p>
@@ -769,7 +769,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>Trocea el proyecto igual que la unidad: primero repasa que tu API de <code>Juego</code>/<code>Desarrollador</code> de EJ1-EJ6 esté completa y verificada, después añade el recurso nuevo con su propio ciclo (modelo → Resource → validación → Sanctum), y por último actualiza la colección Postman y el cliente PHP para que cubran también esa pieza. Cada trozo que termines, verifícalo en Postman antes de pasar al siguiente.</p>
-<p>La base (<code>Juego</code>, <code>Desarrollador</code>, autenticación) es tuya de EJ1-EJ6 — no hace falta rehacerla desde cero. Lo que <strong>no puedes</strong> resolver copiando ningún capítulo es el recurso nuevo del punto 1 ni sus <em>abilities</em> propias del punto 2: ahí es donde se demuestra que sabes trasladar el patrón por tu cuenta.</p>
+<p>La base (<code>Juego</code>, <code>Desarrollador</code>, autenticación) es tuya de EJ1-EJ6 — no hace falta rehacerla desde cero. Lo que <strong>no puedes</strong> resolver copiando ninguna sección es el recurso nuevo del punto 1 ni sus <em>abilities</em> propias del punto 2: ahí es donde se demuestra que sabes trasladar el patrón por tu cuenta.</p>
 </div>
 </div>
 
