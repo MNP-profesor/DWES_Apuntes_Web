@@ -818,27 +818,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Después de editar <code>php.ini</code>, reinicia Apache desde el panel de XAMPP para que el cambio surta efecto.</p>
 <p><strong>Editor (igual en los dos casos):</strong></p>
 <ol type="1">
-<li>Instala la extensión <strong>“PHP Debug”</strong> en VS Code (marketplace de extensiones).</li>
-<li><code>Ctrl+Shift+D</code> → “crear archivo launch.json” → elige “PHP” — VS Code genera la configuración por defecto, que suele funcionar sin tocar nada más.</li>
+<li><p>Instala la extensión <strong>“PHP Debug”</strong> en VS Code (marketplace de extensiones).</p></li>
+<li><p><code>Ctrl+Shift+D</code> → “crear archivo launch.json” → elige “PHP” — VS Code genera la configuración por defecto, que suele funcionar sin tocar nada más.</p></li>
 </ol>
 </section>
 <section id="usarlo-cada-vez-que-depures" class="level3">
 <h3 class="anchored" data-anchor-id="usarlo-cada-vez-que-depures">Usarlo (cada vez que depures)</h3>
 <ol start="3" type="1">
-<li>Clic a la izquierda del número de línea donde quieras parar (aparece un punto rojo).</li>
-<li><code>F5</code> para arrancar la depuración, y <strong>después</strong> haz la petición desde el navegador — el editor se para en tu punto de ruptura, mostrando el valor de cada variable en el panel lateral.</li>
+<li><p>Clic a la izquierda del número de línea donde quieras parar (aparece un punto rojo).</p></li>
+<li><p><code>F5</code> para arrancar la depuración, y <strong>después</strong> haz la petición desde el navegador — el editor se para en tu punto de ruptura, mostrando el valor de cada variable en el panel lateral.</p></li>
 </ol>
-<div class="callout callout-style-default callout-tip callout-titled" title="Practica con el ejemplo de al lado">
+<div class="callout callout-style-default callout-tip callout-titled" title="Practica con el ejemplo del login.php — versión con errores">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Practica con el ejemplo de al lado
+<span class="screen-reader-only">Tip</span>Practica con el ejemplo del login.php — versión con errores
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Antes de EJ15, prueba Xdebug sobre el <code>login.php</code> con los 3 fallos que tienes justo debajo: pon un punto de ruptura en la línea del <code>if ($usuario-&gt;verificarPassword(...))</code> y observa qué vale <code>$usuario</code> cuando el email no existe — verás en directo por qué revienta, sin necesidad de que te lo cuente el texto.</p>
+<p>Antes de EJ15, prueba Xdebug sobre el <code>login.php</code> con los 3 fallos que tienes justo debajo: pon un punto de ruptura en la línea del <code>if ($usuario-&gt;verificarPassword(...))</code> y observa qué vale <code>$usuario</code> cuando el email no existe — verás en directo por qué falla, sin necesidad de que te lo cuente el texto.</p>
 </div>
 </div>
 </section>
@@ -871,9 +871,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-16"><a href="#cb7-16" aria-label="16"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Proceso de diagnóstico, paso a paso:</p>
 <ol type="1">
-<li><strong>Síntoma</strong>: nada más cargar la página, PHP muestra un aviso “headers already sent” y la sesión no se guarda. <strong>Causa</strong>: el <code>echo "&lt;h1&gt;..."</code> en la línea (1) envía salida antes de <code>session_start()</code>. <strong>Corrección</strong>: mover <code>session_start()</code> a la primera línea del script.</li>
-<li><strong>Síntoma</strong>: con un email que no existe, la página da un error fatal en vez de mostrar “Credenciales incorrectas”. <strong>Causa</strong>: en la línea (2), si <code>buscarPorEmail()</code> devuelve <code>null</code>, llamar a <code>$usuario-&gt;verificarPassword()</code> sobre <code>null</code> revienta el script. <strong>Corrección</strong>: comprobar <code>$usuario !== null</code> antes de usarlo, exactamente como en la de login y registro.</li>
-<li><strong>Síntoma</strong>: tras un login correcto, el navegador no redirige, y además puede aparecer un error “headers already sent” en la línea del <code>header()</code>. <strong>Causa</strong>: falta <code>exit;</code> después del <code>header()</code> en la línea (3), y además el <code>echo 'Redirigiendo...'</code> intenta escribir salida después de haber llamado a <code>header()</code>. <strong>Corrección</strong>: añadir <code>exit;</code> justo después del <code>header()</code> y quitar ese <code>echo</code>.</li>
+<li><p><strong>Síntoma</strong>: nada más cargar la página, PHP muestra un aviso “headers already sent” y la sesión no se guarda. <strong>Causa</strong>: el <code>echo "&lt;h1&gt;..."</code> en la línea (1) envía salida antes de <code>session_start()</code>. <strong>Corrección</strong>: mover <code>session_start()</code> a la primera línea del script.</p></li>
+<li><p><strong>Síntoma</strong>: con un email que no existe, la página da un error fatal en vez de mostrar “Credenciales incorrectas”. <strong>Causa</strong>: en la línea (2), si <code>buscarPorEmail()</code> devuelve <code>null</code>, llamar a <code>$usuario-&gt;verificarPassword()</code> sobre <code>null</code> revienta el script. <strong>Corrección</strong>: comprobar <code>$usuario !== null</code> antes de usarlo, exactamente como en la de login y registro.</p></li>
+<li><p><strong>Síntoma</strong>: tras un login correcto, el navegador no redirige, y además puede aparecer un error “headers already sent” en la línea del <code>header()</code>. <strong>Causa</strong>: falta <code>exit;</code> después del <code>header()</code> en la línea (3), y además el <code>echo 'Redirigiendo...'</code> intenta escribir salida después de haber llamado a <code>header()</code>. <strong>Corrección</strong>: añadir <code>exit;</code> justo después del <code>header()</code> y quitar ese <code>echo</code>.</p></li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="co">// login.php — corregido</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span> <span class="co">// (1) corregido: primera línea, sin salida antes</span></span>
@@ -954,16 +954,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Construye una pequeña aplicación que combine, en un único flujo coherente, todo lo trabajado en esta unidad. Puedes —y debes— reutilizar el código de ejercicios anteriores en vez de escribirlo desde cero: lo que se evalúa aquí es que todas las piezas encajen entre sí, no que cada pieza sea nueva.</p>
 <p>Debe incluir:</p>
 <ol type="1">
-<li><strong>Registro</strong>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email y que no exista ya.</li>
-<li><strong>Login</strong>: valida credenciales con <code>password_verify()</code> e inicia sesión regenerando el ID.</li>
-<li><strong>Una preferencia en cookie</strong>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</li>
-<li><strong>Panel protegido</strong>: una página solo accesible con sesión activa, que redirige a login si no la hay.</li>
+<li><p><strong>Registro</strong>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email y que no exista ya.</p></li>
+<li><p><strong>Login</strong>: valida credenciales con <code>password_verify()</code> e inicia sesión regenerando el ID.</p></li>
+<li><p><strong>Una preferencia en cookie</strong>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</p></li>
+<li><p><strong>Panel protegido</strong>: una página solo accesible con sesión activa, que redirige a login si no la hay.</p></li>
 </ol>
 </div>
 </section>
 <section id="cierre-de-la-unidad" class="level2">
 <h2 class="anchored" data-anchor-id="cierre-de-la-unidad">Cierre de la unidad</h2>
-<p>Con esto tienes todo lo necesario para construir una aplicación web con estado: clases bien diseñadas, sesiones para el estado activo, cookies para lo persistente, contraseñas cifradas correctamente y control de acceso por roles. Es exactamente la base sobre la que trabajarás en la siguiente unidad, donde este mismo código se reorganiza usando un framework (Laravel) en lugar de escribirlo a mano.</p>
+<p>Con esto tienes todo lo necesario para construir una aplicación web con estado: clases bien diseñadas, sesiones para el estado activo, cookies para lo persistente, contraseñas cifradas correctamente y control de acceso por roles.</p>
+<p>Es exactamente la base sobre la que trabajarás en la siguiente unidad, donde este mismo código se reorganiza usando un framework (Laravel) en lugar de escribirlo a mano.</p>
 
 
 </section>
