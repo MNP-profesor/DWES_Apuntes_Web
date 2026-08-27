@@ -732,13 +732,19 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<p>El proyecto exige aplicar juntas las dos técnicas de la unidad — obtención remota con <code>fetch</code> autenticado y verificación de formularios en dos capas — sobre la API de la UD7.</p>
+<p>El proyecto exige aplicar juntas las dos técnicas de la unidad:</p>
+<ul>
+<li><p>Obtención remota con <strong><code>fetch</code> autenticado</strong>.</p></li>
+<li><p><strong>Verificación de formularios en dos capas</strong> (sobre la API de la UD7).</p></li>
+</ul>
 <div class="ejercicio">
-<p><strong>EJ1 · Proyecto integrador: “Mi cartelera conectada”</strong> — CE8.d, CE8.e, CE8.g</p>
+<p><strong>EJ1 · Proyecto integrador: “Mi cartelera conectada”</strong></p>
 <p>Construye una aplicación web híbrida, en PHP nativo más JavaScript básico, conectada a tu API de la UD7, que cumpla los siguientes requisitos:</p>
-<p><strong>R1 — Obtención remota (CE8.d).</strong> La página principal, generada con PHP, carga mediante <code>fetch</code> el listado del recurso principal de tu API con autenticación Sanctum, distinguiendo el error 401 (token inválido) del error de red.</p>
-<p><strong>R2 — Verificación en dos capas (CE8.e).</strong> Un formulario de alta o de comentario validado en cliente (HTML5 + Constraint Validation API) y en servidor (endpoint con respuesta 201/422), con los errores del servidor pintados campo a campo.</p>
-<p><strong>R3 — Aplicación integrada (CE8.g).</strong> Las dos piezas integradas en una única aplicación coherente, con el código comentado y una <strong>memoria breve</strong> (una cara) que indique qué se ejecuta en el servidor, qué en el cliente y por qué.</p>
+<ul>
+<li><p><strong>R1 — Obtención remota.</strong> La página principal, generada con PHP, carga mediante <code>fetch</code> el listado del recurso principal de tu API con autenticación Sanctum, distinguiendo el error 401 (token inválido) del error de red.</p></li>
+<li><p><strong>R2 — Verificación en dos capas.</strong> Un formulario de alta o de comentario validado en cliente (HTML5 + Constraint Validation API) y en servidor (endpoint con respuesta 201/422), con los errores del servidor pintados campo a campo.</p></li>
+<li><p><strong>R3 — Aplicación integrada.</strong> Las dos piezas integradas en una única aplicación coherente y con el código comentado.</p></li>
+</ul>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Entrega">
 <div class="callout-header d-flex align-content-center">
@@ -750,7 +756,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Enlace a GitHub con la aplicación y la memoria (obligatoria).</p>
+<p>Enlace a GitHub con la aplicación.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Requisito previo">
@@ -763,7 +769,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>API de la UD7 operativa con al menos un token válido. Quien no la conserve funcional dispondrá del proyecto de referencia del docente.</p>
+<p>API de la UD7 operativa con al menos un token válido.</p>
 </div>
 </div>
 

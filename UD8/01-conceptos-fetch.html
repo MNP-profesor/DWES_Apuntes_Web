@@ -777,12 +777,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="dos-modelos-una-sola-aplicación" class="level2">
 <h2 class="anchored" data-anchor-id="dos-modelos-una-sola-aplicación">Dos modelos, una sola aplicación</h2>
-<p>En una aplicación web moderna, el servidor y el cliente colaboran:</p>
+<p>En una aplicación web moderna, el <strong>servidor y el cliente colaboran</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ciclo-basico.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 <ul>
-<li><strong>PHP genera la página</strong> (estructura HTML, datos iniciales, lógica de negocio, seguridad).</li>
-<li><strong>JavaScript en el navegador</strong> obtiene datos adicionales y actualiza la página sin recargar.</li>
+<li><p><strong>PHP genera la página</strong> (estructura HTML, datos iniciales, lógica de negocio, seguridad).</p></li>
+<li><p><strong>JavaScript en el navegador</strong> obtiene datos adicionales y actualiza la página sin recargar.</p></li>
 </ul>
-<p>La separación es nítida: el servidor <strong>decide qué datos</strong> se muestran y aplica las reglas de negocio; el cliente <strong>decide cómo</strong> se presentan y gestiona la interacción inmediata. Ninguno puede sustituir al otro: sin servidor no hay seguridad real; sin cliente no hay fluidez.</p>
+<p><strong>La separación es clara:</strong> el servidor <strong>decide qué datos</strong> se muestran y aplica las reglas de negocio; el cliente <strong>decide cómo</strong> se presentan y gestiona la interacción inmediata. Ninguno puede sustituir al otro: sin servidor no hay seguridad real; sin cliente no hay fluidez.</p>
 <section id="tecnologías-principales" class="level3">
 <h3 class="anchored" data-anchor-id="tecnologías-principales">Tecnologías principales</h3>
 <table class="caption-top table">
@@ -821,6 +826,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/mapa-tecno.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -906,7 +916,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>CORS.</strong> Si la página se sirve desde un puerto y la API desde otro, el navegador bloqueará la respuesta. Laravel trae el middleware CORS configurable en <code>config/cors.php</code>. Basta con reconocer el error en consola y saber dónde se autoriza el origen.</p>
+<ul>
+<li><p><strong>CORS.</strong> Si la página se sirve desde un puerto y la API desde otro, el navegador bloqueará la respuesta.</p></li>
+<li><p>Laravel trae el <em>middleware CORS</em> configurable en <code>config/cors.php</code>. Basta con reconocer el error en consola y saber dónde se autoriza el origen.</p></li>
+</ul>
 </div>
 </div>
 </section>
