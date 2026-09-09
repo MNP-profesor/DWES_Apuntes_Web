@@ -836,14 +836,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">FROM</span> php:8.4-cli</span>
 <span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="co"># Base PHP (sin Apache, se arranca con 'php artisan serve')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-label="3"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="kw">RUN</span> <span class="ex">docker-php-ext-install</span> pdo_mysql</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="co"># Extensión para conectar con MySQL; sin ella, "could not find driver"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a><span class="kw">COPY</span> <span class="op">--from=composer:2</span> /usr/bin/composer /usr/bin/composer</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a><span class="co"># Copia el binario de Composer desde su imagen oficial</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="kw">WORKDIR</span> /var/www/html</span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a><span class="co"># Carpeta de trabajo dentro del contenedor</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> unzip</span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="co"># Necesario para que Composer descomprima paquetes dentro de este contenedor</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a><span class="co"># (composer install/require); sin esto falla con "zip extension... missing"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a><span class="kw">RUN</span> <span class="ex">docker-php-ext-install</span> pdo_mysql</span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a><span class="co"># Extensión para conectar con MySQL; sin ella, "could not find driver"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a><span class="kw">COPY</span> <span class="op">--from=composer:2</span> /usr/bin/composer /usr/bin/composer</span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a><span class="co"># Copia el binario de Composer desde su imagen oficial</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a><span class="kw">WORKDIR</span> /var/www/html</span>
+<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a><span class="co"># Carpeta de trabajo dentro del contenedor</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>docker-compose.yml</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> ud5-teoria-agenda</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="co"># Prefijo de todos los contenedores/red/volúmenes de este proyecto.</span></span>
@@ -960,6 +964,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-22"><a href="#cb5-22" aria-label="22"></a><span class="co"># servicio 'db'. Necesita que 'db' ya esté arrancado y aceptando</span></span>
 <span id="cb5-23"><a href="#cb5-23" aria-label="23"></a><span class="co"># conexiones (por eso depends_on en el compose, aunque no garantiza</span></span>
 <span id="cb5-24"><a href="#cb5-24" aria-label="24"></a><span class="co"># que MySQL esté "listo", solo que el contenedor está iniciado).</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Modifica el fichero <code>.env</code> para que las variables <code>DB_CONNECTION</code>, <code>DB_HOST</code>, <code>DB_DATABASE</code>, <code>DB_USERNAME</code> y <code>DB_PASSWORD</code> queden alineadas con el fichero <code>docker-compose.yml</code>.</p>
+</div>
+</div>
 <p>Abre <code>http://localhost:8000</code>: verás la página de bienvenida de Laravel. Ya tienes una aplicación MVC funcionando.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
@@ -971,7 +988,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si al arrancar ves <code>could not find driver</code> al usar la base de datos, revisa que el <code>Dockerfile</code> tiene la línea <code>RUN docker-php-ext-install pdo_mysql</code> y que reconstruiste la imagen con <code>--build</code> después de añadirla — la imagen base <code>php:8.4-cli</code> no la trae de serie.</p>
+<p>Si al arrancar ves <code>could not find driver</code> al usar la base de datos, revisa que el <code>Dockerfile</code> tiene la línea <code>RUN docker-php-ext-install pdo_mysql</code> y que reconstruiste la imagen con <code>--build</code> después de añadirla (la imagen base <code>php:8.4-cli</code> no la trae de serie).</p>
 </div>
 </div>
 </section>
@@ -1081,7 +1098,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a>Route::get(<span class="st">'/nombre'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; config(<span class="st">'app.name'</span>))<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Visitando <code>http://localhost:8000/nombre</code>:</p>
 <pre><code>Agenda DAW</code></pre>
-<p>La cadena completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Agenda DAW')</code>) → <code>config('app.name')</code> en tu código.</p>
+<p>La ruta completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Agenda DAW')</code>) → <code>config('app.name')</code> en tu código.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1093,10 +1110,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Llamar a <code>env('APP_NAME')</code> desde un controlador o una vista. Esto funciona hasta que en producción se cachea la configuración (<code>php artisan config:cache</code>) y <code>env()</code> empieza a devolver <code>null</code> fuera de <code>config/</code>. Regla: <code>env()</code> <strong>solo</strong> dentro de <code>config/</code>; en tu código, <strong>siempre</strong> <code>config()</code>.</li>
-<li>Editar <code>.env</code> y no ver el cambio: reinicia el contenedor (<code>docker compose restart web</code>) y, si cacheaste, <code>docker compose exec web php artisan config:clear</code>.</li>
-<li>Subir <code>.env</code> al repositorio. Contiene credenciales; por eso Laravel lo incluye en <code>.gitignore</code>.</li>
-<li>Poner las credenciales de base de datos directamente en <code>.env</code> en vez de en el <code>docker-compose.yml</code> (<code>environment:</code>) cuando trabajas con Docker: si algún día compartes el proyecto, es fácil olvidar que <code>.env</code> también tiene que coincidir con lo que definiste en el compose.</li>
+<li><p>Llamar a <code>env('APP_NAME')</code> desde un controlador o una vista. Esto funciona hasta que en producción se cachea la configuración (<code>php artisan config:cache</code>) y <code>env()</code> empieza a devolver <code>null</code> fuera de <code>config/</code>. Regla: <code>env()</code> <strong>solo</strong> dentro de <code>config/</code>; en tu código, <strong>siempre</strong> <code>config()</code>.</p></li>
+<li><p>Editar <code>.env</code> y no ver el cambio: reinicia el contenedor (<code>docker compose restart web</code>) y, si cacheaste, <code>docker compose exec web php artisan config:clear</code>.</p></li>
+<li><p>Subir <code>.env</code> al repositorio. Contiene credenciales; por eso Laravel lo incluye en <code>.gitignore</code>.</p></li>
+<li><p>Poner las credenciales de base de datos directamente en <code>.env</code> en vez de en el <code>docker-compose.yml</code> (<code>environment:</code>) cuando trabajas con Docker: si algún día compartes el proyecto, es fácil olvidar que <code>.env</code> también tiene que coincidir con lo que definiste en el compose.</p></li>
 </ul>
 </div>
 </div>
