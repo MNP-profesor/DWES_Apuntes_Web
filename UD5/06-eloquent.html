@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-463e026481d670de7fe58ee1d1326bb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -735,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#consultas-desde-la-consola-interactiva-php-artisan-tinker" id="toc-consultas-desde-la-consola-interactiva-php-artisan-tinker" class="nav-link" data-scroll-target="#consultas-desde-la-consola-interactiva-php-artisan-tinker">Consultas desde la consola interactiva <code>php artisan tinker</code></a></li>
   <li><a href="#comprobación-consultando-directamente-la-base-de-datos-mysql" id="toc-comprobación-consultando-directamente-la-base-de-datos-mysql" class="nav-link" data-scroll-target="#comprobación-consultando-directamente-la-base-de-datos-mysql">Comprobación consultando directamente la base de datos <code>MySQL</code></a></li>
   </ul></li>
-  <li><a href="#práctica-guiada-no-evaluable-la-agenda-con-modelo-real" id="toc-práctica-guiada-no-evaluable-la-agenda-con-modelo-real" class="nav-link" data-scroll-target="#práctica-guiada-no-evaluable-la-agenda-con-modelo-real">Práctica guiada (no evaluable): la agenda con Modelo real</a></li>
+  <li><a href="#práctica-guiada-la-agenda-con-modelo-real" id="toc-práctica-guiada-la-agenda-con-modelo-real" class="nav-link" data-scroll-target="#práctica-guiada-la-agenda-con-modelo-real">Práctica guiada: la agenda con Modelo real</a></li>
   </ul>
 </nav>
     </div>
@@ -911,8 +911,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="práctica-guiada-no-evaluable-la-agenda-con-modelo-real" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-guiada-no-evaluable-la-agenda-con-modelo-real">Práctica guiada (no evaluable): la agenda con Modelo real</h2>
+<section id="práctica-guiada-la-agenda-con-modelo-real" class="level2">
+<h2 class="anchored" data-anchor-id="práctica-guiada-la-agenda-con-modelo-real">Práctica guiada: la agenda con Modelo real</h2>
 <p>Objetivo: sustituir el array en memoria por <code>Contacto</code> <strong>sin tocar ni una línea de las vistas</strong>. Si las capas están bien separadas, la presentación no debe enterarse del cambio.</p>
 <ol type="1">
 <li><p>Crea modelo y migración como arriba, y ejecútala.</p></li>
@@ -934,8 +934,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-14"><a href="#cb18-14" aria-label="14"></a>    <span class="co">// Modificación a realizar</span></span>
 <span id="cb18-15"><a href="#cb18-15" aria-label="15"></a>    <span class="va">$contactos</span> <span class="op">=</span> Contacto::when(<span class="va">$q</span> <span class="op">!==</span> <span class="st">''</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="va">$query</span>) =&gt;</span>
 <span id="cb18-16"><a href="#cb18-16" aria-label="16"></a>            <span class="va">$query</span>-&gt;where(<span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'like'</span><span class="ot">,</span> <span class="st">"%</span><span class="va">$q</span><span class="st">%"</span>))</span>
-<span id="cb18-17"><a href="#cb18-17" aria-label="17"></a>        -&gt;orderBy(<span class="st">'nombre'</span>)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-label="18"></a>        -&gt;get()<span class="ot">;</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-label="17"></a>                  -&gt;orderBy(<span class="st">'nombre'</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-label="18"></a>                  -&gt;get()<span class="ot">;</span></span>
 <span id="cb18-19"><a href="#cb18-19" aria-label="19"></a></span>
 <span id="cb18-20"><a href="#cb18-20" aria-label="20"></a>    <span class="cf">return</span> view(<span class="st">'contactos.index'</span><span class="ot">,</span> <span class="fu">compact</span>(<span class="st">'contactos'</span><span class="ot">,</span> <span class="st">'q'</span>))<span class="ot">;</span></span>
 <span id="cb18-21"><a href="#cb18-21" aria-label="21"></a>}</span>
@@ -968,9 +968,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-48"><a href="#cb18-48" aria-label="48"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li><p>Realiza los ajustes necesarios en las vistas: Por ejemplo, cuando antes accedías como array (<code>$c['nombre']</code>), ahora es un objeto (<code>$c-&gt;nombre</code>). Idem para el <code>tlf</code> y el <code>id</code>.</p></li>
-<li><p>Comprueba que el listado, búsqueda, tarjeta (ficha) y alta siguen funcionando igual. Verifica ahora que los contactos <strong>persisten</strong> al reinicio del servidor. Esa es la evidencia definitiva de que Modelo, Vista y Controlador están de verdad separados.</p></li>
+<li><p>Comprueba que el listado, búsqueda, tarjeta (ficha) y alta siguen funcionando igual. <strong>Verifica que los contactos persisten</strong> al reinicio del servidor. Esa es la evidencia de que Modelo, Vista y Controlador están de verdad separados.</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-label="1"></a><span class="ex">docker</span> compose restart web   <span class="co"># reinicia; los contactos siguen ahí</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-label="1"></a><span class="ex">docker</span> compose restart web   <span class="co"># reinicia y comprueba que los contactos persisten</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Posibles problemas">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

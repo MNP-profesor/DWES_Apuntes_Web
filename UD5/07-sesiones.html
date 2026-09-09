@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-463e026481d670de7fe58ee1d1326bb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -773,7 +773,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Este bloque trabaja <strong>CE5.f</strong>: aplicaciones web con mantenimiento de estado y separación de la lógica de negocio.</p>
 </div>
 </div>
-<p>HTTP no recuerda nada entre peticiones. En la UD4 mantuviste el estado a mano con <code>session_start()</code> y <code>$_SESSION</code>; con Laravel es muy distinto, ya que la sesión ya está abierta en cada petición y se accede con una interfaz única.</p>
+<p>HTTP no recuerda nada entre peticiones. En la UD4 mantuviste el estado a mano con <code>session_start()</code> y <code>$_SESSION</code>. Con Laravel es muy distinto, ya que la sesión ya está abierta en cada petición y se accede con una interfaz única.</p>
 <section id="la-api-de-sesión-con-ejemplos" class="level2">
 <h2 class="anchored" data-anchor-id="la-api-de-sesión-con-ejemplos">La API de sesión, con ejemplos</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="co">// Guardar</span></span>
@@ -895,7 +895,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="op">&lt;</span>form method<span class="op">=</span><span class="st">"POST"</span> action<span class="op">=</span><span class="st">"{{ route('favoritos.toggle', </span><span class="va">$c</span>-&gt;id<span class="st">) }}"</span><span class="op">&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="pp">@</span>csrf</span>
 <span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>    <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span><span class="op">&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>        {{ <span class="fu">in_array</span>(<span class="va">$c</span>-&gt;id<span class="ot">,</span> session(<span class="st">'favoritos'</span><span class="ot">,</span> [])) <span class="ot">?</span> <span class="st">'★ Quitar'</span> <span class="ot">:</span> <span class="st">'☆ Favorito'</span> }}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>        {{ <span class="fu">in_array</span>(<span class="va">$c</span>-&gt;id<span class="ot">,</span> session(<span class="st">'favoritos'</span><span class="ot">,</span> [])) <span class="ot">?</span> <span class="st">'Quitar'</span> <span class="ot">:</span> <span class="st">'Favorito'</span> }}</span>
 <span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>    <span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -931,7 +931,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-16"><a href="#cb7-16" aria-label="16"></a></span>
 <span id="cb7-17"><a href="#cb7-17" aria-label="17"></a>                <span class="op">&lt;</span>form method<span class="op">=</span><span class="st">"POST"</span> action<span class="op">=</span><span class="st">"{{ route('favoritos.toggle', </span><span class="va">$c</span>-&gt;id<span class="st">) }}"</span><span class="op">&gt;</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-label="18"></a>                    <span class="pp">@</span>csrf</span>
-<span id="cb7-19"><a href="#cb7-19" aria-label="19"></a>                    <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span><span class="op">&gt;</span>★ Quitar<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-label="19"></a>                    <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span><span class="op">&gt;</span>Quitar<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
 <span id="cb7-20"><a href="#cb7-20" aria-label="20"></a>                <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-label="21"></a>            <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
 <span id="cb7-22"><a href="#cb7-22" aria-label="22"></a>        <span class="pp">@</span><span class="cf">endforeach</span></span>
@@ -972,7 +972,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Pulsar “Vaciar favoritos”</td>
-<td><code>✔ Favoritos vaciados</code> y menú: <code>Favoritos (0)</code></td>
+<td><code>Favoritos vaciados</code> y menú: <code>Favoritos (0)</code></td>
 </tr>
 <tr class="even">
 <td>Cerrar el navegador y volver</td>

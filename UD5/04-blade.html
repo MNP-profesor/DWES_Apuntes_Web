@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-463e026481d670de7fe58ee1d1326bb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -790,7 +790,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Hola {{ <span class="va">$nombre</span> }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">=</span> {{ <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Hoy es {{ <span class="fu">date</span>(<span class="st">'d/m/Y'</span>) }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La diferencia importante con un comentario HTML normal (<!-- texto -->):</p>
+<p>La <strong>diferencia importante con un comentario HTML normal</strong> (<!-- texto -->):</p>
 <ul>
 <li><!-- -->
 SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver código fuente” ahí está.</li>
@@ -829,7 +829,7 @@ SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver códi
 </section>
 <section id="directivas-de-control" class="level2">
 <h2 class="anchored" data-anchor-id="directivas-de-control">Directivas de control</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>{{<span class="op">--</span> fragmento de aprendizaje — el fichero completo<span class="ot">,</span> con el layout<span class="ot">,</span> lo verás más abajo <span class="op">--</span>}}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>{{<span class="op">--</span> Fragmento parcial<span class="ot">,</span> el completo<span class="ot">,</span> con el layout<span class="ot">,</span> lo verás más abajo <span class="op">--</span>}}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>))</span>
@@ -902,7 +902,7 @@ SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver códi
 </section>
 <section id="la-vista-de-la-ficha-show" class="level2">
 <h2 class="anchored" data-anchor-id="la-vista-de-la-ficha-show">La vista de la ficha (<code>show</code>)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a>{{<span class="op">--</span> fragmento de aprendizaje — el fichero completo<span class="ot">,</span> con el layout<span class="ot">,</span> lo verás más abajo <span class="op">--</span>}}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a>{{<span class="op">--</span> Fragmento parcial<span class="ot">,</span> el completo<span class="ot">,</span> con el layout<span class="ot">,</span> lo verás más abajo <span class="op">--</span>}}</span>
 <span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="pp">@</span><span class="cf">if</span> (<span class="va">$contacto</span> <span class="op">===</span> <span class="kw">null</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Contacto no encontrado<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-label="4"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>No existe ningún contacto con id {{ <span class="va">$id</span> }}<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
@@ -926,11 +926,11 @@ SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver códi
 <tbody>
 <tr class="odd">
 <td><code>/contactos/2</code></td>
-<td><code>Marc — Teléfono: 600333444</code> y enlace de vuelta</td>
+<td><code>Marc</code><br><code>Teléfono: 600333444</code><br>Enlace <code>Volver al listado</code></td>
 </tr>
 <tr class="even">
 <td><code>/contactos/99</code></td>
-<td><code>Contacto no encontrado — No existe ningún contacto con id 99</code></td>
+<td><code>Contacto no encontrado</code><br><code>No existe ningún contacto con id 99</code><br>Enlace <code>Volver al listado</code></td>
 </tr>
 </tbody>
 </table>
@@ -954,6 +954,19 @@ SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver códi
 <span id="cb12-14"><a href="#cb12-14" aria-label="14"></a>    <span class="op">&lt;</span>footer<span class="op">&gt;</span><span class="er">2</span>º <span class="cn">DAW</span> <span class="op">|</span> <span class="cn">DWES</span><span class="op">&lt;/</span>footer<span class="op">&gt;</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-label="15"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
 <span id="cb12-16"><a href="#cb12-16" aria-label="16"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Nota">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>{{ $slot }}</strong> representa el contenido principal o por defecto que se inyecta dentro de un componente Blade.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1014,10 +1027,14 @@ SÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver códi
 <span id="cb16-2"><a href="#cb16-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Compáralo con el <code>&lt;x-layout titulo="Listado de contactos"&gt;</code> de la vista anterior: aquí lleva <strong>dos puntos delante</strong> (<code>:titulo</code>, no <code>titulo</code>). La diferencia:</p>
 <ul>
-<li><strong>Sin <code>:</code></strong> (<code>titulo="Listado de contactos"</code>): el atributo es texto literal, tal cual está escrito entre comillas.</li>
-<li><strong>Con <code>:</code></strong> (<code>:titulo="$contacto[...]"</code>): lo de dentro de las comillas se evalúa como una <strong>expresión PHP</strong>, no como texto. Sin los dos puntos, el componente recibiría literalmente el string <code>"$contacto['nombre'] ?? 'Contacto no encontrado'"</code> en vez de su valor.</li>
+<li><p><strong>Sin <code>:</code></strong> (<code>titulo="Listado de contactos"</code>): el atributo es texto literal, tal cual está escrito entre comillas.</p></li>
+<li><p><strong>Con <code>:</code></strong> (<code>:titulo="$contacto[...]"</code>): lo de dentro de las comillas se evalúa como una <strong>expresión PHP</strong>, no como texto. Sin los dos puntos, el componente recibiría literalmente el string <code>"$contacto['nombre'] ?? 'Contacto no encontrado'"</code> en vez de su valor.</p></li>
 </ul>
-<p>Regla práctica: si lo que pasas es un texto fijo que escribes tú mismo, sin <code>:</code>; si es una variable, una propiedad de array/objeto, o cualquier expresión PHP, con <code>:</code>.</p>
+<p><strong>Regla práctica:</strong></p>
+<ul>
+<li><p>Si lo que pasas es un texto fijo que escribes tú mismo, sin <code>:</code></p></li>
+<li><p>Si es una variable, una propiedad de array/objeto, o cualquier expresión PHP, con <code>:</code>.</p></li>
+</ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb17-1"><a href="#cb17-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>show<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
 <span id="cb17-2"><a href="#cb17-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-label="3"></a></span>

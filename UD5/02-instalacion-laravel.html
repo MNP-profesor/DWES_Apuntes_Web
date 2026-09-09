@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-463e026481d670de7fe58ee1d1326bb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -807,7 +807,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Composer es el Maven/Gradle de PHP, con una diferencia práctica: las dependencias se instalan <strong>dentro del proyecto</strong> (<code>vendor/</code>), no en un repositorio local compartido. Cada proyecto lleva las suyas.</p>
 </div>
 </div>
-<p>Con Docker no necesitas instalar Composer en tu equipo en absoluto: usas la imagen oficial de Composer solo para el momento puntual de crear el proyecto, y a partir de ahí <code>composer install</code>/<code>composer require</code> se ejecutan <strong>dentro del contenedor</strong>.</p>
+<p><strong>Con Docker no necesitas instalar Composer en tu equipo</strong>: usas la imagen oficial de Composer solo para el momento puntual de crear el proyecto, y a partir de ahí <code>composer install</code>/<code>composer require</code> se ejecutan <strong>dentro del contenedor</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -830,7 +830,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="los-dos-ficheros-que-necesita-todo-proyecto-laravel-con-docker" class="level2">
 <h2 class="anchored" data-anchor-id="los-dos-ficheros-que-necesita-todo-proyecto-laravel-con-docker">Los dos ficheros que necesita todo proyecto Laravel con Docker</h2>
-<p>A diferencia de los ejercicios PHP nativos de unidades anteriores, un proyecto Laravel necesita <code>composer install</code> <strong>dentro</strong> del contenedor y arranca con <code>php artisan serve</code>, no con Apache. Estos dos ficheros, en la raíz del proyecto, son la plantilla que reutilizarás en toda la unidad (y en UD7/UD9) — para la teoría, con <code>agenda</code>:</p>
+<p>A diferencia de los ejercicios PHP nativos de unidades anteriores, un proyecto Laravel necesita <code>composer install</code> <strong>dentro</strong> del contenedor y arranca con <code>php artisan serve</code>, no con Apache.</p>
+<p>Estos dos ficheros, en la raíz del proyecto, son la plantilla que reutilizarás en toda la unidad (y en UD7/UD9). Para la teoría, con <code>agenda</code>:</p>
 <p><code>Dockerfile</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">FROM</span> php:8.4-cli</span>
 <span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="co"># Base PHP (sin Apache, se arranca con 'php artisan serve')</span></span>
@@ -931,7 +932,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Para los <strong>ejercicios</strong> de esta unidad (EJ1-EJ6), crea un segundo proyecto aparte con el mismo patrón, cambiando solo el nombre:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/app"</span> composer create-project laravel/laravel prestamos</span>
 <span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="bu">cd</span> prestamos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>y en su <code>docker-compose.yml</code>: <code>name: ud5-prestamo-videojuegos</code>, <code>DB_DATABASE=prestamos</code> (en los dos sitios donde aparece: <code>environment</code> del servicio <code>web</code> y del servicio <code>db</code>), y en el volumen nombrado: <code>prestamos_db_data</code> en vez de <code>agenda_db_data</code> (tanto en <code>volumes:</code> de <code>db</code> como en el bloque final <code>volumes:</code> del fichero). No mezcles los dos proyectos — la agenda es solo para reproducir los ejemplos de teoría, nunca se entrega.</p>
+<p>y en su <code>docker-compose.yml</code>: <code>name: ud5-prestamo-videojuegos</code>, <code>DB_DATABASE=prestamos</code> (en los dos sitios donde aparece: <code>environment</code> del servicio <code>web</code> y del servicio <code>db</code>), y en el volumen nombrado: <code>prestamos_db_data</code> en vez de <code>agenda_db_data</code> (tanto en <code>volumes:</code> de <code>db</code> como en el bloque final <code>volumes:</code> del fichero). No mezcles los dos proyectos. La agenda es solo para reproducir los ejemplos de teoría.</p>
 </div>
 </div>
 <p>Arranca y termina la instalación <strong>dentro</strong> del contenedor:</p>
@@ -1080,7 +1081,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a>Route::get(<span class="st">'/nombre'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; config(<span class="st">'app.name'</span>))<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Visitando <code>http://localhost:8000/nombre</code>:</p>
 <pre><code>Agenda DAW</code></pre>
-<p>La cadena completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Laravel')</code>) → <code>config('app.name')</code> en tu código.</p>
+<p>La cadena completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Agenda DAW')</code>) → <code>config('app.name')</code> en tu código.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

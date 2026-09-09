@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0819479a59281269520c14cd2b0bbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8a1089f5c8015b8cc51f4efdc300f455.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-463e026481d670de7fe58ee1d1326bb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c8febe0a8e3f3db802bcb464e35fa189.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -789,15 +789,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="co">// búsqueda</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>    <span class="va">$contactos</span> <span class="op">=</span> Contacto::when(<span class="va">$q</span> <span class="op">!==</span> <span class="st">''</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="va">$query</span>) =&gt;</span>
 <span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>        <span class="va">$query</span>-&gt;where(<span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'like'</span><span class="ot">,</span> <span class="st">"%</span><span class="va">$q</span><span class="st">%"</span>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>            -&gt;orderBy(<span class="st">'nombre'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>            -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))<span class="ot">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>              -&gt;orderBy(<span class="st">'nombre'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>              -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))<span class="ot">;</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-label="11"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-label="12"></a>    <span class="co">// detección de teléfonos duplicados (¿esto qué hace aquí?)</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-label="13"></a>    <span class="va">$duplicados</span> <span class="op">=</span> Contacto::select(<span class="st">'tlf'</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>        -&gt;groupBy(<span class="st">'tlf'</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>        -&gt;havingRaw(<span class="st">'COUNT(*) &gt; 1'</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a>        -&gt;pluck(<span class="st">'tlf'</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a>        -&gt;all()<span class="ot">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>              -&gt;groupBy(<span class="st">'tlf'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a>              -&gt;havingRaw(<span class="st">'COUNT(*) &gt; 1'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a>              -&gt;pluck(<span class="st">'tlf'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a>              -&gt;all()<span class="ot">;</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-label="18"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-label="19"></a>    <span class="cf">return</span> view(<span class="st">'contactos.index'</span><span class="ot">,</span> <span class="fu">compact</span>(<span class="st">'contactos'</span><span class="ot">,</span> <span class="st">'q'</span><span class="ot">,</span> <span class="st">'duplicados'</span>))<span class="ot">;</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-label="20"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -823,8 +823,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-label="15"></a>    {</span>
 <span id="cb2-16"><a href="#cb2-16" aria-label="16"></a>        <span class="cf">return</span> Contacto::when(<span class="va">$q</span> <span class="op">!==</span> <span class="st">''</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="va">$query</span>) =&gt;</span>
 <span id="cb2-17"><a href="#cb2-17" aria-label="17"></a>            <span class="va">$query</span>-&gt;where(<span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'like'</span><span class="ot">,</span> <span class="st">"%</span><span class="va">$q</span><span class="st">%"</span>))</span>
-<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>                -&gt;orderBy(<span class="st">'nombre'</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a>                -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))<span class="ot">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>                  -&gt;orderBy(<span class="st">'nombre'</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a>                  -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))<span class="ot">;</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-label="20"></a>    }</span>
 <span id="cb2-21"><a href="#cb2-21" aria-label="21"></a></span>
 <span id="cb2-22"><a href="#cb2-22" aria-label="22"></a>    <span class="co">/**</span></span>
@@ -890,9 +890,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>    {</span>
 <span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>        <span class="cf">return</span> Contacto::when(<span class="va">$q</span> <span class="op">!==</span> <span class="st">''</span><span class="ot">,</span> <span class="kw">fn</span> (<span class="va">$query</span>) =&gt;</span>
 <span id="cb5-16"><a href="#cb5-16" aria-label="16"></a>            <span class="va">$query</span>-&gt;where(<span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'like'</span><span class="ot">,</span> <span class="st">"%</span><span class="va">$q</span><span class="st">%"</span>))</span>
-<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a>                -&gt;orderBy(<span class="st">'created_at'</span>)   <span class="co">// en vez de orderBy('nombre')</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a>                -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))</span>
-<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a>                -&gt;appends([<span class="st">'q'</span> =&gt; <span class="va">$q</span>])<span class="ot">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a>                  -&gt;orderBy(<span class="st">'created_at'</span>)   <span class="co">// en vez de orderBy('nombre')</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a>                  -&gt;paginate(config(<span class="st">'agenda.por_pagina'</span>))</span>
+<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a>                  -&gt;appends([<span class="st">'q'</span> =&gt; <span class="va">$q</span>])<span class="ot">;</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-label="20"></a>    }</span>
 <span id="cb5-21"><a href="#cb5-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="comprobación-rápida" class="level3">
@@ -979,12 +979,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Hasta ahora el catálogo de videojuegos vivía en un array reconstruido en cada petición: marcar un videojuego como no disponible no podía sobrevivir a la siguiente petición. Con el modelo Eloquent que viste en <a href="06-eloquent.html" class="quarto-xref"><span>Eloquent y migraciones (herramienta de apoyo)</span></a>, sí — y eso es justo lo que necesitas para que la confirmación de solicitud de EJ6 tenga sentido de verdad.</p>
+<p>Hasta ahora el catálogo de videojuegos vivía en un array reconstruido en cada petición: marcar un videojuego como no disponible no podía sobrevivir a la siguiente petición. Con el modelo Eloquent que viste en <a href="06-eloquent.html" class="quarto-xref"><span>Eloquent y migraciones (herramienta de apoyo)</span></a>, sí.</p>
 </div>
 </div>
 <ol type="1">
-<li>Migra el catálogo de EJ2 a un modelo Eloquent real. Crea el modelo y la migración <code>Videojuego</code> (<code>titulo</code>, <code>genero</code>, <code>disponible</code>, y también <code>fecha_devolucion</code> — fecha, nullable, se rellenará solo cuando el videojuego esté prestado) siguiendo el patrón guiado de <a href="06-eloquent.html" class="quarto-xref"><span>Eloquent y migraciones (herramienta de apoyo)</span></a>, y adapta <code>VideojuegoController</code> para leer y escribir contra la base de datos en vez del array. Adapta también la ficha (<code>show</code>) para que, cuando el videojuego no esté disponible, muestre también su fecha de devolución. A partir de aquí, la disponibilidad de un videojuego es un dato persistente.</li>
+<li>Migra el catálogo de EJ2 a un modelo Eloquent real. Crea el modelo y la migración <code>Videojuego</code> (<code>titulo</code>, <code>genero</code>, <code>disponible</code>, y también <code>fecha_devolucion</code> — fecha, nullable, se rellenará solo cuando el videojuego esté prestado) siguiendo el patrón guiado de <a href="06-eloquent.html" class="quarto-xref"><span>Eloquent y migraciones (herramienta de apoyo)</span></a>, y adapta <code>VideojuegoController</code> para leer y escribir contra la base de datos en vez del array.</li>
 </ol>
+<p>Adapta también la ficha (<code>show</code>) para que, cuando el videojuego no esté disponible, muestre también su fecha de devolución. A partir de aquí, la disponibilidad de un videojuego es un dato persistente.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -995,7 +996,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si en EJ2 usaste <code>@empty($videojuegos)</code> para el catálogo vacío, revísalo ahora: <code>empty()</code> funciona con arrays, pero <code>$videojuegos</code> ya es una Collection de Eloquent, y <code>empty()</code> sobre un objeto <strong>siempre da <code>false</code></strong>, tenga o no elementos dentro — el aviso de catálogo vacío deja de mostrarse y nadie te avisa del error. Cambia a <code>@forelse</code>, que trae su propio caso vacío integrado y funciona igual con arrays y con Collections.</p>
+<p>Si en EJ2 usaste <code>@empty($videojuegos)</code> para el catálogo vacío, revísalo ahora: <code>empty()</code> funciona con arrays, pero <code>$videojuegos</code> ya es una Collection de Eloquent, y <code>empty()</code> sobre un objeto <strong>siempre da <code>false</code></strong>, tenga o no elementos dentro (el aviso de catálogo vacío deja de mostrarse y no se avisa del error). Cambia a <code>@forelse</code>, que trae su propio caso vacío integrado y funciona igual con arrays y con Collections.</p>
 </div>
 </div>
 <ol start="2" type="1">
