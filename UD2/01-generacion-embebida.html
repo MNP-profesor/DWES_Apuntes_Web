@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UD1. Arquitecturas y tecnologías de programación Web en entorno servidor – Desarrollo Web en Entorno Servidor</title>
+<title>Generación embebida, tecnologías y delimitadores – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD1/01-modelo-ejecucion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../UD2/02-sintaxis-variables.html" rel="next">
+<link href="../UD2/00-presentacion.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -256,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD1/00-presentacion.html">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/01-generacion-embebida.html"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -292,13 +327,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link active">
+            <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -335,14 +370,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
+  <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -377,15 +412,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación-de-la-unidad" id="toc-presentación-de-la-unidad" class="nav-link active" data-scroll-target="#presentación-de-la-unidad">Presentación de la unidad</a>
+  <li><a href="#qué-hace-el-servidor-con-un-archivo-php" id="toc-qué-hace-el-servidor-con-un-archivo-php" class="nav-link active" data-scroll-target="#qué-hace-el-servidor-con-un-archivo-php">¿Qué hace el servidor con un archivo PHP?</a></li>
+  <li><a href="#tecnologías-de-servidor" id="toc-tecnologías-de-servidor" class="nav-link" data-scroll-target="#tecnologías-de-servidor">Tecnologías de servidor</a></li>
+  <li><a href="#delimitadores" id="toc-delimitadores" class="nav-link" data-scroll-target="#delimitadores">Delimitadores</a>
   <ul class="collapse">
-  <li><a href="#qué-aprenderás" id="toc-qué-aprenderás" class="nav-link" data-scroll-target="#qué-aprenderás">Qué aprenderás</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#resultados-de-aprendizaje-y-criterios-de-evaluación" id="toc-resultados-de-aprendizaje-y-criterios-de-evaluación" class="nav-link" data-scroll-target="#resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</a></li>
-  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos</a></li>
-  <li><a href="#recursos-y-materiales" id="toc-recursos-y-materiales" class="nav-link" data-scroll-target="#recursos-y-materiales">Recursos y materiales</a></li>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link" data-scroll-target="#evaluación">Evaluación</a></li>
+  <li><a href="#php-bloque-de-código" id="toc-php-bloque-de-código" class="nav-link" data-scroll-target="#php-bloque-de-código"><code>&lt;?php ?&gt;</code> — bloque de código</a></li>
+  <li><a href="#echo-abreviado" id="toc-echo-abreviado" class="nav-link" data-scroll-target="#echo-abreviado"><code>&lt;?= ?&gt;</code> — echo abreviado</a></li>
+  <li><a href="#mezcla-real-varios-bloques-en-una-misma-página" id="toc-mezcla-real-varios-bloques-en-una-misma-página" class="nav-link" data-scroll-target="#mezcla-real-varios-bloques-en-una-misma-página">Mezcla real: varios bloques en una misma página</a></li>
   </ul></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
     </div>
@@ -393,9 +428,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD2/00-presentacion.html">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</a></li><li class="breadcrumb-item"><a href="../UD2/01-generacion-embebida.html"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</h1>
+<h1 class="title"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></h1>
 </div>
 
 
@@ -412,185 +447,150 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación-de-la-unidad" class="level2">
-<h2 class="anchored" data-anchor-id="presentación-de-la-unidad">Presentación de la unidad</h2>
-<section id="qué-aprenderás" class="level3">
-<h3 class="anchored" data-anchor-id="qué-aprenderás">Qué aprenderás</h3>
-<p>En esta unidad verás qué ocurre entre que el usuario escribe una URL y el navegador muestra la página: qué software interviene, dónde se ejecuta el código y con qué tecnologías se construyen las aplicaciones web del lado del servidor.</p>
+<section id="qué-hace-el-servidor-con-un-archivo-php" class="level2">
+<h2 class="anchored" data-anchor-id="qué-hace-el-servidor-con-un-archivo-php">¿Qué hace el servidor con un archivo PHP?</h2>
+<p>El servidor recorre el archivo de arriba a abajo. Cuando encuentra HTML lo envía tal cual; cuando encuentra un bloque PHP lo ejecuta y envía el resultado. El navegador nunca ve código PHP.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="op">&lt;!--</span> archivo<span class="op">.</span>php <span class="op">-</span>-&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>  <span class="op">&lt;</span>p<span class="op">&gt;</span>Son las <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="fu">date</span>(<span class="st">"H:i:s"</span>)<span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>  <span class="op">&lt;</span>p<span class="op">&gt;</span>El servidor tiene <span class="cn">PHP</span> <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="cn">PHP_VERSION</span><span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Lo que recibe el navegador:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;p&gt;Son las 11:44:33.&lt;/p&gt;
+  &lt;p&gt;El servidor tiene PHP 8.2.12.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 </section>
-<section id="objetivos" class="level3">
-<h3 class="anchored" data-anchor-id="objetivos">Objetivos</h3>
-<ul>
-<li>Distinguir si un fragmento de código se ejecuta en el navegador o en el servidor, y explicar por qué importa esa diferencia.</li>
-<li>Reconocer las distintas formas en que un servidor web puede ejecutar código dinámico (CGI, módulo embebido, FastCGI).</li>
-<li>Diferenciar un servidor web de un servidor de aplicaciones.</li>
-<li>Comparar las principales tecnologías de servidor (PHP, Java EE, ASP.NET, Python, Node.js) y argumentar cuál encaja mejor en un proyecto concreto.</li>
-<li>Identificar los delimitadores que separan el código de servidor del HTML en un documento mixto.</li>
-<li>Poner en marcha un entorno de desarrollo PHP local (XAMPP o Docker).</li>
-</ul>
-</section>
-<section id="resultados-de-aprendizaje-y-criterios-de-evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-de-aprendizaje-y-criterios-de-evaluación">Resultados de Aprendizaje y Criterios de Evaluación</h3>
-<blockquote class="blockquote">
-<p><strong>RA1.</strong> Selecciona las arquitecturas y tecnologías de programación web en entorno servidor, analizando sus capacidades y características propias.</p>
-</blockquote>
-<table class="caption-top table">
+<section id="tecnologías-de-servidor" class="level2">
+<h2 class="anchored" data-anchor-id="tecnologías-de-servidor">Tecnologías de servidor</h2>
+<p>Hay varias formas de generar HTML dinámico en el servidor:</p>
+<table class="table-striped caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>CE</th>
+<th>Tecnología</th>
 <th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>CE1.a</td>
-<td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</td>
+<td><strong>PHP</strong></td>
+<td>Lenguaje libre, embebido en HTML, muy extendido en hosting y CMS.</td>
 </tr>
 <tr class="even">
-<td>CE1.b</td>
-<td>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</td>
+<td><strong>ASP.NET</strong></td>
+<td>Tecnología Microsoft sobre IIS y el ecosistema .NET.</td>
 </tr>
 <tr class="odd">
-<td>CE1.c</td>
-<td>Se han identificado los mecanismos de ejecución de código en los servidores Web.</td>
+<td><strong>JSP / Servlets</strong></td>
+<td>Java en servidor; requiere un contenedor como Tomcat.</td>
 </tr>
 <tr class="even">
-<td>CE1.d</td>
-<td>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</td>
-</tr>
-<tr class="odd">
-<td>CE1.e</td>
-<td>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</td>
-</tr>
-<tr class="even">
-<td>CE1.f</td>
-<td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</td>
-</tr>
-<tr class="odd">
-<td>CE1.g</td>
-<td>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</td>
+<td><strong>Node.js</strong></td>
+<td>JavaScript en servidor; mismo lenguaje que en el cliente.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="contenidos" class="level3">
-<h3 class="anchored" data-anchor-id="contenidos">Contenidos</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bloque</th>
-<th>Título</th>
-<th style="text-align: center;">CE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Modelos de ejecución: cliente y servidor</td>
-<td style="text-align: center;">CE1.a</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Páginas estáticas y dinámicas</td>
-<td style="text-align: center;">CE1.b</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Servidor web y servidor de aplicaciones</td>
-<td style="text-align: center;">CE1.c-d</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Lenguajes y tecnologías en entorno servidor</td>
-<td style="text-align: center;">CE1.e</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Integración con lenguajes de marcas</td>
-<td style="text-align: center;">CE1.f</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Herramientas de desarrollo</td>
-<td style="text-align: center;">CE1.c-e</td>
-</tr>
-</tbody>
-</table>
+<section id="delimitadores" class="level2">
+<h2 class="anchored" data-anchor-id="delimitadores">Delimitadores</h2>
+<section id="php-bloque-de-código" class="level3">
+<h3 class="anchored" data-anchor-id="php-bloque-de-código"><code>&lt;?php ?&gt;</code> — bloque de código</h3>
+<p>Todo lo que esté entre <code>&lt;?php</code> y <code>?&gt;</code> se ejecuta. Todo lo que esté fuera se envía sin tocar.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>Bienvenido<span class="op">/</span>a<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="op">&lt;</span><span class="ot">?</span>php</span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>    <span class="va">$nombre</span> <span class="op">=</span> <span class="st">"Manel"</span><span class="ot">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="kw">echo</span> <span class="st">"¡Hola </span><span class="va">$nombre</span><span class="st">!"</span><span class="ot">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="kw">?&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Fin de la página<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida:</p>
+<pre><code>&lt;h1&gt;Bienvenido/a&lt;/h1&gt;
+¡Hola Manel!
+&lt;p&gt;Fin de la página.&lt;/p&gt;</code></pre>
 </section>
-<section id="recursos-y-materiales" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-y-materiales">Recursos y materiales</h3>
-<ul>
-<li>Servidor local PHP (XAMPP, PHP embebido o Docker)</li>
-<li><a href="https://www.php.net/manual/es/">Documentación oficial de PHP</a></li>
-<li>Navegador con herramientas de desarrollador (F12)</li>
-<li>Editor de código (VS Code recomendado)</li>
-</ul>
+<section id="echo-abreviado" class="level3">
+<h3 class="anchored" data-anchor-id="echo-abreviado"><code>&lt;?= ?&gt;</code> — echo abreviado</h3>
+<p>Equivale exactamente a <code>&lt;?php echo ... ?&gt;</code>. Se usa mucho dentro de HTML para insertar valores:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>El precio con <span class="cn">IVA</span> es <span class="op">&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1.21</span> <span class="kw">?&gt;</span> €<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida:</p>
+<pre><code>&lt;p&gt;El precio con IVA es 121 €.&lt;/p&gt;</code></pre>
 </section>
-<section id="evaluación" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación">Evaluación</h3>
-<p>Las actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán <strong>calificar con</strong> una <strong>nota cuantitativa (0 - 10) o cualitativa (Apto / No apto)</strong>, y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<section id="mezcla-real-varios-bloques-en-una-misma-página" class="level3">
+<h3 class="anchored" data-anchor-id="mezcla-real-varios-bloques-en-una-misma-página">Mezcla real: varios bloques en una misma página</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">&lt;?php</span> <span class="va">$usuario</span> <span class="op">=</span> <span class="st">"Manel"</span><span class="ot">;</span> <span class="va">$carrito</span> <span class="op">=</span> <span class="dv">3</span><span class="ot">;</span> <span class="kw">?&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>  <span class="op">&lt;</span><span class="fu">header</span><span class="op">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Hola <span class="op">&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="va">$usuario</span> <span class="kw">?&gt;</span><span class="op">.</span> Tienes <span class="op">&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="va">$carrito</span> <span class="kw">?&gt;</span> artículos<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>  <span class="op">&lt;/</span><span class="fu">header</span><span class="op">&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>  <span class="op">&lt;</span><span class="ot">?</span>php <span class="cf">if</span> (<span class="va">$carrito</span> <span class="op">&gt;</span> <span class="dv">0</span>)<span class="ot">:</span> <span class="kw">?&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>¿Quieres finalizar tu compra<span class="ot">?</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>  <span class="op">&lt;</span><span class="ot">?</span>php <span class="cf">endif</span><span class="ot">;</span> <span class="kw">?&gt;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a>  <span class="op">&lt;</span>footer<span class="op">&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a>    <span class="op">&lt;</span>p<span class="op">&gt;&amp;</span><span class="fu">copy</span><span class="ot">;</span> <span class="op">&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="fu">date</span>(<span class="st">'Y'</span>) <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-label="15"></a>  <span class="op">&lt;/</span>footer<span class="op">&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-label="16"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-label="17"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida (con <code>$carrito = 3</code>):</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;p&gt;Hola Manel. Tienes 3 artículos.&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;p&gt;¿Quieres finalizar tu compra?&lt;/p&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2026&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para poder realizar la prueba objetiva de la unidad es necesario superar las actividades entregables: nota &gt;= 5 si tienen calificación cuantitativa, o Apto si la calificación es cualitativa.</p>
+<p><strong>Olvidar el cierre <code>?&gt;</code></strong></p>
+<p>Si abres un bloque <code>&lt;?php</code> y no lo cierras, PHP interpreta todo el HTML siguiente como código y genera un error de parse o una página en blanco.</p>
+<p><strong>Extensión del archivo</strong></p>
+<p>El servidor solo procesa PHP en archivos <code>.php</code>. Un archivo <code>.html</code> con bloques <code>&lt;?php ?&gt;</code> se enviará sin ejecutar.</p>
+<p><strong>El delimitador corto <code>&lt;?</code></strong> (sin <code>php</code>) solo funciona si está habilitado en <code>php.ini</code>. Usa siempre <code>&lt;?php</code> o <code>&lt;?=</code>.</p>
 </div>
 </div>
-<p>A continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ejercicio</th>
-<th>Título</th>
-<th style="text-align: center;">¿Entrega?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">EJ1</td>
-<td>Clasificación por lugar de ejecución</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ2</td>
-<td>¿Estático, dinámico embebido o script independiente?</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ3</td>
-<td>Identificación de roles en una arquitectura real</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ4</td>
-<td>Análisis comparativo de escenarios</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">EJ5</td>
-<td>Traza manual de la salida</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">EJ6</td>
-<td>Puesta en marcha del entorno y tabla de presentación</td>
-<td style="text-align: center;">Sí</td>
-</tr>
-</tbody>
-</table>
-
-
 </section>
+</section>
+<section id="actividades" class="level2">
+<h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
+<div class="ejercicio">
+<p><strong>EJ1 · Ficha de producto dinámica</strong></p>
+<p>Crea el archivo <code>ficha.php</code>. Declara tres variables con los datos de un producto cualquiera y muéstralas en una tabla HTML usando <code>&lt;?= ?&gt;</code>.</p>
+<p>Comprueba con «Ver código fuente» en el navegador que el resultado no contiene ninguna etiqueta <code>&lt;?php</code> ni el símbolo <code>$</code>.</p>
+</div>
+<div class="ejercicio">
+<p><strong>EJ2 · Plantilla con cuatro zonas</strong></p>
+<p>Crea <code>tienda.php</code> con cuatro secciones: <em>cabecera</em>, <em>listado de productos</em>, <em>barra lateral</em> y <em>pie</em>. Cada sección debe contener al menos un bloque <code>&lt;?php ?&gt;</code> y un bloque <code>&lt;?= ?&gt;</code> generando contenido distinto.</p>
+<p>Después, comenta el cierre <code>?&gt;</code> de uno de los bloques y observa qué ocurre. Explica en un comentario PHP por qué la página se rompe.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1014,13 +1014,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="📋 Presentación del módulo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📋 Presentación del módulo</span>
+      <a href="../UD2/00-presentacion.html" class="pagination-link" aria-label="UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../UD1/01-modelo-ejecucion.html" class="pagination-link" aria-label="Modelos de ejecución: cliente y servidor">
-        <span class="nav-page-text"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../UD2/02-sintaxis-variables.html" class="pagination-link" aria-label="Sintaxis, variables y constantes">
+        <span class="nav-page-text"><span class="chapter-title">Sintaxis, variables y constantes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
