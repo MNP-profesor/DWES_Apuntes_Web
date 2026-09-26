@@ -454,6 +454,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#xampp-uso-tradicional" id="toc-xampp-uso-tradicional" class="nav-link active" data-scroll-target="#xampp-uso-tradicional">XAMPP (Uso tradicional)</a></li>
+  <li><a href="#servidor-integrado-de-php-php--s" id="toc-servidor-integrado-de-php-php--s" class="nav-link" data-scroll-target="#servidor-integrado-de-php-php--s">Servidor integrado de PHP (<code>php -S</code>)</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-y-para-qué-sirve" id="toc-qué-es-y-para-qué-sirve" class="nav-link" data-scroll-target="#qué-es-y-para-qué-sirve">Qué es y para qué sirve</a></li>
+  <li><a href="#instalación-de-php-en-windows" id="toc-instalación-de-php-en-windows" class="nav-link" data-scroll-target="#instalación-de-php-en-windows">Instalación de PHP en Windows</a></li>
+  <li><a href="#uso-básico" id="toc-uso-básico" class="nav-link" data-scroll-target="#uso-básico">Uso básico</a></li>
+  </ul></li>
   <li><a href="#docker-uso-de-contenedores" id="toc-docker-uso-de-contenedores" class="nav-link" data-scroll-target="#docker-uso-de-contenedores">Docker (Uso de contenedores)</a></li>
   <li><a href="#editor-de-código" id="toc-editor-de-código" class="nav-link" data-scroll-target="#editor-de-código">Editor de código</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
@@ -483,10 +489,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Para ejecutar PHP en local necesitas tres componentes: un servidor web (Apache o Nginx), el intérprete PHP y, habitualmente, un gestor de base de datos (MySQL/MariaDB). Hay dos formas principales de tenerlos juntos.</p>
+<p>Para ejecutar PHP en local necesitas tres componentes: un servidor web (Apache o Nginx), el intérprete PHP y, habitualmente, un gestor de base de datos (MySQL/MariaDB). Hay varias formas de tenerlos juntos o por separado.</p>
 <section id="xampp-uso-tradicional" class="level2">
 <h2 class="anchored" data-anchor-id="xampp-uso-tradicional">XAMPP (Uso tradicional)</h2>
-<p><strong>XAMPP</strong> agrupa Apache, PHP, MariaDB y phpMyAdmin en un único instalador. Es la opción más rápida para empezar.</p>
+<p><strong>XAMPP</strong> agrupa Apache, PHP, MariaDB y phpMyAdmin en un único instalador. Es la opción clásica y más rápida para empezar, pero en este módulo no lo utilizaremos como entorno de trabajo habitual.</p>
 <p>Descarga: <a href="https://www.apachefriends.org">apachefriends.org</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -496,6 +502,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Una vez instalado, copia tus ficheros <code>.php</code> en la carpeta <code>htdocs/</code> y accede a <code>http://localhost/</code> en el navegador. El panel de control de XAMPP te permite arrancar y parar Apache y MySQL con un clic.</p>
 <p>Variantes equivalentes: <strong>WAMP</strong> (Windows), <strong>MAMP</strong> (macOS).</p>
+</section>
+<section id="servidor-integrado-de-php-php--s" class="level2">
+<h2 class="anchored" data-anchor-id="servidor-integrado-de-php-php--s">Servidor integrado de PHP (<code>php -S</code>)</h2>
+<p>PHP trae un <strong>servidor web de desarrollo integrado</strong> desde la versión 5.4. No necesitas instalar Apache ni Nginx: basta con tener PHP instalado y ejecutar un solo comando desde la terminal.</p>
+<section id="qué-es-y-para-qué-sirve" class="level3">
+<h3 class="anchored" data-anchor-id="qué-es-y-para-qué-sirve">Qué es y para qué sirve</h3>
+<p><code>php -S</code> levanta un servidor web ligero que escucha en el puerto que le indiques y sirve los ficheros PHP de la carpeta actual. Es la forma más directa de probar código PHP sin instalar ni configurar nada más.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Solo para desarrollo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Solo para desarrollo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El servidor integrado de PHP <strong>no es apto para producción</strong> — no soporta concurrencia real, no gestiona procesos, y no tiene las optimizaciones de Apache o Nginx. Su único propósito es desarrollar y probar en local.</p>
+</div>
+</div>
+</section>
+<section id="instalación-de-php-en-windows" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-de-php-en-windows">Instalación de PHP en Windows</h3>
+<ol type="1">
+<li>Descarga la versión <strong>Thread Safe</strong> (VS16 x64) desde <a href="https://windows.php.net/download/">windows.php.net/download</a>. Para este módulo necesitas PHP <strong>8.2 o superior</strong>.</li>
+<li>Descomprime el <code>.zip</code> en una carpeta, por ejemplo <code>C:\php</code>.</li>
+<li>Añade esa carpeta al <code>PATH</code> del sistema:
+<ul>
+<li><em>Inicio → Buscar “variables de entorno” → Variables de entorno → Path → Editar → Nuevo → <code>C:\php</code></em>.</li>
+</ul></li>
+<li>Abre una <strong>nueva</strong> terminal (PowerShell o CMD) y comprueba:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="ex">php</span> <span class="at">-v</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Deberías ver algo como:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a>PHP 8.2.x (cli) (built: ...)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="uso-básico" class="level3">
+<h3 class="anchored" data-anchor-id="uso-básico">Uso básico</h3>
+<p>Sitúate en la carpeta donde tengas tus ficheros <code>.php</code> y ejecuta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="ex">php</span> <span class="at">-S</span> localhost:8000</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La terminal queda ocupada mostrando las peticiones que llegan. Abre el navegador en <code>http://localhost:8000/</code> y verás el resultado. Para parar el servidor, pulsa <code>Ctrl+C</code> en la terminal.</p>
+<p>Si quieres que sirva los ficheros de una subcarpeta concreta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">php</span> <span class="at">-S</span> localhost:8000 <span class="at">-t</span> src/</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Puerto ocupado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Puerto ocupado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si el puerto 8000 ya está en uso, elige otro: <code>php -S localhost:8001</code>, <code>8002</code>, etc.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="docker-uso-de-contenedores" class="level2">
 <h2 class="anchored" data-anchor-id="docker-uso-de-contenedores">Docker (Uso de contenedores)</h2>
@@ -515,27 +578,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Qué carpeta local contiene los ficheros <code>.php</code> y dónde se monta dentro del contenedor.</li>
 </ul>
 <p>Crea la carpeta <code>Prueba/</code> con esta estructura:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>Prueba/</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>├── docker-compose.yml</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>└── src/</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>    └── fichero.php</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a>Prueba/</span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>├── docker-compose.yml</span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>└── src/</span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    └── fichero.php</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Se implementa el fichero <code>docker-compose.yml</code> y en <code>src/</code> se ubicarán los ficheros <code>.php</code> del proyecto.</p>
 <p>La ventaja principal del uso de contenedores es la portabilidad de los proyectos, ya que el <code>docker-compose.yml</code> funcionará igual en cualquier máquina, con independencia de qué sistema operativo se esté utilizando.</p>
 <p>Ejemplo mínimo de <code>docker-compose.yml</code> para PHP + Apache:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">services</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="at">  </span><span class="fu">web</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> php:8.2-apache</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"8080:80"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./src:/var/www/html</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="at">  </span><span class="fu">web</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> php:8.2-apache</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"8080:80"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./src:/var/www/html</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luego, estando ubicado en <code>Prueba/</code>, con el siguiente comando levantamos el contenedor:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="ex">docker</span> compose up <span class="at">-d</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="ex">docker</span> compose up <span class="at">-d</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Comprueba que el contenedor esté levantado:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">docker</span> ps</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="ex">docker</span> ps</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Por último, accede a <code>http://localhost:8080/</code> para probar.</p>
 <p>Si queremos parar el entorno:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="ex">docker</span> compose down</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="ex">docker</span> compose down</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="editor-de-código" class="level2">
 <h2 class="anchored" data-anchor-id="editor-de-código">Editor de código</h2>
@@ -575,26 +638,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
 <p><strong>EJ6 · Puesta en marcha del entorno y tabla de presentación</strong></p>
-<p>Haciendo uso de <strong>XAMPP</strong> y <strong>Docker</strong> como servidor, crea el fichero <code>presentacion_TuNombre.php</code> que muestre en el navegador la información siguiente:</p>
+<p>Haciendo uso de <strong><code>php -S</code></strong> y <strong>Docker</strong> como servidor, crea el fichero <code>presentacion_TuNombre.php</code> que muestre en el navegador la información siguiente:</p>
 <ul>
 <li>Tu nombre y el ciclo al que perteneces.</li>
 <li>La fecha y hora actuales (generadas por PHP, no escritas a mano).</li>
 <li>Una tabla con estos datos técnicos del entorno: versión de PHP, sistema operativo, servidor web, límite de memoria y tamaño máximo de subida.</li>
 </ul>
-<p>La página debe tener un aspecto cuidado (usa CSS básico) y debe funcionar correctamente en los <strong>dos entornos</strong>: XAMPP y Docker.</p>
+<p>La página debe tener un aspecto cuidado (usa CSS básico) y debe funcionar correctamente en los <strong>dos entornos</strong>: <code>php -S</code> y Docker.</p>
+<p><strong>Con <code>php -S</code>:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="co"># Abre http://localhost:8000/presentacion_TuNombre.php</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Con Docker:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="co"># Abre http://localhost:8080/presentacion_TuNombre.php</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Funciones de PHP que necesitarás</strong> (Más información en <a href="https://www.php.net/manual/es/">php.net</a>):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="fu">phpversion</span>()                  <span class="co">// versión de PHP instalada</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="fu">php_uname</span>()                   <span class="co">// información del sistema operativo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="va">$_SERVER</span>[<span class="st">'SERVER_SOFTWARE'</span>]   <span class="co">// servidor web</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="fu">ini_get</span>(<span class="st">'memory_limit'</span>)       <span class="co">// valor de una directiva de php.ini</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="fu">date</span>(<span class="st">'d/m/Y'</span>)                 <span class="co">// fecha actual</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a><span class="fu">date</span>(<span class="st">'H:i:s'</span>)                 <span class="co">// hora actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="fu">phpversion</span>()                  <span class="co">// versión de PHP instalada</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="fu">php_uname</span>()                   <span class="co">// información del sistema operativo</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="va">$_SERVER</span>[<span class="st">'SERVER_SOFTWARE'</span>]   <span class="co">// servidor web</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-label="4"></a><span class="fu">ini_get</span>(<span class="st">'memory_limit'</span>)       <span class="co">// valor de una directiva de php.ini</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-label="5"></a><span class="fu">date</span>(<span class="st">'d/m/Y'</span>)                 <span class="co">// fecha actual</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-label="6"></a><span class="fu">date</span>(<span class="st">'H:i:s'</span>)                 <span class="co">// hora actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Entrega:</strong></p>
 <ul>
-<li>PDF con las capturas de pantalla del resultado en cada uno de los dos entornos (XAMPP y Docker).</li>
+<li>PDF con las capturas de pantalla del resultado en cada uno de los dos entornos (<code>php -S</code> y Docker).</li>
 <li>Fichero <code>presentacion_TuNombre.php</code> implementado.</li>
 </ul>
-<p><strong>Ejemplo de posible solución:</strong></p>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es obligatorio que en las capturas se visualice la URL en el navegador.</p>
+</div>
+</div>
+<p><strong>Ejemplo de posible solución para el caso de <code>PHP -S</code>:</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/evidencia_EJ6_UD1.png" class="img-fluid figure-img" style="width:75.0%"></p>
@@ -611,7 +691,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si el navegador muestra el código fuente PHP en lugar de la página renderizada, el intérprete no está procesando el fichero. Comprueba que Apache está en marcha (XAMPP) o que el contenedor está levantado (comando <code>docker ps</code>), y que el fichero tiene extensión <code>.php</code> y no <code>.html</code>.</p>
+<p>Si el navegador muestra el código fuente PHP en lugar de la página renderizada, el intérprete no está procesando el fichero. Comprueba que <code>php -S</code> sigue ejecutándose en la terminal (no la cierres), o que el contenedor Docker está levantado (<code>docker ps</code>), y que el fichero tiene extensión <code>.php</code> y no <code>.html</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Diferencia visible entre entornos">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Diferencia visible entre entornos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fíjate en el valor de <code>$_SERVER['SERVER_SOFTWARE']</code> y de <code>php_uname()</code> en cada entorno: con <code>php -S</code> verás algo como <code>PHP 8.2.x Development Server</code> y el <strong>sistema operativo será Windows</strong>, y con <code>Docker</code> verás <code>Apache/2.x</code> sobre Linux (el contenedor). Esa diferencia es la evidencia de que has ejecutado tu fichero en los dos entornos.</p>
 </div>
 </div>
 </div>
