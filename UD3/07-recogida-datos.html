@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../UD3/05-formularios.html" rel="prev">
+<link href="../UD3/06-formularios.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/06-recogida-datos.html"><span class="chapter-title">Recogida y validación de datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/07-recogida-datos.html"><span class="chapter-title">Recogida y validación de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -432,12 +432,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/05-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  <a href="../UD3/05-phpdoc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">PHP Documentor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/06-recogida-datos.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Recogida y validación de datos</span></a>
+  <a href="../UD3/06-formularios.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formularios HTML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../UD3/07-recogida-datos.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Recogida y validación de datos</span></a>
   </div>
 </li>
       </ul>
@@ -463,10 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#validación-con-expresiones-regulares-preg_match" id="toc-validación-con-expresiones-regulares-preg_match" class="nav-link" data-scroll-target="#validación-con-expresiones-regulares-preg_match">Validación con Expresiones Regulares (<code>preg_match</code>)</a></li>
   <li><a href="#htmlspecialchars-proteger-la-salida" id="toc-htmlspecialchars-proteger-la-salida" class="nav-link" data-scroll-target="#htmlspecialchars-proteger-la-salida"><code>htmlspecialchars()</code> — proteger la salida</a></li>
   <li><a href="#patrón-completo-de-procesamiento" id="toc-patrón-completo-de-procesamiento" class="nav-link" data-scroll-target="#patrón-completo-de-procesamiento">Patrón completo de procesamiento</a></li>
-  <li><a href="#phpdoc" id="toc-phpdoc" class="nav-link" data-scroll-target="#phpdoc">PHPDoc</a>
-  <ul class="collapse">
-  <li><a href="#ejemplo-procesarcontacto" id="toc-ejemplo-procesarcontacto" class="nav-link" data-scroll-target="#ejemplo-procesarcontacto">Ejemplo <code>procesarContacto</code></a></li>
-  </ul></li>
+  <li><a href="#ejemplo-procesarcontacto-con-phpdoc" id="toc-ejemplo-procesarcontacto-con-phpdoc" class="nav-link" data-scroll-target="#ejemplo-procesarcontacto-con-phpdoc">Ejemplo <code>procesarContacto</code> con PHPDoc</a></li>
   <li><a href="#seguridad-introducción-a-la-inyección-sql" id="toc-seguridad-introducción-a-la-inyección-sql" class="nav-link" data-scroll-target="#seguridad-introducción-a-la-inyección-sql">Seguridad: Introducción a la Inyección SQL</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   <li><a href="#proyecto-integrador" id="toc-proyecto-integrador" class="nav-link" data-scroll-target="#proyecto-integrador">Proyecto integrador</a></li>
@@ -477,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/06-recogida-datos.html"><span class="chapter-title">Recogida y validación de datos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/07-recogida-datos.html"><span class="chapter-title">Recogida y validación de datos</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Recogida y validación de datos</span></h1>
 </div>
@@ -741,11 +743,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-40"><a href="#cb11-40" aria-label="40"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="phpdoc" class="level2">
-<h2 class="anchored" data-anchor-id="phpdoc">PHPDoc</h2>
-<section id="ejemplo-procesarcontacto" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-procesarcontacto">Ejemplo <code>procesarContacto</code></h3>
-<p>Complementario al de <a href="04-funciones.html#sec-ud3-funciones" class="quarto-xref"><span>PHPDoc</span></a>.</p>
+<section id="ejemplo-procesarcontacto-con-phpdoc" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-procesarcontacto-con-phpdoc">Ejemplo <code>procesarContacto</code> con PHPDoc</h2>
+<p>Complementario a los ejemplos <a href="05-phpdoc.html#sec-ud3-funciones" class="quarto-xref"><span>PHPDoc</span></a> de la sección de <code>PHP Documentor</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="co">/**</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="co"> * Valida y limpia los datos de un formulario de contacto.</span></span>
@@ -780,7 +780,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-32"><a href="#cb12-32" aria-label="32"></a>}</span>
 <span id="cb12-33"><a href="#cb12-33" aria-label="33"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
-</section>
 </section>
 <section id="seguridad-introducción-a-la-inyección-sql" class="level2">
 <h2 class="anchored" data-anchor-id="seguridad-introducción-a-la-inyección-sql">Seguridad: Introducción a la Inyección SQL</h2>
@@ -842,8 +841,8 @@ Debe seleccionar un curso válido.</code></pre>
 <p>Vas a construir la parte de servidor de una pequeña tienda de ropa y accesorios: un catálogo con control de stock, un formulario de pedido y el procesamiento del pedido con validación y aplicación de códigos de descuento. Es el mismo patrón que verás en cualquier tienda online real, aunque aquí sin base de datos todavía (llegará en UD6).</p>
 <p>Este ejercicio integra todos los contenidos de la unidad y se compone de tres ficheros que debes construir en orden.</p>
 <hr>
-<section id="catalogo.php-arrays-y-funciones" class="level4">
-<h4 class="anchored" data-anchor-id="catalogo.php-arrays-y-funciones"><code>catalogo.php</code> — Arrays y funciones</h4>
+<section id="fichero-catalogo.php-arrays-y-funciones" class="level4">
+<h4 class="anchored" data-anchor-id="fichero-catalogo.php-arrays-y-funciones">Fichero <code>catalogo.php</code> — Arrays y funciones</h4>
 <p>Dado el siguiente catálogo de productos, implementa las funciones indicadas:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb17-1"><a href="#cb17-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-label="2"></a><span class="va">$catalogo</span> <span class="op">=</span> [</span>
@@ -911,8 +910,8 @@ Debe seleccionar un curso válido.</code></pre>
 <span id="cb17-64"><a href="#cb17-64" aria-label="64"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="fichero-2-pedido.html-formulario" class="level4">
-<h4 class="anchored" data-anchor-id="fichero-2-pedido.html-formulario">Fichero 2 · <code>pedido.html</code> — Formulario</h4>
+<section id="fichero-pedido.html-formulario" class="level4">
+<h4 class="anchored" data-anchor-id="fichero-pedido.html-formulario">Fichero <code>pedido.html</code> — Formulario</h4>
 <p>Crea un formulario HTML que envíe un pedido por <code>POST</code> a <code>procesar_pedido.php</code> con los siguientes campos:</p>
 <table class="caption-top table">
 <colgroup>
@@ -958,8 +957,8 @@ Debe seleccionar un curso válido.</code></pre>
 <p>Añade un comentario HTML al inicio explicando por qué se usa <code>POST</code>.</p>
 <hr>
 </section>
-<section id="fichero-3-procesar_pedido.php-recogida-y-validación" class="level4">
-<h4 class="anchored" data-anchor-id="fichero-3-procesar_pedido.php-recogida-y-validación">Fichero 3 · <code>procesar_pedido.php</code> — Recogida y validación</h4>
+<section id="fichero-procesar_pedido.php-recogida-y-validación" class="level4">
+<h4 class="anchored" data-anchor-id="fichero-procesar_pedido.php-recogida-y-validación">Fichero <code>procesar_pedido.php</code> — Recogida y validación</h4>
 <p>Procesa el formulario de <code>pedido.html</code>. Incluye <code>catalogo.php</code> al inicio para tener disponibles el array <code>$catalogo</code> y todas sus funciones.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb18-1"><a href="#cb18-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-label="2"></a><span class="kw">require</span> <span class="st">'catalogo.php'</span><span class="ot">;</span></span>
@@ -1445,7 +1444,7 @@ Error: Código de descuento no válido.</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../UD3/05-formularios.html" class="pagination-link" aria-label="Formularios HTML">
+      <a href="../UD3/06-formularios.html" class="pagination-link" aria-label="Formularios HTML">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Formularios HTML</span></span>
       </a>          
   </div>
