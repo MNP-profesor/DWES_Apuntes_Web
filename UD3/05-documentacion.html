@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PHP Documentor – Desarrollo Web en Entorno Servidor</title>
+<title>Documentación – Desarrollo Web en Entorno Servidor</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -291,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/05-phpdoc.html"><span class="chapter-title">PHP Documentor</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/05-documentacion.html"><span class="chapter-title">Documentación</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -433,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../UD3/05-phpdoc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">PHP Documentor</span></a>
+  <a href="../UD3/05-documentacion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Documentación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#sec-ud3-funciones" id="toc-sec-ud3-funciones" class="nav-link active" data-scroll-target="#sec-ud3-funciones">PHPDoc</a>
+  <li><a href="#sec-ud3-funciones" id="toc-sec-ud3-funciones" class="nav-link active" data-scroll-target="#sec-ud3-funciones">phpDocumentor</a>
   <ul class="collapse">
   <li><a href="#estructura-de-un-bloque-phpdoc" id="toc-estructura-de-un-bloque-phpdoc" class="nav-link" data-scroll-target="#estructura-de-un-bloque-phpdoc">Estructura de un bloque PHPDoc</a></li>
   <li><a href="#etiquetas-más-habituales" id="toc-etiquetas-más-habituales" class="nav-link" data-scroll-target="#etiquetas-más-habituales">Etiquetas más habituales</a></li>
@@ -483,9 +483,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/05-phpdoc.html"><span class="chapter-title">PHP Documentor</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD3/00-presentacion.html">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</a></li><li class="breadcrumb-item"><a href="../UD3/05-documentacion.html"><span class="chapter-title">Documentación</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">PHP Documentor</span></h1>
+<h1 class="title"><span class="chapter-title">Documentación</span></h1>
 </div>
 
 
@@ -503,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="sec-ud3-funciones" class="level2">
-<h2 class="anchored" data-anchor-id="sec-ud3-funciones">PHPDoc</h2>
+<h2 class="anchored" data-anchor-id="sec-ud3-funciones">phpDocumentor</h2>
 <div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -517,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>CE3.g</strong> — Se han añadido comentarios al código.</p>
 </div>
 </div>
-<p>Documenta tus funciones con bloques <a href="https://phpdoc.org/">PHPDoc</a>. Los IDEs leen estos bloques y ofrecen autocompletado y validación.</p>
+<p>Documenta tus funciones con bloques <a href="https://phpdoc.org/">phpDoc</a>. Los IDEs leen estos bloques y ofrecen autocompletado y validación.</p>
 <p>Un comentario normal (<code>//</code> o <code>/* ... */</code>) lo lee solo una persona. Un bloque <strong>PHPDoc</strong> (<code>/** ... */</code>) es un comentario con una estructura estándar que además pueden leer las herramientas: el editor lo usa para el autocompletado y para avisarte de errores de tipos, y un generador lo convierte en una web de documentación.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
@@ -900,10 +900,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
 <p><strong>EJ8 · Librería de funciones de validación</strong></p>
-<p>Crea un fichero <code>libreria_validacion.php</code> con estas cuatro funciones. Tienes que hacer dos cosas:</p>
+<p>Crea un fichero <code>libreria_validacion.php</code> con estas cuatro funciones. El ejercicio consta de dos partes:</p>
 <ul>
-<li><p><strong>implementa las funciones</strong> (donde aparece <code>// Tu código aquí</code> o la pista correspondiente).</p></li>
-<li><p><strong>completa su PHPDoc</strong>. Los bloques que se dan llevan el resumen y los tipos, pero a varias etiquetas les falta la descripción. Los detalles están en el apartado <em>Documentación del ejercicio</em>, al final.</p></li>
+<li><p><strong>Implementar las funciones</strong> (donde aparece <code>// Tu código aquí</code> o la pista correspondiente).</p></li>
+<li><p><strong>Completar su PHPDoc</strong>. Los bloques que se dan llevan el resumen y los tipos, pero a varias etiquetas les falta la descripción. Los detalles están en el apartado <em>Documentación del ejercicio</em>, al final.</p></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-label="2"></a><span class="co">/**</span></span>
@@ -1002,7 +1002,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>El primer operando numérico.</li>
 <li>El segundo operando numérico.</li>
 <li>El símbolo de la operación en formato string (ej: <code>"+"</code>, <code>"-"</code>, <code>"*"</code>).</li>
-<li>Una <strong>función anónima</strong> (<em>clousure / callback</em>) que se encargará de realizar internamente la operación aritmética correspondiente y devolver el resultado.</li>
+<li>Una <strong>función anónima</strong> (<em>closure / callback</em>) que se encargará de realizar internamente la operación aritmética correspondiente y devolver el resultado.</li>
 </ol>
 </section>
 </div>
