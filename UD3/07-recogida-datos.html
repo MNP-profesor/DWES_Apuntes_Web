@@ -822,9 +822,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-5"><a href="#cb14-5" aria-label="5"></a><span class="va">$condiciones</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">'condiciones'</span>]      <span class="op">??</span> <span class="kw">null</span><span class="ot">;</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-label="6"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Validar:</strong><br>
-* <code>nombre</code>: no vacío. * <code>email</code>: formato válido con <code>filter_var</code>. * <code>curso</code>: debe ser uno de <code>['daw2', 'dam2', 'asir2']</code> (usa <code>in_array</code> estricto). * <code>condiciones</code>: debe valer <code>"1"</code>.</p>
+* <code>nombre</code>: no vacío.<br>
+* <code>email</code>: formato válido con <code>filter_var</code>.<br>
+* <code>curso</code>: debe ser uno de <code>['daw2', 'dam2', 'asir2']</code> (usa <code>in_array</code> estricto).<br>
+* <code>condiciones</code>: debe valer <code>"1"</code>.</p>
 <p><strong>Mostrar:</strong><br>
-* Sin errores → resumen con los datos saneados con <code>htmlspecialchars</code>. * Con errores → lista <code>&lt;ul&gt;</code> con los mensajes.</p>
+* Sin errores → resumen con los datos saneados con <code>htmlspecialchars</code>.<br>
+* Con errores → lista <code>&lt;ul&gt;</code> con los mensajes.</p>
 <p>Resultado si todos los datos son correctos:</p>
 <pre><code>Inscripción registrada
 Nombre: Laura García
