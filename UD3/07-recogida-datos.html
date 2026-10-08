@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0b552e407b994c949c80d38323c6ecd4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-116a87f4909111ce87c16683344de049.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-67c745ae80c4bcc9a85fda11a76a596e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -551,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="recogida-de-archivos-_files" class="level2">
 <h2 class="anchored" data-anchor-id="recogida-de-archivos-_files">Recogida de archivos: <code>$_FILES</code></h2>
 <p>Cuando el formulario envía un archivo a través de un <code>input</code> de tipo <code>file</code> (y con el <code>enctype</code> adecuado), este <strong>no</strong> se aloja en <code>$_POST</code>. PHP procesa el archivo de forma independiente y rellena de forma automática un array bidimensional global llamado <code>$_FILES</code>.</p>
-<p>A través de <code>$_FILES['nombre_input']</code>, tenemos acceso a 5 datos cruciales sobre el archivo subido:</p>
+<p>A través de <code>$_FILES['nombre_input']</code>, tenemos acceso a 5 datos relevantes sobre el archivo subido:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="co">// Suponiendo un &lt;input type="file" name="avatar"&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-label="3"></a></span>
@@ -822,9 +822,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-5"><a href="#cb14-5" aria-label="5"></a><span class="va">$condiciones</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">'condiciones'</span>]      <span class="op">??</span> <span class="kw">null</span><span class="ot">;</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-label="6"></a><span class="kw">?&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Validar:</strong><br>
-- <code>nombre</code>: no vacío. - <code>email</code>: formato válido con <code>filter_var</code>. - <code>curso</code>: debe ser uno de <code>['daw2', 'dam2', 'asir2']</code> (usa <code>in_array</code> estricto). - <code>condiciones</code>: debe valer <code>"1"</code>.</p>
+* <code>nombre</code>: no vacío. * <code>email</code>: formato válido con <code>filter_var</code>. * <code>curso</code>: debe ser uno de <code>['daw2', 'dam2', 'asir2']</code> (usa <code>in_array</code> estricto). * <code>condiciones</code>: debe valer <code>"1"</code>.</p>
 <p><strong>Mostrar:</strong><br>
-- Sin errores → resumen con los datos saneados con <code>htmlspecialchars</code>. - Con errores → lista <code>&lt;ul&gt;</code> con los mensajes.</p>
+* Sin errores → resumen con los datos saneados con <code>htmlspecialchars</code>. * Con errores → lista <code>&lt;ul&gt;</code> con los mensajes.</p>
 <p>Resultado si todos los datos son correctos:</p>
 <pre><code>Inscripción registrada
 Nombre: Laura García
@@ -969,7 +969,7 @@ Debe seleccionar un curso válido.</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-label="5"></a><span class="co">// Tu código aquí</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-label="6"></a></span>
 <span id="cb18-7"><a href="#cb18-7" aria-label="7"></a><span class="co">// 2. VALIDAR</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-label="8"></a><span class="co">// Recoger errores en un array []</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-label="8"></a><span class="co">// Tu código aquí (Recoger errores en un array [])</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-label="9"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-label="10"></a><span class="co">// Validaciones del formulario </span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-label="11"></a><span class="co">// Tu código aquí</span></span>
