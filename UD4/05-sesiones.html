@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#traza-de-peticiones" id="toc-traza-de-peticiones" class="nav-link" data-scroll-target="#traza-de-peticiones">Traza de peticiones</a></li>
   </ul></li>
   <li><a href="#expiración-y-regeneración-de-sesión" id="toc-expiración-y-regeneración-de-sesión" class="nav-link" data-scroll-target="#expiración-y-regeneración-de-sesión">Expiración y regeneración de sesión</a></li>
-  <li><a href="#robo-y-fijación-de-sesión-el-fingerprint-del-navegador" id="toc-robo-y-fijación-de-sesión-el-fingerprint-del-navegador" class="nav-link" data-scroll-target="#robo-y-fijación-de-sesión-el-fingerprint-del-navegador">Robo y fijación de sesión; el “fingerprint” del navegador</a></li>
+  <li><a href="#robo-y-fijación-de-sesión-el-fingerprint-del-navegador" id="toc-robo-y-fijación-de-sesión-el-fingerprint-del-navegador" class="nav-link" data-scroll-target="#robo-y-fijación-de-sesión-el-fingerprint-del-navegador">Robo y fijación de sesión; el fingerprint del navegador</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -791,7 +791,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="robo-y-fijación-de-sesión-el-fingerprint-del-navegador" class="level2">
-<h2 class="anchored" data-anchor-id="robo-y-fijación-de-sesión-el-fingerprint-del-navegador">Robo y fijación de sesión; el “fingerprint” del navegador</h2>
+<h2 class="anchored" data-anchor-id="robo-y-fijación-de-sesión-el-fingerprint-del-navegador">Robo y fijación de sesión; el fingerprint del navegador</h2>
 <p>vamos a distinguir entre dos tipos:</p>
 <ol type="1">
 <li><p><strong>Secuestro de sesión</strong> (<em>session hijacking</em>): un atacante consigue el ID de sesión de otra persona (robado, interceptado, o adivinado) puede <strong>suplantarla</strong> sin conocer su contraseña.</p></li>
@@ -860,8 +860,8 @@ Total del carrito: 30.00 €</code></pre>
 <p><strong>EJ7 · Sesión con expiración, regeneración y protección básica contra robo de sesión</strong></p>
 <p>Amplía el mecanismo de expiración anterior con dos capas adicionales de seguridad:</p>
 <ol type="1">
-<li>Al iniciar sesión (login simulado), regenera el ID y guarda también un “fingerprint” ligero calculado a partir de <code>$_SERVER['HTTP_USER_AGENT']</code> (por ejemplo, un hash corto).</li>
-<li>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</li>
+<li><p>Al iniciar sesión (login simulado), regenera el ID y guarda también un fingerprint ligero calculado a partir de <code>$_SERVER['HTTP_USER_AGENT']</code> (por ejemplo, un hash corto).</p></li>
+<li><p>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</p></li>
 </ol>
 <p>No hay código de partida para este ejercicio: documenta primero, en pseudocódigo o en una lista de pasos, qué comprobaciones haces y en qué orden, y después impleméntalo en PHP.</p>
 </div>
