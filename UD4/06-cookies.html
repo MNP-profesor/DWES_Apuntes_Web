@@ -592,29 +592,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Una cookie recién creada con <code>setcookie()</code> no aparece todavía en <code>$_COOKIE</code> durante esa misma ejecución del script: viaja al navegador y vuelve en la petición siguiente.</p>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">setcookie</span>(<span class="st">'tema'</span><span class="ot">,</span> <span class="st">'oscuro'</span><span class="ot">,</span> <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span>)<span class="ot">;</span> <span class="co">// 30 días</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="co">// En la siguiente petición:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="co">// guardar.php</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="fu">setcookie</span>(<span class="st">'tema'</span><span class="ot">,</span> <span class="st">'oscuro'</span><span class="ot">,</span> <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span>)<span class="ot">;</span> <span class="co">// 30 días</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En la siguiente petición:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="co">// leer.php</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-label="2"></a><span class="va">$tema</span> <span class="op">=</span> <span class="va">$_COOKIE</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'claro'</span><span class="ot">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="kw">echo</span> <span class="va">$tema</span><span class="ot">;</span> <span class="co">// oscuro</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="sec-preferencias-combinadas" class="level2">
 <h2 class="anchored" data-anchor-id="sec-preferencias-combinadas">Varias preferencias en una sola cookie</h2>
 <p>Cuando hay más de un valor que guardar, en vez de crear una cookie por cada preferencia, es más limpio agrupar todo en una sola cookie con un valor JSON:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="va">$preferencias</span> <span class="op">=</span> [</span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="st">'tema'</span>    =&gt; <span class="st">'oscuro'</span><span class="ot">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>    <span class="st">'idioma'</span>  =&gt; <span class="st">'es'</span><span class="ot">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="st">'moneda'</span>  =&gt; <span class="st">'EUR'</span><span class="ot">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>]<span class="ot">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="fu">setcookie</span>(<span class="st">'preferencias'</span><span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$preferencias</span>)<span class="ot">,</span> [</span>
-<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// En la siguiente petición:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="va">$preferencias</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$_COOKIE</span>[<span class="st">'preferencias'</span>] <span class="op">??</span> <span class="st">'{}'</span><span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="va">$tema</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'claro'</span><span class="ot">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$idioma</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'idioma'</span>] <span class="op">??</span> <span class="st">'es'</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="co">// guardar.php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="va">$preferencias</span> <span class="op">=</span> [</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>    <span class="st">'tema'</span>   =&gt; <span class="va">$_GET</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'oscuro'</span><span class="ot">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="st">'idioma'</span> =&gt; <span class="va">$_GET</span>[<span class="st">'idioma'</span>] <span class="op">??</span> <span class="st">'es'</span><span class="ot">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>    <span class="st">'moneda'</span> =&gt; <span class="st">'EUR'</span><span class="ot">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>]<span class="ot">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="fu">setcookie</span>(<span class="st">'preferencias'</span><span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$preferencias</span>)<span class="ot">,</span> [</span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En la siguiente petición:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// leer.php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="va">$decodificado</span> <span class="op">=</span> <span class="fu">json_decode</span>(<span class="va">$_COOKIE</span>[<span class="st">'preferencias'</span>] <span class="op">??</span> <span class="st">'{}'</span><span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="va">$preferencias</span> <span class="op">=</span> <span class="fu">is_array</span>(<span class="va">$decodificado</span>) <span class="ot">?</span> <span class="va">$decodificado</span> <span class="ot">:</span> []<span class="ot">;</span> <span class="co">// protección ante JSON inválido</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$tema</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'tema'</span>] <span class="op">??</span> <span class="st">'claro'</span><span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="va">$idioma</span> <span class="op">=</span> <span class="va">$preferencias</span>[<span class="st">'idioma'</span>] <span class="op">??</span> <span class="st">'es'</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -682,14 +687,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="cookies-condicionadas-al-consentimiento" class="level2">
 <h2 class="anchored" data-anchor-id="cookies-condicionadas-al-consentimiento">Cookies condicionadas al consentimiento</h2>
 <p>Un caso realista: algunas cookies (analíticas, marketing) no deben crearse hasta que el usuario las acepte explícitamente. La idea central es simple, aunque montar el banner completo con varias categorías no lo sea:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// Solo se crea la cookie de analítica si el usuario la ha aceptado</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// Solo se crea la cookie si el usuario ha aceptado el consentimiento.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'acepta_analiticas'</span>])) {</span>
 <span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>    <span class="fu">setcookie</span>(<span class="st">'analytics_id'</span><span class="ot">,</span> <span class="fu">bin2hex</span>(<span class="fu">random_bytes</span>(<span class="dv">8</span>))<span class="ot">,</span> [</span>
 <span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>        <span class="st">'expires'</span> =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">365</span><span class="ot">,</span> <span class="st">'path'</span> =&gt; <span class="st">'/'</span><span class="ot">,</span> <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span> <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    ])<span class="ot">;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a><span class="co">// Si no se ha aceptado, la cookie simplemente no se crea: no hay "cookie desactivada",</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a><span class="co">// no existe en absoluto hasta que hay consentimiento.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -700,7 +703,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Las cookies estrictamente necesarias (sesión, carrito) no requieren consentimiento porque el sitio no puede funcionar sin ellas. Las demás categorías (analíticas, marketing) sí, y <strong>no deben crearse hasta que el usuario las acepte explícitamente</strong> — crearlas antes y luego “respetar” el rechazo no cumple. El ejercicio de esta sección te pide extender esta idea a un banner con varias categorías independientes.</p>
+<p>Las cookies estrictamente necesarias (sesión, carrito) no requieren consentimiento porque el sitio no puede funcionar sin ellas.</p>
+<p>Las demás categorías (analíticas, marketing) sí, y <strong>no deben crearse hasta que el usuario las acepte explícitamente</strong> (nunca antes).</p>
 </div>
 </div>
 </section>

@@ -763,15 +763,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Métodos:</p>
 <ul>
-<li>Constructor que valide <strong>todos</strong> los campos anteriores (lanza una excepciones nativas de PHP si algún valor no cumple su rango/formato) y los <em>getters</em> que necesites.</li>
+<li>Constructor que valide <strong>todos</strong> los campos anteriores (lanza una excepción nativa de PHP, por ejemplo <code>InvalidArgumentException</code>, si algún valor no cumple su rango/formato) y los <em>getters</em> que necesites.</li>
 <li><code>validarNIA(): bool</code> — comprueba que el NIA tiene exactamente 8 cifras (sin validar contra ninguna lista externa, solo el formato).</li>
 <li><code>aprueba(): bool</code> — <code>true</code> si <code>notaFinal &gt;= 5</code>.</li>
 <li><code>mostrarInfo(): void</code> — imprime los datos del estudiante con formato legible (nombre, NIA, ciclo, nota, y si aprueba o no).</li>
 </ul>
 <p>Traza esperada:</p>
-<p>new Estudiante(12345678, ‘Marta’, 17, ‘GS’, 6.5); $e-&gt;mostrarInfo(); // NIA: 12345678 | Marta (17 años) | Ciclo: GS | Nota: 6.5 | Aprueba: Sí</p>
-<p>new Estudiante(1234567, ‘Ana’, 17, ‘GS’, 6.5); // NIA de 7 cifras // Excepción: el NIA debe tener exactamente 8 cifras</p>
-<p>new Estudiante(87654321, ‘Luis’, 17, ‘Bachillerato’, 8); // ciclo inválido // Excepción: el ciclo debe ser “GM” o “GS”</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="va">$e</span> <span class="op">=</span> <span class="kw">new</span> Estudiante(<span class="dv">12345678</span><span class="ot">,</span> <span class="st">'Marta'</span><span class="ot">,</span> <span class="dv">17</span><span class="ot">,</span> <span class="st">'GS'</span><span class="ot">,</span> <span class="fl">6.5</span>)<span class="ot">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="va">$e</span>-&gt;mostrarInfo()<span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="co">// NIA: 12345678 | Marta (17 años) | Ciclo: GS | Nota: 6.5 | Aprueba: Sí</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="kw">new</span> Estudiante(<span class="dv">1234567</span><span class="ot">,</span> <span class="st">'Ana'</span><span class="ot">,</span> <span class="dv">17</span><span class="ot">,</span> <span class="st">'GS'</span><span class="ot">,</span> <span class="fl">6.5</span>)<span class="ot">;</span> <span class="co">// NIA de 7 cifras</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a><span class="co">// Excepción: el NIA debe tener exactamente 8 cifras</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a><span class="kw">new</span> Estudiante(<span class="dv">87654321</span><span class="ot">,</span> <span class="st">'Luis'</span><span class="ot">,</span> <span class="dv">17</span><span class="ot">,</span> <span class="st">'Bachillerato'</span><span class="ot">,</span> <span class="dv">8</span>)<span class="ot">;</span> <span class="co">// ciclo inválido</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a><span class="co">// Excepción: el ciclo debe ser "GM" o "GS"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

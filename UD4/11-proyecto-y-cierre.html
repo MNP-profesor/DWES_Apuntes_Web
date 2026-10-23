@@ -520,15 +520,16 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="proyecto-integrador">Proyecto integrador</h2>
 <div class="ejercicio">
 <p><strong>EJ16 · Mini-aplicación con registro, login y panel protegido</strong></p>
-<p>Construye una pequeña aplicación que combine, en un único flujo coherente, todo lo trabajado en esta unidad. Puedes —y debes— reutilizar el código de ejercicios anteriores en vez de escribirlo desde cero: lo que se evalúa aquí es que todas las piezas encajen entre sí, no que cada pieza sea nueva.</p>
+<p>Construye una pequeña aplicación que combine, en un único flujo coherente, lo trabajado en esta unidad. Parte del código de los ejercicios que se indican en cada punto: no tienes que usarlo tal cual, puedes <strong>adaptarlo, ampliarlo o quitarle lo que no necesites</strong>. Lo que se evalúa es que todas las funcionalidades encajen entre sí como lo harían en una aplicación real.</p>
+<p>Para guardar los usuarios usa <code>Usuario</code> y <code>UsuarioRepository</code> de la sección 8 (con fichero JSON, no hace falta base de datos).</p>
 <p>Debe incluir:</p>
 <ol type="1">
-<li><p><strong>Registro</strong>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email, que no exista ya, y que la contraseña tenga al menos 8 caracteres con confirmación.</p></li>
-<li><p><strong>Login</strong>: valida credenciales con <code>password_verify()</code> e inicia sesión regenerando el ID.</p></li>
-<li><p><strong>Una preferencia en cookie</strong>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</p></li>
-<li><p><strong>Panel protegido</strong>: una página solo accesible con sesión activa, que redirige a login si no la hay.</p></li>
-<li><p><strong>Logout</strong>: enlace o botón que destruya la sesión correctamente (<code>session_destroy()</code>) y redirija al login.</p></li>
-<li><p><strong>Flujo integrado</strong>: las cinco piezas anteriores deben funcionar como una aplicación única y navegable, no como ficheros sueltos sin conexión entre sí.</p></li>
+<li><p><strong>Registro</strong> <em>(base del EJ12)</em>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email, que no exista ya, y que la contraseña tenga al menos 8 caracteres, con un segundo campo de confirmación que debe coincidir. Puedes mantener la política completa de <code>validarRegistro()</code> (mayúscula y número) o simplificarla, pero nunca por debajo de 8 caracteres.</p></li>
+<li><p><strong>Login</strong> <em>(base del EJ11)</em>: valida credenciales con <code>password_verify()</code>, con un mensaje de error genérico, e inicia sesión regenerando el ID. Puedes conservar el bloqueo por intentos (EJ10) o prescindir de él.</p></li>
+<li><p><strong>Una preferencia en cookie</strong> <em>(base de EJ8 o EJ9 si prefieres añadir consentimiento)</em>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</p></li>
+<li><p><strong>Panel protegido</strong> <em>(base de la <strong>redirección condicional típica</strong> de la sección 7, apartado <strong>Redirecciones</strong>)</em>: una página solo accesible con sesión activa, que redirige a login si no la hay. Debe mostrar, al menos, el email del usuario y su preferencia guardada en la cookie.</p></li>
+<li><p><strong>Logout</strong> <em>(base del apartado <strong>Cerrar sesión (logout)</strong> de la sección 8)</em>: enlace o botón que cierre la sesión por completo (vaciar <code>$_SESSION</code>, borrar la cookie de sesión y <code>session_destroy()</code>) y redirija al login.</p></li>
+<li><p><strong>Flujo integrado</strong>: las cinco funcionalidades anteriores deben funcionar como una aplicación única y navegable, no como ficheros sueltos sin conexión entre sí. Por ello hay que añadir enlaces entre login y registro, desde el panel protegido hacia el logout, y tras registrarse redirección al login o directamente al panel (auto-login).</p></li>
 </ol>
 </div>
 </section>

@@ -605,6 +605,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-label="12"></a><span class="va">$p2</span> <span class="op">=</span> <span class="kw">new</span> Pedido()<span class="ot">;</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-label="13"></a><span class="kw">echo</span> <span class="va">$p1</span>-&gt;id<span class="ot">;</span> <span class="co">// 1</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-label="14"></a><span class="kw">echo</span> <span class="va">$p2</span>-&gt;id<span class="ot">;</span> <span class="co">// 2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="ejercicio">
+<p><strong>EJ3 · Vehículo y concesionario, con excepción propia</strong></p>
+<p>Crea una clase <code>Vehiculo</code>:</p>
+<ul>
+<li><code>marca</code>, <code>modelo</code> (string, no vacíos)</li>
+<li><code>velocidadActual</code> (float, valor inicial 0)</li>
+<li><code>velocidadMaxima</code> (float)</li>
+<li><code>totalVehiculosCreados</code> (contador <strong>común a todos los objetos</strong>, no propio de cada instancia)</li>
+</ul>
+<p>Métodos:</p>
+<ul>
+<li>Constructor con validaciones y <em>getters</em>/<em>setters</em> necesarios; incrementa <code>totalVehiculosCreados</code> cada vez que se crea un vehículo.</li>
+<li><code>Vehiculo::totalCreados(): int</code> — método <strong>estático</strong> que devuelve el contador sin necesitar ninguna instancia.</li>
+<li><code>acelerar(float $cantidad): void</code> — aumenta <code>velocidadActual</code>. Si la nueva velocidad superaría <code>velocidadMaxima</code>, <strong>lanza una excepción propia</strong> (créala tú, con el nombre que prefieras, extendiendo <code>Exception</code>) en vez de simplemente limitar el valor en silencio.</li>
+<li><code>frenar(float $cantidad): void</code> — reduce <code>velocidadActual</code>, sin bajar de 0 (aquí no hace falta excepción, simplemente no baja de 0).</li>
+<li><code>mostrarInfoVehiculo(): void</code> — imprime marca, modelo y velocidad actual/máxima.</li>
+</ul>
+<p>Crea también una clase <code>Concesionario</code>:</p>
+<ul>
+<li><code>nombre</code> (string, no vacío)</li>
+<li>Lista de vehículos, representada como un <strong><code>array</code></strong> de objetos <code>Vehiculo</code> (PHP no tiene una clase de lista aparte: un array normal, con <code>[]</code> para añadir).</li>
+</ul>
+<p>Métodos:</p>
+<ul>
+<li>Constructor con validación y <em>getters</em>/<em>setters</em> necesarios.</li>
+<li><code>agregarVehiculo(Vehiculo $v): void</code></li>
+<li><code>buscarVehiculo(string $marca, string $modelo): ?Vehiculo</code> — devuelve el vehículo si existe, <code>null</code> si no.</li>
+<li><code>venderVehiculo(Vehiculo $v): void</code> — lo quita de la lista.</li>
+<li><code>imprimirCatalogoVehiculos(): void</code></li>
+<li><code>mostrarStockTotalVehiculos(): int</code></li>
+</ul>
+<p>Demuestra, con un <code>try</code>/<code>catch</code>, qué pasa si intentas acelerar un vehículo por encima de su velocidad máxima: captura tu excepción propia y muestra un mensaje entendible, sin que el script se detenga con un error fatal.</p>
+</div>
 </section>
 <section id="asignación-vs-clonado" class="level2">
 <h2 class="anchored" data-anchor-id="asignación-vs-clonado">Asignación vs clonado</h2>
@@ -752,10 +785,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Pista: piensa por qué <code>calcularSalario()</code> puede apoyarse en <code>porcentajeBono()</code> de forma genérica en las tres subclases, en vez de repetir la fórmula <code>salarioBase * (1 + porcentaje)</code> tres veces con el número ya puesto a mano.</p>
 </div>
 <div class="ejercicio">
-<p><strong>EJ5 · Concesionario con contador estático y clonado</strong></p>
-<p>Amplía las clases <code>Vehiculo</code>/<code>Concesionario</code> de EJ3:</p>
+<p><strong>EJ5 · Concesionario con clonado</strong></p>
+<p>Amplía las clases <code>Vehiculo</code>/<code>Concesionario</code> de EJ3 (el contador estático ya lo tienes hecho allí):</p>
 <ol type="1">
-<li><p>Convierte <code>totalVehiculosCreados</code> en una propiedad <code>static</code>, con un método estático <code>Vehiculo::totalCreados(): int</code> que lo consulte sin necesitar ninguna instancia.</p></li>
 <li><p>El array de vehículos se copia solo al clonar un <code>Concesionario</code> (PHP copia arrays automáticamente) — pero los objetos <code>Vehiculo</code> que contiene <strong>no</strong>: siguen siendo el mismo objeto en el original y en el clon. Implementa el método mágico <code>__clone()</code> en <code>Concesionario</code> para que, al clonar, cada <code>Vehiculo</code> de la lista se clone también de forma independiente.</p></li>
 <li><p>Antes de probar el clonado del concesionario completo, demuestra con un ejemplo más sencillo la diferencia entre <strong>asignar</strong> (<code>$b = $a</code>) y <strong>clonar</strong> (<code>$b = clone $a</code>) un único <code>Vehiculo</code>:</p>
 <ul>

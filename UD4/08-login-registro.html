@@ -528,6 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#un-repositorio-real-sin-funciones-mágicas" id="toc-un-repositorio-real-sin-funciones-mágicas" class="nav-link" data-scroll-target="#un-repositorio-real-sin-funciones-mágicas">Un repositorio real, sin funciones mágicas</a></li>
   <li><a href="#validación-antes-de-registrar" id="toc-validación-antes-de-registrar" class="nav-link" data-scroll-target="#validación-antes-de-registrar">Validación antes de registrar</a></li>
   <li><a href="#login-completo" id="toc-login-completo" class="nav-link" data-scroll-target="#login-completo">Login completo</a></li>
+  <li><a href="#cerrar-sesión-logout" id="toc-cerrar-sesión-logout" class="nav-link" data-scroll-target="#cerrar-sesión-logout">Cerrar sesión (logout)</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
 </nav>
@@ -679,7 +680,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>ReflectionClass</code> es el equivalente PHP de la API de <em>Reflection</em> de Java que ya viste en la sección 4. Aquí se usa para reconstruir el hash de contraseña ya guardado sin exponer un setter público de <code>passwordHash</code> en texto plano — un ejemplo real de para qué sirve la reflexión más allá de la inspección.</p>
+<p><code>ReflectionClass</code> es el equivalente PHP de la API de <strong>Reflection</strong> de Java que ya has visto en la sección 4 (apartado <strong>Métodos útiles de reflexión</strong>). Aquí se usa para reconstruir el hash de contraseña ya guardado sin exponer un setter público de <code>passwordHash</code> en texto plano — un ejemplo real de para qué sirve la reflexión más allá de la inspección.</p>
 </div>
 </div>
 </section>
@@ -717,20 +718,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span>) {</span>
 <span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    <span class="cf">try</span> {</span>
 <span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>        <span class="va">$usuario</span> <span class="op">=</span> <span class="va">$repositorio</span>-&gt;buscarPorEmail(<span class="va">$_POST</span>[<span class="st">'email'</span>])<span class="ot">;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>        <span class="cf">if</span> (<span class="va">$usuario</span> <span class="op">===</span> <span class="kw">null</span>) {</span>
-<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Exception</span>(<span class="st">'Usuario no encontrado'</span>)<span class="ot">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>        <span class="cf">if</span> (<span class="va">$usuario</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span><span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>])) {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Exception</span>(<span class="st">'Credenciales incorrectas'</span>)<span class="ot">;</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>        }</span>
-<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>])) {</span>
-<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Exception</span>(<span class="st">'Credenciales incorrectas'</span>)<span class="ot">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a>        }</span>
-<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a>        <span class="fu">session_regenerate_id</span>(<span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-label="19"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-label="20"></a>        <span class="cf">exit</span><span class="ot">;</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-label="21"></a>    } <span class="cf">catch</span> (<span class="bu">Exception</span> <span class="va">$e</span>) {</span>
-<span id="cb4-22"><a href="#cb4-22" aria-label="22"></a>        <span class="va">$error</span> <span class="op">=</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-label="23"></a>    }</span>
-<span id="cb4-24"><a href="#cb4-24" aria-label="24"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>        <span class="fu">session_regenerate_id</span>(<span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a>        <span class="cf">exit</span><span class="ot">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a>    } <span class="cf">catch</span> (<span class="bu">Exception</span> <span class="va">$e</span>) {</span>
+<span id="cb4-19"><a href="#cb4-19" aria-label="19"></a>        <span class="va">$error</span> <span class="op">=</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-label="20"></a>    }</span>
+<span id="cb4-21"><a href="#cb4-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -745,17 +743,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="cerrar-sesión-logout" class="level2">
+<h2 class="anchored" data-anchor-id="cerrar-sesión-logout">Cerrar sesión (logout)</h2>
+<p>Cerrar sesión es el proceso inverso al login y conviene hacerlo completo. <code>session_destroy()</code> por sí solo borra los datos de la sesión en el servidor, pero no vacía <code>$_SESSION</code> en la petición actual ni elimina la cookie del navegador, que seguiría enviando un ID ya inválido.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// logout.php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$_SESSION</span> <span class="op">=</span> []<span class="ot">;</span>                              <span class="co">// 1. vaciar los datos de esta petición</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="cf">if</span> (<span class="fu">ini_get</span>(<span class="st">'session.use_cookies'</span>)) {        <span class="co">// 2. borrar la cookie de sesión del navegador</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>    <span class="va">$p</span> <span class="op">=</span> <span class="fu">session_get_cookie_params</span>()<span class="ot">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    <span class="fu">setcookie</span>(<span class="fu">session_name</span>()<span class="ot">,</span> <span class="st">''</span><span class="ot">,</span> [</span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>        <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">-</span> <span class="dv">3600</span><span class="ot">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>        <span class="st">'path'</span>     =&gt; <span class="va">$p</span>[<span class="st">'path'</span>]<span class="ot">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>        <span class="st">'domain'</span>   =&gt; <span class="va">$p</span>[<span class="st">'domain'</span>]<span class="ot">,</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>        <span class="st">'secure'</span>   =&gt; <span class="va">$p</span>[<span class="st">'secure'</span>]<span class="ot">,</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>        <span class="st">'httponly'</span> =&gt; <span class="va">$p</span>[<span class="st">'httponly'</span>]<span class="ot">,</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>    ])<span class="ot">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a><span class="fu">session_destroy</span>()<span class="ot">;</span>                           <span class="co">// 3. eliminar la sesión en el servidor</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a><span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span>              <span class="co">// 4. redirigir y cortar</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde el panel basta un enlace: <code>&lt;a href="/logout.php"&gt;Cerrar sesión&lt;/a&gt;</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Errores frecuentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí el logout es un enlace (petición GET) por simplicidad. En una aplicación real se hace con POST y un token anti-CSRF, para que una web ajena no pueda cerrarte la sesión con una simple imagen o enlace (tema que queda fuera de esta unidad). Y si más adelante añades <strong>recordarme</strong> (sección 9), el logout también debe borrar esa cookie e invalidar su token.</p>
+</div>
+</div>
+</section>
 <section id="actividades" class="level2">
 <h2 class="anchored" data-anchor-id="actividades">Actividades</h2>
 <div class="ejercicio">
 <p><strong>EJ11 · Login con repositorio real</strong></p>
-<p>Usando <code>Usuario</code> y <code>UsuarioRepository</code> (adáptalos si lo necesitas), escribe un <code>login.php</code> completo. Además de lo ya visto, añade: (a) el bloqueo por intentos fallidos de la sección anterior, integrado con este login; (b) que el mensaje de error no distinga entre “usuario no existe” y “contraseña incorrecta”.</p>
-<p>No se da código de partida completo — solo la firma de una función que tendrás que implementar y encajar en el flujo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">function</span> intentarLogin(UsuarioRepository <span class="va">$repo</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> Usuario {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>    <span class="co">// Debe lanzar una excepción con mensaje genérico si el usuario no existe</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>    <span class="co">// o si la contraseña es incorrecta (mismo mensaje en ambos casos).</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="co">// Debe devolver el objeto Usuario si el login es correcto.</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Usando <code>Usuario</code> y <code>UsuarioRepository</code> (adáptalos si lo necesitas), escribe un <code>login.php</code> completo. Además de lo ya visto, añade:</p>
+<ul>
+<li><ol type="a">
+<li>El bloqueo por intentos fallidos del apartado «Protección frente a fuerza bruta» de la sección 7, reutilizando las cuatro funciones que escribiste en EJ10 e integrándolas con este login.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Que el mensaje de error no distinga entre “usuario no existe” y “contraseña incorrecta”.</li>
+</ol></li>
+</ul>
+<p>No se da código de partida completo, solo el prototipo (firma) de una función que tendrás que implementar y encajar en el flujo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">function</span> intentarLogin(UsuarioRepository <span class="va">$repo</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> Usuario {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="co">// Debe lanzar una excepción con mensaje genérico si el usuario no existe</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="co">// o si la contraseña es incorrecta (mismo mensaje en ambos casos).</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="co">// Debe devolver el objeto Usuario si el login es correcto.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="ejercicio">
 <p><strong>EJ12 · Registro con validación completa</strong></p>

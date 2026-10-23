@@ -620,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Verificar contraseñas no es suficiente si un atacante puede probar miles de combinaciones seguidas: conviene limitar los intentos, guardando un contador en sesión y bloqueando temporalmente tras varios fallos consecutivos.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-label="2"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="co">// Idea básica: cada fallo incrementa un contador en sesión</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a><span class="co">// Cada fallo incrementa un contador en sesión</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-label="4"></a><span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>] <span class="op">=</span> (<span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>] <span class="op">??</span> <span class="dv">0</span>) <span class="op">+</span> <span class="dv">1</span><span class="ot">;</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-label="5"></a><span class="kw">echo</span> <span class="st">'Intentos fallidos hasta ahora: '</span> <span class="op">.</span> <span class="va">$_SESSION</span>[<span class="st">'intentos_login'</span>]<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
@@ -669,32 +669,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="redirecciones" class="level2">
 <h2 class="anchored" data-anchor-id="redirecciones">Redirecciones</h2>
 <p><code>header('Location: url')</code> redirige el navegador. Debe llamarse antes de cualquier salida (igual que <code>session_start()</code> o <code>setcookie()</code>).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="cf">exit</span><span class="ot">;</span> <span class="co">// imprescindible: detén el script tras redirigir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="co">// Redirección condicional típica: si no hay sesión, vuelve al login</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// login.php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="cf">exit</span><span class="ot">;</span> <span class="co">// imprescindible: detén el script tras redirigir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Si tras haber hecho login (estamos dentro de un panel o dashboard por ejemplo), la sesión ha expirado, al recargar la página o realizar cualquier acción hay que aplicar una <strong>redirección condicional</strong>, es decir, si no hay sesión, vuelve al login.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="co">// panel.php</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>])) {</span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    <span class="cf">exit</span><span class="ot">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>])) {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    <span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    <span class="cf">exit</span><span class="ot">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="inclusiones-un-pequeño-enrutador" class="level2">
 <h2 class="anchored" data-anchor-id="inclusiones-un-pequeño-enrutador">Inclusiones: un pequeño enrutador</h2>
-<p><code>include</code>/<code>require</code> dividen el código en ficheros reutilizables. La diferencia es la gravedad si el fichero no existe: <code>include</code> avisa y continúa; <code>require</code> detiene el script con error fatal. Las variantes <code>_once</code> evitan duplicados.</p>
-<p>Más allá de incluir una clase suelta, un patrón habitual es un <strong>front controller</strong>: un único punto de entrada que decide qué página cargar según un parámetro, en vez de tener una URL por fichero <code>.php</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// index.php — único punto de entrada</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/Usuario.php'</span><span class="ot">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/config.php'</span><span class="ot">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a><span class="va">$paginasPermitidas</span> <span class="op">=</span> [<span class="st">'inicio'</span><span class="ot">,</span> <span class="st">'login'</span><span class="ot">,</span> <span class="st">'registro'</span><span class="ot">,</span> <span class="st">'panel'</span>]<span class="ot">;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="va">$pagina</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">'pagina'</span>] <span class="op">??</span> <span class="st">'inicio'</span><span class="ot">;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a><span class="cf">if</span> (<span class="op">!</span><span class="fu">in_array</span>(<span class="va">$pagina</span><span class="ot">,</span> <span class="va">$paginasPermitidas</span><span class="ot">,</span> <span class="kw">true</span>)) {</span>
-<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>    <span class="fu">http_response_code</span>(<span class="dv">404</span>)<span class="ot">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>    <span class="cf">exit</span>(<span class="st">'Página no encontrada'</span>)<span class="ot">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a><span class="kw">require</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">"/paginas/</span>{<span class="va">$pagina</span>}<span class="st">.php"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>include</code>/<code>require</code> dividen el código en ficheros reutilizables. La diferencia está en si el fichero existe o no:</p>
+<ul>
+<li><code>include</code> avisa y continúa.<br>
+</li>
+<li><code>require</code> detiene el script con error fatal. Las variantes <code>_once</code> evitan duplicados.</li>
+</ul>
+<p>Un patrón habitual es un <strong>front controller</strong>: un único punto de entrada (en <code>index.php</code>) que decide qué página cargar según un parámetro (<code>?pagina=...</code>), en vez de tener una URL por fichero <code>.php</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// index.php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="co">// Hay que validar ese parámetro con una lista.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/Usuario.php'</span><span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/config.php'</span><span class="ot">;</span> <span class="co">//En un proyecto real aquí irían rutas, datos de la base de datos, etc.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="va">$paginasPermitidas</span> <span class="op">=</span> [<span class="st">'inicio'</span><span class="ot">,</span> <span class="st">'login'</span><span class="ot">,</span> <span class="st">'registro'</span><span class="ot">,</span> <span class="st">'panel'</span>]<span class="ot">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a><span class="va">$pagina</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">'pagina'</span>] <span class="op">??</span> <span class="st">'inicio'</span><span class="ot">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a><span class="cf">if</span> (<span class="op">!</span><span class="fu">in_array</span>(<span class="va">$pagina</span><span class="ot">,</span> <span class="va">$paginasPermitidas</span><span class="ot">,</span> <span class="kw">true</span>)) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>    <span class="fu">http_response_code</span>(<span class="dv">404</span>)<span class="ot">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>    <span class="cf">exit</span>(<span class="st">'Página no encontrada'</span>)<span class="ot">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a>}</span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a><span class="kw">require</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">"/paginas/</span>{<span class="va">$pagina</span>}<span class="st">.php"</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -705,7 +714,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si el nombre de la página viniera directamente de <code>$_GET</code> sin validarlo contra una lista blanca (<code>$paginasPermitidas</code>), un atacante podría intentar incluir ficheros arbitrarios del servidor (<code>?pagina=../../../../etc/passwd</code>) — un fallo real llamado <em>Local File Inclusion</em>. Nunca construyas la ruta de un <code>include</code>/<code>require</code> directamente a partir de datos del usuario sin validarla antes.</p>
+<p>Si el nombre de la página viniera directamente de <code>$_GET</code> sin validarlo contra una lista (<code>$paginasPermitidas</code>), un atacante podría intentar incluir ficheros arbitrarios del servidor (<code>?pagina=../../../../etc/passwd</code>).</p>
+<p>Un fallo real llamado <em>Local File Inclusion</em>. Nunca construyas la ruta de un <code>include</code>/<code>require</code> directamente a partir de datos del usuario sin validarla antes.</p>
 </div>
 </div>
 </section>
@@ -715,9 +725,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>EJ10 · Sistema de bloqueo tras intentos fallidos</strong></p>
 <p>Implementa el mecanismo completo de bloqueo por intentos fallidos, integrado en un login simulado (no hace falta usuarios reales ni base de datos: basta con una contraseña fija para comparar). Encapsúlalo en las cuatro funciones vistas arriba (<code>intentosFallidos()</code>, <code>registrarIntentoFallido()</code>, <code>loginBloqueado()</code>, <code>reiniciarIntentos()</code>) — las reutilizarás tal cual en EJ11. Debe cumplir:</p>
 <ul>
-<li>Cada intento con contraseña incorrecta incrementa el contador de fallos.</li>
-<li>Al llegar a 5 fallos consecutivos, el login queda bloqueado 5 minutos (300 segundos), y cualquier intento durante ese tiempo se rechaza sin comprobar siquiera la contraseña.</li>
-<li>Un login correcto reinicia el contador a 0.</li>
+<li>Cada intento con contraseña incorrecta incrementa el contador de fallos.<br>
+</li>
+<li>Al llegar a 5 fallos consecutivos, el login queda bloqueado 5 minutos (300 segundos), y cualquier intento durante ese tiempo se rechaza sin comprobar siquiera la contraseña.<br>
+</li>
+<li>Un login correcto reinicia el contador a 0.<br>
+</li>
 <li>Pasado el tiempo de bloqueo, se puede volver a intentar con normalidad.</li>
 </ul>
 <p>Escribe también un pequeño script de prueba que simule 6 intentos fallidos seguidos y muestre en pantalla, para cada uno, si se registró como fallo o si fue rechazado por bloqueo — debe verse claramente que el intento 6 ya está bloqueado.</p>
