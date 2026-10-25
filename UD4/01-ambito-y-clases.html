@@ -692,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ejercicio">
 <p><strong>EJ1 · Registro de libros con contador global</strong></p>
 <p>Crea una clase <code>Libro</code> con propiedades <code>titulo</code> y <code>autor</code>. Usando una variable global (no una propiedad de la clase) y la palabra clave <code>global</code> vista en esta sección, lleva la cuenta de cuántos objetos <code>Libro</code> se han creado en total, incrementando el contador cada vez que instancies uno nuevo con <code>new Libro(...)</code>.</p>
-<p>Pista: la forma más directa es incrementar el contador global justo después de cada <code>new Libro(...)</code>, sin tocar la clase; para un contador que viva realmente “dentro” de la clase sin depender de una variable externa, tendrás que esperar a la sección de clases estáticas.</p>
+<p>Pista: la forma más directa es crear los libros desde una función que declare el contador con <code>global</code> y lo incremente justo después de <code>new Libro()</code>, sin tocar la clase; para un contador que viva realmente “dentro” de la clase sin depender de una variable externa, tendrás que esperar a la sección de clases estáticas.</p>
 </div>
 
 

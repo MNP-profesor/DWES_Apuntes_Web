@@ -596,16 +596,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>Cookies</td>
-<td>Navegador</td>
-<td>Configurable (hasta años)</td>
-<td>Preferencias, «recordarme»</td>
-</tr>
-<tr class="even">
 <td>Sesiones</td>
 <td>Servidor (cliente solo guarda el ID)</td>
 <td>Duración de la sesión</td>
 <td>Carrito, login activo</td>
+</tr>
+<tr class="even">
+<td>Cookies</td>
+<td>Navegador</td>
+<td>Configurable (hasta años)</td>
+<td>Preferencias, «recordarme»</td>
 </tr>
 <tr class="odd">
 <td>URL / campos ocultos</td>
@@ -699,6 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>Si cambias la definición de una clase (por ejemplo, renombras una propiedad) mientras hay sesiones activas con objetos de esa clase ya guardados, <code>unserialize()</code> puede fallar o dejar el objeto en un estado incoherente al recuperarlo. En producción, versiona los cambios de estructura o limpia las sesiones activas tras un despliegue que toque estas clases.</p>
+<p>Y una norma más: la clase tiene que estar <strong>cargada</strong> (declarada en el mismo fichero o con <code>require_once</code>) <strong>antes</strong> de <code>session_start()</code>. Si no, PHP no sabe reconstruir el objeto, lo deja como <code>__PHP_Incomplete_Class</code> y falla en cuanto intentas usarlo (llamar a un método o modificar una propiedad).</p>
 </div>
 </div>
 </section>
@@ -714,33 +715,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Fichero <code>anadir_al_carrito.php</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-label="2"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="co">// anadir_al_carrito.php.php</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="kw">function</span> mensajeFlash(<span class="dt">string</span> <span class="va">$texto</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>    <span class="va">$_SESSION</span>[<span class="st">'flash'</span>] <span class="op">=</span> <span class="va">$texto</span><span class="ot">;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>}</span>
-<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>mensajeFlash(<span class="st">'Producto añadido al carrito'</span>)<span class="ot">;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a><span class="fu">header</span>(<span class="st">'Location: /carrito.php'</span>)<span class="ot">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="kw">function</span> mensajeFlash(<span class="dt">string</span> <span class="va">$texto</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="va">$_SESSION</span>[<span class="st">'flash'</span>] <span class="op">=</span> <span class="va">$texto</span><span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>mensajeFlash(<span class="st">'Producto añadido al carrito'</span>)<span class="ot">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="fu">header</span>(<span class="st">'Location: /carrito.php'</span>)<span class="ot">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Fichero <code>carrito.php</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">function</span> leerFlash()<span class="ot">:</span> <span class="ot">?</span><span class="dt">string</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])) {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    }</span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    <span class="va">$texto</span> <span class="op">=</span> <span class="va">$_SESSION</span>[<span class="st">'flash'</span>]<span class="ot">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>    <span class="kw">unset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])<span class="ot">;</span> <span class="co">// se borra en cuanto se lee: solo se muestra una vez</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>    <span class="cf">return</span> <span class="va">$texto</span><span class="ot">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a>}</span>
-<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="va">$mensaje</span> <span class="op">=</span> leerFlash()<span class="ot">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a><span class="cf">if</span> (<span class="va">$mensaje</span> <span class="op">!==</span> <span class="kw">null</span>) {</span>
-<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a>    <span class="kw">echo</span> <span class="st">"&lt;p&gt;</span><span class="va">$mensaje</span><span class="st">&lt;/p&gt;"</span><span class="ot">;</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="kw">function</span> leerFlash()<span class="ot">:</span> <span class="ot">?</span><span class="dt">string</span> {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])) {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    }</span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>    <span class="va">$texto</span> <span class="op">=</span> <span class="va">$_SESSION</span>[<span class="st">'flash'</span>]<span class="ot">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a>    <span class="kw">unset</span>(<span class="va">$_SESSION</span>[<span class="st">'flash'</span>])<span class="ot">;</span> <span class="co">// se borra en cuanto se lee: solo se muestra una vez</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a>    <span class="cf">return</span> <span class="va">$texto</span><span class="ot">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a>}</span>
+<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a><span class="va">$mensaje</span> <span class="op">=</span> leerFlash()<span class="ot">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a><span class="cf">if</span> (<span class="va">$mensaje</span> <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a>    <span class="kw">echo</span> <span class="st">"&lt;p&gt;</span><span class="va">$mensaje</span><span class="st">&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-label="16"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="traza-de-peticiones" class="level3">
 <h3 class="anchored" data-anchor-id="traza-de-peticiones">Traza de peticiones</h3>
 <p>Veamos el ciclo completo:</p>
-<p><strong>Petición 1 — se procesa el formulario</strong> (<code>anadir_al_carrito.php</code>):</p>
+<p><strong>Petición 1 — Se procesa el formulario</strong> (<code>anadir_al_carrito.php</code>):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// Tras procesar el formulario, redirección:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>mensajeFlash(<span class="st">'Producto añadido al carrito'</span>)<span class="ot">;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="fu">header</span>(<span class="st">'Location: /carrito.php'</span>)<span class="ot">;</span></span>
@@ -792,9 +794,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="robo-y-fijación-de-sesión-el-fingerprint-del-navegador" class="level2">
 <h2 class="anchored" data-anchor-id="robo-y-fijación-de-sesión-el-fingerprint-del-navegador">Robo y fijación de sesión; el fingerprint del navegador</h2>
-<p>vamos a distinguir entre dos tipos:</p>
+<p>Vamos a distinguir entre dos tipos:</p>
 <ol type="1">
-<li><p><strong>Secuestro de sesión</strong> (<em>session hijacking</em>): un atacante consigue el ID de sesión de otra persona (robado, interceptado, o adivinado) puede <strong>suplantarla</strong> sin conocer su contraseña.</p></li>
+<li><p><strong>Secuestro de sesión</strong> (<em>session hijacking</em>): un atacante consigue el ID de sesión de otra persona (robado, interceptado o adivinado) y puede <strong>suplantarla</strong> sin conocer su contraseña.</p></li>
 <li><p><strong>Fijación de sesión</strong> (<em>session fixation</em>): el atacante consigue que la víctima use un ID que él ya conoce <em>antes</em> de iniciar sesión y espera a que se autentique. La defensa contra la fijación es regenerar el ID al iniciar sesión (<code>session_regenerate_id(true)</code>, visto en el apartado anterior).</p></li>
 </ol>
 <p>Contra el <strong>secuestro de sesión</strong>, una capa adicional es comprobar que quien usa la sesión sigue siendo, aproximadamente, el mismo navegador que la inició.</p>
@@ -805,7 +807,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-4"><a href="#cb11-4" aria-label="4"></a><span class="co">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Guardando un <strong>hash corto</strong> de ese valor al iniciar sesión, y comparándolo en cada petición posterior, puedes detectar (aunque sin certeza absoluta) si la sesión se está usando desde un navegador distinto al que la creó:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="va">$fingerprint</span> <span class="op">=</span> <span class="fu">substr</span>(<span class="fu">md5</span>(<span class="va">$_SERVER</span>[<span class="st">'HTTP_USER_AGENT'</span>])<span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">12</span>)<span class="ot">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-label="2"></a><span class="va">$fingerprint</span> <span class="op">=</span> <span class="fu">substr</span>(<span class="fu">md5</span>(<span class="va">$_SERVER</span>[<span class="st">'HTTP_USER_AGENT'</span>] <span class="op">??</span> <span class="st">''</span>)<span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">12</span>)<span class="ot">;</span> <span class="co">// ?? '': evita un aviso si el navegador no envía User-Agent</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-label="3"></a><span class="va">$_SESSION</span>[<span class="st">'fingerprint'</span>] <span class="op">=</span> <span class="va">$fingerprint</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
 <div class="callout-header d-flex align-content-center">
@@ -826,33 +828,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ejercicio">
 <p><strong>EJ6 · Carrito de la compra con clase y sesión</strong></p>
 <p>Implementa una versión completa del carrito: debe permitir añadir un producto (sumando cantidad si ya existe), quitar un producto por completo, y calcular el total en euros. La página debe mostrar la lista de líneas del carrito (nombre, cantidad, precio, subtotal) y el total general.</p>
-<p>No se te da la clase resuelta, por tanto, parte de este esqueleto y complétalo tú:</p>
 <p>(<strong>SKU</strong> = <em>Stock Keeping Unit</em>, el identificador único de cada producto en el inventario. Lo usaremos como clave para saber a qué línea del carrito pertenece cada producto).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="kw">class</span> Carrito {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">array</span> <span class="va">$lineas</span> <span class="op">=</span> []<span class="ot">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-label="3"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> añadir(<span class="dt">string</span> <span class="va">$sku</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">,</span> <span class="dt">float</span> <span class="va">$precio</span><span class="ot">,</span> <span class="dt">int</span> <span class="va">$cantidad</span> <span class="op">=</span> <span class="dv">1</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
-<span id="cb13-5"><a href="#cb13-5" aria-label="5"></a>        <span class="co">// </span><span class="al">TODO</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-label="6"></a>    }</span>
-<span id="cb13-7"><a href="#cb13-7" aria-label="7"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> quitar(<span class="dt">string</span> <span class="va">$sku</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
-<span id="cb13-9"><a href="#cb13-9" aria-label="9"></a>        <span class="co">// </span><span class="al">TODO</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-label="10"></a>    }</span>
-<span id="cb13-11"><a href="#cb13-11" aria-label="11"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> cantidadTotal()<span class="ot">:</span> <span class="dt">int</span> {</span>
-<span id="cb13-13"><a href="#cb13-13" aria-label="13"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: suma de todas las cantidades (no el número de líneas distintas)</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-label="14"></a>    }</span>
-<span id="cb13-15"><a href="#cb13-15" aria-label="15"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-label="16"></a>    <span class="kw">public</span> <span class="kw">function</span> total()<span class="ot">:</span> <span class="dt">float</span> {</span>
-<span id="cb13-17"><a href="#cb13-17" aria-label="17"></a>        <span class="co">// </span><span class="al">TODO</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-label="18"></a>    }</span>
-<span id="cb13-19"><a href="#cb13-19" aria-label="19"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-label="20"></a>    <span class="kw">public</span> <span class="kw">function</span> lineas()<span class="ot">:</span> <span class="dt">array</span> {</span>
-<span id="cb13-21"><a href="#cb13-21" aria-label="21"></a>        <span class="co">// </span><span class="al">TODO</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-label="22"></a>    }</span>
-<span id="cb13-23"><a href="#cb13-23" aria-label="23"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Traza de ejecución esperada al realizar las acciones: añadir SKU “A” x2, SKU “B” x1, precio A=10, precio B=5, luego añadir otra vez SKU “A” x1, luego quitar “B”.</p>
-<pre><code>Líneas: A (cantidad 3, subtotal 30.00 €)
+<p>Cada <strong>línea</strong> del carrito se guarda en <code>$lineas</code> con el SKU como clave y un array asociativo como valor. Por ejemplo, con 3 teclados (SKU <code>A</code>, 10 €) y 1 ratón (SKU <code>B</code>, 5 €), <code>$lineas</code> contiene:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a>[</span>
+<span id="cb13-2"><a href="#cb13-2" aria-label="2"></a>    <span class="st">'A'</span> =&gt; [<span class="st">'nombre'</span> =&gt; <span class="st">'Teclado'</span><span class="ot">,</span> <span class="st">'precio'</span> =&gt; <span class="fl">10.0</span><span class="ot">,</span> <span class="st">'cantidad'</span> =&gt; <span class="dv">3</span>]<span class="ot">,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-label="3"></a>    <span class="st">'B'</span> =&gt; [<span class="st">'nombre'</span> =&gt; <span class="st">'Ratón'</span><span class="ot">,</span>   <span class="st">'precio'</span> =&gt; <span class="fl">5.0</span><span class="ot">,</span>  <span class="st">'cantidad'</span> =&gt; <span class="dv">1</span>]<span class="ot">,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-label="4"></a>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El subtotal de una línea (<code>precio × cantidad</code>) no se guarda: se calcula cuando hace falta.</p>
+<p>No se te da la clase resuelta, por tanto, parte de este esqueleto y complétalo tú:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="kw">class</span> Carrito {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">array</span> <span class="va">$lineas</span> <span class="op">=</span> []<span class="ot">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-label="3"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> añadir(<span class="dt">string</span> <span class="va">$sku</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">,</span> <span class="dt">float</span> <span class="va">$precio</span><span class="ot">,</span> <span class="dt">int</span> <span class="va">$cantidad</span> <span class="op">=</span> <span class="dv">1</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-label="5"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: si el SKU ya existe, suma la cantidad; si no, crea la línea</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-label="6"></a>    }</span>
+<span id="cb14-7"><a href="#cb14-7" aria-label="7"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-label="8"></a>    <span class="kw">public</span> <span class="kw">function</span> quitar(<span class="dt">string</span> <span class="va">$sku</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb14-9"><a href="#cb14-9" aria-label="9"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: elimina la línea completa</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-label="10"></a>    }</span>
+<span id="cb14-11"><a href="#cb14-11" aria-label="11"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> cantidadTotal()<span class="ot">:</span> <span class="dt">int</span> {</span>
+<span id="cb14-13"><a href="#cb14-13" aria-label="13"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: suma de todas las cantidades (no el número de líneas distintas)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-label="14"></a>    }</span>
+<span id="cb14-15"><a href="#cb14-15" aria-label="15"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-label="16"></a>    <span class="kw">public</span> <span class="kw">function</span> subtotal(<span class="dt">string</span> <span class="va">$sku</span>)<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb14-17"><a href="#cb14-17" aria-label="17"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: precio × cantidad de esa línea (0 si el SKU no existe)</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-label="18"></a>    }</span>
+<span id="cb14-19"><a href="#cb14-19" aria-label="19"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-label="20"></a>    <span class="kw">public</span> <span class="kw">function</span> total()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb14-21"><a href="#cb14-21" aria-label="21"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: suma de los subtotales de todas las líneas</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-label="22"></a>    }</span>
+<span id="cb14-23"><a href="#cb14-23" aria-label="23"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-label="24"></a>    <span class="kw">public</span> <span class="kw">function</span> lineas()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb14-25"><a href="#cb14-25" aria-label="25"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: devuelve el array $lineas tal cual</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-label="26"></a>    }</span>
+<span id="cb14-27"><a href="#cb14-27" aria-label="27"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Traza de ejecución esperada al realizar las acciones: añadir SKU “A” (Teclado, 10 €) x2, SKU “B” (Ratón, 5 €) x1, luego añadir otra vez SKU “A” x1, luego quitar “B”. El formato exacto es libre (pista: <code>number_format($valor, 2)</code> da dos decimales), pero de cada línea deben verse nombre, cantidad, precio y subtotal.</p>
+<pre><code>Teclado (A): cantidad 3 × 10.00 € = 30.00 €
 Cantidad total de artículos: 3
 Total del carrito: 30.00 €</code></pre>
 </div>
@@ -860,8 +872,8 @@ Total del carrito: 30.00 €</code></pre>
 <p><strong>EJ7 · Sesión con expiración, regeneración y protección básica contra robo de sesión</strong></p>
 <p>Amplía el mecanismo de expiración anterior con dos capas adicionales de seguridad:</p>
 <ol type="1">
-<li><p>Al iniciar sesión (login simulado), regenera el ID y guarda también un fingerprint ligero calculado a partir de <code>$_SERVER['HTTP_USER_AGENT']</code> (por ejemplo, un hash corto).</p></li>
-<li><p>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</p></li>
+<li>Al iniciar sesión (login simulado), regenera el ID y guarda también un “fingerprint” ligero calculado a partir de <code>$_SERVER['HTTP_USER_AGENT']</code> (como el hash corto visto en el apartado anterior).</li>
+<li>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</li>
 </ol>
 <p>No hay código de partida para este ejercicio: documenta primero, en pseudocódigo o en una lista de pasos, qué comprobaciones haces y en qué orden, y después impleméntalo en PHP.</p>
 </div>

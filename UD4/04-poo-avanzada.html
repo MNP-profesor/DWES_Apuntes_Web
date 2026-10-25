@@ -526,7 +526,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#clases-estáticas" id="toc-clases-estáticas" class="nav-link active" data-scroll-target="#clases-estáticas">Clases estáticas</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
-  <li><a href="#asignación-vs-clonado" id="toc-asignación-vs-clonado" class="nav-link" data-scroll-target="#asignación-vs-clonado">Asignación vs clonado</a></li>
+  <li><a href="#asignación-vs-clonado" id="toc-asignación-vs-clonado" class="nav-link" data-scroll-target="#asignación-vs-clonado">Asignación vs clonado</a>
+  <ul class="collapse">
+  <li><a href="#la-copia-es-superficial" id="toc-la-copia-es-superficial" class="nav-link" data-scroll-target="#la-copia-es-superficial">La copia es superficial</a></li>
+  <li><a href="#clone-completar-la-copia" id="toc-clone-completar-la-copia" class="nav-link" data-scroll-target="#clone-completar-la-copia"><code>__clone()</code>: completar la copia</a></li>
+  </ul></li>
   <li><a href="#clases-abstractas" id="toc-clases-abstractas" class="nav-link" data-scroll-target="#clases-abstractas">Clases abstractas</a></li>
   <li><a href="#interfaces" id="toc-interfaces" class="nav-link" data-scroll-target="#interfaces">Interfaces</a></li>
   <li><a href="#métodos-útiles-de-reflexión" id="toc-métodos-útiles-de-reflexión" class="nav-link" data-scroll-target="#métodos-útiles-de-reflexión">Métodos útiles de reflexión</a></li>
@@ -670,59 +674,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este comportamiento es idéntico al de Java: las variables de tipo objeto guardan una referencia, no el objeto en sí, tanto en PHP como en Java. Lo que sorprende viniendo de tipos primitivos (<code>int</code>, <code>string</code> en PHP) es que esos sí se copian por valor al asignarlos — con objetos, no.</p>
+<p>Con objetos pasa lo mismo que en Java: la variable guarda una referencia. La diferencia está en los <strong>arrays</strong>: en Java son objetos y <code>b = a</code> los comparte; en PHP un array se copia por valor al asignarlo (y al clonar el objeto que lo contiene, como en el ejemplo de arriba), así que cada copia tiene su propia lista.</p>
 </div>
 </div>
+<section id="la-copia-es-superficial" class="level3">
+<h3 class="anchored" data-anchor-id="la-copia-es-superficial">La copia es superficial</h3>
+<p><code>clone</code> copia las propiedades una a una. Si una propiedad contiene <strong>otro objeto</strong>, lo que se copia es la referencia: el original y el clon acaban compartiendo ese objeto interno.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">class</span> Direccion {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">public</span> <span class="dt">string</span> <span class="va">$calle</span>) {}</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="kw">class</span> Cliente {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">,</span> <span class="kw">public</span> Direccion <span class="va">$direccion</span>) {}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="va">$ana</span>   <span class="op">=</span> <span class="kw">new</span> Cliente(<span class="st">'Ana'</span><span class="ot">,</span> <span class="kw">new</span> Direccion(<span class="st">'C/ Mayor 1'</span>))<span class="ot">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a><span class="va">$copia</span> <span class="op">=</span> <span class="kw">clone</span> <span class="va">$ana</span><span class="ot">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a><span class="va">$copia</span>-&gt;nombre <span class="op">=</span> <span class="st">'Manel'</span><span class="ot">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a><span class="va">$copia</span>-&gt;direccion-&gt;calle <span class="op">=</span> <span class="st">'C/ Sol 7'</span><span class="ot">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a><span class="kw">echo</span> <span class="va">$ana</span>-&gt;nombre<span class="ot">;</span>           <span class="co">// Ana       — el texto sí es independiente</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a><span class="kw">echo</span> <span class="va">$ana</span>-&gt;direccion-&gt;calle<span class="ot">;</span> <span class="co">// C/ Sol 7  — ¡la Direccion es la MISMA en los dos!</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="clone-completar-la-copia" class="level3">
+<h3 class="anchored" data-anchor-id="clone-completar-la-copia"><code>__clone()</code>: completar la copia</h3>
+<p>Si una clase define <code>__clone()</code>, PHP lo ejecuta automáticamente <strong>sobre la copia</strong>, justo después de clonar. Dentro, <code>$this</code> es el objeto nuevo, y es el sitio para clonar a mano lo que contenga:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">class</span> Cliente {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span><span class="ot">,</span> <span class="kw">public</span> Direccion <span class="va">$direccion</span>) {}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__clone</span>() {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>        <span class="va">$this</span>-&gt;direccion <span class="op">=</span> <span class="kw">clone</span> <span class="va">$this</span>-&gt;direccion<span class="ot">;</span> <span class="co">// la copia recibe su propia Direccion</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>    }</span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a><span class="va">$ana</span>   <span class="op">=</span> <span class="kw">new</span> Cliente(<span class="st">'Ana'</span><span class="ot">,</span> <span class="kw">new</span> Direccion(<span class="st">'C/ Mayor 1'</span>))<span class="ot">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a><span class="va">$copia</span> <span class="op">=</span> <span class="kw">clone</span> <span class="va">$ana</span><span class="ot">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="va">$copia</span>-&gt;direccion-&gt;calle <span class="op">=</span> <span class="st">'C/ Sol 7'</span><span class="ot">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a><span class="kw">echo</span> <span class="va">$ana</span>-&gt;direccion-&gt;calle<span class="ot">;</span>   <span class="co">// C/ Mayor 1  — el original no cambia</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a><span class="kw">echo</span> <span class="va">$copia</span>-&gt;direccion-&gt;calle<span class="ot">;</span> <span class="co">// C/ Sol 7</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Si lo que contiene el objeto es un <strong>array de objetos</strong>, ocurre lo mismo con cada elemento: el array se copia, pero los objetos que hay dentro siguen compartidos (lo practicarás en EJ5).</p>
+<p>Dos comprobaciones útiles al clonar: <code>===</code> entre objetos pregunta si son <em>el mismo</em> objeto, y <code>clone</code> <strong>no</strong> ejecuta el constructor.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">class</span> Ticket {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">int</span> <span class="va">$creados</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>() {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>        <span class="kw">self</span>::<span class="va">$creados</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    }</span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a><span class="va">$t1</span> <span class="op">=</span> <span class="kw">new</span> Ticket()<span class="ot">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="va">$t2</span> <span class="op">=</span> <span class="va">$t1</span><span class="ot">;</span>        <span class="co">// asignación</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="va">$t3</span> <span class="op">=</span> <span class="kw">clone</span> <span class="va">$t1</span><span class="ot">;</span>  <span class="co">// clonado</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a><span class="fu">var_dump</span>(<span class="va">$t1</span> <span class="op">===</span> <span class="va">$t2</span>)<span class="ot">;</span> <span class="co">// true  — es el mismo objeto</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a><span class="fu">var_dump</span>(<span class="va">$t1</span> <span class="op">===</span> <span class="va">$t3</span>)<span class="ot">;</span> <span class="co">// false — es un objeto distinto</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a><span class="kw">echo</span> Ticket::<span class="va">$creados</span><span class="ot">;</span> <span class="co">// 1     — clone no pasa por el constructor</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 </section>
 <section id="clases-abstractas" class="level2">
 <h2 class="anchored" data-anchor-id="clases-abstractas">Clases abstractas</h2>
 <p>Una clase <code>abstract</code> no se puede instanciar directamente; sirve como plantilla para sus subclases. Puede mezclar métodos ya implementados con métodos <code>abstract</code> que <strong>obliga</strong> a implementar a cada subclase.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">abstract</span> <span class="kw">class</span> Figura {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="kw">abstract</span> <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> describir()<span class="ot">:</span> <span class="dt">string</span> {</span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>        <span class="cf">return</span> <span class="st">'Área: '</span> <span class="op">.</span> <span class="fu">round</span>(<span class="va">$this</span>-&gt;area()<span class="ot">,</span> <span class="dv">2</span>)<span class="ot">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>    }</span>
-<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>}</span>
-<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a><span class="kw">class</span> Circulo <span class="kw">extends</span> Figura {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">private</span> <span class="dt">float</span> <span class="va">$radio</span>) {}</span>
-<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span> {</span>
-<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>        <span class="cf">return</span> <span class="fu">pi</span>() <span class="op">*</span> <span class="va">$this</span>-&gt;radio <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>    }</span>
-<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>}</span>
-<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a><span class="co">// new Figura(); // Error fatal: no se puede instanciar una clase abstracta</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-label="19"></a><span class="va">$c</span> <span class="op">=</span> <span class="kw">new</span> Circulo(<span class="dv">3</span>)<span class="ot">;</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-label="20"></a><span class="kw">echo</span> <span class="va">$c</span>-&gt;describir()<span class="ot">;</span> <span class="co">// Área: 28.27</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="kw">abstract</span> <span class="kw">class</span> Figura {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>    <span class="kw">abstract</span> <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> describir()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>        <span class="cf">return</span> <span class="st">'Área: '</span> <span class="op">.</span> <span class="fu">round</span>(<span class="va">$this</span>-&gt;area()<span class="ot">,</span> <span class="dv">2</span>)<span class="ot">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>    }</span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a><span class="kw">class</span> Circulo <span class="kw">extends</span> Figura {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="kw">private</span> <span class="dt">float</span> <span class="va">$radio</span>) {}</span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> area()<span class="ot">:</span> <span class="dt">float</span> {</span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a>        <span class="cf">return</span> <span class="fu">pi</span>() <span class="op">*</span> <span class="va">$this</span>-&gt;radio <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a>    }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-label="15"></a>}</span>
+<span id="cb7-16"><a href="#cb7-16" aria-label="16"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-label="17"></a><span class="co">// new Figura(); // Error fatal: no se puede instanciar una clase abstracta</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-label="18"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-label="19"></a><span class="va">$c</span> <span class="op">=</span> <span class="kw">new</span> Circulo(<span class="dv">3</span>)<span class="ot">;</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-label="20"></a><span class="kw">echo</span> <span class="va">$c</span>-&gt;describir()<span class="ot">;</span> <span class="co">// Área: 28.27</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="interfaces" class="level2">
 <h2 class="anchored" data-anchor-id="interfaces">Interfaces</h2>
 <p>Una <code>interface</code> define <strong>qué</strong> métodos debe tener una clase, sin implementarlos. Una clase la adopta con <code>implements</code> y se compromete a implementar todos sus métodos. A diferencia de la herencia (una sola clase padre), una clase puede implementar varias interfaces a la vez.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">interface</span> Sonido {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span><span class="ot">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="kw">class</span> Perro <span class="kw">implements</span> Sonido {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
-<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>        <span class="cf">return</span> <span class="st">'Guau Guau'</span><span class="ot">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    }</span>
-<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>}</span>
-<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a><span class="kw">class</span> Gato <span class="kw">implements</span> Sonido {</span>
-<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
-<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>        <span class="cf">return</span> <span class="st">'Miau Miau'</span><span class="ot">;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>    }</span>
-<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>}</span>
-<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a><span class="kw">function</span> reproducir(Sonido <span class="va">$s</span>)<span class="ot">:</span> <span class="dt">string</span> {</span>
-<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a>    <span class="cf">return</span> <span class="va">$s</span>-&gt;hacerSonido()<span class="ot">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a>}</span>
-<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-label="21"></a><span class="kw">echo</span> reproducir(<span class="kw">new</span> Perro())<span class="ot">;</span> <span class="co">// Guau Guau</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-label="22"></a><span class="kw">echo</span> reproducir(<span class="kw">new</span> Gato())<span class="ot">;</span>  <span class="co">// Miau Miau</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">interface</span> Sonido {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="kw">class</span> Perro <span class="kw">implements</span> Sonido {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>        <span class="cf">return</span> <span class="st">'Guau Guau'</span><span class="ot">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a>    }</span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-label="10"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-label="11"></a><span class="kw">class</span> Gato <span class="kw">implements</span> Sonido {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-label="12"></a>    <span class="kw">public</span> <span class="kw">function</span> hacerSonido()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb8-13"><a href="#cb8-13" aria-label="13"></a>        <span class="cf">return</span> <span class="st">'Miau Miau'</span><span class="ot">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-label="14"></a>    }</span>
+<span id="cb8-15"><a href="#cb8-15" aria-label="15"></a>}</span>
+<span id="cb8-16"><a href="#cb8-16" aria-label="16"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-label="17"></a><span class="kw">function</span> reproducir(Sonido <span class="va">$s</span>)<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb8-18"><a href="#cb8-18" aria-label="18"></a>    <span class="cf">return</span> <span class="va">$s</span>-&gt;hacerSonido()<span class="ot">;</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-label="19"></a>}</span>
+<span id="cb8-20"><a href="#cb8-20" aria-label="20"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-label="21"></a><span class="kw">echo</span> reproducir(<span class="kw">new</span> Perro())<span class="ot">;</span> <span class="co">// Guau Guau</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-label="22"></a><span class="kw">echo</span> reproducir(<span class="kw">new</span> Gato())<span class="ot">;</span>  <span class="co">// Miau Miau</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -740,27 +799,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="métodos-útiles-de-reflexión" class="level2">
 <h2 class="anchored" data-anchor-id="métodos-útiles-de-reflexión">Métodos útiles de reflexión</h2>
 <p>Son métodos con la capacidad de examinarse o modificarse a sí mismo (el propio programa) en tiempo de ejecución, es decir, inspeccionar sus propias clases, métodos y propiedades, sin conocerlos de antemano en el código:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">class</span> Producto {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span> <span class="op">=</span> <span class="st">'Teclado'</span><span class="ot">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="kw">public</span> <span class="kw">function</span> mostrarResumen()<span class="ot">:</span> <span class="dt">string</span> {</span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>        <span class="cf">return</span> <span class="va">$this</span>-&gt;nombre<span class="ot">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>    }</span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>}</span>
-<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a><span class="va">$p</span> <span class="op">=</span> <span class="kw">new</span> Producto()<span class="ot">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="fu">var_dump</span>(<span class="va">$p</span> <span class="kw">instanceof</span> Producto)<span class="ot">;</span>           <span class="co">// true</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="kw">echo</span> <span class="fu">get_class</span>(<span class="va">$p</span>)<span class="ot">;</span>                         <span class="co">// "Producto"</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a><span class="fu">var_dump</span>(<span class="fu">class_exists</span>(<span class="st">'Producto'</span>))<span class="ot">;</span>         <span class="co">// true</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a><span class="fu">var_dump</span>(<span class="fu">method_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'mostrarResumen'</span>))<span class="ot">;</span> <span class="co">// true</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a><span class="fu">var_dump</span>(<span class="fu">property_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'nombre'</span>))<span class="ot">;</span>    <span class="co">// true</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-label="16"></a><span class="fu">print_r</span>(<span class="fu">get_class_methods</span>(<span class="st">'Producto'</span>))<span class="ot">;</span> <span class="co">// ['mostrarResumen']</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-label="17"></a><span class="fu">print_r</span>(<span class="fu">get_object_vars</span>(<span class="va">$p</span>))<span class="ot">;</span>           <span class="co">// ['nombre' =&gt; 'Teclado']</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-label="18"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-label="19"></a><span class="cf">if</span> (<span class="fu">method_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'mostrarResumen'</span>)) {</span>
-<span id="cb6-20"><a href="#cb6-20" aria-label="20"></a>    <span class="kw">echo</span> <span class="va">$p</span>-&gt;mostrarResumen()<span class="ot">;</span> <span class="co">// Teclado</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="kw">class</span> Producto {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a>    <span class="kw">public</span> <span class="dt">string</span> <span class="va">$nombre</span> <span class="op">=</span> <span class="st">'Teclado'</span><span class="ot">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a>    <span class="kw">public</span> <span class="kw">function</span> mostrarResumen()<span class="ot">:</span> <span class="dt">string</span> {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a>        <span class="cf">return</span> <span class="va">$this</span>-&gt;nombre<span class="ot">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a>    }</span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="va">$p</span> <span class="op">=</span> <span class="kw">new</span> Producto()<span class="ot">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-label="9"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-label="10"></a><span class="fu">var_dump</span>(<span class="va">$p</span> <span class="kw">instanceof</span> Producto)<span class="ot">;</span>           <span class="co">// true</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-label="11"></a><span class="kw">echo</span> <span class="fu">get_class</span>(<span class="va">$p</span>)<span class="ot">;</span>                         <span class="co">// "Producto"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-label="12"></a><span class="fu">var_dump</span>(<span class="fu">class_exists</span>(<span class="st">'Producto'</span>))<span class="ot">;</span>         <span class="co">// true</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-label="13"></a><span class="fu">var_dump</span>(<span class="fu">method_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'mostrarResumen'</span>))<span class="ot">;</span> <span class="co">// true</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-label="14"></a><span class="fu">var_dump</span>(<span class="fu">property_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'nombre'</span>))<span class="ot">;</span>    <span class="co">// true</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-label="15"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-label="16"></a><span class="fu">print_r</span>(<span class="fu">get_class_methods</span>(<span class="st">'Producto'</span>))<span class="ot">;</span> <span class="co">// ['mostrarResumen']</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-label="17"></a><span class="fu">print_r</span>(<span class="fu">get_object_vars</span>(<span class="va">$p</span>))<span class="ot">;</span>           <span class="co">// ['nombre' =&gt; 'Teclado']</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-label="18"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-label="19"></a><span class="cf">if</span> (<span class="fu">method_exists</span>(<span class="va">$p</span><span class="ot">,</span> <span class="st">'mostrarResumen'</span>)) {</span>
+<span id="cb9-20"><a href="#cb9-20" aria-label="20"></a>    <span class="kw">echo</span> <span class="va">$p</span>-&gt;mostrarResumen()<span class="ot">;</span> <span class="co">// Teclado</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="actividades-1" class="level2">
 <h2 class="anchored" data-anchor-id="actividades-1">Actividades</h2>
