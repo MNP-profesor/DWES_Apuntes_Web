@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -525,7 +525,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#sec-preferencias-combinadas" id="toc-sec-preferencias-combinadas" class="nav-link active" data-scroll-target="#sec-preferencias-combinadas">Varias preferencias en una sola cookie</a></li>
-  <li><a href="#flags-de-seguridad" id="toc-flags-de-seguridad" class="nav-link" data-scroll-target="#flags-de-seguridad">Flags de seguridad</a></li>
+  <li><a href="#flags-de-seguridad" id="toc-flags-de-seguridad" class="nav-link" data-scroll-target="#flags-de-seguridad">Flags de seguridad</a>
+  <ul class="collapse">
+  <li><a href="#cómo-ver-los-flags-en-el-navegador" id="toc-cómo-ver-los-flags-en-el-navegador" class="nav-link" data-scroll-target="#cómo-ver-los-flags-en-el-navegador">Cómo ver los flags en el navegador</a></li>
+  <li><a href="#samesite-los-tres-valores" id="toc-samesite-los-tres-valores" class="nav-link" data-scroll-target="#samesite-los-tres-valores">SameSite: los tres valores</a></li>
+  <li><a href="#qué-flags-pongo-en-mi-cookie" id="toc-qué-flags-pongo-en-mi-cookie" class="nav-link" data-scroll-target="#qué-flags-pongo-en-mi-cookie">¿Qué flags pongo en mi cookie?</a></li>
+  </ul></li>
   <li><a href="#cookies-condicionadas-al-consentimiento" id="toc-cookies-condicionadas-al-consentimiento" class="nav-link" data-scroll-target="#cookies-condicionadas-al-consentimiento">Cookies condicionadas al consentimiento</a></li>
   <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades">Actividades</a></li>
   </ul>
@@ -646,27 +651,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Flag</th>
+<th>Qué hace</th>
 <th>Qué evita si falta</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>httponly</code></td>
+<td>El JavaScript de la página no puede leer la cookie</td>
 <td>Robo de la cookie mediante JavaScript malicioso (XSS)</td>
 </tr>
 <tr class="even">
 <td><code>secure</code></td>
+<td>El navegador solo envía la cookie por HTTPS</td>
 <td>Envío de la cookie sin cifrar por HTTP</td>
 </tr>
 <tr class="odd">
 <td><code>samesite</code></td>
-<td>Envío automático de la cookie en peticiones iniciadas desde otro sitio (CSRF)</td>
+<td>Controla si la cookie se envía en peticiones que vienen de otro sitio: <code>Strict</code> nunca, <code>Lax</code> solo al navegar con un enlace, <code>None</code> siempre (exige <code>secure</code>)</td>
+<td>CSRF: una web ajena que hace peticiones en tu nombre</td>
 </tr>
 </tbody>
 </table>
@@ -683,16 +693,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Poner <code>secure: true</code> en un entorno de desarrollo local sin HTTPS hace que la cookie nunca se guarde, y el fallo es silencioso (no hay ningún error visible). Si una cookie “desaparece” en local, revisa primero este flag.</p>
 </div>
 </div>
+<section id="cómo-ver-los-flags-en-el-navegador" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-ver-los-flags-en-el-navegador">Cómo ver los flags en el navegador</h3>
+<p>F12 → Application → Cookies (en Firefox, Storage): cada cookie tiene sus columnas HttpOnly, Secure y SameSite. Y una prueba rápida de <code>httponly</code> con la consola (F12 → Console):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// PHP: dos cookies, solo una con httponly</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="fu">setcookie</span>(<span class="st">'tema'</span><span class="ot">,</span>   <span class="st">'oscuro'</span><span class="ot">,</span> [<span class="st">'path'</span> =&gt; <span class="st">'/'</span>])<span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="fu">setcookie</span>(<span class="st">'idioma'</span><span class="ot">,</span> <span class="st">'es'</span><span class="ot">,</span>     [<span class="st">'path'</span> =&gt; <span class="st">'/'</span><span class="ot">,</span> <span class="st">'httponly'</span> =&gt; <span class="kw">true</span>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="co">// Consola del navegador, tras recargar:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="bu">document</span><span class="op">.</span><span class="at">cookie</span>   <span class="co">// "tema=oscuro"   ('idioma' no aparece: JavaScript no puede leerla)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Si un atacante inyecta JavaScript en tu página (XSS), con <code>httponly</code> no puede robar la cookie. Ojo: la cookie sigue viajando al servidor en cada petición; solo se esconde de JavaScript.</p>
+</section>
+<section id="samesite-los-tres-valores" class="level3">
+<h3 class="anchored" data-anchor-id="samesite-los-tres-valores">SameSite: los tres valores</h3>
+<p>Ejemplo de CSRF: estás con la sesión abierta en tu banco y otra web esconde un formulario que envía un POST al banco. Con <code>samesite</code> <code>Lax</code> o <code>Strict</code>, tu cookie de sesión no viaja en esa petición y el banco no te reconoce.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Valor</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Strict</code></td>
+<td>Solo se envía si la petición nace en tu propio sitio. Si llegas desde un enlace de otra web, en esa primera carga no viaja.</td>
+</tr>
+<tr class="even">
+<td><code>Lax</code></td>
+<td>Como <code>Strict</code>, pero sí viaja cuando llegas con un clic en un enlace (GET). No viaja en formularios POST ni peticiones de fondo desde otro sitio. Es el valor más habitual para sesiones y preferencias.</td>
+</tr>
+<tr class="odd">
+<td><code>None</code></td>
+<td>Viaja siempre, también desde otros sitios. Obliga a poner <code>secure =&gt; true</code> (si no, el navegador la descarta).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qué-flags-pongo-en-mi-cookie" class="level3">
+<h3 class="anchored" data-anchor-id="qué-flags-pongo-en-mi-cookie">¿Qué flags pongo en mi cookie?</h3>
+<p>Regla práctica para esta unidad: <code>httponly</code> y <code>samesite</code> siempre; <code>secure</code> solo cuando haya HTTPS. Así no se te pierde la cookie en local:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="fu">setcookie</span>(<span class="st">'recordarme'</span><span class="ot">,</span> <span class="va">$token</span><span class="ot">,</span> [</span>
+<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a>    <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">30</span><span class="ot">,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a>    <span class="st">'path'</span>     =&gt; <span class="st">'/'</span><span class="ot">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a>    <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span>                        <span class="co">// JavaScript no la lee</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a>    <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span>                       <span class="co">// no viaja en POST desde otros sitios</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a>    <span class="st">'secure'</span>   =&gt; <span class="op">!</span><span class="kw">empty</span>(<span class="va">$_SERVER</span>[<span class="st">'HTTPS'</span>])<span class="ot">,</span>   <span class="co">// true solo si la petición llegó por HTTPS</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a>])<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cookie de sesión o de «recordarme»: los tres flags. Preferencia de interfaz (idioma, tema): <code>samesite</code> siempre; <code>httponly</code> si JavaScript no la necesita.</p>
+</section>
 </section>
 <section id="cookies-condicionadas-al-consentimiento" class="level2">
 <h2 class="anchored" data-anchor-id="cookies-condicionadas-al-consentimiento">Cookies condicionadas al consentimiento</h2>
 <p>Un caso realista: algunas cookies (analíticas, marketing) no deben crearse hasta que el usuario las acepte explícitamente. La idea central es simple, aunque montar el banner completo con varias categorías no lo sea:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// Solo se crea la cookie si el usuario ha aceptado el consentimiento.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'acepta_analiticas'</span>])) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>    <span class="fu">setcookie</span>(<span class="st">'analytics_id'</span><span class="ot">,</span> <span class="fu">bin2hex</span>(<span class="fu">random_bytes</span>(<span class="dv">8</span>))<span class="ot">,</span> [</span>
-<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>        <span class="st">'expires'</span> =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">365</span><span class="ot">,</span> <span class="st">'path'</span> =&gt; <span class="st">'/'</span><span class="ot">,</span> <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span> <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>    ])<span class="ot">;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a><span class="co">// Solo se crea la cookie si el usuario ha aceptado el consentimiento.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-label="2"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_POST</span>[<span class="st">'acepta_analiticas'</span>])) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-label="3"></a>    <span class="fu">setcookie</span>(<span class="st">'analytics_id'</span><span class="ot">,</span> <span class="fu">bin2hex</span>(<span class="fu">random_bytes</span>(<span class="dv">8</span>))<span class="ot">,</span> [</span>
+<span id="cb10-4"><a href="#cb10-4" aria-label="4"></a>        <span class="st">'expires'</span> =&gt; <span class="fu">time</span>() <span class="op">+</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">365</span><span class="ot">,</span> <span class="st">'path'</span> =&gt; <span class="st">'/'</span><span class="ot">,</span> <span class="st">'httponly'</span> =&gt; <span class="kw">true</span><span class="ot">,</span> <span class="st">'samesite'</span> =&gt; <span class="st">'Lax'</span><span class="ot">,</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-label="5"></a>    ])<span class="ot">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-label="6"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -716,10 +778,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>No se da código de partida: a partir de lo visto en la sección <a href="#sec-preferencias-combinadas" class="quarto-xref"><span>Varias preferencias en una sola cookie</span></a>, diseña tú la estructura del array y el formulario.</p>
 <p>Resultado esperado la primera vez (sin cookie): <code>Idioma: es | Tamaño: normal</code>. Tras elegir “en” y “grande”: <code>Idioma: en | Tamaño: grande</code>. Si manipulas la cookie a mano dejándola con un JSON inválido: la página debe seguir funcionando con los valores por defecto, sin errores visibles.</p>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Cómo probar la cookie corrupta">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo probar la cookie corrupta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Guarda una preferencia para que exista la cookie <code>preferencias</code>.</p></li>
+<li><p>F12 → Application (Firefox: Storage) → Cookies → <code>http://localhost:8000</code>.</p></li>
+<li><p>Doble clic en el valor de <code>preferencias</code> y cámbialo a mano por uno de estos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Valor</th>
+<th>Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>{roto</code></td>
+<td>JSON inválido (<code>json_decode</code> devuelve <code>null</code>)</td>
+</tr>
+<tr class="even">
+<td><code>5</code></td>
+<td>JSON válido, pero no es un array</td>
+</tr>
+<tr class="odd">
+<td><code>{"idioma":"fr"}</code></td>
+<td>JSON válido, con un valor que no está permitido</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Recarga (F5): en los tres casos la página debe mostrar «Idioma: es | Tamaño: normal», sin errores ni pantalla en blanco.</p></li>
+</ol>
+</div>
+</div>
 <div class="ejercicio">
 <p><strong>EJ9 · Banner de consentimiento de cookies</strong></p>
 <p>Implementa un banner de consentimiento con tres categorías (necesarias, analíticas, marketing). Las necesarias no son opcionales y no requieren cookie de consentimiento propia. Las otras dos se activan de forma independiente según lo que marque el usuario, y las cookies asociadas a cada categoría <strong>solo se crean si esa categoría fue aceptada</strong>. Añade también un botón “rechazar todo” que no cree ninguna cookie de analítica ni marketing, y una forma de que el usuario pueda cambiar su decisión más adelante (por ejemplo, un enlace “gestionar cookies” que vuelva a mostrar el banner).</p>
 <p>Aplica también los flags de seguridad vistos en la sección anterior a cualquier cookie que crees.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Qué es un banner y cómo probarlo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Qué es un banner y cómo probarlo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un banner de cookies es el aviso que sale al entrar en una web («Usamos cookies, ¿aceptas?»), con casillas por categoría y botones. Aquí es un bloque HTML con un formulario que se muestra mientras no haya una decisión guardada.</p>
+<p>Pruebas en F12 → Application → Cookies:</p>
+<ol type="1">
+<li><p>Primera visita: se ve el banner y todavía no existe ninguna cookie opcional.</p></li>
+<li><p>Marca solo analíticas y guarda: existe <code>analytics_id</code> y no existe <code>marketing_id</code>.</p></li>
+<li><p>«Gestionar cookies» vuelve a mostrar el banner. Cambia a solo marketing: decide y documenta qué pasa con <code>analytics_id</code> (lo razonable es borrarla al retirar el consentimiento).</p></li>
+<li><p>«Rechazar todo»: no queda ninguna cookie de analítica ni de marketing.</p></li>
+<li><p>Las cookies que sí se crean llevan <code>HttpOnly</code> y <code>SameSite</code>.</p></li>
+</ol>
+</div>
 </div>
 
 

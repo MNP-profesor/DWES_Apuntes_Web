@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -692,7 +692,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ejercicio">
 <p><strong>EJ1 · Registro de libros con contador global</strong></p>
 <p>Crea una clase <code>Libro</code> con propiedades <code>titulo</code> y <code>autor</code>. Usando una variable global (no una propiedad de la clase) y la palabra clave <code>global</code> vista en esta sección, lleva la cuenta de cuántos objetos <code>Libro</code> se han creado en total, incrementando el contador cada vez que instancies uno nuevo con <code>new Libro(...)</code>.</p>
-<p>Pista: la forma más directa es crear los libros desde una función que declare el contador con <code>global</code> y lo incremente justo después de <code>new Libro()</code>, sin tocar la clase; para un contador que viva realmente “dentro” de la clase sin depender de una variable externa, tendrás que esperar a la sección de clases estáticas.</p>
+<p>Pista: la forma más directa es incrementar el contador <code>global</code> justo después de cada <code>new Libro(...)</code>, sin tocar la clase; para un contador que viva realmente “dentro” de la clase sin depender de una variable externa, tendrás que esperar a la sección de clases estáticas.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Cómo comprobarlo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo comprobarlo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Crea los libros desde una función (por ejemplo, <code>registrarLibro()</code>) que declare el contador con <code>global</code>. Después de crear dos libros:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a>registrarLibro(<span class="st">'PHP para todos'</span><span class="ot">,</span> <span class="st">'Ana'</span>)<span class="ot">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>registrarLibro(<span class="st">'Domina Laravel'</span><span class="ot">,</span> <span class="st">'Manel'</span>)<span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a><span class="kw">echo</span> <span class="st">'Libros creados: '</span> <span class="op">.</span> <span class="va">$contador</span><span class="ot">;</span>   <span class="co">// Libros creados: 2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para entender el fallo típico, quita <code>global</code> dentro de la función y ejecuta otra vez: el contador se queda en 0 y PHP avisa de “variable indefinida”, porque la función trabajaba con su propia variable local.</p>
+</div>
 </div>
 
 

@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -801,10 +801,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="co">// Debe devolver el objeto Usuario si el login es correcto.</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Casos que debes probar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Casos que debes probar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Crea antes un usuario con un script que use <code>Usuario</code> y <code>UsuarioRepository</code> (por ejemplo <code>ana@example.com</code> / <code>Secreta123</code>). Casos:</p>
+<ol type="1">
+<li><p>Datos correctos: entra al panel.</p></li>
+<li><p>Email que no existe: «Credenciales incorrectas».</p></li>
+<li><p>Email correcto y contraseña errónea: exactamente el mismo mensaje que en el caso 2.</p></li>
+<li><p>Cinco fallos seguidos: el login queda bloqueado, también con la contraseña correcta.</p></li>
+<li><p>Tras un login correcto: el contador de fallos vuelve a 0 y el ID de sesión cambia (F12 → Application → Cookies: <code>PHPSESSID</code> distinto antes y después).</p></li>
+</ol>
+</div>
+</div>
 <div class="ejercicio">
 <p><strong>EJ12 · Registro con validación completa</strong></p>
 <p>Implementa <code>registro.php</code> usando <code>UsuarioRepository::existe()</code> y la función <code>validarRegistro()</code> de esta sección. Si hay errores de validación, se deben mostrar todos a la vez (no solo el primero). Si el email ya existe, añade ese error a la misma lista en vez de cortar el flujo antes de validar el resto.</p>
 <p>Resultado esperado si se envía email <code>"no-es-un-email"</code> y contraseña <code>"abc"</code>: se deben mostrar las 4 líneas de error a la vez (formato de email, longitud, mayúscula, número), no solo la primera que falle.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Casos que debes probar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Casos que debes probar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Email «no-es-un-email» y contraseña «abc»: aparecen las 4 líneas de error a la vez.</p></li>
+<li><p>Email ya registrado: el error «ya existe» sale en la misma lista, junto con los demás errores si los hay.</p></li>
+<li><p>Email válido y contraseña «Clave1234»: se registra. En <code>datos/usuarios.json</code> debe verse un hash que empieza por <code>$2y$</code>, nunca la contraseña.</p></li>
+</ol>
+<p>Truco: pon el campo del email con <code>type="text"</code> mientras pruebas; con <code>type="email"</code> el navegador bloquea “no-es-un-email” antes de que llegue a PHP.</p>
+</div>
 </div>
 
 

@@ -48,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -531,6 +531,28 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Logout</strong> <em>(base del apartado <strong>Cerrar sesión (logout)</strong> de la sección 8)</em>: enlace o botón que cierre la sesión por completo (vaciar <code>$_SESSION</code>, borrar la cookie de sesión y <code>session_destroy()</code>) y redirija al login.</p></li>
 <li><p><strong>Flujo integrado</strong>: las cinco funcionalidades anteriores deben funcionar como una aplicación única y navegable, no como ficheros sueltos sin conexión entre sí. Por ello hay que añadir enlaces entre login y registro, desde el panel protegido hacia el logout, y tras registrarse redirección al login o directamente al panel (auto-login).</p></li>
 </ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Lista de comprobación antes de entregar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lista de comprobación antes de entregar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recorre el flujo completo y verifica cada punto:</p>
+<ol type="1">
+<li><p>Abrir <code>panel.php</code> sin sesión redirige al login.</p></li>
+<li><p>Registro con contraseña corta o confirmación distinta: se muestran los errores.</p></li>
+<li><p>Registro correcto: continúa al login (o entra). En <code>datos/usuarios.json</code> hay un hash, no la contraseña.</p></li>
+<li><p>Login con email inexistente y con contraseña errónea: mismo mensaje.</p></li>
+<li><p>Login correcto: el panel muestra el email y la preferencia. F12: el <code>PHPSESSID</code> cambia respecto al anterior al login.</p></li>
+<li><p>Cambia la preferencia y recarga: se mantiene. La cookie lleva <code>HttpOnly</code>.</p></li>
+<li><p>Logout: vuelve al login, la cookie de sesión desaparece y, al pegar la URL del panel, te manda otra vez al login.</p></li>
+</ol>
+</div>
 </div>
 </section>
 <section id="cierre-de-la-unidad" class="level2">

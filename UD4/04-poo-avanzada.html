@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -646,6 +646,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Demuestra, con un <code>try</code>/<code>catch</code>, qué pasa si intentas acelerar un vehículo por encima de su velocidad máxima: captura tu excepción propia y muestra un mensaje entendible, sin que el script se detenga con un error fatal.</p>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Qué debe verse">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Qué debe verse
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prueba con estos pasos (el formato exacto de los mensajes es libre):</p>
+<ol type="1">
+<li><p>Crea un Seat Ibiza (máx. 180 km/h) y un Renault Clio (máx. 170) y agrégalos al concesionario: stock = 2.</p></li>
+<li><p><code>buscarVehiculo('Seat', 'Ibiza')</code> devuelve el objeto; <code>buscarVehiculo('Seat', 'Leon')</code> devuelve <code>null</code>.</p></li>
+<li><p><code>acelerar(70)</code> en el Ibiza: 70 km/h. <code>frenar(100)</code>: 0 km/h (no baja de 0 y no lanza excepción).</p></li>
+<li><p><code>venderVehiculo()</code> del Clio: stock = 1.</p></li>
+<li><p><code>acelerar(200)</code> en el Ibiza: se lanza tu excepción; el <code>catch</code> muestra «Error: No se puede superar la velocidad máxima de 180 km/h» y el programa continúa, sin error fatal.</p></li>
+<li><p><code>Vehiculo::totalCreados()</code> devuelve 2, y se llama sin crear ningún objeto.</p></li>
+</ol>
+</div>
+</div>
 </section>
 <section id="asignación-vs-clonado" class="level2">
 <h2 class="anchored" data-anchor-id="asignación-vs-clonado">Asignación vs clonado</h2>
@@ -847,6 +868,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Pista: piensa por qué <code>calcularSalario()</code> puede apoyarse en <code>porcentajeBono()</code> de forma genérica en las tres subclases, en vez de repetir la fórmula <code>salarioBase * (1 + porcentaje)</code> tres veces con el número ya puesto a mano.</p>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Qué debe verse">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Qué debe verse
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con un <code>JefeEquipo</code> de salario base 2000 (Marta), un <code>Programador</code> de 1800 (Manel) y un <code>Administrativo</code> de 1500 (Ana), recorriendo la lista con una sola llamada a <code>calcularSalario()</code>:</p>
+<pre><code>Marta (JefeEquipo, base 2000):      2400.00 €
+Manel (Programador, base 1800):     1980.00 €
+Ana (Administrativo, base 1500):    1500.00 €</code></pre>
+<p>Comprueba además dos cosas: <code>new Empleado(...)</code> da un error fatal (la clase es abstracta), y el bucle de <code>EmpresaPrincipal</code> no contiene ningún <code>if</code> ni <code>instanceof</code>.</p>
+</div>
+</div>
 <div class="ejercicio">
 <p><strong>EJ5 · Concesionario con clonado</strong></p>
 <p>Amplía las clases <code>Vehiculo</code>/<code>Concesionario</code> de EJ3 (el contador estático ya lo tienes hecho allí):</p>
@@ -868,6 +906,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>Sin <code>__clone()</code> personalizado</strong>: el original también muestra a A acelerado (es el mismo objeto compartido entre las dos listas) — el clonado no es real, solo lo parece.</p>
 <p><strong>Con <code>__clone()</code> personalizado</strong> (recorriendo el array y clonando cada <code>Vehiculo</code> dentro): el original mantiene a A a velocidad 0 — las dos listas contienen ahora vehículos independientes.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Qué debe verse">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Qué debe verse
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Parte 1</strong>, con un <code>Vehiculo</code> suelto: con <code>$b = $a</code>, acelerar <code>$b</code> también acelera <code>$a</code> (mismo objeto). Con <code>$c = clone $a</code>, acelerar <code>$c</code> no cambia <code>$a</code>. <code>instanceof</code> y <code>get_class()</code> confirman la misma clase en los tres.</p>
+<p><strong>Parte 2</strong>, concesionario con A y B: clónalo, acelera A a través del clon y mira A en el original:</p>
+<pre><code>Sin __clone():  A en el original = 50   (comparten el mismo Vehiculo)
+Con __clone():  A en el original = 0    (cada Vehiculo del clon es una copia propia)</code></pre>
+<p><code>Vehiculo::totalCreados()</code> solo cuenta los objetos creados con <code>new</code>: <code>clone</code> no ejecuta el constructor, así que los clones no suman.</p>
+</div>
 </div>
 
 

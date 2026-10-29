@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -670,6 +670,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ejercicio">
 <p><strong>EJ13 · «Recordarme» con rotación de token</strong></p>
 <p>Implementa el flujo completo de “recordarme” con rotación de token, persistiendo los tokens en un fichero (por ejemplo JSON, como el <code>UsuarioRepository</code> de la sección anterior) en vez del array en memoria usado como ilustración en la teoría: crear token al marcar la casilla, consumirlo (invalidándolo) al reconectar automáticamente, y emitir uno nuevo tras cada uso. Aplica también los flags de seguridad de la cookie vistos en la sección de cookies. Comprueba que, si intentas reutilizar un token ya consumido (simula guardarte una copia de la cookie antes de que se rote y vuelve a usarla), el sistema lo rechaza y borra la cookie.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Cómo comprobar la rotación">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo comprobar la rotación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Inicia sesión marcando «Recordarme»: en F12 → Application → Cookies aparece <code>recordarme</code>, con <code>HttpOnly</code> y <code>SameSite</code>. Copia su valor (token T1).</p></li>
+<li><p>Borra la cookie <code>PHPSESSID</code> y recarga el panel: entras sin login y el valor de <code>recordarme</code> ha cambiado (token T2).</p></li>
+<li><p>Pega T1 de nuevo en la cookie y recarga: te rechaza y borra la cookie.</p></li>
+<li><p>En un script aparte, comprueba lo mismo sin navegador:</p></li>
+</ol>
+<pre><code>consumir(T1) -&gt; 'ana@example.com'   (y emite T2)
+consumir(T1) -&gt; null                (ya gastado)
+consumir(T2) -&gt; 'ana@example.com'   (sigue valiendo)</code></pre>
+</div>
 </div>
 <div class="ejercicio">
 <p><strong>EJ14 · Tres roles con mapa de permisos</strong></p>

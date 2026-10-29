@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1c0c0db0e2bdf187d0a90928c6ad17dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dba71e83187f48d47d14498df9fa7686.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -876,6 +876,21 @@ Total del carrito: 30.00 €</code></pre>
 <li>En cada petición posterior, antes de confiar en la sesión, recalcula el fingerprint actual y compáralo con el guardado. Si no coincide, destruye la sesión y trata al usuario como no autenticado (alguien podría haber robado la cookie de sesión desde otro dispositivo).</li>
 </ol>
 <p>No hay código de partida para este ejercicio: documenta primero, en pseudocódigo o en una lista de pasos, qué comprobaciones haces y en qué orden, y después impleméntalo en PHP.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Cómo probar cada defensa">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo probar cada defensa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Fingerprint (robo de sesión)</strong>: inicia sesión y abre F12 → ⋮ → More tools → Network conditions. Desmarca «Use browser default» y escribe otro User-Agent (con las herramientas abiertas). Recarga con Enter en la barra de direcciones, no con F5 si la página viene de un POST: debe rechazarte y destruir la sesión.</p>
+<p><strong>Expiración</strong>: baja el límite a 10 segundos mientras pruebas. Espera más de 10 s sin recargar y vuelve a la página protegida: te pide login. Si recargas antes de los 10 s, el último acceso se renueva y sigues dentro.</p>
+<p>Comprueba que la lista de pasos que escribiste antes del código coincide con el orden real en que tu código hace las comprobaciones.</p>
+</div>
 </div>
 
 
