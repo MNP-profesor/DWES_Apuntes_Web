@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -75,18 +75,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../UD4/07-autenticacion.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-67c745ae80c4bcc9a85fda11a76a596e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cfce082fc06e091338903e7779c04d4a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a85f7aadac8c9481322e896b960dc966.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a3bb00f2561afcc97dd71891d7f83dc1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a85f7aadac8c9481322e896b960dc966.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-849f25cb17b35aa01d49a13ebdcce650.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-408b715fd6045c15ae33264e47715e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-bd40b20c57d3736a162bfd6e57aab084.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Saltar al contenido principal</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -143,6 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -172,13 +174,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -272,6 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -286,13 +295,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Barra de herramientas">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</a></li><li class="breadcrumb-item"><a href="../UD4/08-login-registro.html"><span class="chapter-title">Login y registro</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Hilo de Ariadna"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</a></li><li class="breadcrumb-item"><a href="../UD4/08-login-registro.html"><span class="chapter-title">Login y registro</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -303,12 +312,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Sitio web">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Desarrollo Web en Entorno Servidor</a> 
         <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro" aria-label="Alternar modo oscuro"><i class="bi"></i></button>
 </div>
     </div>
       </div>
@@ -328,12 +337,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../UD1/00-presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">UD1. Arquitecturas y tecnologías de programación Web en entorno servidor</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Alternar sección: UD1. Arquitecturas y tecnologías de programación Web en entorno servidor">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD1/01-modelo-ejecucion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modelos de ejecución: cliente y servidor</span></a>
@@ -369,12 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../UD2/00-presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Alternar sección: UD2. Fundamentos de PHP: Variables, operadores y sintaxis embebida">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD2/01-generacion-embebida.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Generación embebida, tecnologías y delimitadores</span></a>
@@ -405,12 +414,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../UD3/00-presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false" aria-label="Alternar sección: UD3. Estructuras de control en PHP: Condicionales, bucles, funciones y formularios">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD3/01-condicionales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estructuras condicionales</span></a>
@@ -451,12 +460,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../UD4/00-presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección: UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../UD4/01-ambito-y-clases.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ámbito de variables y clases</span></a>
@@ -520,12 +529,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
   <li><a href="#la-clase-usuario" id="toc-la-clase-usuario" class="nav-link active" data-scroll-target="#la-clase-usuario">La clase <code>Usuario</code></a></li>
-  <li><a href="#un-repositorio-real-sin-funciones-mágicas" id="toc-un-repositorio-real-sin-funciones-mágicas" class="nav-link" data-scroll-target="#un-repositorio-real-sin-funciones-mágicas">Un repositorio real, sin funciones mágicas</a></li>
+  <li><a href="#el-repositorio-dónde-se-guardan-los-usuarios" id="toc-el-repositorio-dónde-se-guardan-los-usuarios" class="nav-link" data-scroll-target="#el-repositorio-dónde-se-guardan-los-usuarios">El repositorio: dónde se guardan los usuarios</a></li>
   <li><a href="#validación-antes-de-registrar" id="toc-validación-antes-de-registrar" class="nav-link" data-scroll-target="#validación-antes-de-registrar">Validación antes de registrar</a></li>
   <li><a href="#login-completo" id="toc-login-completo" class="nav-link" data-scroll-target="#login-completo">Login completo</a></li>
   <li><a href="#cerrar-sesión-logout" id="toc-cerrar-sesión-logout" class="nav-link" data-scroll-target="#cerrar-sesión-logout">Cerrar sesión (logout)</a></li>
@@ -534,10 +543,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</a></li><li class="breadcrumb-item"><a href="../UD4/08-login-registro.html"><span class="chapter-title">Login y registro</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Hilo de Ariadna"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../UD4/00-presentacion.html">UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación</a></li><li class="breadcrumb-item"><a href="../UD4/08-login-registro.html"><span class="chapter-title">Login y registro</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Login y registro</span></h1>
 </div>
@@ -556,7 +565,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled" title="Normativa · RA-CE">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -569,8 +578,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>CE4.e.</strong> — Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios.</p>
 </div>
 </div>
-<p>Aquí se junta todo lo anterior: clases, sesiones, hashing, excepciones y ahora también un <strong>repositorio</strong> que sustituye a las funciones “mágicas” (<code>buscarUsuarioPorEmail</code>, <code>guardarUsuario</code>…) por una implementación real y completa, para que no quede nada oculto.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Concepto clave">
+<p>En esta sección unificamos todo lo anterior: clases, sesiones, hashing y excepciones. Además, para guardar y buscar a los usuarios introducimos un nuevo componente: el <strong>repositorio</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -580,7 +589,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El flujo estándar es: (1) el formulario recoge credenciales, (2) se busca el usuario, (3) se verifica la contraseña con <code>password_verify()</code>, (4) si es correcta, se regenera el ID de sesión y se guarda el identificador del usuario en <code>$_SESSION</code> — nunca la contraseña.</p>
+<p>El flujo estándar es:<br>
+1. El formulario recoge credenciales 2. Se busca el usuario 3. Se verifica la contraseña con <code>password_verify()</code> 4. Si es correcta, se regenera el ID de sesión y se guarda el identificador del usuario en <code>$_SESSION</code>, pero nunca la contraseña.</p>
 </div>
 </div>
 <section id="la-clase-usuario" class="level2">
@@ -610,54 +620,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-label="23"></a>    }</span>
 <span id="cb1-24"><a href="#cb1-24" aria-label="24"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="un-repositorio-real-sin-funciones-mágicas" class="level2">
-<h2 class="anchored" data-anchor-id="un-repositorio-real-sin-funciones-mágicas">Un repositorio real, sin funciones mágicas</h2>
-<p>En vez de dar por hecho que existe una función <code>buscarUsuarioPorEmail()</code>, aquí tienes su implementación completa, respaldada por un fichero JSON (sin base de datos, como en el resto de la unidad, pero sin cajas negras):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="kw">class</span> UsuarioRepository {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">string</span> <span class="va">$rutaFichero</span><span class="ot">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="dt">string</span> <span class="va">$rutaFichero</span>) {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>        <span class="va">$this</span>-&gt;rutaFichero <span class="op">=</span> <span class="va">$rutaFichero</span><span class="ot">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="fu">file_exists</span>(<span class="va">$rutaFichero</span>)) {</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>            <span class="fu">file_put_contents</span>(<span class="va">$rutaFichero</span><span class="ot">,</span> <span class="fu">json_encode</span>([]))<span class="ot">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a>        }</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a>    }</span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a>    <span class="kw">private</span> <span class="kw">function</span> cargarTodos()<span class="ot">:</span> <span class="dt">array</span> {</span>
-<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a>        <span class="va">$contenido</span> <span class="op">=</span> <span class="fu">file_get_contents</span>(<span class="va">$this</span>-&gt;rutaFichero)<span class="ot">;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a>        <span class="cf">return</span> <span class="fu">json_decode</span>(<span class="va">$contenido</span><span class="ot">,</span> <span class="kw">true</span>) <span class="op">??</span> []<span class="ot">;</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a>    }</span>
-<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-label="16"></a>    <span class="kw">private</span> <span class="kw">function</span> guardarTodos(<span class="dt">array</span> <span class="va">$datos</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
-<span id="cb2-17"><a href="#cb2-17" aria-label="17"></a>        <span class="fu">file_put_contents</span>(<span class="va">$this</span>-&gt;rutaFichero<span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$datos</span><span class="ot">,</span> <span class="cn">JSON_PRETTY_PRINT</span>))<span class="ot">;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a>    }</span>
-<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-label="20"></a>    <span class="kw">public</span> <span class="kw">function</span> existe(<span class="dt">string</span> <span class="va">$email</span>)<span class="ot">:</span> <span class="dt">bool</span> {</span>
-<span id="cb2-21"><a href="#cb2-21" aria-label="21"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-label="22"></a>        <span class="cf">return</span> <span class="kw">isset</span>(<span class="va">$datos</span>[<span class="va">$email</span>])<span class="ot">;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-label="23"></a>    }</span>
-<span id="cb2-24"><a href="#cb2-24" aria-label="24"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-label="25"></a>    <span class="kw">public</span> <span class="kw">function</span> guardar(Usuario <span class="va">$usuario</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
-<span id="cb2-26"><a href="#cb2-26" aria-label="26"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-label="27"></a>        <span class="va">$datos</span>[<span class="va">$usuario</span>-&gt;getEmail()] <span class="op">=</span> [<span class="st">'passwordHash'</span> =&gt; <span class="va">$usuario</span>-&gt;getPasswordHash()]<span class="ot">;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-label="28"></a>        <span class="va">$this</span>-&gt;guardarTodos(<span class="va">$datos</span>)<span class="ot">;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-label="29"></a>    }</span>
-<span id="cb2-30"><a href="#cb2-30" aria-label="30"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-label="31"></a>    <span class="kw">public</span> <span class="kw">function</span> buscarPorEmail(<span class="dt">string</span> <span class="va">$email</span>)<span class="ot">:</span> <span class="ot">?</span>Usuario {</span>
-<span id="cb2-32"><a href="#cb2-32" aria-label="32"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-label="33"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$datos</span>[<span class="va">$email</span>])) {</span>
-<span id="cb2-34"><a href="#cb2-34" aria-label="34"></a>            <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-label="35"></a>        }</span>
-<span id="cb2-36"><a href="#cb2-36" aria-label="36"></a>        <span class="va">$usuario</span> <span class="op">=</span> <span class="kw">new</span> Usuario(<span class="va">$email</span>)<span class="ot">;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-label="37"></a>        <span class="co">// reconstruimos el objeto con el hash ya guardado, sin volver a hashear</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-label="38"></a>        <span class="va">$reflexion</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">ReflectionClass</span>(<span class="va">$usuario</span>)<span class="ot">;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-label="39"></a>        <span class="va">$propiedad</span> <span class="op">=</span> <span class="va">$reflexion</span>-&gt;getProperty(<span class="st">'passwordHash'</span>)<span class="ot">;</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-label="40"></a>        <span class="va">$propiedad</span>-&gt;setAccessible(<span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-label="41"></a>        <span class="va">$propiedad</span>-&gt;setValue(<span class="va">$usuario</span><span class="ot">,</span> <span class="va">$datos</span>[<span class="va">$email</span>][<span class="st">'passwordHash'</span>])<span class="ot">;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-label="42"></a>        <span class="cf">return</span> <span class="va">$usuario</span><span class="ot">;</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-label="43"></a>    }</span>
-<span id="cb2-44"><a href="#cb2-44" aria-label="44"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<section id="el-repositorio-dónde-se-guardan-los-usuarios" class="level2">
+<h2 class="anchored" data-anchor-id="el-repositorio-dónde-se-guardan-los-usuarios">El repositorio: dónde se guardan los usuarios</h2>
+<p>Un login necesita dos operaciones: <strong>buscar</strong> un usuario por su email y <strong>guardar</strong> uno nuevo al registrarse. En una aplicación real los usuarios estarían en una base de datos (lo verás en las unidades siguientes); aquí usamos un fichero JSON para no depender de ella.</p>
+<p>Para que el resto del código (login, registro) no tenga que saber dónde ni cómo se guardan los usuarios, esa lógica se encierra en una clase: el <strong>repositorio</strong>. Quien lo usa solo llama a <code>existe()</code>, <code>guardar()</code> y <code>buscarPorEmail()</code>. Si mañana los usuarios pasan a una base de datos, solo cambia esta clase y el login no es necesario tocarlo. (Utilizando Laravel, este papel lo cumple Eloquent.)</p>
+<p>El fichero <code>datos/usuarios.json</code> tiene este aspecto: el email es la clave de cada usuario y el valor guarda su hash (nunca la contraseña con texto plano):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>    <span class="dt">"ana@example.com"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"passwordHash"</span><span class="fu">:</span> <span class="st">"$2y$10$..."</span> <span class="fu">},</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>    <span class="dt">"manel@example.com"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"passwordHash"</span><span class="fu">:</span> <span class="st">"$2y$10$..."</span> <span class="fu">}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En la clase, <code>cargarTodos()</code> lee ese fichero y lo convierte en un array con <code>json_decode()</code>; <code>guardarTodos()</code> hace lo inverso con <code>json_encode()</code>. El resto de métodos trabajan siempre sobre ese array. Al crear el repositorio, si el fichero no existe se crea vacío, pero la carpeta <code>datos/</code> tiene que existir ya.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">class</span> UsuarioRepository {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>    <span class="kw">private</span> <span class="dt">string</span> <span class="va">$rutaFichero</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class="dt">string</span> <span class="va">$rutaFichero</span>) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>        <span class="va">$this</span>-&gt;rutaFichero <span class="op">=</span> <span class="va">$rutaFichero</span><span class="ot">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="fu">file_exists</span>(<span class="va">$rutaFichero</span>)) {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>            <span class="fu">file_put_contents</span>(<span class="va">$rutaFichero</span><span class="ot">,</span> <span class="fu">json_encode</span>([]))<span class="ot">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>        }</span>
+<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>    }</span>
+<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>    <span class="kw">private</span> <span class="kw">function</span> cargarTodos()<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a>        <span class="va">$contenido</span> <span class="op">=</span> <span class="fu">file_get_contents</span>(<span class="va">$this</span>-&gt;rutaFichero)<span class="ot">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>        <span class="cf">return</span> <span class="fu">json_decode</span>(<span class="va">$contenido</span><span class="ot">,</span> <span class="kw">true</span>) <span class="op">??</span> []<span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>    }</span>
+<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    <span class="kw">private</span> <span class="kw">function</span> guardarTodos(<span class="dt">array</span> <span class="va">$datos</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>        <span class="fu">file_put_contents</span>(<span class="va">$this</span>-&gt;rutaFichero<span class="ot">,</span> <span class="fu">json_encode</span>(<span class="va">$datos</span><span class="ot">,</span> <span class="cn">JSON_PRETTY_PRINT</span>))<span class="ot">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a>    }</span>
+<span id="cb3-19"><a href="#cb3-19" aria-label="19"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-label="20"></a>    <span class="kw">public</span> <span class="kw">function</span> existe(<span class="dt">string</span> <span class="va">$email</span>)<span class="ot">:</span> <span class="dt">bool</span> {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-label="21"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-label="22"></a>        <span class="cf">return</span> <span class="kw">isset</span>(<span class="va">$datos</span>[<span class="va">$email</span>])<span class="ot">;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-label="23"></a>    }</span>
+<span id="cb3-24"><a href="#cb3-24" aria-label="24"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-label="25"></a>    <span class="kw">public</span> <span class="kw">function</span> guardar(Usuario <span class="va">$usuario</span>)<span class="ot">:</span> <span class="dt">void</span> {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-label="26"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-label="27"></a>        <span class="va">$datos</span>[<span class="va">$usuario</span>-&gt;getEmail()] <span class="op">=</span> [<span class="st">'passwordHash'</span> =&gt; <span class="va">$usuario</span>-&gt;getPasswordHash()]<span class="ot">;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-label="28"></a>        <span class="va">$this</span>-&gt;guardarTodos(<span class="va">$datos</span>)<span class="ot">;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-label="29"></a>    }</span>
+<span id="cb3-30"><a href="#cb3-30" aria-label="30"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-label="31"></a>    <span class="kw">public</span> <span class="kw">function</span> buscarPorEmail(<span class="dt">string</span> <span class="va">$email</span>)<span class="ot">:</span> <span class="ot">?</span>Usuario {</span>
+<span id="cb3-32"><a href="#cb3-32" aria-label="32"></a>        <span class="va">$datos</span> <span class="op">=</span> <span class="va">$this</span>-&gt;cargarTodos()<span class="ot">;</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-label="33"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="kw">isset</span>(<span class="va">$datos</span>[<span class="va">$email</span>])) {</span>
+<span id="cb3-34"><a href="#cb3-34" aria-label="34"></a>            <span class="cf">return</span> <span class="kw">null</span><span class="ot">;</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-label="35"></a>        }</span>
+<span id="cb3-36"><a href="#cb3-36" aria-label="36"></a>        <span class="va">$usuario</span> <span class="op">=</span> <span class="kw">new</span> Usuario(<span class="va">$email</span>)<span class="ot">;</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-label="37"></a>        <span class="co">// reconstruimos el objeto con el hash ya guardado, sin volver a hashear</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-label="38"></a>        <span class="va">$reflexion</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">ReflectionClass</span>(<span class="va">$usuario</span>)<span class="ot">;</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-label="39"></a>        <span class="va">$propiedad</span> <span class="op">=</span> <span class="va">$reflexion</span>-&gt;getProperty(<span class="st">'passwordHash'</span>)<span class="ot">;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-label="40"></a>        <span class="va">$propiedad</span>-&gt;setAccessible(<span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-label="41"></a>        <span class="va">$propiedad</span>-&gt;setValue(<span class="va">$usuario</span><span class="ot">,</span> <span class="va">$datos</span>[<span class="va">$email</span>][<span class="st">'passwordHash'</span>])<span class="ot">;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-label="42"></a>        <span class="cf">return</span> <span class="va">$usuario</span><span class="ot">;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-label="43"></a>    }</span>
+<span id="cb3-44"><a href="#cb3-44" aria-label="44"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -670,7 +687,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>Usuario</code> ya guarda su propio hash internamente tras <code>setPassword()</code>. No calcules el hash una segunda vez por fuera para pasárselo a <code>guardar()</code> (por ejemplo, con <code>password_hash($_POST['password'], PASSWORD_DEFAULT)</code> suelto) — además de ser trabajo duplicado (<code>password_hash()</code> es deliberadamente lento), <code>guardar()</code> solo necesita el objeto <code>Usuario</code>, ya lee el hash con <code>getPasswordHash()</code>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Analogía Java">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -687,49 +704,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="validación-antes-de-registrar" class="level2">
 <h2 class="anchored" data-anchor-id="validación-antes-de-registrar">Validación antes de registrar</h2>
 <p>Un registro real valida el formato del email y una política mínima de contraseña, no solo si el email ya existe:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="kw">function</span> validarRegistro(<span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> <span class="dt">array</span> {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>    <span class="va">$errores</span> <span class="op">=</span> []<span class="ot">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">filter_var</span>(<span class="va">$email</span><span class="ot">,</span> <span class="cn">FILTER_VALIDATE_EMAIL</span>)) {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'El email no tiene un formato válido'</span><span class="ot">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>    }</span>
-<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a>    <span class="cf">if</span> (<span class="fu">strlen</span>(<span class="va">$password</span>) <span class="op">&lt;</span> <span class="dv">8</span>) {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe tener al menos 8 caracteres'</span><span class="ot">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>    }</span>
-<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">preg_match</span>(<span class="st">'/[A-Z]/'</span><span class="ot">,</span> <span class="va">$password</span>)) {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe contener al menos una mayúscula'</span><span class="ot">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a>    }</span>
-<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">preg_match</span>(<span class="st">'/[0-9]/'</span><span class="ot">,</span> <span class="va">$password</span>)) {</span>
-<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe contener al menos un número'</span><span class="ot">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>    }</span>
-<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>    <span class="cf">return</span> <span class="va">$errores</span><span class="ot">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="kw">function</span> validarRegistro(<span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> <span class="dt">array</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>    <span class="va">$errores</span> <span class="op">=</span> []<span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">filter_var</span>(<span class="va">$email</span><span class="ot">,</span> <span class="cn">FILTER_VALIDATE_EMAIL</span>)) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'El email no tiene un formato válido'</span><span class="ot">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>    }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>    <span class="cf">if</span> (<span class="fu">strlen</span>(<span class="va">$password</span>) <span class="op">&lt;</span> <span class="dv">8</span>) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe tener al menos 8 caracteres'</span><span class="ot">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">preg_match</span>(<span class="st">'/[A-Z]/'</span><span class="ot">,</span> <span class="va">$password</span>)) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe contener al menos una mayúscula'</span><span class="ot">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>    }</span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="fu">preg_match</span>(<span class="st">'/[0-9]/'</span><span class="ot">,</span> <span class="va">$password</span>)) {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>        <span class="va">$errores</span>[] <span class="op">=</span> <span class="st">'La contraseña debe contener al menos un número'</span><span class="ot">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>    }</span>
+<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a>    <span class="cf">return</span> <span class="va">$errores</span><span class="ot">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="login-completo" class="level2">
 <h2 class="anchored" data-anchor-id="login-completo">Login completo</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="co">// login.php</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/Usuario.php'</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/UsuarioRepository.php'</span><span class="ot">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a><span class="va">$repositorio</span> <span class="op">=</span> <span class="kw">new</span> UsuarioRepository(<span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/datos/usuarios.json'</span>)<span class="ot">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span>) {</span>
-<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>    <span class="cf">try</span> {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>        <span class="va">$usuario</span> <span class="op">=</span> <span class="va">$repositorio</span>-&gt;buscarPorEmail(<span class="va">$_POST</span>[<span class="st">'email'</span>])<span class="ot">;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>        <span class="cf">if</span> (<span class="va">$usuario</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span><span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>])) {</span>
-<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Exception</span>(<span class="st">'Credenciales incorrectas'</span>)<span class="ot">;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>        }</span>
-<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>        <span class="fu">session_regenerate_id</span>(<span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a>        <span class="cf">exit</span><span class="ot">;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a>    } <span class="cf">catch</span> (<span class="bu">Exception</span> <span class="va">$e</span>) {</span>
-<span id="cb4-19"><a href="#cb4-19" aria-label="19"></a>        <span class="va">$error</span> <span class="op">=</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-label="20"></a>    }</span>
-<span id="cb4-21"><a href="#cb4-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// login.php</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/Usuario.php'</span><span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="kw">require_once</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/Modelo/UsuarioRepository.php'</span><span class="ot">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="va">$repositorio</span> <span class="op">=</span> <span class="kw">new</span> UsuarioRepository(<span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">'/datos/usuarios.json'</span>)<span class="ot">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a><span class="cf">if</span> (<span class="va">$_SERVER</span>[<span class="st">'REQUEST_METHOD'</span>] <span class="op">===</span> <span class="st">'POST'</span>) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>    <span class="cf">try</span> {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>        <span class="va">$usuario</span> <span class="op">=</span> <span class="va">$repositorio</span>-&gt;buscarPorEmail(<span class="va">$_POST</span>[<span class="st">'email'</span>] <span class="op">??</span> <span class="st">''</span>)<span class="ot">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>        <span class="cf">if</span> (<span class="va">$usuario</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span><span class="va">$usuario</span>-&gt;verificarPassword(<span class="va">$_POST</span>[<span class="st">'password'</span>] <span class="op">??</span> <span class="st">''</span>)) {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Exception</span>(<span class="st">'Credenciales incorrectas'</span>)<span class="ot">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>        }</span>
+<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>        <span class="fu">session_regenerate_id</span>(<span class="kw">true</span>)<span class="ot">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>        <span class="va">$_SESSION</span>[<span class="st">'usuario_id'</span>] <span class="op">=</span> <span class="va">$usuario</span>-&gt;getEmail()<span class="ot">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a>        <span class="fu">header</span>(<span class="st">'Location: /panel.php'</span>)<span class="ot">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a>        <span class="cf">exit</span><span class="ot">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a>    } <span class="cf">catch</span> (<span class="bu">Exception</span> <span class="va">$e</span>) {</span>
+<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a>        <span class="va">$error</span> <span class="op">=</span> <span class="va">$e</span>-&gt;getMessage()<span class="ot">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a>    }</span>
+<span id="cb5-21"><a href="#cb5-21" aria-label="21"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>¿Qué pasa con la excepción? Si las credenciales son incorrectas, <code>throw</code> salta al <code>catch</code>, que guarda el mensaje en <code>$error</code>. Como en ese caso no se ha ejecutado ni el <code>header()</code> ni el <code>exit</code>, el script sigue hacia abajo y llega al HTML, donde se muestra el mensaje.</p>
+<p>Si el login es correcto, <code>header()</code> + <code>exit</code> cortan el script antes de llegar al HTML. Por eso el formulario va <strong>después</strong> del bloque PHP:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">&lt;?php</span> <span class="cf">if</span> (<span class="op">!</span><span class="kw">empty</span>(<span class="va">$error</span>))<span class="ot">:</span> <span class="kw">?&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="op">&lt;</span>p <span class="kw">class</span><span class="op">=</span><span class="st">"error"</span><span class="op">&gt;&lt;</span><span class="ot">?</span><span class="op">=</span> <span class="fu">htmlspecialchars</span>(<span class="va">$error</span>) <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="op">&lt;</span><span class="ot">?</span>php <span class="cf">endif</span><span class="ot">;</span> <span class="kw">?&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="op">&lt;</span>form method<span class="op">=</span><span class="st">"post"</span><span class="op">&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>    <span class="op">&lt;</span>input type<span class="op">=</span><span class="st">"email"</span> name<span class="op">=</span><span class="st">"email"</span> value<span class="op">=</span><span class="st">"&lt;?= htmlspecialchars(</span><span class="va">$_POST</span>[<span class="er">'</span><span class="st">email'] ?? '') ?&gt;"</span><span class="op">&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>    <span class="op">&lt;</span>input type<span class="op">=</span><span class="st">"password"</span> name<span class="op">=</span><span class="st">"password"</span><span class="op">&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>    <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span><span class="op">&gt;</span>Entrar<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a><span class="op">&lt;/</span>form<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>htmlspecialchars()</code> evita que un texto con etiquetas HTML se interprete como código al mostrarlo. La contraseña no se vuelve a escribir en el formulario.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -746,28 +775,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="cerrar-sesión-logout" class="level2">
 <h2 class="anchored" data-anchor-id="cerrar-sesión-logout">Cerrar sesión (logout)</h2>
 <p>Cerrar sesión es el proceso inverso al login y conviene hacerlo completo. <code>session_destroy()</code> por sí solo borra los datos de la sesión en el servidor, pero no vacía <code>$_SESSION</code> en la petición actual ni elimina la cookie del navegador, que seguiría enviando un ID ya inválido.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="co">// logout.php</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="va">$_SESSION</span> <span class="op">=</span> []<span class="ot">;</span>                              <span class="co">// 1. vaciar los datos de esta petición</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a><span class="cf">if</span> (<span class="fu">ini_get</span>(<span class="st">'session.use_cookies'</span>)) {        <span class="co">// 2. borrar la cookie de sesión del navegador</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>    <span class="va">$p</span> <span class="op">=</span> <span class="fu">session_get_cookie_params</span>()<span class="ot">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    <span class="fu">setcookie</span>(<span class="fu">session_name</span>()<span class="ot">,</span> <span class="st">''</span><span class="ot">,</span> [</span>
-<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>        <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">-</span> <span class="dv">3600</span><span class="ot">,</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>        <span class="st">'path'</span>     =&gt; <span class="va">$p</span>[<span class="st">'path'</span>]<span class="ot">,</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>        <span class="st">'domain'</span>   =&gt; <span class="va">$p</span>[<span class="st">'domain'</span>]<span class="ot">,</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a>        <span class="st">'secure'</span>   =&gt; <span class="va">$p</span>[<span class="st">'secure'</span>]<span class="ot">,</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a>        <span class="st">'httponly'</span> =&gt; <span class="va">$p</span>[<span class="st">'httponly'</span>]<span class="ot">,</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>    ])<span class="ot">;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>}</span>
-<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a><span class="fu">session_destroy</span>()<span class="ot">;</span>                           <span class="co">// 3. eliminar la sesión en el servidor</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a><span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span>              <span class="co">// 4. redirigir y cortar</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="co">// logout.php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="va">$_SESSION</span> <span class="op">=</span> []<span class="ot">;</span>                              <span class="co">// 1. vaciar los datos de esta petición</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="cf">if</span> (<span class="fu">ini_get</span>(<span class="st">'session.use_cookies'</span>)) {        <span class="co">// 2. borrar la cookie de sesión del navegador</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>    <span class="va">$p</span> <span class="op">=</span> <span class="fu">session_get_cookie_params</span>()<span class="ot">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a>    <span class="fu">setcookie</span>(<span class="fu">session_name</span>()<span class="ot">,</span> <span class="st">''</span><span class="ot">,</span> [</span>
+<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>        <span class="st">'expires'</span>  =&gt; <span class="fu">time</span>() <span class="op">-</span> <span class="dv">3600</span><span class="ot">,</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>        <span class="st">'path'</span>     =&gt; <span class="va">$p</span>[<span class="st">'path'</span>]<span class="ot">,</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>        <span class="st">'domain'</span>   =&gt; <span class="va">$p</span>[<span class="st">'domain'</span>]<span class="ot">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a>        <span class="st">'secure'</span>   =&gt; <span class="va">$p</span>[<span class="st">'secure'</span>]<span class="ot">,</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a>        <span class="st">'httponly'</span> =&gt; <span class="va">$p</span>[<span class="st">'httponly'</span>]<span class="ot">,</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a>    ])<span class="ot">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-label="15"></a>}</span>
+<span id="cb7-16"><a href="#cb7-16" aria-label="16"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-label="17"></a><span class="fu">session_destroy</span>()<span class="ot">;</span>                           <span class="co">// 3. eliminar la sesión en el servidor</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-label="18"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-label="19"></a><span class="fu">header</span>(<span class="st">'Location: /login.php'</span>)<span class="ot">;</span>              <span class="co">// 4. redirigir y cortar</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-label="20"></a><span class="cf">exit</span><span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Desde el panel basta un enlace: <code>&lt;a href="/logout.php"&gt;Cerrar sesión&lt;/a&gt;</code>.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Errores frecuentes">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -795,13 +824,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol></li>
 </ul>
 <p>No se da código de partida completo, solo el prototipo (firma) de una función que tendrás que implementar y encajar en el flujo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="kw">function</span> intentarLogin(UsuarioRepository <span class="va">$repo</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> Usuario {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>    <span class="co">// Debe lanzar una excepción con mensaje genérico si el usuario no existe</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>    <span class="co">// o si la contraseña es incorrecta (mismo mensaje en ambos casos).</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>    <span class="co">// Debe devolver el objeto Usuario si el login es correcto.</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="kw">function</span> intentarLogin(UsuarioRepository <span class="va">$repo</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$email</span><span class="ot">,</span> <span class="dt">string</span> <span class="va">$password</span>)<span class="ot">:</span> Usuario {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>    <span class="co">// Debe lanzar una excepción con mensaje genérico si el usuario no existe</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a>    <span class="co">// o si la contraseña es incorrecta (mismo mensaje en ambos casos).</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a>    <span class="co">// Debe devolver el objeto Usuario si el login es correcto.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Casos que debes probar">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -826,7 +855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Implementa <code>registro.php</code> usando <code>UsuarioRepository::existe()</code> y la función <code>validarRegistro()</code> de esta sección. Si hay errores de validación, se deben mostrar todos a la vez (no solo el primero). Si el email ya existe, añade ese error a la misma lista en vez de cortar el flujo antes de validar el resto.</p>
 <p>Resultado esperado si se envía email <code>"no-es-un-email"</code> y contraseña <code>"abc"</code>: se deben mostrar las 4 líneas de error a la vez (formato de email, longitud, mayúscula, número), no solo la primera que falle.</p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Casos que debes probar">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -853,15 +882,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Alternar modo oscuro");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Alternar modo oscuro");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -936,11 +1000,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -954,8 +1037,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             if (link.getAttribute("rel") === null) {
               link.setAttribute("rel", "noopener");
             }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -969,6 +1114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1131,44 +1277,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1267,7 +1423,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Código desplazable","output":"Salida desplazable"};
+  </script>
+<nav class="page-navigation" aria-label="Página">
   <div class="nav-page nav-page-previous">
       <a href="../UD4/07-autenticacion.html" class="pagination-link" aria-label="Autenticación, redirecciones e inclusiones">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Autenticación, redirecciones e inclusiones</span></span>
