@@ -534,9 +534,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Debe incluir:</p>
 <ol type="1">
 <li><p><strong>Registro</strong> <em>(base del EJ12)</em>: formulario que crea un usuario con la contraseña cifrada mediante <code>password_hash()</code>, validando el formato del email, que no exista ya, y que la contraseña tenga al menos 8 caracteres, con un segundo campo de confirmación que debe coincidir. Puedes mantener la política completa de <code>validarRegistro()</code> (mayúscula y número) o simplificarla, pero nunca por debajo de 8 caracteres.</p></li>
-<li><p><strong>Login</strong> <em>(base del EJ11)</em>: valida credenciales con <code>password_verify()</code>, con un mensaje de error genérico, e inicia sesión regenerando el ID. Puedes conservar el bloqueo por intentos (EJ10) o prescindir de él.</p></li>
-<li><p><strong>Una preferencia en cookie</strong> <em>(base de EJ8 o EJ9 si prefieres añadir consentimiento)</em>: al menos un dato de usuario (idioma o tema) guardado en cookie, con los flags de seguridad vistos en la unidad.</p></li>
-<li><p><strong>Panel protegido</strong> <em>(base de la <strong>redirección condicional típica</strong> de la sección 7, apartado <strong>Redirecciones</strong>)</em>: una página solo accesible con sesión activa, que redirige a login si no la hay. Debe mostrar, al menos, el email del usuario y su preferencia guardada en la cookie.</p></li>
+<li><p><strong>Login</strong> <em>(base del EJ11)</em>: valida credenciales con <code>password_verify()</code>, con un mensaje de error genérico, e inicia sesión regenerando el ID. Incluye también el bloqueo por intentos fallidos del EJ10: tras 3 fallos seguidos el login debe quedar bloqueado 1 minuto.</p></li>
+<li><p><strong>El idioma preferido en cookie</strong> <em>(base del EJ8)</em>: el usuario puede elegir su idioma (por ejemplo <code>es</code> o <code>en</code>) y se guarda en una cookie con los flags de seguridad vistos en la unidad. Si la cookie no existe o tiene un valor no permitido, se usa <code>es</code>.</p></li>
+<li><p><strong>Panel protegido</strong> <em>(base de la <strong>redirección condicional típica</strong> de la sección 7, apartado <strong>Redirecciones</strong>)</em>: una página solo accesible con sesión activa, que redirige a login si no la hay. Debe mostrar, al menos, el email del usuario y su idioma guardado en la cookie, y permitir cambiarlo desde el propio panel.</p></li>
 <li><p><strong>Logout</strong> <em>(base del apartado <strong>Cerrar sesión (logout)</strong> de la sección 8)</em>: enlace o botón que cierre la sesión por completo (vaciar <code>$_SESSION</code>, borrar la cookie de sesión y <code>session_destroy()</code>) y redirija al login.</p></li>
 <li><p><strong>Flujo integrado</strong>: las cinco funcionalidades anteriores deben funcionar como una aplicación única y navegable, no como ficheros sueltos sin conexión entre sí. Por ello hay que añadir enlaces entre login y registro, desde el panel protegido hacia el logout, y tras registrarse redirección al login o directamente al panel (auto-login).</p></li>
 </ol>
@@ -557,8 +557,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Registro con contraseña corta o confirmación distinta: se muestran los errores.</p></li>
 <li><p>Registro correcto: continúa al login (o entra). En <code>datos/usuarios.json</code> hay un hash, no la contraseña.</p></li>
 <li><p>Login con email inexistente y con contraseña errónea: mismo mensaje.</p></li>
-<li><p>Login correcto: el panel muestra el email y la preferencia. F12: el <code>PHPSESSID</code> cambia respecto al anterior al login.</p></li>
-<li><p>Cambia la preferencia y recarga: se mantiene. La cookie lleva <code>HttpOnly</code>.</p></li>
+<li><p>Tres contraseñas erróneas seguidas: el login queda bloqueado, también con la contraseña correcta. (Para probarlo sin esperar 3 minutos, reduce temporalmente la duración del bloqueo a unos segundos.)</p></li>
+<li><p>Login correcto: el panel muestra el email y el idioma. F12: el <code>PHPSESSID</code> cambia respecto al anterior al login.</p></li>
+<li><p>Cambia el idioma y recarga: se mantiene. La cookie lleva <code>HttpOnly</code>.</p></li>
 <li><p>Logout: vuelve al login, la cookie de sesión desaparece y, al pegar la URL del panel, te manda otra vez al login.</p></li>
 </ol>
 </div>
