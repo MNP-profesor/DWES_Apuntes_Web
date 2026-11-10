@@ -1978,5 +1978,663 @@
       "UD4. POO en PHP y desarrollo de funcionalidades Web: sesiones, cookies y autenticación",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Proyecto integrador y cierre</span>"
     ]
+  },
+  {
+    "objectID": "UD5/00-presentacion.html",
+    "href": "UD5/00-presentacion.html",
+    "title": "UD5. Separación de la lógica de negocio: MVC con Laravel",
+    "section": "",
+    "text": "Presentación de la unidad",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel"
+    ]
+  },
+  {
+    "objectID": "UD5/00-presentacion.html#presentación-de-la-unidad",
+    "href": "UD5/00-presentacion.html#presentación-de-la-unidad",
+    "title": "UD5. Separación de la lógica de negocio: MVC con Laravel",
+    "section": "",
+    "text": "Qué aprenderás\nHasta ahora has escrito código PHP donde el HTML, la lógica y los datos conviven en el mismo fichero. Esto funciona para aprender, pero no escala. En esta unidad das el salto a la arquitectura que utiliza la industria: el patrón Modelo-Vista-Controlador (MVC) con Laravel , el framework líder en PHP que usaremos también en la UD7 para servicios REST.\nEn esta unidad aprenderás a separar la aplicación en capas apoyándote en las migraciones y consultas básicas de Laravel para alimentar las vistas con datos reales. No te preocupes si aún no profundizamos en cómo se gestionan las conexiones por dentro; la prioridad ahora es entender cómo fluye la información entre capas. En la siguiente unidad abriremos el “capó” para estudiar el acceso a bajo nivel con PDO.\nPara consolidar la teoría y la práctica, trabajaremos con dos proyectos:\n\nEn la teoría (guiado): Construiremos paso a paso una agenda de contactos, pensada para ser muy simple y ver cada concepto de forma aislada.\nEn los ejercicios: Desarrollarás de forma autónoma una aplicación de préstamo de videojuegos con reglas de negocio reales, que entregarás al final como proyecto integrador.\n\n\n\nObjetivos\nAl terminar la unidad serás capaz de:\n\nArgumentar las ventajas de separar la presentación de la lógica de negocio.\nDescribir el patrón MVC y el flujo completo de una petición HTTP dentro de él.\nInstalar y poner en marcha un proyecto Laravel con Composer.\nDefinir rutas y controladores que atiendan peticiones y deleguen en vistas.\nConstruir la interfaz con plantillas Blade: layouts, componentes y directivas.\nCrear formularios dinámicos con protección CSRF, validación en servidor y realimentación de errores.\nIdentificar y aplicar los parámetros de configuración de la aplicación y diferenciar entornos.\nDesarrollar aplicaciones completas con mantenimiento de estado (sesiones) y separación estricta de capas.\nAplicar principios y patrones de la POO (servicios, inyección de dependencias) al estructurar la lógica.\nProbar el código con artisan test y documentarlo con PHPDoc.\n\n\n\nResultados de Aprendizaje y Criterios de Evaluación\n\nRA5. Desarrolla aplicaciones web identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.\n\n\n\n\n\n\n\n\nCE\nDescripción\n\n\n\n\nCE5.a\nSe han identificado las ventajas de separar la lógica de negocio de los aspectos de presentación de la aplicación.\n\n\nCE5.b\nSe han analizado y utilizado mecanismos y frameworks que permiten realizar esta separación y sus características principales.\n\n\nCE5.c\nSe han utilizado objetos y controles en el servidor para generar el aspecto visual de la aplicación web en el cliente.\n\n\nCE5.d\nSe han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación web.\n\n\nCE5.e\nSe han identificado y aplicado los parámetros relativos a la configuración de la aplicación web.\n\n\nCE5.f\nSe han escrito aplicaciones web con mantenimiento de estado y separación de la lógica de negocio.\n\n\nCE5.g\nSe han aplicado los principios y patrones de diseño de la programación orientada a objetos.\n\n\nCE5.h\nSe ha probado y documentado el código.\n\n\n\n\n\nContenidos\n\n\n\nBloque\nTítulo\nCE\n\n\n\n\n1\nSeparación de capas y patrón MVC\nCE5.a-b\n\n\n2\nLaravel: instalación y estructura\nCE5.b\n\n\n3\nRutas y controladores\nCE5.b-c\n\n\n4\nVistas con Blade\nCE5.c\n\n\n5\nFormularios dinámicos: CSRF, validación y errores\nCE5.d\n\n\n6\nEloquent y migraciones (herramienta de apoyo)\nCE5.f\n\n\n7\nSesiones y mantenimiento de estado\nCE5.f\n\n\n8\nConfiguración de la aplicación por entornos\nCE5.e\n\n\n9\nPOO aplicada: servicios e inyección de dependencias\nCE5.g\n\n\n10\nPruebas, documentación y proyecto integrador\nCE5.f-h\n\n\n\n\n\nRecursos y materiales\n\nDocker (obligatorio desde esta unidad — ver Laravel: instalación y estructura)\nMySQL/MariaDB (vía el servicio db del docker-compose.yml, no instalación aparte)\nDocumentación oficial de PHP\nNavegador con herramientas de desarrollador (F12)\nEditor de código (VS Code recomendado) con soporte para Blade\nLaravel Installer (o composer create-project laravel/laravel)\n\n\n\nEvaluación\nLas actividades planteadas sesión a sesión están diseñadas para consolidar el aprendizaje de forma práctica. Por ello, en caso de estar marcadas como de entrega obligatoria, a criterio docente se podrán calificar con una nota cuantitativa (0 - 10) o cualitativa (Apto / No apto), y supondrán un porcentaje menor de la nota final de la unidad. La ponderación más alta se obtendrá de la prueba objetiva. La ponderación final asociada a cada parte se indicará en Aules.\nA continuación, se detallan los ejercicios integrados en esta unidad, indicando en la tabla cuáles de ellos son de entrega obligatoria.\n\n\n\n\n\n\n\n\nEjercicio\nTítulo\n¿Entrega?\n\n\n\n\nEJ1\nDe espagueti a capas\nNo\n\n\nEJ2\nCatálogo de videojuegos en préstamo\nNo\n\n\nEJ3\nSolicitud de préstamo con validación\nNo\n\n\nEJ4\nMi solicitud: estado en sesión y servicio configurable\nNo\n\n\nEJ5\nDisponibilidadService: la lógica de préstamos como servicio\nNo\n\n\nEJ6\nProyecto integrador: préstamo de videojuegos\nSí\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEl bloque de Eloquent y migraciones (Eloquent y migraciones (herramienta de apoyo)) es contenido de apoyo: no tiene ejercicio evaluable, pero su práctica guiada es necesaria para seguir el resto de la unidad.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html",
+    "href": "UD5/01-mvc.html",
+    "title": "Separación de capas y patrón MVC",
+    "section": "",
+    "text": "El problema: código espagueti\nAsí hemos programado hasta ahora. Todo en el mismo fichero:\nSalida en el navegador (visitante sin perfil de socio):\nAhora imagina que la tienda crece a 40 páginas y llegan tres peticiones de cambio:",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html#el-problema-código-espagueti",
+    "href": "UD5/01-mvc.html#el-problema-código-espagueti",
+    "title": "Separación de capas y patrón MVC",
+    "section": "",
+    "text": "&lt;?php // producto.php — TODO mezclado (estilo UD2–UD4)\nsession_start();\n$descuento = ($_SESSION['perfil'] ?? '') === 'socio' ? 0.9 : 1.0; // lógica\n$precioFinal = 25.50 * $descuento;\n?&gt;\n&lt;html&gt;&lt;body&gt;\n  &lt;h1&gt;Camiseta DAW&lt;/h1&gt;            &lt;!-- presentación --&gt;\n  &lt;p&gt;Precio: &lt;?= number_format($precioFinal, 2) ?&gt; €&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n\n&lt;html&gt;&lt;body&gt;\n  &lt;h1&gt;Camiseta DAW&lt;/h1&gt;\n  &lt;p&gt;Precio: 25.50 €&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n\n\n“Cambia el diseño entero” → hay que editar 40 ficheros que contienen lógica crítica. Un &lt;div&gt; mal cerrado puede romper un cálculo.\n“El descuento de socio pasa del 10% al 15%” → el 0.9 está copiado en producto.php, carrito.php y factura.php. ¿Seguro que los encuentras todos?\n“Queremos una app móvil que use los mismos precios” → imposible: el cálculo está soldado al HTML.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html#la-solución-capas",
+    "href": "UD5/01-mvc.html#la-solución-capas",
+    "title": "Separación de capas y patrón MVC",
+    "section": "La solución: capas",
+    "text": "La solución: capas\nSeparamos la aplicación en tres responsabilidades:\n\n\n\n\n\n\n\n\nCapa\nResponde a…\nEjemplo\n\n\n\n\nPresentación\n¿Cómo se muestra?\nEl HTML del catálogo\n\n\nLógica de negocio\n¿Qué reglas aplican?\n“Un socio tiene un 10% de descuento”\n\n\nDatos\n¿Dónde se guarda?\nLa tabla productos, la sesión\n\n\n\nEl mismo ejemplo, ya separado (todavía sin framework, PHP puro):\n&lt;?php // logica/Precios.php — SOLO lógica de negocio\nclass Precios\n{\n    public static function conDescuento(float $base, string $perfil): float\n    {\n        $descuento = $perfil === 'socio' ? 0.9 : 1.0;\n        return $base * $descuento;\n    }\n}\n&lt;?php // producto.php — SOLO coordina y presenta\nrequire 'logica/Precios.php';\nsession_start();\n$precioFinal = Precios::conDescuento(25.50, $_SESSION['perfil'] ?? '');\n?&gt;\n&lt;html&gt;&lt;body&gt;\n  &lt;h1&gt;Camiseta DAW&lt;/h1&gt;\n  &lt;p&gt;Precio: &lt;?= number_format($precioFinal, 2) ?&gt; €&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\nLa salida es idéntica, pero ahora:\n\nEl 15% de descuento se cambia en una línea de Precios.php.\nLa app móvil puede llamar a Precios::conDescuento() sin tocar HTML.\nPrecios se puede probar sin navegador: Precios::conDescuento(100, 'socio') debe devolver 90.0. Siempre.\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nSeparar capas no es estética: es lo que hace el software mantenible (cada cambio toca una capa), reutilizable (una regla sirve a todas las vistas), testeable (la lógica se prueba sin navegador) y apto para trabajar en equipo (maquetación y programación en paralelo).",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html#el-patrón-modelo-vista-controlador",
+    "href": "UD5/01-mvc.html#el-patrón-modelo-vista-controlador",
+    "title": "Separación de capas y patrón MVC",
+    "section": "El patrón Modelo-Vista-Controlador",
+    "text": "El patrón Modelo-Vista-Controlador\nMVC organiza esa separación en tres piezas con nombre propio:\n\nModelo: los datos y sus reglas. Sabe qué es un contacto y qué operaciones son válidas.\nVista: genera el HTML a partir de los datos que recibe. No decide nada.\nControlador: recibe la petición, pide datos al modelo y elige qué vista devolver.\n\nEl flujo de toda petición es siempre el mismo. Para GET /contactos:\n\nEl navegador pide GET /contactos.\nEl enrutador decide qué controlador la atiende.\nEl controlador pide los contactos al modelo.\nEl modelo devuelve los datos.\nEl controlador se los entrega a la vista.\nLa vista genera el HTML, que vuelve al navegador.\n\n\n\n\nDiagrama de flujo en una arquitectura MVC\n\n\nVisto con código orientativo (en el próximo bloque será Laravel real):\n// 2. Enrutador: /contactos → ContactoController::index()\n\n// 3–5. Controlador\nclass ContactoController\n{\n    public function index()\n    {\n        $contactos = Contacto::todos();          // 3–4: pide al modelo\n        return vista('contactos', $contactos);   // 5: entrega a la vista\n    }\n}\n\n// 6. Vista: recorre $contactos y pinta &lt;li&gt; por cada uno",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html#y-quién-impone-esta-disciplina-los-frameworks",
+    "href": "UD5/01-mvc.html#y-quién-impone-esta-disciplina-los-frameworks",
+    "title": "Separación de capas y patrón MVC",
+    "section": "¿Y quién impone esta disciplina? Los frameworks",
+    "text": "¿Y quién impone esta disciplina? Los frameworks\nPodrías montar MVC a mano, pero un framework te lo da hecho y con las decisiones difíciles ya tomadas: enrutado, plantillas, validación, sesiones. En PHP los más relevantes son:\n\n\n\n\n\n\n\nFramework\nPerfil\n\n\n\n\nLaravel\nConvención sobre configuración, ecosistema enorme (Blade, Eloquent, artisan), documentación excelente. El que usaremos.\n\n\nSymfony\nComponentes desacoplados y muy configurables; de hecho Laravel usa varios por dentro. Curva de entrada mayor.\n\n\nCodeIgniter\nMuy ligero y fácil de arrancar; menos convenciones y menor ecosistema.\n\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nPoner lógica en la vista “porque es solo un if”. Ese if mañana son veinte.\nConfundir imprimir un dato (presentación) con calcularlo (negocio).\nCreer que MVC es cosa del framework: es una disciplina; el framework solo te ayuda a mantenerla.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/01-mvc.html#actividades",
+    "href": "UD5/01-mvc.html#actividades",
+    "title": "Separación de capas y patrón MVC",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ1 · De espagueti a capas\nSe te entrega el fichero tienda_espagueti.php:\n&lt;?php\nsession_start();\n$productos = [\n    ['nombre' =&gt; 'Camiseta DAW', 'precio' =&gt; 25.50],\n    ['nombre' =&gt; 'Taza PHP',     'precio' =&gt; 12.00],\n    ['nombre' =&gt; 'Pegatinas',    'precio' =&gt; 3.75],\n];\n$perfil = $_SESSION['perfil'] ?? 'visitante';\n$descuento = $perfil === 'socio' ? 0.9 : 1.0;\n$ivaTipo = 0.21;\n?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;&lt;title&gt;Tienda DAW&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Catálogo (&lt;?= $perfil ?&gt;)&lt;/h1&gt;\n  &lt;ul&gt;\n  &lt;?php foreach ($productos as $p):\n      $conDescuento = $p['precio'] * $descuento;\n      $final = $conDescuento * (1 + $ivaTipo);\n  ?&gt;\n      &lt;li&gt;&lt;?= $p['nombre'] ?&gt; —\n          &lt;?= number_format($final, 2) ?&gt; €\n          &lt;?php if ($descuento &lt; 1): ?&gt;&lt;em&gt;(precio socio)&lt;/em&gt;&lt;?php endif; ?&gt;\n      &lt;/li&gt;\n  &lt;?php endforeach; ?&gt;\n  &lt;/ul&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\nCopia el fichero y marca con comentarios // PRESENTACIÓN, // NEGOCIO o // DATOS cada zona del código.\nEscribe una tabla con cinco ventajas de separar capas, ilustrando cada una con un ejemplo de este fichero concreto (p. ej.: “si cambia el IVA hay que editar un fichero con HTML”).\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio estará correcto si la clasificación de capas es correcta y la tabla tiene los 5 ejemplos referenciados al fichero.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Separación de capas y patrón MVC</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html",
+    "href": "UD5/02-instalacion-laravel.html",
+    "title": "Laravel: instalación y estructura",
+    "section": "",
+    "text": "Composer: el gestor de dependencias\nComposer descarga las librerías del proyecto (declaradas en composer.json) dentro de vendor/ y genera el autoloader. En otras palabras, nunca más escribirás require para cargar clases.\nCon Docker no necesitas instalar Composer en tu equipo: usas la imagen oficial de Composer solo para el momento puntual de crear el proyecto, y a partir de ahí composer install/composer require se ejecutan dentro del contenedor.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#composer-el-gestor-de-dependencias",
+    "href": "UD5/02-instalacion-laravel.html#composer-el-gestor-de-dependencias",
+    "title": "Laravel: instalación y estructura",
+    "section": "",
+    "text": "TipAnalogía Java\n\n\n\nComposer es el Maven/Gradle de PHP, con una diferencia práctica: las dependencias se instalan dentro del proyecto (vendor/), no en un repositorio local compartido. Cada proyecto lleva las suyas.\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\ncomposer create-project se usa una sola vez, al arrancar una aplicación nueva. A partir de ahí, para añadir funcionalidad a un proyecto que ya existe (como harás en tu proyecto intermodular, o en UD7 y UD9 de este módulo) se usa composer require sobre el proyecto ya creado, nunca se vuelve a crear el proyecto desde cero.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#crear-el-proyecto",
+    "href": "UD5/02-instalacion-laravel.html#crear-el-proyecto",
+    "title": "Laravel: instalación y estructura",
+    "section": "Crear el proyecto",
+    "text": "Crear el proyecto\nTodos los ejemplos ejecutables de esta teoría se construyen sobre una agenda de contactos, deliberadamente simple para que cada concepto se vea aislado. La aplicación de préstamo de videojuegos (donde harás tú los ejercicios) es un proyecto aparte, que crearás más abajo con la misma plantilla.\ndocker run --rm -v \"${PWD}:/app\" composer create-project laravel/laravel agenda\ncd agenda",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#los-dos-ficheros-que-necesita-todo-proyecto-laravel-con-docker",
+    "href": "UD5/02-instalacion-laravel.html#los-dos-ficheros-que-necesita-todo-proyecto-laravel-con-docker",
+    "title": "Laravel: instalación y estructura",
+    "section": "Los dos ficheros que necesita todo proyecto Laravel con Docker",
+    "text": "Los dos ficheros que necesita todo proyecto Laravel con Docker\nA diferencia de los ejercicios PHP nativos de unidades anteriores, un proyecto Laravel necesita composer install dentro del contenedor y arranca con php artisan serve, no con Apache.\nEstos dos ficheros, en la raíz del proyecto, son la plantilla que reutilizarás en toda la unidad (y en UD7/UD9). Para la teoría, con agenda:\nDockerfile:\nFROM php:8.4-cli\n# Base PHP (sin Apache, se arranca con 'php artisan serve')\n\nRUN apt-get update && apt-get install -y unzip\n# Necesario para que Composer descomprima paquetes dentro de este contenedor\n# (composer install/require); sin esto falla con \"zip extension... missing\"\n\nRUN docker-php-ext-install pdo_mysql\n# Extensión para conectar con MySQL; sin ella, \"could not find driver\"\n\nCOPY --from=composer:2 /usr/bin/composer /usr/bin/composer\n# Copia el binario de Composer desde su imagen oficial\n\nWORKDIR /var/www/html\n# Carpeta de trabajo dentro del contenedor\ndocker-compose.yml:\nname: ud5-teoria-agenda\n# Prefijo de todos los contenedores/red/volúmenes de este proyecto.\n# Evita colisiones si algún día tienes varios compose levantados a la vez.\n\nservices:\n  web:\n    build: .\n    # Construye la imagen a partir del Dockerfile de esta misma carpeta\n    # (en vez de bajar una imagen ya hecha con 'image:').\n\n    working_dir: /var/www/html\n    # Carpeta desde la que se ejecutan los comandos dentro del contenedor.\n\n    command: php artisan serve --host=0.0.0.0 --port=8000\n    # Qué ejecuta el contenedor al arrancar. --host=0.0.0.0 es obligatorio:\n    # sin él, el servidor solo escucha dentro del contenedor y no sería\n    # alcanzable desde el navegador de Windows.\n\n    ports:\n      - \"8000:8000\"\n    # Puerto de tu máquina : puerto del contenedor. Así localhost:8000\n    # en el navegador llega al puerto 8000 de dentro del contenedor.\n\n    volumes:\n      - ./:/var/www/html\n    # Enlaza esta carpeta (tu código) con /var/www/html dentro del\n    # contenedor. Los cambios que hagas en tus ficheros se reflejan\n    # al instante dentro, sin reconstruir la imagen.\n\n    environment:\n      - DB_CONNECTION=mysql\n      - DB_HOST=db\n      - DB_DATABASE=agenda\n      - DB_USERNAME=root\n      - DB_PASSWORD=root\n    # Variables de entorno inyectadas dentro del contenedor. Laravel las\n    # lee vía getenv()/env() para configurar la conexión a base de datos\n    # sin que tengas que tocar el .env a mano. DB_HOST=db funciona porque\n    # 'db' es el nombre del otro servicio: dentro de la red de Docker,\n    # los contenedores se resuelven entre sí por su nombre de servicio.\n\n    depends_on:\n      - db\n    # Arranca 'db' antes que 'web' (orden de arranque, no espera a que\n    # MySQL esté realmente listo para aceptar conexiones).\n\n  db:\n    image: mysql:8.0\n    # Imagen oficial de MySQL, sin Dockerfile propio: no necesita\n    # personalización, se usa tal cual.\n\n    environment:\n      MYSQL_ROOT_PASSWORD: root\n      MYSQL_DATABASE: agenda\n    # Estas dos variables las entiende la propia imagen de MySQL: crea\n    # el usuario root con esa contraseña y una base de datos vacía\n    # llamada 'agenda' automáticamente al primer arranque.\n\n    ports:\n      - \"3306:3306\"\n    # Expone MySQL también en tu máquina (puerto estándar 3306), por si\n    # quieres conectarte con un cliente externo (DBeaver, MySQL Workbench...)\n    # además de desde el propio contenedor 'web'.  \n\n    volumes:\n      - agenda_db_data:/var/lib/mysql\n      # Volumen NOMBRADO, no anónimo: sin esta línea, MySQL crea uno\n      # anónimo por su cuenta que no siempre se reutiliza entre\n      # 'docker compose down'/'up' — es fácil perder los datos sin\n      # querer. Nombrarlo aquí lo hace estable y localizable con\n      # 'docker volume ls'.\n\nvolumes:\n  agenda_db_data:        \n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nPara los ejercicios de esta unidad (EJ1-EJ6), crea un segundo proyecto aparte con el mismo patrón, cambiando solo el nombre:\ndocker run --rm -v \"${PWD}:/app\" composer create-project laravel/laravel prestamos\ncd prestamos\ny en su docker-compose.yml: name: ud5-prestamo-videojuegos, DB_DATABASE=prestamos (en los dos sitios donde aparece: environment del servicio web y del servicio db), y en el volumen nombrado: prestamos_db_data en vez de agenda_db_data (tanto en volumes: de db como en el bloque final volumes: del fichero). No mezcles los dos proyectos. La agenda es solo para reproducir los ejemplos de teoría.\n\n\nArranca y termina la instalación dentro del contenedor:\ndocker compose up -d --build\n# Construye la imagen y arranca web + db en segundo plano\n\ndocker compose exec web composer install\n# Ejecuta 'composer install' DENTRO del contenedor 'web' ya arrancado.\n# Hace falta porque el Dockerfile solo instala el binario de Composer,\n# no las dependencias del proyecto: el volumen (con composer.json) no\n# existe todavía durante el build, solo al arrancar el contenedor.\n\ndocker compose exec web cp .env.example .env\n# Copia la plantilla de configuración a .env DENTRO del contenedor.\n# Como el volumen es compartido con tu carpeta local, el .env creado\n# también aparece fuera, en tu proyecto.\n\ndocker compose exec web php artisan key:generate\n# Genera la clave de cifrado de la aplicación (APP_KEY) y la escribe\n# en el .env. Laravel la necesita para cifrar sesiones, cookies, etc.\n# Sin ella, la aplicación no arranca.\n\ndocker compose exec web php artisan migrate\n# Ejecuta las migraciones: crea las tablas en la base de datos del\n# servicio 'db'. Necesita que 'db' ya esté arrancado y aceptando\n# conexiones (por eso depends_on en el compose, aunque no garantiza\n# que MySQL esté \"listo\", solo que el contenedor está iniciado).\n\n\n\n\n\n\nImportanteImportante\n\n\n\nModifica el fichero .env para que las variables DB_CONNECTION, DB_HOST, DB_DATABASE, DB_USERNAME y DB_PASSWORD queden alineadas con el fichero docker-compose.yml.\n\n\nAbre http://localhost:8000: verás la página de bienvenida de Laravel. Ya tienes una aplicación MVC funcionando.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nSi al arrancar ves could not find driver al usar la base de datos, revisa que el Dockerfile tiene la línea RUN docker-php-ext-install pdo_mysql y que reconstruiste la imagen con --build después de añadirla (la imagen base php:8.4-cli no la trae de serie).",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#la-estructura-de-carpetas",
+    "href": "UD5/02-instalacion-laravel.html#la-estructura-de-carpetas",
+    "title": "Laravel: instalación y estructura",
+    "section": "La estructura de carpetas",
+    "text": "La estructura de carpetas\n\n\n\n\n\n\n\n\nDirectorio\nQué contiene\nLo usarás para…\n\n\n\n\napp/\nTu código: app/Models y app/Http/Controllers\nModelos y controladores\n\n\nroutes/\nDefinición de rutas\nroutes/web.php en toda la unidad\n\n\nresources/views/\nLas vistas Blade (.blade.php)\nTodas tus pantallas\n\n\nconfig/\nConfiguración legible con config()\nBloque de configuración\n\n\npublic/\nÚnico directorio visible desde el navegador\nCSS, JS, imágenes\n\n\nstorage/\nFicheros generados: logs, caché, sesiones\nConsultar storage/logs/laravel.log\n\n\ndatabase/\nMigraciones, seeders, factorías\nHerramienta de apoyo: la usarás en la sección de Eloquent, no se estudia en profundidad aquí\n\n\n.env\nVariables de esta instalación concreta\nNo se sube al repositorio\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nFront controller: toda petición entra por public/index.php, que arranca el framework y delega en el enrutador. Es lo contrario de UD2–UD4, donde cada página era un .php accesible directamente. Por eso solo public/ está expuesto: el resto del código queda fuera del alcance del navegador.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#artisan-la-consola-de-laravel",
+    "href": "UD5/02-instalacion-laravel.html#artisan-la-consola-de-laravel",
+    "title": "Laravel: instalación y estructura",
+    "section": "artisan: la consola de Laravel",
+    "text": "artisan: la consola de Laravel\nartisan genera código, inspecciona la aplicación y arranca servicios. Con Docker, cada comando se ejecuta anteponiendo docker compose exec web:\ndocker compose exec web php artisan list            \n# Todos los comandos disponibles\n\ndocker compose exec web php artisan route:list      \n# Esquema del enrutado\n\ndocker compose exec web php artisan make:controller NombreController  \n# No lo ejecutes aún, se utilizará en la sección rutas y controladores\n\ndocker compose exec web php artisan make:model Nombre                 \n# No lo ejecutes aún, se utilizará en la sección Eloquent y migraciones\nEjemplo real de route:list en un proyecto recién creado:\ndocker compose exec web php artisan route:list\n  GET|HEAD   / ...................................................\n  GET|HEAD   storage/{path} .......................... storage.local\n  PUT        storage/{path} ................... storage.local.upload\n  GET|HEAD   up ...................................................\n\n                                                     Showing [4] routes\nCada fila: método HTTP, URI, nombre de la ruta y acción que la atiende.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#env-y-la-configuración",
+    "href": "UD5/02-instalacion-laravel.html#env-y-la-configuración",
+    "title": "Laravel: instalación y estructura",
+    "section": ".env y la configuración",
+    "text": ".env y la configuración\n.env guarda lo que cambia entre máquinas (tu portátil, el servidor del centro, producción): credenciales, URLs, modo de depuración. Los ficheros de config/ leen esos valores con env() y el código de la aplicación los consume siempre con config():\nModifica el nombre de la app:\n# .env\nAPP_NAME=\"Agenda DAW\"\nLuego, en routes/web.php:\nRoute::get('/nombre', fn () =&gt; config('app.name'));\nVisitando http://localhost:8000/nombre:\nAgenda DAW\nLa ruta completa es: .env → config/app.php (que hace 'name' =&gt; env('APP_NAME', 'Agenda DAW')) → config('app.name') en tu código.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nLlamar a env('APP_NAME') desde un controlador o una vista. Esto funciona hasta que en producción se cachea la configuración (php artisan config:cache) y env() empieza a devolver null fuera de config/. Regla: env() solo dentro de config/; en tu código, siempre config().\nEditar .env y no ver el cambio: reinicia el contenedor (docker compose restart web) y, si cacheaste, docker compose exec web php artisan config:clear.\nSubir .env al repositorio. Contiene credenciales; por eso Laravel lo incluye en .gitignore.\nPoner las credenciales de base de datos directamente en .env en vez de en el docker-compose.yml (environment:) cuando trabajas con Docker: si algún día compartes el proyecto, es fácil olvidar que .env también tiene que coincidir con lo que definiste en el compose.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/02-instalacion-laravel.html#checklist-de-autocomprobación",
+    "href": "UD5/02-instalacion-laravel.html#checklist-de-autocomprobación",
+    "title": "Laravel: instalación y estructura",
+    "section": "Checklist de autocomprobación",
+    "text": "Checklist de autocomprobación\nAntes de pasar al siguiente bloque, verifica tu entorno. Vas a necesitar dos proyectos: agenda para reproducir los ejemplos de la teoría, y prestamos donde harás todos los ejercicios de la unidad. Debes poder marcar todos los items de la siguiente checklist:\n\ndocker compose up -d --build termina sin errores y http://localhost:8000 muestra la bienvenida de Laravel.\nSabes decir, sin mirar la tabla, en qué carpeta viven controladores, vistas y rutas.\nHas cambiado APP_NAME en .env y lo has visto reflejado con una ruta que imprime config('app.name').\ndocker compose exec web php artisan route:list te resulta legible: método, URI, nombre, acción.\nSabes explicar por qué env() solo se usa dentro de config/.\n\n\n\n\n\n\n\nImportanteImportante\n\n\n\nSi algún punto falla, resuélvelo ahora: los ejercicios EJ2 a EJ6 se construyen sobre el proyecto prestamos y asumen todo lo anterior.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Laravel: instalación y estructura</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/03-rutas-controladores.html",
+    "href": "UD5/03-rutas-controladores.html",
+    "title": "Rutas y controladores",
+    "section": "",
+    "text": "Rutas: la puerta de entrada\nUna ruta asocia método HTTP + URL con el código que la atiende. Se definen en routes/web.php.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Rutas y controladores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/03-rutas-controladores.html#rutas-la-puerta-de-entrada",
+    "href": "UD5/03-rutas-controladores.html#rutas-la-puerta-de-entrada",
+    "title": "Rutas y controladores",
+    "section": "",
+    "text": "NotaConcepto clave\n\n\n\nRoute::get registra la ruta para peticiones GET — las que solo leen, nunca deberían cambiar nada en el servidor (visitar una página, recargarla, volver atrás con el navegador…). Cuando una acción cambia algo (guardar un formulario, añadir algo a una cesta), la ruta será Route::post, lo verás en el bloque de formularios. Por ahora, todo lo que ves aquí es de solo lectura.\n\n\n\nCon closures (para probar cosas)\nuse Illuminate\\Support\\Facades\\Route;\n\nRoute::get('/hola', fn () =&gt; 'Hola Manel');\n\nRoute::get('/fecha', fn () =&gt; date('d/m/Y'));\n\nRoute::get('/suma', fn () =&gt; 2 + 2);\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nfn (...) =&gt; expresión es la forma flecha de escribir una función anónima (de UD3 ya conoces la forma clásica), function (...) { return ...; }. La flecha es solo un atajo para cuando el cuerpo es una única expresión: no lleva { } ni return (lo que hay después de =&gt; ya es el valor devuelto), y captura sola las variables externas que use, sin necesidad de use (...). Para cuerpos de más de una línea, sigue haciendo falta la forma clásica.\n\n\n\n\n\nURL visitada\nRespuesta en el navegador\n\n\n\n\n/hola\nHola Manel\n\n\n/fecha\n23/07/2026\n\n\n/suma\n4\n\n\n\n\n\nCon parámetros\nRoute::get('/saludo/{nombre}', fn (string $nombre) =&gt; \"Hola, $nombre\");\n\n// Parámetro opcional con valor por defecto\nRoute::get('/adios/{nombre?}', fn (string $nombre = 'anónimo') =&gt; \"Adiós, $nombre\");\n\n\n\nURL visitada\nRespuesta\n\n\n\n\n/saludo/Aitana\nHola, Aitana\n\n\n/saludo/Marc\nHola, Marc\n\n\n/saludo\nerror 404 (el parámetro es obligatorio)\n\n\n/adios\nAdiós, anónimo\n\n\n\n\n\nCon restricciones\nRoute::get('/contactos/{id}', fn (int $id) =&gt; \"Ficha del contacto $id\")\n     -&gt;whereNumber('id');\n\n\n\nURL visitada\nRespuesta\n\n\n\n\n/contactos/3\nFicha del contacto 3\n\n\n/contactos/abc\nerror 404 (la ruta ni siquiera se ejecuta)\n\n\n\n\n\nCon nombre (la buena práctica que exigiremos siempre)\nRestringir en la ruta corta el problema en la “puerta”. Sin whereNumber, /contactos/abc entraría en tu código (dentro de tu lógica de negocio) con \"abc\" como id y sería más difícil de rastrear.\nRoute::get('/contactos/{id}', /* ... */)\n     -&gt;whereNumber('id')\n     -&gt;name('contactos.show');\nA partir de ahora, cualquier enlace a esta ruta se genera con route() en lugar de escribir la URL a mano. route() no depende de Blade: es una función de Laravel disponible en cualquier parte de tu código PHP, lo que pasa es que casi siempre la vas a usar dentro de un enlace, así:\nroute('contactos.show', 3)\nhttp://localhost:8000/contactos/3\nEso es lo que devuelve la función sola: solo el texto de la URL. Para que sea un enlace de verdad, hace falta meterlo dentro de un &lt;a href=\"\"&gt; en una vista Blade (lo verás en la próxima sección) se escribe así:\n&lt;a href=\"{{ route('contactos.show', 3) }}\"&gt;Ver ficha&lt;/a&gt;\nHTML que recibe el navegador:\n&lt;a href=\"http://localhost:8000/contactos/3\"&gt;Ver ficha&lt;/a&gt;\nEl segundo parámetro de route() (aquí, 3) rellena el {id} de la ruta. Si el contacto lo tienes en una variable ($id en vez del 3 literal), se escribe igual: route('contactos.show', $id).\nSi mañana la URL cambia a /agenda/contactos/{id}, se cambia una línea en web.php y toda la aplicación sigue funcionando. Cada route('contactos.show', ...) que hayas escrito, sea donde sea, genera la URL nueva sin que toques nada más.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Rutas y controladores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/03-rutas-controladores.html#controladores",
+    "href": "UD5/03-rutas-controladores.html#controladores",
+    "title": "Rutas y controladores",
+    "section": "Controladores",
+    "text": "Controladores\nLas closures valen para probar; una aplicación real agrupa las acciones de cada recurso en un controlador:\ndocker compose exec web php artisan make:controller ContactoController\n   INFO  Controller [app/Http/Controllers/ContactoController.php] created successfully.\n&lt;?php // app/Http/Controllers/ContactoController.php\n\nnamespace App\\Http\\Controllers;\n\nclass ContactoController extends Controller\n{\n    /** Datos de trabajo en memoria (el modelo real llegará en @sec-ud5-eloquent). */\n    private array $contactos = [\n        1 =&gt; ['nombre' =&gt; 'Aitana', 'tlf' =&gt; '600111222'],\n        2 =&gt; ['nombre' =&gt; 'Marc',   'tlf' =&gt; '600333444'],\n        3 =&gt; ['nombre' =&gt; 'Júlia',  'tlf' =&gt; '611222333'],\n    ];\n\n    /**\n     * Muestra el listado completo de contactos.\n     */\n    public function index()\n    {\n        return view('contactos.index', ['contactos' =&gt; $this-&gt;contactos]);\n    }\n\n    /**\n     * Muestra la ficha de un contacto.\n     *\n     * @param int $id Identificador recibido en la ruta.\n     */\n    public function show(int $id)\n    {\n        $contacto = $this-&gt;contactos[$id] ?? null;\n        return view('contactos.show', ['contacto' =&gt; $contacto, 'id' =&gt; $id]);\n    }\n}\nY las rutas delegan en él:\nuse App\\Http\\Controllers\\ContactoController;\n\nRoute::get('/contactos', [ContactoController::class, 'index'])\n     -&gt;name('contactos.index');\n\nRoute::get('/contactos/{id}', [ContactoController::class, 'show'])\n     -&gt;whereNumber('id')\n     -&gt;name('contactos.show');\nTres detalles del código anterior:\n\nContactoController::class no ejecuta nada. Es una constante de PHP (no de Laravel) que se resuelve al nombre completo de la clase como string: \"App\\Http\\Controllers\\ContactoController\". Podrías escribir ese texto a mano, pero así el editor te autocompleta y, si algún día renombras la clase, el propio IDE actualiza esta línea; con el texto suelto, un error de tecleo no se detecta hasta que la ruta falla en tiempo de ejecución.\nEl array [ContactoController::class, 'index'] (clase + nombre del método como texto) es la forma de decirle a Laravel “no ejecutes nada ahora; cuando llegue una petición a esta ruta, crea esta clase y llama a este método”. Es distinto de escribir el código directamente en la ruta (como hacías con las closures de arriba): aquí el controlador solo se ejecuta si de verdad llega la petición, y el mismo controlador puede reutilizarse desde varias rutas.\nclass ContactoController extends Controller: heredar de la clase base Controller de Laravel no es obligatorio para que un controlador funcione, pero es la convención. Esa clase base es donde más adelante encontrarás helpers comunes (autorización, validación) que no necesitas todavía.\nview('contactos.index', [...]) busca resources/views/contactos/index.blade.php (el punto es el separador de carpetas) y le pasa los datos como variables: en la vista existirá $contactos.\nEl parámetro {id} de la ruta llega como argumento $id del método. Laravel los casa por nombre.\n\nComprobación con route:list:\ndocker compose exec web php artisan route:list --except-vendor\n  GET|HEAD  contactos ......... contactos.index › ContactoController@index\n  GET|HEAD  contactos/{id} ...... contactos.show › ContactoController@show\n\n\n\n\n\n\nTipFiltrado aplicado\n\n\n\n--except-vendor omite las rutas que registran paquetes de terceros instalados vía Composer, es decir, filtra por el código que has escrito tú.\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nSi visitas /contactos ahora mismo desde el navegador, verás un error View [contactos.index] not found. Esto es normal, ya que las vistas Blade se crean en el siguiente sección.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Rutas y controladores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/03-rutas-controladores.html#resource-controllers-las-siete-acciones-de-un-crud",
+    "href": "UD5/03-rutas-controladores.html#resource-controllers-las-siete-acciones-de-un-crud",
+    "title": "Rutas y controladores",
+    "section": "Resource controllers: las siete acciones de un CRUD",
+    "text": "Resource controllers: las siete acciones de un CRUD\nPara un recurso completo, con el siguiente comando Laravel genera la estructura vacía de las siete acciones de un CRUD:\ndocker compose exec web php artisan make:controller ContactoController --resource\nRoute::resource('contactos', ContactoController::class);\n\n\n\nMétodo\nURI\nAcción\nPara qué\n\n\n\n\nGET\n/productos\nindex\nListado\n\n\nGET\n/productos/create\ncreate\nFormulario de alta\n\n\nPOST\n/productos\nstore\nGuardar el alta\n\n\nGET\n/productos/{id}\nshow\nFicha\n\n\nGET\n/productos/{id}/edit\nedit\nFormulario de edición\n\n\nPUT/PATCH\n/productos/{id}\nupdate\nGuardar la edición\n\n\nDELETE\n/productos/{id}\ndestroy\nBorrar\n\n\n\nEsta convención es universal en Laravel y será la base de la API REST de la UD7.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nEscribir URLs a mano en las vistas (/contactos/3) en lugar de route('contactos.show', 3).\nOlvidar el use App\\Http\\Controllers\\ContactoController; en web.php: da error Class not found.\nDefinir la ruta /contactos/create después de /contactos/{id}: {id} captura la palabra create y el formulario nunca se muestra. Las rutas fijas van antes que las variables (o se restringe {id} con whereNumber).\n\n\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio de este bloque lo encontrarás al final del bloque siguiente (Vistas con Blade): necesita las vistas Blade para poder completarse, así que enrutado, controlador y vistas se ejercitan juntos sobre tu aplicación de préstamos.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Rutas y controladores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html",
+    "href": "UD5/04-blade.html",
+    "title": "Vistas con Blade",
+    "section": "",
+    "text": "Interpolación: { }\nBlade es el motor de plantillas de Laravel. Las vistas .blade.php se compilan a PHP y se cachean: su coste en ejecución es cero, y evita tener que abrir y cerrar &lt;?php ?&gt; cada vez que mezclas código con HTML.\nConsiste en meter el valor de una variable dentro de un texto, sin tener que cortar la cadena y concatenar.\nEn PHP puro:\nCon Blade quedaría como sigue. Además, si queremos añadir un comentario al código de una plantilla Blade lo hacemos con {{– texto –}}.\nLa diferencia importante con un comentario HTML normal ():\nLuego, en las rutas:\nHTML recibido por el navegador:",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#interpolación",
+    "href": "UD5/04-blade.html#interpolación",
+    "title": "Vistas con Blade",
+    "section": "",
+    "text": "$nombre = \"Ana\";\necho \"Hola $nombre\";        // Hola Ana\necho \"Hola {$nombre}!\";     // Hola Ana! (llaves si va pegado a otro texto/símbolo)\n\n{{-- Ruta del fichero: resources/views/demo.blade.php --}}\n&lt;p&gt;Hola {{ $nombre }}&lt;/p&gt;\n&lt;p&gt;2 + 2 = {{ 2 + 2 }}&lt;/p&gt;\n&lt;p&gt;Hoy es {{ date('d/m/Y') }}&lt;/p&gt;\n\n\n\nSÍ llega al navegador — solo no se ve en pantalla, pero si haces “ver código fuente” ahí está.\n{{– –}} Blade lo elimina por completo al compilar la vista — nunca sale del servidor, el navegador ni se entera de que existía.\n\n\n// routes/web.php\nRoute::get('/demo', fn () =&gt; view('demo', ['nombre' =&gt; 'Manel']));\n\n&lt;p&gt;Hola Manel&lt;/p&gt;\n&lt;p&gt;2 + 2 = 4&lt;/p&gt;\n&lt;p&gt;Hoy es 23/07/2026&lt;/p&gt;\n\nEl escapado automático (tu seguro anti-XSS)\n{ } aplica htmlspecialchars a todo lo que imprime. Observa qué pasa si un dato contiene HTML malicioso:\nRoute::get('/xss', fn () =&gt; view('demo', [\n    'nombre' =&gt; '&lt;script&gt;alert(\"hackeado\")&lt;/script&gt;',\n]));\nHTML recibido:\n&lt;p&gt;Hola &lt;script&gt;alert(&quot;hackeado&quot;)&lt;/script&gt;&lt;/p&gt;\nEl navegador muestra el texto del script, pero no lo ejecuta. En UD3 este escapado lo hacías tú a mano en cada echo; aquí es imposible olvidarlo.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n{!! $variable !!} imprime sin escapar. Solo se usa con contenido que tú mismo has generado y jamás con datos que vengan del usuario. Si dudas, { }.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#directivas-de-control",
+    "href": "UD5/04-blade.html#directivas-de-control",
+    "title": "Vistas con Blade",
+    "section": "Directivas de control",
+    "text": "Directivas de control\n{{-- Fragmento parcial, el completo, con el layout, lo verás más abajo --}}\n&lt;h1&gt;Agenda ({{ count($contactos) }})&lt;/h1&gt;\n\n@if (empty($contactos))\n    &lt;p&gt;No hay contactos todavía.&lt;/p&gt;\n@else\n    &lt;ul&gt;\n        @foreach ($contactos as $id =&gt; $c)\n            &lt;li class=\"{{ $loop-&gt;odd ? 'impar' : 'par' }}\"&gt;\n                {{ $loop-&gt;iteration }}.\n                &lt;a href=\"{{ route('contactos.show', $id) }}\"&gt;\n                    {{ $c['nombre'] }}\n                &lt;/a&gt;\n            &lt;/li&gt;\n        @endforeach\n    &lt;/ul&gt;\n@endif\nCon los tres contactos del controlador del bloque anterior, el navegador recibe:\n&lt;h1&gt;Agenda (3)&lt;/h1&gt;\n&lt;ul&gt;\n    &lt;li class=\"impar\"&gt;1. &lt;a href=\"http://localhost:8000/contactos/1\"&gt;Aitana&lt;/a&gt;&lt;/li&gt;\n    &lt;li class=\"par\"&gt;2. &lt;a href=\"http://localhost:8000/contactos/2\"&gt;Marc&lt;/a&gt;&lt;/li&gt;\n    &lt;li class=\"impar\"&gt;3. &lt;a href=\"http://localhost:8000/contactos/3\"&gt;Júlia&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\nLa variable mágica $loop existe dentro de todo @foreach:\n\n\n\nPropiedad\nValor\n\n\n\n\n$loop-&gt;iteration\n1, 2, 3… (empieza en 1)\n\n\n$loop-&gt;index\n0, 1, 2… (empieza en 0)\n\n\n$loop-&gt;first / $loop-&gt;last\ntrue en la primera/última vuelta\n\n\n$loop-&gt;odd / $loop-&gt;even\nvuelta impar/par\n\n\n$loop-&gt;count\ntotal de elementos\n\n\n\nMás directivas útiles, con su resultado:\n@empty ($contactos)\n    &lt;p&gt;Agenda vacía.&lt;/p&gt;\n@endempty\n\n@unless ($esAdmin)\n    &lt;p&gt;Solo lectura.&lt;/p&gt;\n@endunless\n\n@isset ($mensaje)\n    &lt;p&gt;{{ $mensaje }}&lt;/p&gt;\n@endisset\nCon $contactos = [], $esAdmin = false y $mensaje sin definir:\n&lt;p&gt;Agenda vacía.&lt;/p&gt;\n&lt;p&gt;Solo lectura.&lt;/p&gt;",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#la-vista-de-la-ficha-show",
+    "href": "UD5/04-blade.html#la-vista-de-la-ficha-show",
+    "title": "Vistas con Blade",
+    "section": "La vista de la ficha (show)",
+    "text": "La vista de la ficha (show)\n{{-- Fragmento parcial, el completo, con el layout, lo verás más abajo --}}\n@if ($contacto === null)\n    &lt;h1&gt;Contacto no encontrado&lt;/h1&gt;\n    &lt;p&gt;No existe ningún contacto con id {{ $id }}.&lt;/p&gt;\n@else\n    &lt;h1&gt;{{ $contacto['nombre'] }}&lt;/h1&gt;\n    &lt;p&gt;Teléfono: {{ $contacto['tlf'] }}&lt;/p&gt;\n@endif\n\n&lt;p&gt;&lt;a href=\"{{ route('contactos.index') }}\"&gt;← Volver al listado&lt;/a&gt;&lt;/p&gt;\n\n\n\n\n\n\n\nURL\nResultado\n\n\n\n\n/contactos/2\nMarcTeléfono: 600333444Enlace Volver al listado\n\n\n/contactos/99\nContacto no encontradoNo existe ningún contacto con id 99Enlace Volver al listado",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#layouts-y-componentes-una-sola-plantilla-para-todo-el-sitio",
+    "href": "UD5/04-blade.html#layouts-y-componentes-una-sola-plantilla-para-todo-el-sitio",
+    "title": "Vistas con Blade",
+    "section": "Layouts y componentes: una sola plantilla para todo el sitio",
+    "text": "Layouts y componentes: una sola plantilla para todo el sitio\nSin layouts, cada vista repite &lt;html&gt;, &lt;head&gt;, el menú y el pie. La solución moderna son los componentes anónimos: un fichero en resources/views/components/ que se usa como etiqueta &lt;x-nombre&gt;.\n{{-- resources/views/components/layout.blade.php --}}\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n    &lt;meta charset=\"utf-8\"&gt;\n    &lt;title&gt;{{ $titulo ?? 'Agenda DAW' }}&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;nav&gt;\n        &lt;a href=\"{{ route('contactos.index') }}\"&gt;Contactos&lt;/a&gt; |\n        &lt;a href=\"{{ route('acerca') }}\"&gt;Acerca de&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;main&gt;{{ $slot }}&lt;/main&gt;\n    &lt;footer&gt;2º DAW | DWES&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n\n\n\nNotaNota\n\n\n\n{{ $slot }} representa el contenido principal o por defecto que se inyecta dentro de un componente Blade.\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl layout usa route('acerca'), pero esa ruta no existe todavía en routes/web.php. Añádela junto a las de contactos:\nRoute::get('/acerca', fn () =&gt; 'Agenda de contactos — proyecto de ejemplo de UD5')\n     -&gt;name('acerca');\nSin ella, cualquier vista que use &lt;x-layout&gt; (como contactos/index.blade.php) fallará con Route [acerca] not defined — aunque contactos/show.blade.php funcione bien, porque esa vista no usa el layout todavía.\n\n\nCualquier vista lo consume así:\n{{-- resources/views/contactos/index.blade.php --}}\n&lt;x-layout titulo=\"Listado de contactos\"&gt;\n    &lt;h1&gt;Agenda ({{ count($contactos) }})&lt;/h1&gt;\n\n    &lt;!-- Listado INI --&gt;\n    @if (empty($contactos))\n        &lt;p&gt;No hay contactos todavía.&lt;/p&gt;\n    @else\n        &lt;ul&gt;\n            @foreach ($contactos as $id =&gt; $c)\n                &lt;li class=\"{{ $loop-&gt;odd ? 'impar' : 'par' }}\"&gt;\n                    {{ $loop-&gt;iteration }}.\n                    &lt;a href=\"{{ route('contactos.show', $id) }}\"&gt;\n                        {{ $c['nombre'] }}\n                    &lt;/a&gt;\n                &lt;/li&gt;\n            @endforeach\n        &lt;/ul&gt;\n    @endif\n    &lt;!-- Listado FIN --&gt;\n\n&lt;/x-layout&gt;\nQué ocurre al renderizar:\n\nEl atributo titulo=\"...\" llega al componente como variable $titulo.\nTodo lo que va entre &lt;x-layout&gt; y &lt;/x-layout&gt; ocupa el hueco { $slot }.\n\nHTML resultante (recortado):\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;&lt;meta charset=\"utf-8\"&gt;&lt;title&gt;Listado de contactos&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n    &lt;nav&gt;&lt;a href=\"...\"&gt;Contactos&lt;/a&gt; · &lt;a href=\"...\"&gt;Acerca de&lt;/a&gt;&lt;/nav&gt;\n    &lt;main&gt;&lt;h1&gt;Agenda&lt;/h1&gt; ...listado... &lt;/main&gt;\n    &lt;footer&gt;2º DAW · DWES&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nCambia el &lt;nav&gt; del layout y el cambio aparece en todas las páginas al instante: eso es generar el aspecto visual con controles del servidor.\nA continuación tenemos la ficha del contacto. Fíjate que aquí el título sí es dinámico (el nombre del contacto, o un texto fijo si no existe):\n{{-- resources/views/contactos/show.blade.php --}}\n&lt;x-layout :titulo=\"$contacto['nombre'] ?? 'Contacto no encontrado'\"&gt;\nCompáralo con el &lt;x-layout titulo=\"Listado de contactos\"&gt; de la vista anterior: aquí lleva dos puntos delante (:titulo, no titulo). La diferencia:\n\nSin : (titulo=\"Listado de contactos\"): el atributo es texto literal, tal cual está escrito entre comillas.\nCon : (:titulo=\"$contacto[...]\"): lo de dentro de las comillas se evalúa como una expresión PHP, no como texto. Sin los dos puntos, el componente recibiría literalmente el string \"$contacto['nombre'] ?? 'Contacto no encontrado'\" en vez de su valor.\n\nRegla práctica:\n\nSi lo que pasas es un texto fijo que escribes tú mismo, sin :\nSi es una variable, una propiedad de array/objeto, o cualquier expresión PHP, con :.\n\n{{-- resources/views/contactos/show.blade.php --}}\n&lt;x-layout :titulo=\"$contacto['nombre'] ?? 'Contacto no encontrado'\"&gt;\n\n    @if ($contacto === null)\n        &lt;h1&gt;Contacto no encontrado&lt;/h1&gt;\n        &lt;p&gt;No existe ningún contacto con id {{ $id }}.&lt;/p&gt;\n    @else\n        &lt;h1&gt;{{ $contacto['nombre'] }}&lt;/h1&gt;\n        &lt;p&gt;Teléfono: {{ $contacto['tlf'] }}&lt;/p&gt;\n    @endif\n\n    &lt;p&gt;&lt;a href=\"{{ route('contactos.index') }}\"&gt;← Volver al listado&lt;/a&gt;&lt;/p&gt;\n\n&lt;/x-layout&gt;",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#componentes-con-props-piezas-reutilizables",
+    "href": "UD5/04-blade.html#componentes-con-props-piezas-reutilizables",
+    "title": "Vistas con Blade",
+    "section": "Componentes con @props: piezas reutilizables",
+    "text": "Componentes con @props: piezas reutilizables\nCrea el siguiente componente:\n{{-- resources/views/components/tarjeta.blade.php --}}\n@props(['id', 'nombre', 'tlf'])\n&lt;article class=\"tarjeta\"&gt;\n    &lt;a href=\"{{ route('contactos.show', $id) }}\"&gt;\n        &lt;strong&gt;{{ $nombre }}&lt;/strong&gt;\n    &lt;/a&gt;\n    ({{ $tlf }})\n&lt;/article&gt;\nLa prop id es necesaria para poder construir el enlace a la ficha dentro del propio componente — sin ella, &lt;x-tarjeta&gt; solo podría mostrar datos, no enlazar a ningún sitio.\nEsto sustituye el &lt;ul&gt; de &lt;li&gt; del listado dentro de index.blade.php (la parte entre &lt;!-- Listado INI --&gt; y &lt;!-- Listado FIN --&gt;).\nAntes:\n{{-- resources/views/contactos/index.blade.php --}}\n&lt;x-layout titulo=\"Listado de contactos\"&gt;\n    &lt;h1&gt;Agenda ({{ count($contactos) }})&lt;/h1&gt;\n\n    &lt;!-- Listado INI --&gt;\n    @if (empty($contactos))\n        &lt;p&gt;No hay contactos todavía.&lt;/p&gt;\n    @else\n        &lt;ul&gt;\n            @foreach ($contactos as $id =&gt; $c)\n                &lt;!-- Código a sustituir INI --&gt;\n                &lt;li class=\"{{ $loop-&gt;odd ? 'impar' : 'par' }}\"&gt;\n                    {{ $loop-&gt;iteration }}.\n                    &lt;a href=\"{{ route('contactos.show', $id) }}\"&gt;\n                        {{ $c['nombre'] }}\n                    &lt;/a&gt;\n                &lt;/li&gt;\n                &lt;!-- Código a sustituir FIN --&gt;\n            @endforeach\n        &lt;/ul&gt;\n    @endif\n    &lt;!-- Listado FIN --&gt;\n\n&lt;/x-layout&gt;\nDespués (fíjate en los dos puntos para pasar variables PHP):\n{{-- resources/views/contactos/index.blade.php --}}\n&lt;x-layout titulo=\"Listado de contactos\"&gt;\n    &lt;h1&gt;Agenda ({{ count($contactos) }})&lt;/h1&gt;\n\n    &lt;!-- Listado INI --&gt;\n    @if (empty($contactos))\n        &lt;p&gt;No hay contactos todavía.&lt;/p&gt;\n    @else\n        &lt;ul&gt;\n            @foreach ($contactos as $id =&gt; $c)\n                &lt;!-- Código sustituido INI --&gt;\n                &lt;li&gt;&lt;x-tarjeta :id=\"$id\" :nombre=\"$c['nombre']\" :tlf=\"$c['tlf']\" /&gt;&lt;/li&gt;\n                &lt;!-- Código sustituido FIN --&gt;\n            @endforeach\n        &lt;/ul&gt;\n    @endif\n    &lt;!-- Listado FIN --&gt;\n\n&lt;/x-layout&gt;\nHTML resultante para el primer contacto:\n&lt;li&gt;\n    &lt;article class=\"tarjeta\"&gt;\n        &lt;a href=\"http://localhost:8000/contactos/1\"&gt;\n            &lt;strong&gt;Aitana&lt;/strong&gt;\n        &lt;/a&gt;\n        (600111222)\n    &lt;/article&gt;\n&lt;/li&gt;\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEsta versión con &lt;x-tarjeta&gt; pierde la numeración ($loop-&gt;iteration) y la clase par/impar que tenía la versión con &lt;li&gt; suelto — $loop solo existe dentro del @foreach que lo genera, no dentro del componente al que llamas. Si los necesitas, pásalos también como props (:numero=\"$loop-&gt;iteration\").\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\n&lt;x-layout&gt; con su $slot y los componentes con @props son objetos y controles del servidor que generan la interfaz del cliente (CE5.c). El navegador nunca ve componentes: recibe HTML plano ya montado.\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nOlvidar los dos puntos con una expresión PHP (&lt;x-tarjeta nombre=\"$c['nombre']\"&gt; en vez de :nombre=\"$c['nombre']\"): el navegador muestra el texto literal $c['nombre'], no el valor. Es el mismo error de sintaxis que ya viste con :titulo en la ficha.\nCrear el componente fuera de resources/views/components/: la etiqueta &lt;x-...&gt; no lo encontrará.\nOlvidar { $slot } en el layout: las páginas saldrán vacías.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/04-blade.html#actividades",
+    "href": "UD5/04-blade.html#actividades",
+    "title": "Vistas con Blade",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ2 · Catálogo de videojuegos en préstamo\nEn tu proyecto prestamos, construye el catálogo de videojuegos del club del centro (de rol, deportivos, de estrategia, plataformas…). El diseño es libre y no tenemos código de partida, por ello, hay que adaptar los pasos realizados sobre la app de la agenda a la temática nueva de prestamos.\n\nCrea VideojuegoController con index y show. Cada videojuego tendrá al menos: titulo, genero y disponible (booleano). El catálogo debe contener seis o más videojuegos de al menos tres géneros, con alguno no disponible. show recibe {id} restringido a numérico y cubre el caso de videojuego inexistente con un mensaje claro.\nDefine las rutas con nombre (videojuegos.index, videojuegos.show) y enlaza listado y ficha exclusivamente con route().\nCrea el componente &lt;x-layout&gt; de la aplicación (cabecera, menú: Catálogo, Mi solicitud, Acerca de; y pie). Además, un componente &lt;x-videojuego&gt; que reciba las props del videojuego y muestre de forma visualmente distinta los disponibles y los prestados.\nEn el listado, usa $loop para numerar los videojuegos y al menos otra directiva de control justificada (por ejemplo, @forelse para el catálogo vacío o un @if que imprima cada género).\nDemuestra el escapado automático: añade un videojuego cuyo título sea &lt;script&gt;alert(1)&lt;/script&gt;, comprueba que no se ejecuta y localiza en el código fuente de la página las entidades &lt;script&gt;. Adjunta captura.\nUtiliza PHPDoc en los métodos del controlador VideojuegoController para incluir comentarios en los componentes explicando cada prop. Adjunta captura de php artisan route:list.\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio estará correcto si funciona el catálogo con rutas con nombre y restricción, &lt;x-videojuego&gt; distinguiendo estados, caso “videojuego inexistente” cubierto, demo anti-XSS y documentación presentes.*",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Vistas con Blade</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html",
+    "href": "UD5/05-formularios.html",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "",
+    "text": "Paso 1: las rutas del ciclo\nVamos a construir el alta de contacto completa y a ver, paso a paso, qué hace Laravel en cada escenario.\nDos rutas, dos eventos: mostrar el formulario (GET) y procesarlo (POST).",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#paso-1-las-rutas-del-ciclo",
+    "href": "UD5/05-formularios.html#paso-1-las-rutas-del-ciclo",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "",
+    "text": "Route::get('/contactos/create', [ContactoController::class, 'create'])\n     -&gt;name('contactos.create');\n\nRoute::post('/contactos', [ContactoController::class, 'store'])\n     -&gt;name('contactos.store');",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#paso-2-la-vista-del-formulario",
+    "href": "UD5/05-formularios.html#paso-2-la-vista-del-formulario",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Paso 2: la vista del formulario",
+    "text": "Paso 2: la vista del formulario\n{{-- resources/views/contactos/create.blade.php --}}\n&lt;x-layout titulo=\"Nuevo contacto\"&gt;\n    &lt;form method=\"POST\" action=\"{{ route('contactos.store') }}\"&gt;\n        @csrf\n\n        &lt;label&gt;Nombre\n            &lt;input type=\"text\" name=\"nombre\" value=\"{{ old('nombre') }}\"&gt;\n        &lt;/label&gt;\n        @error('nombre') &lt;p class=\"error\"&gt;{{ $message }}&lt;/p&gt; @enderror\n\n        &lt;label&gt;Teléfono\n            &lt;input type=\"text\" name=\"tlf\" value=\"{{ old('tlf') }}\"&gt;\n        &lt;/label&gt;\n        @error('tlf') &lt;p class=\"error\"&gt;{{ $message }}&lt;/p&gt; @enderror\n\n        &lt;button type=\"submit\"&gt;Guardar&lt;/button&gt;\n    &lt;/form&gt;\n&lt;/x-layout&gt;\nTres piezas nuevas:\n\n@csrf genera un campo oculto con un token único de tu sesión. El HTML resultante sería el siguiente:\n&lt;input type=\"hidden\" name=\"_token\" value=\"8fKz3...token largo...pQ2w\"&gt;\nold('nombre') repuebla el campo con lo que el usuario escribió si la validación falla.\n@error('nombre') muestra el mensaje de error de ese campo, si lo hay.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#paso-3-el-controlador-que-valida",
+    "href": "UD5/05-formularios.html#paso-3-el-controlador-que-valida",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Paso 3: el controlador que valida",
+    "text": "Paso 3: el controlador que valida\n// app/Http/Controllers/ContactoController.php\nuse Illuminate\\Http\\Request;\n\n/**\n * Muestra el formulario de alta.\n */\npublic function create()\n{\n    return view('contactos.create');\n}\n\n/**\n * Valida y registra un contacto nuevo.\n */\npublic function store(Request $request)\n{\n    $datos = $request-&gt;validate([\n        'nombre' =&gt; 'required|string|max:50',\n        'tlf'    =&gt; ['required', 'regex:/^[679]\\d{8}$/'],\n        'email'  =&gt; 'nullable|email',\n    ], [\n        'nombre.required' =&gt; 'El nombre es obligatorio.',\n        'tlf.regex'       =&gt; 'Debe ser un móvil español válido.',\n    ]);\n\n    // Guardado provisional en sesión (el modelo llega en @sec-ud5-eloquent)\n    $agenda = session('agenda', []);\n    $agenda[] = $datos;\n    session(['agenda' =&gt; $agenda]);\n\n    return redirect()-&gt;route('contactos.index')\n                     -&gt;with('exito', 'Contacto creado correctamente');\n}\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nRequest $request se pasa parámetro del método: no lo creas tú con new Request(). Laravel ve el type-hint Request en la firma del método y te entrega automáticamente un objeto ya construido con todos los datos de la petición actual (campos del formulario, querystring, cabeceras…).\nEste mecanismo (pedir algo en la firma y que el framework te lo dé ya construido) se llama inyección de dependencias; lo verás formalizado como patrón en POO aplicada: servicios e inyección de dependencias. Por ahora basta con saber que pedirlo en la firma es suficiente para tenerlo disponible dentro del método.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#qué-pasa-en-cada-escenario",
+    "href": "UD5/05-formularios.html#qué-pasa-en-cada-escenario",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Qué pasa en cada escenario",
+    "text": "Qué pasa en cada escenario\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nsession() se usa con dos firmas distintas según lo que quieras hacer: session('clave', $porDefecto) lee (te devuelve el valor guardado, o el segundo argumento si no hay nada); session(['clave' =&gt; $valor]) escribe (guarda ese valor). Es la misma función, pero según le pases un string o un array hace una cosa u otra.\n\n\nEscenario A — datos correctos (nombre=Aitana, tlf=600111222):\n\nvalidate() pasa y devuelve solo los campos validados en $datos.\nSe guarda el contacto.\nRedirección 302 al listado con el mensaje flash. El usuario ve:\n\n✔ Contacto creado correctamente\nEscenario B — datos incorrectos (nombre vacío, tlf=12345):\n\nvalidate() corta la ejecución: nada de lo que hay debajo se ejecuta.\nLaravel redirige automáticamente al formulario.\nEl formulario reaparece con los errores y los valores conservados:\n\n&lt;input type=\"text\" name=\"nombre\" value=\"\"&gt;\n&lt;p class=\"error\"&gt;El nombre es obligatorio.&lt;/p&gt;\n\n&lt;input type=\"text\" name=\"tlf\" value=\"12345\"&gt;\n&lt;p class=\"error\"&gt;Debe ser un móvil español válido.&lt;/p&gt;\nTodo ese circuito (redirigir, guardar errores, recuperar valores) en UD3 lo escribías a mano con $_POST y condicionales. Aquí lo absorbe el framework: tú solo declaras las reglas.\nEscenario C — formulario sin token CSRF (por ejemplo, enviado desde otra web):\n419 | PAGE EXPIRED\nLa petición ni llega al controlador. Es la protección contra CSRF (Cross-Site Request Forgery): una web maliciosa no puede enviar formularios en tu nombre porque no conoce el token ligado a tu sesión.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#las-reglas-de-validación-más-usadas",
+    "href": "UD5/05-formularios.html#las-reglas-de-validación-más-usadas",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Las reglas de validación más usadas",
+    "text": "Las reglas de validación más usadas\n\n\n\nRegla\nSignificado\n\n\n\n\nrequired\nEl campo no puede faltar ni estar vacío\n\n\nstring, integer, email, url\nTipo/formato\n\n\nmin:3, max:50\nLongitud (strings) o valor (números)\n\n\nbetween:1,50\nRango\n\n\nnullable\nPuede venir vacío (pero si viene, cumple el resto)\n\n\nregex:/…/\nExpresión regular\n\n\nin:rojo,verde,azul\nLista cerrada de valores\n\n\n\nEjemplo combinado y su comportamiento:\n$request-&gt;validate([\n    'plazas' =&gt; 'required|integer|between:1,50',\n]);\n\n\n\nEntrada plazas\nResultado\n\n\n\n\n30\npasa\n\n\n0\nfalla (between)\n\n\ntreinta\nfalla (integer)\n\n\n(vacío)\nfalla (required)",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#el-mensaje-flash-y-el-patrón-prg",
+    "href": "UD5/05-formularios.html#el-mensaje-flash-y-el-patrón-prg",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "El mensaje flash y el patrón PRG",
+    "text": "El mensaje flash y el patrón PRG\n-&gt;with('exito', '...') guarda el mensaje en sesión para una sola petición. Se muestra en el layout, disponible para toda la aplicación:\n{{-- dentro de components/layout.blade.php, antes de {{ $slot }} --}}\n@if (session('exito'))\n    &lt;p class=\"flash\"&gt;✔ {{ session('exito') }}&lt;/p&gt;\n@endif\nEste circuito (POST → redirección → GET) es el patrón Post/Redirect/Get: como después del POST hay una redirección, pulsar F5 en el listado no reenvía el formulario. Compruébalo: tras crear un contacto, refresca; el navegador no pregunta “¿reenviar datos?”.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#un-segundo-formulario-búsqueda-get",
+    "href": "UD5/05-formularios.html#un-segundo-formulario-búsqueda-get",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Un segundo formulario: BÚSQUEDA (GET)",
+    "text": "Un segundo formulario: BÚSQUEDA (GET)\n\nModificar la vista index.blade.php\nLos formularios también responden al evento buscar. Este va por GET porque no modifica nada:\n{{-- resources/views/contactos/index.blade.php, justo arriba del listado --}}\n&lt;form method=\"GET\" action=\"{{ route('contactos.index') }}\"&gt;\n    &lt;input type=\"text\" name=\"q\" value=\"{{ $q }}\" placeholder=\"Buscar por nombre\"&gt;\n    &lt;button type=\"submit\"&gt;Buscar&lt;/button&gt;\n&lt;/form&gt;\nAprovecha para añadir también el enlace al alta, ya que las rutas y el controlador de “Paso 1-3” ya están listos:\n&lt;p&gt;&lt;a href=\"{{ route('contactos.create') }}\"&gt;+ Nuevo contacto&lt;/a&gt;&lt;/p&gt;\n\n\nModificar la función index del ContactoController.\nVersión inicial:\npublic function index()\n{\n    return view('contactos.index', ['contactos' =&gt; $this-&gt;contactos]);\n}\nVersión modificada, a tener en cuenta que:\n\nAhora recibe Request $request como parámetro (antes no tenía ninguno).\nAhora hace compact('contactos', 'q') en vez de ['contactos' =&gt; $this-&gt;contactos]. Así la vista recibe también $q (necesaria para el value=\"{{ $q }}” del formulario, que mantiene escrito lo buscado tras enviar).\n\npublic function index(Request $request)\n{\n    $q = $request-&gt;query('q', '');\n\n    $contactos = collect($this-&gt;contactos)\n        -&gt;when($q !== '', fn ($col) =&gt;\n            $col-&gt;filter(fn ($c) =&gt;\n                str_contains(mb_strtolower($c['nombre']), mb_strtolower($q))))\n        -&gt;all();\n\n    return view('contactos.index', compact('contactos', 'q'));\n}\nCuatro piezas nuevas en ese método, de dentro a fuera:\n\ncollect($this-&gt;contactos): convierte el array normal en una Collection, el envoltorio de Laravel para trabajar con conjuntos de datos de forma encadenada (-&gt;método()-&gt;método()...) en vez de anidar funciones (array_filter(array_map(...))). Lo volverás a ver, más en serio, cuando trabajes con resultados de Eloquent.\n-&gt;filter(fn ($c) =&gt; ...): el equivalente de array_filter pero como método encadenable de la Collection — se queda solo con los contactos cuyo nombre contiene lo buscado.\n-&gt;when($condicion, fn ($col) =&gt; ...): aplica la transformación de dentro solo si $condicion es true; si es false, la Collection pasa de largo sin tocarse. Evita escribir un if fuera que duplique el return para los dos casos (con búsqueda / sin búsqueda) — aquí, si $q está vacío no se filtra nada y salen todos los contactos.\n-&gt;all(): al final, vuelve a convertir la Collection en un array PHP normal, porque es lo que espera la vista.\n\nFíjate en que hay dos fn anidadas: la de when decide si filtrar; la de filter, de estar dentro, decide qué contacto pasa el filtro. Cada una recibe lo suyo — $col es la Collection completa, $c es un contacto individual dentro de ella.\n\n\n\nAcción del usuario\nURL resultante\nListado mostrado\n\n\n\n\nBuscar “ai”\n/contactos?q=ai\nSolo Aitana\n\n\nBuscar “ú”\n/contactos?q=%C3%BA\nSolo Júlia\n\n\nCampo vacío\n/contactos?q=\nTodos\n\n\n\nEl término buscado se conserva en el campo gracias a value=\"{{ $q }}\". Un formulario GET no necesita @csrf (no modifica estado).\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nOlvidar @csrf en un formulario POST: error 419 sistemático.\nValidar solo en el navegador (atributos required de HTML). Se puentean con las herramientas de desarrollador: la validación de verdad es la del servidor; la de HTML es solo cortesía.\nUsar POST para la búsqueda: rompe el botón “atrás”, impide compartir la URL del resultado y no aporta nada.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/05-formularios.html#actividades",
+    "href": "UD5/05-formularios.html#actividades",
+    "title": "Formularios dinámicos: CSRF, validación y errores",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ3 · Solicitud de préstamo con validación\nAñade a tu aplicación el formulario de solicitud de préstamo de un videojuego. Las reglas son de negocio real, no de manual: tendrás que combinar reglas de validación que no aparecen juntas en los ejemplos.\n\nCiclo completo: formulario (GET /prestamos/create), procesado (POST /prestamos) y redirección al catálogo con mensaje flash de éxito visible en el layout. El nombre del controlador es decisión tuya, aunque PrestamoController es la opción natural dado el prefijo de ruta, pero cualquier nombre coherente es válido.\nCampos y reglas mínimas:\n\nvideojuego_id: obligatorio y perteneciente a la lista de ids del catálogo (regla in:).\nemail: obligatorio y corporativo del centro (termina en el dominio del instituto; expresión regular).\nfecha_devolucion: obligatoria, con formato de fecha y posterior a hoy.\nmotivo: opcional, pero si se envía, entre 10 y 200 caracteres.\n\nPersonaliza al menos tres mensajes de error en castellano, incluido el del email corporativo.\nAñade al catálogo un filtro por género mediante un formulario GET con un &lt;select&gt;, que conserve el género elegido tras enviar. Justifica en un comentario por qué este formulario no lleva @csrf.\nDemuestra la protección CSRF en el formulario de solicitud: elimina @csrf, envía y documenta con captura el error 419, explicando qué ataque previene.\nTabla de casos de prueba con al menos seis filas y las columnas: “Entrada”, “Resultado esperado” y “Resultado obtenido”. La tabla debe cubrir todas las reglas, incluida una fecha en pasado y un email de dominio no corporativo.\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio estará correcto si las cuatro reglas están operativas, filtro GET funcional y justificado, los tres escenarios (éxito, error, 419) con capturas y la tabla completa.*",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Formularios dinámicos: CSRF, validación y errores</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/06-eloquent.html",
+    "href": "UD5/06-eloquent.html",
+    "title": "Eloquent y migraciones (herramienta de apoyo)",
+    "section": "",
+    "text": "Migraciones: el esquema como código\nHasta ahora la agenda vive en un array del controlador: se borra en cada petición. Vamos a implementarla en un Modelo de verdad.\nUna migración es un fichero PHP que describe una tabla. Con el siguiente comando generamos modelo y migración de una vez:\nLaravel recorre database/migrations/, detecta qué migraciones no se han ejecutado todavía (lo controla con una tabla propia, migrations) y las aplica en orden — por eso el nombre de cada fichero empieza por una fecha. DONE confirma que la tabla contactos ya existe, con las columnas que definiste más dos que añade timestamps(): created_at y updated_at, que Eloquent rellena solo al crear o modificar un registro.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Eloquent y migraciones (herramienta de apoyo)</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/06-eloquent.html#migraciones-el-esquema-como-código",
+    "href": "UD5/06-eloquent.html#migraciones-el-esquema-como-código",
+    "title": "Eloquent y migraciones (herramienta de apoyo)",
+    "section": "",
+    "text": "docker compose exec web php artisan make:model Contacto -m\n   INFO  Model [app/Models/Contacto.php] created successfully.\n   INFO  Migration [database/migrations/2026_07_24_092724_create_contactos_table.php] created successfully.\n\nEditamos la migración creada para definir las columnas.\n\n// database/migrations/xxxx_create_contactos_table.php\npublic function up(): void\n{\n    Schema::create('contactos', function (Blueprint $table) {\n        $table-&gt;id();\n        $table-&gt;string('nombre', 50);\n        $table-&gt;string('tlf', 9);\n        $table-&gt;string('email')-&gt;nullable();\n        $table-&gt;timestamps();\n    });\n}\n\nEjecutamos la migración.\n\ndocker compose exec web php artisan migrate\n   INFO  Running migrations.\n  2026_07_24_092724_create_contactos_table .................. 168.51ms DONE\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nProyecto recién clonado → base de datos lista en dos comandos: php artisan migrate crea todas las tablas pendientes. Nunca más un “pásame el .sql”.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Eloquent y migraciones (herramienta de apoyo)</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/06-eloquent.html#eloquent-cada-modelo-es-una-tabla-cada-objeto-una-fila",
+    "href": "UD5/06-eloquent.html#eloquent-cada-modelo-es-una-tabla-cada-objeto-una-fila",
+    "title": "Eloquent y migraciones (herramienta de apoyo)",
+    "section": "Eloquent: cada modelo es una tabla, cada objeto una fila",
+    "text": "Eloquent: cada modelo es una tabla, cada objeto una fila\nEl modelo Contacto generado necesita una línea para permitir el alta masiva con create():\n&lt;?php // app/Models/Contacto.php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Contacto extends Model\n{\n    /** Campos que se pueden asignar en bloque con create(). */\n    protected $fillable = ['nombre', 'tlf', 'email'];\n}\n\nConsultas desde la consola interactiva php artisan tinker\nEjecuta el siguiente comando (exit para salir):\ndocker compose exec web php artisan tinker\nIntroduce:\nuse App\\Models\\Contacto;\n\nContacto::create(['nombre' =&gt; 'Aitana', 'tlf' =&gt; '600111222']);\nContacto::create(['nombre' =&gt; 'Marc',   'tlf' =&gt; '600333444']);\n\nContacto::count();\nContacto::all();\n= 2\nContacto::orderBy('nombre')-&gt;pluck('nombre');\n= Illuminate\\Support\\Collection {\n    all: [\n      \"Aitana\",\n      \"Marc\",\n    ],\n  }\nLas operaciones equivalen a SQL que Eloquent escribe por ti:\n$contactos = Contacto::orderBy('nombre')-&gt;get(); // SELECT * FROM contactos ORDER BY nombre\n$c = Contacto::findOrFail($id);                  // SELECT ... WHERE id = ? (404 si no existe, en un controlador)\nContacto::create($datos);                        // INSERT INTO contactos ...\n$c-&gt;delete();                                    // DELETE FROM contactos WHERE id = ?\nSi queremos que aparezca toda la información:\nContacto::all();\n= Illuminate\\Database\\Eloquent\\Collection {#8140\n    all: [\n      App\\Models\\Contacto {#8138\n        id: 1,\n        nombre: \"Aitana\",\n        tlf: \"600111222\",\n        email: null,\n        created_at: \"2026-07-24 09:43:39\",\n        updated_at: \"2026-07-24 09:43:39\",\n      },\n      App\\Models\\Contacto {#8137\n        id: 2,\n        nombre: \"Marc\",\n        tlf: \"600333444\",\n        email: null,\n        created_at: \"2026-07-24 09:43:39\",\n        updated_at: \"2026-07-24 09:43:39\",\n      },\n    ],\n  }\n\n\nComprobación consultando directamente la base de datos MySQL\nEntramos en una sesión de MySQL interactiva dentro del contenedor:\ndocker compose exec db mysql -uroot -proot agenda\nEjecutamos cualquier consulta:\nSELECT * FROM contactos;\n+----+--------+-----------+-------+---------------------+---------------------+\n| id | nombre | tlf       | email | created_at          | updated_at          |\n+----+--------+-----------+-------+---------------------+---------------------+\n|  1 | Aitana | 600111222 | NULL  | 2026-07-24 09:43:39 | 2026-07-24 09:43:39 |\n|  2 | Marc   | 600333444 | NULL  | 2026-07-24 09:43:39 | 2026-07-24 09:43:39 |\n+----+--------+-----------+-------+---------------------+---------------------+\n2 rows in set (0.00 sec)\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\ncreate() lanza MassAssignmentException: falta el $fillable en el modelo. Es una protección, no un capricho: evita que un atacante inyecte campos que no estaban en tu formulario.\nNombre de tabla: Eloquent asume el plural del modelo (Contacto → contactos). Si tu tabla se llama distinto, decláralo con protected $table = 'mi_tabla';.\nEjecutar migrate con el contenedor db todavía no disponible, o con credenciales que no coincidan con las del docker-compose.yml (DB_HOST=db, DB_DATABASE, DB_USERNAME, DB_PASSWORD). Si migrate falla con un error de conexión, comprueba primero docker compose ps (puede que db no haya terminado de arrancar todavía).",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Eloquent y migraciones (herramienta de apoyo)</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/06-eloquent.html#práctica-guiada-la-agenda-con-modelo-real",
+    "href": "UD5/06-eloquent.html#práctica-guiada-la-agenda-con-modelo-real",
+    "title": "Eloquent y migraciones (herramienta de apoyo)",
+    "section": "Práctica guiada: la agenda con Modelo real",
+    "text": "Práctica guiada: la agenda con Modelo real\nObjetivo: sustituir el array en memoria por Contacto sin tocar ni una línea de las vistas. Si las capas están bien separadas, la presentación no debe enterarse del cambio.\n\nCrea modelo y migración como arriba, y ejecútala.\nEn ContactoController, elimina la propiedad $contactos y cambia cada método:\n\nuse App\\Models\\Contacto;\n\npublic function index(Request $request)\n{\n    $q = $request-&gt;query('q', '');\n\n    // Código anterior\n    /*$contactos = collect($this-&gt;contactos)\n        -&gt;when($q !== '', fn ($col) =&gt;\n            $col-&gt;filter(fn ($c) =&gt;\n                str_contains(mb_strtolower($c['nombre']), mb_strtolower($q))))\n        -&gt;all();*/\n\n    // Modificación a realizar\n    $contactos = Contacto::when($q !== '', fn ($query) =&gt;\n            $query-&gt;where('nombre', 'like', \"%$q%\"))\n                  -&gt;orderBy('nombre')\n                  -&gt;get();\n\n    return view('contactos.index', compact('contactos', 'q'));\n}\n\npublic function show(int $id)\n{\n    // Código anterior\n    //$contacto = $this-&gt;contactos[$id] ?? null;\n    //return view('contactos.show', ['contacto' =&gt; $contacto, 'id' =&gt; $id]);\n\n    // Modificación a realizar\n    $contacto = Contacto::find($id);   // null si no existe\n    return view('contactos.show', compact('contacto', 'id'));    \n}\n\npublic function store(Request $request)\n{\n    $datos = $request-&gt;validate([ /* las mismas reglas de 'Paso 3: el controlador que valida' */ ]);\n\n    // Guardado en sesión (código anterior)\n    /*$agenda = session('agenda', []);\n    $agenda[] = $datos;\n    session(['agenda' =&gt; $agenda]);*/\n\n    // Guardado en sesión (modificación a realizar)\n    Contacto::create($datos);        \n\n    return redirect()-&gt;route('contactos.index')\n                     -&gt;with('exito', 'Contacto creado correctamente');\n}\n\nRealiza los ajustes necesarios en las vistas: Por ejemplo, cuando antes accedías como array ($c['nombre']), ahora es un objeto ($c-&gt;nombre). Idem para el tlf y el id.\nComprueba que el listado, búsqueda, tarjeta (ficha) y alta siguen funcionando igual. Verifica que los contactos persisten al reinicio del servidor. Esa es la evidencia de que Modelo, Vista y Controlador están de verdad separados.\n\ndocker compose restart web   # reinicia y comprueba que los contactos persisten\n\n\n\n\n\n\nAdvertenciaPosibles problemas\n\n\n\n\nLas variables de entorno que ve el contenedor no son las correctas. Para asegurarte, ejecuta el siguiente comando y compáralas con las de tu docker-compose.yml:\n\ndocker compose exec web env | grep DB_\nSi no coinciden, para el contenedor y vuelve a arrancarlo (los cambios en environment: del compose no se aplican a un contenedor que ya está en marcha):\ndocker compose down\ndocker compose up -d\n\nRevisa el fichero .env para asegurar que DB_CONNECTION es mysql. Si tras modificarlo el problema persiste, limpia la caché de configuración:\n\ndocker compose exec web php artisan config:clear\nSi config:clear no basta, borra la caché a mano:\ndocker compose exec web rm bootstrap/cache/config.php\nSi sigue sin funcionar, vuelve a modificar el .env para descomentar y establecer explícitamente estas variables:\nDB_CONNECTION=mysql\nDB_HOST=db\nDB_PORT=3306\nDB_DATABASE=agenda\nDB_USERNAME=root\nDB_PASSWORD=root\n\nSi el problema reaparece tras reiniciar el equipo o tras varios docker compose down/up, comprueba que db tiene un volumen nombrado, no anónimo, en el docker-compose.yml (ver la nota de la sección anterior sobre agenda_db_data). Sin volumen nombrado, los datos no sobreviven de forma fiable entre reinicios.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Eloquent y migraciones (herramienta de apoyo)</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/07-sesiones.html",
+    "href": "UD5/07-sesiones.html",
+    "title": "Sesiones y mantenimiento de estado",
+    "section": "",
+    "text": "La API de sesión, con ejemplos\nHTTP no recuerda nada entre peticiones. En la UD4 mantuviste el estado a mano con session_start() y $_SESSION. Con Laravel es muy distinto, ya que la sesión ya está abierta en cada petición y se accede con una interfaz única.\nRuta de demostración para verlo funcionar:",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Sesiones y mantenimiento de estado</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/07-sesiones.html#la-api-de-sesión-con-ejemplos",
+    "href": "UD5/07-sesiones.html#la-api-de-sesión-con-ejemplos",
+    "title": "Sesiones y mantenimiento de estado",
+    "section": "",
+    "text": "// Guardar\nsession(['tema' =&gt; 'oscuro']);\n\n// Leer (con valor por defecto si no existe)\n$tema = session('tema', 'claro');\n\n// También desde el objeto Request:\n$request-&gt;session()-&gt;put('idioma', 'es');\n$request-&gt;session()-&gt;get('idioma');          // \"es\"\n$request-&gt;session()-&gt;has('idioma');          // true\n$request-&gt;session()-&gt;forget('idioma');       // eliminar la clave\n$request-&gt;session()-&gt;flash('aviso', 'Solo dura una petición');\n\nRoute::get('/visitas', function () {\n    $n = session('visitas', 0) + 1;\n    session(['visitas' =&gt; $n]);\n    return \"Has visitado esta página $n veces\";\n});\n\n\n\n\n\n\n\nAcción\nRespuesta\n\n\n\n\nPrimera visita a /visitas\nHas visitado esta página 1 veces\n\n\nRefrescar (F5)\nHas visitado esta página 2 veces\n\n\nRefrescar otra vez\nHas visitado esta página 3 veces\n\n\nAbrir en otro navegador\nHas visitado esta página 1 veces (otra sesión)\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nEl estado vive en el servidor; el navegador solo transporta la cookie de sesión, que en Laravel viaja firmada y cifrada (frente al PHPSESSID desnudo de la UD4). Ábrela en las herramientas de desarrollador (Aplicación → Cookies): verás laravel_session con un valor ilegible. El driver de almacenamiento (fichero, base de datos, Redis) se cambia por configuración, sin tocar código.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Sesiones y mantenimiento de estado</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/07-sesiones.html#ejemplo-completo-favoritos-en-la-agenda",
+    "href": "UD5/07-sesiones.html#ejemplo-completo-favoritos-en-la-agenda",
+    "title": "Sesiones y mantenimiento de estado",
+    "section": "Ejemplo completo: favoritos en la agenda",
+    "text": "Ejemplo completo: favoritos en la agenda\nVamos a marcar contactos como favoritos, logrando que los marcados persistan durante las peticiones en sesión (no en base de datos: es una preferencia del visitante, no un dato del contacto).\nAñadimos las Rutas nuevas:\nRoute::post('/favoritos/{id}', [ContactoController::class, 'toggleFavorito'])\n     -&gt;whereNumber('id')-&gt;name('favoritos.toggle');\n\nRoute::get('/favoritos', [ContactoController::class, 'favoritos'])\n     -&gt;name('favoritos.index');\n\nRoute::post('/favoritos-vaciar', [ContactoController::class, 'vaciarFavoritos'])\n     -&gt;name('favoritos.vaciar');\nAñadimos al Controlador las funciones necesarias:\n/**\n * Marca o desmarca un contacto como favorito.\n */\npublic function toggleFavorito(Request $request, int $id)\n{\n    $fav = $request-&gt;session()-&gt;get('favoritos', []);\n\n    if (in_array($id, $fav)) {\n        $fav = array_values(array_diff($fav, [$id]));  // quitar\n    } else {\n        $fav[] = $id;                                  // añadir\n    }\n\n    $request-&gt;session()-&gt;put('favoritos', $fav);\n    return back();   // vuelve a la página desde la que se pulsó\n}\n\n/**\n * Listado de contactos marcados como favoritos.\n */\npublic function favoritos(Request $request)\n{\n    $ids = $request-&gt;session()-&gt;get('favoritos', []);\n    $contactos = Contacto::whereIn('id', $ids)-&gt;orderBy('nombre')-&gt;get();\n\n    return view('contactos.favoritos', compact('contactos'));\n}\n\n/**\n * Vacía la lista de favoritos.\n */\npublic function vaciarFavoritos(Request $request)\n{\n    $request-&gt;session()-&gt;forget('favoritos');\n\n    return redirect()-&gt;route('favoritos.index')\n                     -&gt;with('exito', 'Favoritos vaciados');\n}\nAñadir botón en el listado (dentro del @foreach):\n{{-- resources/views/contactos/index.blade.php --}}\n...\n&lt;form method=\"POST\" action=\"{{ route('favoritos.toggle', $c-&gt;id) }}\"&gt;\n    @csrf\n    &lt;button type=\"submit\"&gt;\n        {{ in_array($c-&gt;id, session('favoritos', [])) ? 'Quitar' : 'Favorito' }}\n    &lt;/button&gt;\n&lt;/form&gt;\n...\nDentro del &lt;nav&gt; del layout añadimos el contador global (que será visible en toda la aplicación):\n{{-- resources/views/components/layout.blade.php --}}\n...\n&lt;nav&gt;\n    &lt;a href=\"{{ route('contactos.index') }}\"&gt;Contactos&lt;/a&gt; |\n    &lt;a href=\"{{ route('acerca') }}\"&gt;Acerca de&lt;/a&gt; |\n\n    &lt;!-- Nuevo: Contador global de favoritos --&gt;\n    &lt;a href=\"{{ route('favoritos.index') }}\"&gt;\n        Favoritos ({{ count(session('favoritos', [])) }})\n    &lt;/a&gt;\n&lt;/nav&gt;\n...\nCreamos la vista utilizada en el listado:\n{{-- resources/views/contactos/favoritos.blade.php --}}\n&lt;x-layout titulo=\"Favoritos\"&gt;\n    &lt;h1&gt;Favoritos ({{ count($contactos) }})&lt;/h1&gt;\n\n    @if ($contactos-&gt;isEmpty())\n        &lt;p&gt;No tienes contactos favoritos todavía.&lt;/p&gt;\n    @else\n        &lt;form method=\"POST\" action=\"{{ route('favoritos.vaciar') }}\"&gt;\n            @csrf\n            &lt;button type=\"submit\"&gt;Vaciar favoritos&lt;/button&gt;\n        &lt;/form&gt;\n\n        @foreach ($contactos as $c)\n            &lt;div style=\"display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;\"&gt;\n                &lt;x-tarjeta :id=\"$c-&gt;id\" :nombre=\"$c-&gt;nombre\" :tlf=\"$c-&gt;tlf\" /&gt;\n\n                &lt;form method=\"POST\" action=\"{{ route('favoritos.toggle', $c-&gt;id) }}\"&gt;\n                    @csrf\n                    &lt;button type=\"submit\"&gt;Quitar&lt;/button&gt;\n                &lt;/form&gt;\n            &lt;/div&gt;\n        @endforeach\n    @endif\n\n    &lt;p&gt;&lt;a href=\"{{ route('contactos.index') }}\"&gt;← Volver al listado&lt;/a&gt;&lt;/p&gt;\n&lt;/x-layout&gt;\nFíjate en $contactos-&gt;isEmpty() en vez de empty($contactos): favoritos() devuelve una Collection de Eloquent, no un array plano, así que el método correcto para comprobar si está vacía es el de la propia colección.\n\nComprobaciones\n\n\n\n\n\n\n\nAcción\nResultado en pantalla\n\n\n\n\nPulsar en Aitana\nEl botón pasa a Quitar; el menú muestra Favoritos (1)\n\n\nPulsar en Júlia\nMenú: Favoritos (2)\n\n\nVisitar /favoritos\nListado con Aitana y Júlia\n\n\nPulsar Quitar en Aitana\nMenú: Favoritos (1)\n\n\nPulsar “Vaciar favoritos”\nFavoritos vaciados y menú: Favoritos (0)\n\n\nCerrar el navegador y volver\nFavoritos vacíos: la sesión expiró o es nueva\n\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nUsar GET para el toggle. Cambia estado → debe ser POST (con @csrf). Un GET que modifica cosas acaba disparado por un prefetch del navegador o un buscador.\nOlvidar el valor por defecto en session('favoritos', []): la primera vez la clave no existe y in_array sobre null lanza error.\nGuardar los favoritos en base de datos “porque es más fácil”: son preferencias de la sesión del visitante; en BD contaminarías los datos de todos.\n\n\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio de este bloque lo encontrarás al final del bloque siguiente (Configuración de la aplicación por entornos): en tu aplicación de préstamos, el estado en sesión y la configuración propia trabajan juntos (el límite de videojuegos por solicitud es un parámetro configurable).",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Sesiones y mantenimiento de estado</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html",
+    "href": "UD5/08-configuracion.html",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "",
+    "text": "La cadena completa: .env → config/ → config()\nImagina que tu agenda va a ejecutarse en tres sitios: tu portátil, el servidor de pruebas del centro y (en algún momento) producción. El código es idéntico en los tres; lo que cambia es la configuración.\nYa la usaste en Laravel: instalación y estructura; ahora la utilizamos completa.\nSiendo un mismo proyecto → comportamiento distinto según la máquina. Nada de esto requiere tocar código.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html#la-cadena-completa-.env-config-config",
+    "href": "UD5/08-configuracion.html#la-cadena-completa-.env-config-config",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "",
+    "text": "# .env — desarrollo               # .env — producción\nAPP_ENV=local                     APP_ENV=production\nAPP_DEBUG=true                    APP_DEBUG=false\nSESSION_DRIVER=file               SESSION_DRIVER=database",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html#app_debug-el-parámetro-crítico",
+    "href": "UD5/08-configuracion.html#app_debug-el-parámetro-crítico",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "APP_DEBUG: el parámetro crítico",
+    "text": "APP_DEBUG: el parámetro crítico\nProvoca un error a propósito (por ejemplo, llama a una función inexistente en una ruta) y compara:\nCon APP_DEBUG=true (desarrollo) — el navegador muestra la página de error completa de Laravel:\nCall to undefined function noExiste()\n\nroutes/web.php : 15\n    13  Route::get('/error', function () {\n    14      // ...\n  ▶ 15      return noExiste();\n    16  });\n\nStack trace, variables de entorno, consultas SQL ejecutadas…\nCon APP_DEBUG=false (producción) — el visitante solo ve:\n500 | SERVER ERROR\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nDesplegar con APP_DEBUG=true es un fallo de seguridad grave: la traza expone rutas del servidor, fragmentos de código, consultas y potencialmente credenciales a cualquier visitante. Es de los primeros parámetros que revisa cualquier auditoría.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html#configuración-propia-configagenda.php",
+    "href": "UD5/08-configuracion.html#configuración-propia-configagenda.php",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "Configuración propia: config/agenda.php",
+    "text": "Configuración propia: config/agenda.php\nPuedes crear tus propios ficheros de configuración. Creamos config/agenda.php:\n&lt;?php // config/agenda.php\n\nreturn [\n    'por_pagina' =&gt; env('AGENDA_POR_PAGINA', 10),\n    'centro'     =&gt; env('AGENDA_CENTRO', 'IES —'),\n    'favoritos'  =&gt; env('AGENDA_FAVORITOS', true),\n];\nEn el .env añade:\n# .env\nAGENDA_POR_PAGINA=5\nAGENDA_CENTRO=\"IES Enric Valor\"\nAGENDA_FAVORITOS=true\nY se consume desde cualquier punto de la aplicación con config('agenda.clave'):\nVamos a modificar el controlador ContactoController.php para añadir la paginación:\npublic function index(Request $request)\n{\n    $q = $request-&gt;query('q', '');\n\n    $contactos = Contacto::when($q !== '', fn ($query) =&gt;\n            $query-&gt;where('nombre', 'like', \"%$q%\"))\n        -&gt;orderBy('nombre')\n        //-&gt;get(); // Muestra todo -&gt; Se comenta\n        -&gt;paginate(config('agenda.por_pagina')); // Paginación -&gt; NEW!\n    \n    return view('contactos.index', compact('contactos', 'q'));\n}\n\n\n\n\n\n\nNotaInformación\n\n\n\npaginate() no pinta ningún control de navegación por sí solo. Hay que añadirlo en la vista, al final del listado:\n\n\n{{-- resources/views/contactos/index.blade.php, después del @foreach --}}\n{{ $contactos-&gt;links() }}\nY como $contactos ya no es un array sino un paginador, la comprobación de “está vacío” cambia de:\n@if empty($contactos) ...\na\n@if ($contactos-&gt;isEmpty()) ...\nLuego, en el layout realizamos los otros dos cambios:\n\nModificar el footer del layout para añadir el parámetro del centro.\nCondicionar el enlace de favoritos para que aparezca solo si el parámetro es AGENDA_FAVORITOS=true.\n\n{{-- resources/views/components/layout.blade.php --}}\n&lt;footer&gt;2º DAW | DWES | {{ config('agenda.centro') }}&lt;/footer&gt;\n\n@if (config('agenda.favoritos'))\n    &lt;a href=\"{{ route('favoritos.index') }}\"&gt;\n        Favoritos ({{ count(session('favoritos', [])) }})\n    &lt;/a&gt;\n@endif\nEfecto de cada cambio en .env (tras reiniciar el servidor):\n\n\n\n\n\n\n\nCambio en .env\nEfecto visible\n\n\n\n\nAGENDA_POR_PAGINA=2\nEl listado muestra 2 contactos por página con paginador\n\n\nAGENDA_CENTRO=\"IES NEW\"\nEl pie de todas las páginas cambia\n\n\nAGENDA_FAVORITOS=false\nEl enlace Favoritos desaparece del menú en toda la aplicación\n\n\n(quitar la línea)\nSe aplican los valores por defecto del fichero config/\n\n\n\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nUn parámetro bien diseñado tiene tres niveles, cada uno con un papel distinto:\n\nNivel 1 — valor por defecto, en config/agenda.php:\n\n'por_pagina' =&gt; env('AGENDA_POR_PAGINA', 10),\nEs la red de seguridad: si el proyecto se clona y el .env todavía no tiene esta variable, la aplicación sigue funcionando con 10, en vez de romperse.\n\nNivel 2 — valor real, en .env:\n\nAGENDA_POR_PAGINA=5\nAquí decides el valor de verdad para tu máquina o entorno concreto. Como .env no se sube a Git, cada entorno puede tener el suyo sin pisarse.\n\nNivel 3 — lectura, en el código, con config():\n\n-&gt;paginate(config('agenda.por_pagina'));\nNunca se escribe el valor directamente en el controlador ni en la vista — siempre se pregunta a través de config(), así que un cambio en .env se aplica automáticamente en todos los puntos del código que lo consultan.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html#configuración-en-producción-la-caché",
+    "href": "UD5/08-configuracion.html#configuración-en-producción-la-caché",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "Configuración en producción: la caché",
+    "text": "Configuración en producción: la caché\nEn producción, Laravel compila toda la configuración a un único fichero para acelerar:\ndocker compose exec web php artisan config:cache\n   INFO  Configuration cached successfully.\nDesde ese momento .env deja de leerse en cada petición: si cambias algo, vuelve a ejecutar config:cache (o config:clear en desarrollo). Y esta es la razón de fondo de la regla de Laravel: instalación y estructura: con la caché activa, env() fuera de config/ devuelve null.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/08-configuracion.html#actividades",
+    "href": "UD5/08-configuracion.html#actividades",
+    "title": "Configuración de la aplicación por entornos",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ4 · Mi solicitud: estado en sesión y servicio configurable\nLos jugadores preparan su solicitud añadiendo videojuegos a una cesta (“Mi solicitud”) antes de confirmarla. La cesta vive en sesión, y sus límites son configuración del centro.\n\nImplementa la cesta en sesión: desde el catálogo, cada videojuego disponible puede añadirse o quitarse de “Mi solicitud” (POST con @csrf). Un videojuego no disponible no debe poder añadirse.\nCrea la página GET /solicitud con la vista de la cesta, un contador visible en el menú del layout en toda la aplicación y un botón “Vaciar solicitud” con confirmación por mensaje flash. El nombre del controlador es decisión tuya, aunque SolicitudController es la opción natural, pero cualquier nombre coherente es válido; lo usarás también en EJ5.\nCrea config/prestamos.php con al menos tres parámetros alimentados desde .env y con valores por defecto: max_videojuegos (videojuegos máximos por solicitud), dias_max (duración máxima del préstamo) y departamento (nombre para el pie del layout).\nConecta configuración y estado: si la cesta ya tiene config('prestamos.max_videojuegos') videojuegos, el intento de añadir otro debe rechazarse con un mensaje flash de error. Integra también dias_max en la validación de la fecha de EJ3 (la fecha de devolución no puede superar hoy + dias_max).\nEn la propia entrega, responde a estas preguntas:\n\n\n¿Qué viaja en la cookie del navegador?\n¿Dónde reside la cesta?\n¿Por qué el límite de videojuegos es configuración y no una constante en el código?\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio estará correcto con la implementación de la cesta completa (añadir, quitar, listar, vaciar) respetando disponibilidad y límite configurable, contador global correcto, dias_max integrado en la validación y preguntas del punto 5 bien respondidas.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Configuración de la aplicación por entornos</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html",
+    "href": "UD5/09-poo-servicios.html",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "",
+    "text": "El problema: el controlador que crece\nLa POO que vimos en la UD4 la aplicaremos en esta unidad. Laravel es un catálogo muy completo de patrones y vamos a usarlos para solucionar problemas reales.\nTu index() puede llegar a realizar diversas funciones. Valida, busca, ordena e imagina que hasta detecta duplicados:\nFunciona, pero incumple el principio de responsabilidad única (la S de SOLID): el controlador debería coordinar, no decidir. Cada regla de negocio nueva lo hincha más, y nada de esto se puede probar sin simular una petición HTTP entera.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#el-problema-el-controlador-que-crece",
+    "href": "UD5/09-poo-servicios.html#el-problema-el-controlador-que-crece",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "",
+    "text": "// ANTES — un controlador que hace demasiado\npublic function index(Request $request)\n{\n    $q = $request-&gt;query('q', '');\n\n    // búsqueda\n    $contactos = Contacto::when($q !== '', fn ($query) =&gt;\n        $query-&gt;where('nombre', 'like', \"%$q%\"))\n              -&gt;orderBy('nombre')\n              -&gt;paginate(config('agenda.por_pagina'));\n\n    // detección de teléfonos duplicados (¿esto qué hace aquí?)\n    $duplicados = Contacto::select('tlf')\n              -&gt;groupBy('tlf')\n              -&gt;havingRaw('COUNT(*) &gt; 1')\n              -&gt;pluck('tlf')\n              -&gt;all();\n\n    return view('contactos.index', compact('contactos', 'q', 'duplicados'));\n}",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#la-solución-clases-de-servicio",
+    "href": "UD5/09-poo-servicios.html#la-solución-clases-de-servicio",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "La solución: clases de servicio",
+    "text": "La solución: clases de servicio\nLa lógica de negocio se extrae a una clase propia. Créala en app/Services/:\n&lt;?php // app/Services/AgendaService.php\n\nnamespace App\\Services;\n\nuse App\\Models\\Contacto;\n#use Illuminate\\Support\\Collection;\nuse Illuminate\\Contracts\\Pagination\\LengthAwarePaginator;\n\nclass AgendaService\n{\n    /**\n     * Busca contactos por nombre, ordenados alfabéticamente.\n     */\n    public function buscar(string $q): LengthAwarePaginator //Antes Collection\n    {\n        return Contacto::when($q !== '', fn ($query) =&gt;\n            $query-&gt;where('nombre', 'like', \"%$q%\"))\n                  -&gt;orderBy('nombre')\n                  -&gt;paginate(config('agenda.por_pagina'));\n    }\n\n    /**\n     * Teléfonos que aparecen en más de un contacto.\n     *\n     * @return string[]\n     */\n    public function duplicados(): array\n    {\n        return Contacto::select('tlf')\n            -&gt;groupBy('tlf')\n            -&gt;havingRaw('COUNT(*) &gt; 1')\n            -&gt;pluck('tlf')\n            -&gt;all();\n    }\n}",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#inyección-de-dependencias-el-controlador-no-hace-new",
+    "href": "UD5/09-poo-servicios.html#inyección-de-dependencias-el-controlador-no-hace-new",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "Inyección de dependencias: el controlador no hace new",
+    "text": "Inyección de dependencias: el controlador no hace new\nEl controlador declara que necesita un AgendaService (se pasa como parámetro) y Laravel se lo entrega:\n// DESPUÉS — el controlador solo coordina\nuse App\\Services\\AgendaService;\n\npublic function index(Request $request, AgendaService $servicio)\n{\n    $q = $request-&gt;query('q', '');\n\n    return view('contactos.index', [\n        'contactos'  =&gt; $servicio-&gt;buscar($q),\n        'q'          =&gt; $q,\n        'duplicados' =&gt; $servicio-&gt;duplicados(),\n    ]);\n}\nFíjate en que nadie escribe new AgendaService(). Al ver AgendaService como parámetro en el método, el contenedor de servicios de Laravel crea la instancia y la “inyecta”. Eso se llama inyección de dependencias, y su ventaja es el desacoplamiento: el controlador no sabe (ni le importa) cómo se construye el servicio.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#qué-ventaja-supone-esto-cambiar-la-implementación-sin-tocar-el-controlador",
+    "href": "UD5/09-poo-servicios.html#qué-ventaja-supone-esto-cambiar-la-implementación-sin-tocar-el-controlador",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "¿Qué ventaja supone esto? Cambiar la implementación sin tocar el controlador",
+    "text": "¿Qué ventaja supone esto? Cambiar la implementación sin tocar el controlador\nLaravel ya te crea un service provider por defecto, app/Providers/AppServiceProvider.php. Es donde puedes decirle: “cuando alguien pida X, dale Y en su lugar”. Esta acción se realiza en el método register().\nSupón que quieres una versión alternativa del servicio, por ejemplo, que ordene por fecha de alta created_at. Creas la clase (AgendaPorFechaService) y le dices a Laravel que la use en vez de la original:\n// app/Providers/AppServiceProvider.php\nuse App\\Services\\AgendaService;\nuse App\\Services\\AgendaPorFechaService;\n\npublic function register(): void\n{\n    $this-&gt;app-&gt;bind(AgendaService::class, AgendaPorFechaService::class);\n}\nbind() dice: “cada vez que algo pida AgendaService, dale un AgendaPorFechaService”. Esto sucede sin modificar ni una línea de código. Ese es el punto fuerte del desacoplamiento, y la base de los dobles de prueba que verás en la siguiente sección Pruebas, documentación y proyecto integrador.\nEl código del servicio AgendaPorFechaService quedaría así:\n&lt;?php // app/Services/AgendaPorFechaService.php\n\nnamespace App\\Services;\n\nuse App\\Models\\Contacto;\nuse Illuminate\\Contracts\\Pagination\\LengthAwarePaginator;\n\nclass AgendaPorFechaService extends AgendaService\n{\n    /**\n     * Busca contactos por nombre, ordenados por fecha de alta y paginados.\n     */\n    public function buscar(string $q): LengthAwarePaginator\n    {\n        return Contacto::when($q !== '', fn ($query) =&gt;\n            $query-&gt;where('nombre', 'like', \"%$q%\"))\n                  -&gt;orderBy('created_at')   // en vez de orderBy('nombre')\n                  -&gt;paginate(config('agenda.por_pagina'))\n                  -&gt;appends(['q' =&gt; $q]);\n    }\n}\n\nComprobación rápida\nUtiliza php artisan tinker para ejecutar los siguientes comandos y comprueba la ordenación (y también la paginación):\nget_class(app(App\\Services\\AgendaService::class));\n= App\\Services\\AgendaPorFechaService {}\n$s = app(App\\Services\\AgendaService::class);\nget_class($s);\n$s-&gt;buscar('')-&gt;pluck('nombre', 'created_at');",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#los-patrones-de-la-unidad-con-nombre",
+    "href": "UD5/09-poo-servicios.html#los-patrones-de-la-unidad-con-nombre",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "Los patrones de la unidad, con nombre",
+    "text": "Los patrones de la unidad, con nombre\nYa has utilizado los siguientes:\n\n\n\n\n\n\n\nPatrón / principio\nDónde lo has usado\n\n\n\n\nMVC\nLa arquitectura de toda la unidad\n\n\nResponsabilidad única (SOLID·S)\nControlador delgado + AgendaService\n\n\nInyección de dependencias\nEl type-hint del método index()\n\n\nActive Record\nEloquent: Contacto::create(), $c-&gt;delete()\n\n\nFront controller\npublic/index.php recibe todas las peticiones\n\n\nSingleton\nEl contenedor y las conexiones compartidas que Laravel gestiona por dentro\n\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nCrear el servicio con new AgendaService() dentro del controlador: funciona, pero pierdes el desacoplamiento y la posibilidad de sustituirlo en pruebas.\nMover al servicio también la presentación (que devuelva HTML): un servicio devuelve datos; la vista es cosa del controlador y de Blade.\nUn servicio-cajón (UtilsService) donde cae todo: la responsabilidad única también aplica a los servicios.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/09-poo-servicios.html#actividades",
+    "href": "UD5/09-poo-servicios.html#actividades",
+    "title": "POO aplicada: servicios e inyección de dependencias",
+    "section": "Actividades",
+    "text": "Actividades\n\nEJ5 · DisponibilidadService: la lógica de préstamos como servicio\nTu aplicación necesita reglas que ningún ejemplo de la teoría resuelve. Diséñalas como servicio inyectable.\n\n\n\n\n\n\nNotaConcepto clave\n\n\n\nHasta ahora el catálogo de videojuegos vivía en un array reconstruido en cada petición: marcar un videojuego como no disponible no podía sobrevivir a la siguiente petición. Con el modelo Eloquent que viste en Eloquent y migraciones (herramienta de apoyo), sí.\n\n\n\nMigra el catálogo de EJ2 a un modelo Eloquent real. Crea el modelo y la migración Videojuego (titulo, genero, disponible, y también fecha_devolucion — fecha, nullable, se rellenará solo cuando el videojuego esté prestado) siguiendo el patrón guiado de Eloquent y migraciones (herramienta de apoyo), y adapta VideojuegoController para leer y escribir contra la base de datos en vez del array.\n\nAdapta también la ficha (show) para que, cuando el videojuego no esté disponible, muestre también su fecha de devolución. A partir de aquí, la disponibilidad de un videojuego es un dato persistente.\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nSi en EJ2 usaste @empty($videojuegos) para el catálogo vacío, revísalo ahora: empty() funciona con arrays, pero $videojuegos ya es una Collection de Eloquent, y empty() sobre un objeto siempre da false, tenga o no elementos dentro (el aviso de catálogo vacío deja de mostrarse y no se avisa del error). Cambia a @forelse, que trae su propio caso vacío integrado y funciona igual con arrays y con Collections.\n\n\n\nCrea app/Services/DisponibilidadService.php con, al menos, estos tres métodos (las firmas son orientativas; decide tú las estructuras de datos):\n\npuedeAnadirse(int $videojuegoId, array $cesta): bool — el videojuego existe y está disponible en base de datos, no está ya en la cesta y no se supera config('prestamos.max_videojuegos').\nfechaLimite(): string — fecha máxima de devolución: hoy + config('prestamos.dias_max') días contando solo lunes a viernes (los fines de semana no consumen días de préstamo). Este cálculo es el corazón del ejercicio: piénsalo antes de programarlo.\nvalidaDevolucion(string $fecha): bool — la fecha propuesta es futura y no supera fechaLimite().\n\nRefactoriza los controladores de EJ3 y EJ4 para que toda esa lógica pase por el servicio inyectado (nada de new, y ningún cálculo de fechas ni comprobación de límites en el controlador).\nJustifica por escrito qué principio mejora cada extracción y qué patrón interviene en cada pieza (MVC, inyección de dependencias, responsabilidad única).\nDemuestra la sustituibilidad: crea DisponibilidadConFestivosService, que además descuente los festivos definidos en config('prestamos.festivos') (array de fechas), y actívala con un binding en el contenedor sin tocar ningún controlador. Documenta el antes/después de fechaLimite() con un festivo dentro del plazo.\n\n\n\n\n\n\n\nNotaInformación\n\n\n\nEl ejercicio estará correcto si el catálogo ya vive en Eloquent (con fecha_devolucion en el esquema), la ficha muestra la fecha de devolución (cuándo toca devolverlo, no cuándo se prestó) cuando el videojuego está prestado, los tres métodos del servicio están correctos (incluido el salto de fines de semana, verificado con un caso que cruce un fin de semana), controladores sin lógica y binding alternativo demostrado.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>POO aplicada: servicios e inyección de dependencias</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/10-pruebas-proyecto.html",
+    "href": "UD5/10-pruebas-proyecto.html",
+    "title": "Pruebas, documentación y proyecto integrador",
+    "section": "",
+    "text": "Pruebas con artisan test\nLaravel trae PHPUnit integrado y una capa de pruebas HTTP: puedes simular peticiones sin navegador y comprobar la respuesta. Las pruebas se ubican en el directorio tests/Feature/.\nEjecución:\nY así se ve un fallo. Si rompes la regla del teléfono en el controlador:\nLas aserciones que más usarás:",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Pruebas, documentación y proyecto integrador</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/10-pruebas-proyecto.html#pruebas-con-artisan-test",
+    "href": "UD5/10-pruebas-proyecto.html#pruebas-con-artisan-test",
+    "title": "Pruebas, documentación y proyecto integrador",
+    "section": "",
+    "text": "docker compose exec web php artisan make:test AgendaTest\n   INFO  Test [tests/Feature/AgendaTest.php] created successfully.\n&lt;?php // tests/Feature/AgendaTest.php\n\nnamespace Tests\\Feature;\nuse Illuminate\\Foundation\\Testing\\RefreshDatabase;\nuse Illuminate\\Foundation\\Testing\\WithFaker;\nuse Tests\\TestCase;\n\nclass AgendaTest extends TestCase\n{\n    public function test_el_listado_responde(): void\n    {\n        $this-&gt;get('/contactos')\n             -&gt;assertStatus(200)\n             -&gt;assertSee('Agenda');\n    }\n\n    public function test_la_ficha_inexistente_avisa(): void\n    {\n        $this-&gt;get('/contactos/999')\n             -&gt;assertSee('Contacto no encontrado');\n    }\n\n    public function test_el_alta_valida_el_nombre(): void\n    {\n        $this-&gt;post('/contactos', ['nombre' =&gt; ''])\n             -&gt;assertSessionHasErrors('nombre');\n    }\n\n    public function test_el_alta_valida_el_telefono(): void\n    {\n        $this-&gt;post('/contactos', ['nombre' =&gt; 'Prueba', 'tlf' =&gt; '12345'])\n             -&gt;assertSessionHasErrors('tlf');\n    }\n}\n\ndocker compose exec web php artisan test\n   PASS  Tests\\Feature\\AgendaTest\n  ✓ el listado responde                                          0.15s\n  ✓ la ficha inexistente avisa                                   0.03s\n  ✓ el alta valida el nombre                                     0.04s\n  ✓ el alta valida el telefono                                   0.03s\n\n  Tests:    4 passed (7 assertions)\n  Duration: 0.31s\n\n   FAIL  Tests\\Feature\\AgendaTest\n  ✓ el listado responde\n  ⨯ el alta valida el telefono                                   0.05s\n  ──────────────────────────────────────────────────────────────\n   FAILED  Tests\\Feature\\AgendaTest &gt; el alta valida el telefono\n  Session is missing expected key [errors].\n\n\n\n\n\n\n\n\nAserción\nComprueba\n\n\n\n\nassertStatus(200)\nCódigo de respuesta HTTP\n\n\nassertSee('texto')\nQue el HTML contiene el texto (escapado)\n\n\nassertDontSee('texto')\nQue no lo contiene\n\n\nassertRedirect('/ruta')\nQue la respuesta redirige a esa URL\n\n\nassertSessionHasErrors('campo')\nQue la validación falló en ese campo\n\n\nassertSessionHas('clave')\nQue la sesión contiene esa clave (p. ej. el flash)",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Pruebas, documentación y proyecto integrador</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/10-pruebas-proyecto.html#documentación-con-phpdoc",
+    "href": "UD5/10-pruebas-proyecto.html#documentación-con-phpdoc",
+    "title": "Pruebas, documentación y proyecto integrador",
+    "section": "Documentación con PHPDoc",
+    "text": "Documentación con PHPDoc\nTodo el código que entregues en esta unidad va documentado con bloques /** ... */ sobre clases y métodos:\n/**\n * Busca contactos por nombre, ordenados alfabéticamente.\n *\n * @param  string  $q  Término de búsqueda; vacío devuelve todos.\n * @return \\Illuminate\\Support\\Collection&lt;int, \\App\\Models\\Contacto&gt;\n */\npublic function buscar(string $q): Collection\n{\n    // ...\n}\n\n\n\n\n\n\nImportanteImportante\n\n\n\nNo es burocracia: tu editor usa estos bloques para autocompletar, y quien herede tu código (tu yo de dentro de tres meses) sabrá qué hace cada método sin leerlo entero.\n\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\n\nPHPDoc que repite el nombre del método (“buscar: busca”) sin aportar nada: documenta el contrato (qué recibe, qué devuelve, casos límite), no lo obvio.\nPruebas que solo cubren el camino correcto. Recuerda que las valiosas son las que atacan los extremos: campos vacíos, id inexistentes, teléfonos inválidos, campos mal formateados, etc.\nEscribir las pruebas al final “si da tiempo”. Escríbelas al terminar cada funcionalidad, cuando aún recuerdas los casos “raros”.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Pruebas, documentación y proyecto integrador</span>"
+    ]
+  },
+  {
+    "objectID": "UD5/10-pruebas-proyecto.html#proyecto-integrador",
+    "href": "UD5/10-pruebas-proyecto.html#proyecto-integrador",
+    "title": "Pruebas, documentación y proyecto integrador",
+    "section": "Proyecto integrador",
+    "text": "Proyecto integrador\n\nEJ6 · Proyecto integrador: préstamo de videojuegos\nEntrega final de la unidad: la aplicación de préstamos completa, integrando EJ2 a EJ5, más lo que falta.\n\nArquitectura MVC estricta: controladores delgados, lógica en DisponibilidadService (y los servicios que necesites) inyectados, vistas Blade con layout y componentes, rutas con nombre en el 100% de los enlaces.\nFuncionalidad completa:\n\n\nCatálogo con filtro por género\nSolicitud con todas las validaciones de negocio\nCesta en sesión con límite configurable y contador global,\nConfirmación de la solicitud: al confirmar la cesta, los videojuegos pasan a no disponibles en base de datos, con la fecha de devolución acordada en el formulario (update() sobre el modelo Videojuego de EJ5), y la cesta se vacía con mensaje flash (new de este ejercicio).\n\n\nPruebas: al menos cinco pruebas automatizadas en tests/Feature/ (php artisan make:test PrestamosTest) que pasen con php artisan test:\n\n\nDos de respuesta de página (p. ej., el catálogo responde 200; la ficha de un videojuego inexistente muestra el aviso).\nDos de validación (p. ej., un email no corporativo se rechaza; una fecha de devolución pasada se rechaza).\nUna del servicio (el cálculo de fechaLimite(), por ejemplo, con un fin de semana de por medio).\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nEl catálogo ya vive en base de datos desde EJ5: sin el trait RefreshDatabase en tu clase de test, los videojuegos que una prueba marca como no disponibles quedan así para la siguiente ejecución, y los resultados dejan de ser fiables.\n\n\nEntrega de evidencias de tests: Adjunta PDF con tu nombre dentro y la captura del resultado “en verde”.\n\nDocumentación: PHPDoc en todas las clases y métodos de app/, más un README.md con las instrucciones de instalación (composer install, .env, key:generate, serve).\n\n\n\n\n\n\n\nAdvertenciaErrores frecuentes\n\n\n\nMuchos tutoriales de Laravel montan el CSS con Vite (resources/css/app.css + @vite(...)). Tu Dockerfile de esta unidad no tiene Node, así que ese camino no te va a funcionar sin añadirlo tú mismo. Usa en su lugar un CSS plano en public/css/app.css, enlazado con &lt;link rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\"&gt; en &lt;x-layout&gt;: Laravel lo sirve tal cual, sin compilar nada, con lo que ya tienes montado.\n\n\n\n\n\n\n\n\nImportanteCriterio de superación\n\n\n\nLos cuatro puntos completos y correctos. Además y muy importante, que la interfaz esté cuidada.",
+    "crumbs": [
+      "UD5. Separación de la lógica de negocio: MVC con Laravel",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Pruebas, documentación y proyecto integrador</span>"
+    ]
   }
 ]
