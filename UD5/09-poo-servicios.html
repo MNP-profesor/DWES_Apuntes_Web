@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a85f7aadac8c9481322e896b960dc966.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bd40b20c57d3736a162bfd6e57aab084.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aeb48950b4b1bef16bab87eaee222377.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -737,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>{</span>
 <span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>    <span class="va">$this</span>-&gt;app-&gt;bind(AgendaService::<span class="kw">class</span><span class="ot">,</span> AgendaPorFechaService::<span class="kw">class</span>)<span class="ot">;</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>bind()</code> dice: “cada vez que algo pida <code>AgendaService</code>, dale un <code>AgendaPorFechaService</code>”. Esto sucede <strong>sin modificar ni una línea de código</strong>. Ese es el punto fuerte del desacoplamiento, y la base de los dobles de prueba que verás en la siguiente sección <a href="10-pruebas-proyecto.html" class="quarto-xref"><span>Pruebas, documentación y proyecto integrador</span></a>.</p>
+<p><code>bind()</code> dice: “cada vez que algo pida <code>AgendaService</code>, dale un <code>AgendaPorFechaService</code>”. Esto sucede <strong>sin modificar ni una línea de código</strong>. Ese es el punto fuerte del desacoplamiento: poder sustituir una pieza por otra, por ejemplo al probar el código.</p>
 <p>El código del servicio <code>AgendaPorFechaService</code> quedaría así:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="kw">&lt;?php</span> <span class="co">// app/Services/AgendaPorFechaService.php</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-label="2"></a></span>

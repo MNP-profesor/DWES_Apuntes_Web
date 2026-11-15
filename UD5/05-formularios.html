@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a85f7aadac8c9481322e896b960dc966.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bd40b20c57d3736a162bfd6e57aab084.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aeb48950b4b1bef16bab87eaee222377.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -642,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este bloque trabaja <strong>CE5.d</strong>: formularios generados dinámicamente que responden a los eventos de la aplicación (crear, buscar…). Transversal: <strong>CE5.h</strong>.</p>
+<p>Esta sección trabaja <strong>CE5.d</strong>: formularios generados dinámicamente que responden a los eventos de la aplicación (crear, buscar…). Transversal: <strong>CE5.h</strong>.</p>
 </div>
 </div>
 <p>Vamos a construir el <strong>alta de contacto</strong> completa y a ver, paso a paso, qué hace Laravel en cada escenario.</p>
@@ -710,7 +710,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-23"><a href="#cb4-23" aria-label="23"></a>        <span class="st">'tlf.regex'</span>       =&gt; <span class="st">'Debe ser un móvil español válido.'</span><span class="ot">,</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-label="24"></a>    ])<span class="ot">;</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-label="25"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-label="26"></a>    <span class="co">// Guardado provisional en sesión (el modelo llega en @sec-ud5-eloquent)</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-label="26"></a>    <span class="co">// Guardado provisional en sesión (el modelo llega en la sección de Eloquent)</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-label="27"></a>    <span class="va">$agenda</span> <span class="op">=</span> session(<span class="st">'agenda'</span><span class="ot">,</span> [])<span class="ot">;</span></span>
 <span id="cb4-28"><a href="#cb4-28" aria-label="28"></a>    <span class="va">$agenda</span>[] <span class="op">=</span> <span class="va">$datos</span><span class="ot">;</span></span>
 <span id="cb4-29"><a href="#cb4-29" aria-label="29"></a>    session([<span class="st">'agenda'</span> =&gt; <span class="va">$agenda</span>])<span class="ot">;</span></span>
@@ -728,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>Request $request</code> <strong>se pasa parámetro del método:</strong> no lo creas tú con <code>new Request()</code>. Laravel ve el <em>type-hint</em> <code>Request</code> en la firma del método y te entrega automáticamente un objeto ya construido con todos los datos de la petición actual (campos del formulario, <em>querystring</em>, cabeceras…).</p>
+<p><code>Request $request</code> <strong>se pasa como parámetro del método:</strong> no lo creas tú con <code>new Request()</code>. Laravel ve el <code>Request</code> en la firma del método y te da automáticamente un objeto ya construido con todos los datos de la petición actual (campos del formulario, <em>querystring</em>, cabeceras…).</p>
 <p>Este mecanismo (pedir algo en la firma y que el framework te lo dé ya construido) se llama <strong>inyección de dependencias</strong>; lo verás formalizado como patrón en <a href="09-poo-servicios.html" class="quarto-xref"><span>POO aplicada: servicios e inyección de dependencias</span></a>. Por ahora basta con saber que pedirlo en la firma es suficiente para tenerlo disponible dentro del método.</p>
 </div>
 </div>
@@ -755,6 +755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Redirección <code>302</code> al listado con el mensaje flash. El usuario ve:</li>
 </ol>
 <pre><code>✔ Contacto creado correctamente</code></pre>
+<p>De momento el listado sigue mostrando solo el array fijo del controlador, así que el contacto guardado en sesión no aparecerá en él. Esto lo solucionaremos en <a href="06-eloquent.html" class="quarto-xref"><span>Eloquent y migraciones (herramienta de apoyo)</span></a>, cuando el <code>Modelo</code> sea real.</p>
 <p><strong>Escenario B — datos incorrectos</strong> (<code>nombre</code> vacío, <code>tlf=12345</code>):</p>
 <ol type="1">
 <li><code>validate()</code> <strong>corta la ejecución</strong>: nada de lo que hay debajo se ejecuta.</li>
@@ -873,8 +874,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-4"><a href="#cb12-4" aria-label="4"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Versión modificada, a tener en cuenta que:</strong></p>
 <ol type="1">
-<li><p>Ahora recibe Request $request como parámetro (antes no tenía ninguno).</p></li>
-<li><p>Ahora hace <code>compact('contactos', 'q')</code> en vez de <code>['contactos' =&gt; $this-&gt;contactos]</code>. Así la vista recibe también <code>$q</code> (necesaria para el <code>value="{{ $q }}</code>” del formulario, que mantiene escrito lo buscado tras enviar).</p></li>
+<li><p>Ahora recibe <code>Request $request</code> como parámetro (antes no tenía ninguno).</p></li>
+<li><p>Ahora hace <code>compact('contactos', 'q')</code> en vez de <code>['contactos' =&gt; $this-&gt;contactos]</code>. Así la vista recibe también <code>$q</code> (necesaria para el <code>value="{{ $q }}"</code> del formulario, que mantiene escrito lo buscado tras enviar).</p></li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-label="1"></a><span class="kw">public</span> <span class="kw">function</span> index(Request <span class="va">$request</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-label="2"></a>{</span>
@@ -958,9 +959,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p>Personaliza al menos <strong>tres mensajes</strong> de error en castellano, incluido el del email corporativo.</p></li>
 <li><p>Añade al catálogo un filtro por género mediante un formulario <strong>GET</strong> con un <code>&lt;select&gt;</code>, que conserve el género elegido tras enviar. Justifica en un comentario por qué este formulario no lleva <code>@csrf</code>.</p></li>
-<li><p>Demuestra la protección CSRF en el formulario de solicitud: elimina <code>@csrf</code>, envía y documenta con captura el error 419, explicando qué ataque previene.</p></li>
-<li><p>Tabla de casos de prueba con al menos <strong>seis filas</strong> y las columnas: “Entrada”, “Resultado esperado” y “Resultado obtenido”. La tabla debe cubrir todas las reglas, incluida una fecha en pasado y un email de dominio no corporativo.</p></li>
+<li><p>Demuestra la protección CSRF en el formulario de solicitud: elimina <code>@csrf</code>, haz una prueba y comprueba que devuelve el error 419, explicando qué ataque previene.</p></li>
+<li><p>Elabora una tabla con al menos <strong>seis casos de prueba</strong> y las columnas indicadas en el ejemplo. La tabla debe cubrir todas las reglas, incluida una fecha en pasado y un email de dominio no corporativo.</p></li>
 </ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Entrada</th>
+<th>Resultado esperado</th>
+<th>Resultado obtenido</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>videojuego_id <code>99</code></td>
+<td>“El videojuego seleccionado no existe en el catálogo.”</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -971,7 +998,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El ejercicio estará correcto si las cuatro reglas están operativas, filtro GET funcional y justificado, los tres escenarios (éxito, error, 419) con capturas y la tabla completa.*</p>
+<p>El ejercicio estará correcto si las cuatro reglas están operativas, filtro GET funcional, los tres escenarios (éxito, error, 419) con capturas y la tabla completa.</p>
 </div>
 </div>
 </div>

@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a85f7aadac8c9481322e896b960dc966.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bd40b20c57d3736a162bfd6e57aab084.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6071e95a9b82812b6efab2351e33db8b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aeb48950b4b1bef16bab87eaee222377.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-47bfbafd3c5e600995ec7c079a5ae121.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -722,7 +722,7 @@ Stack trace, variables de entorno, consultas SQL ejecutadas…</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php<span class="ot">,</span> después del <span class="pp">@</span><span class="cf">foreach</span> <span class="op">--</span>}}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>{{ <span class="va">$contactos</span>-&gt;links() }}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Y como <code>$contactos</code> ya no es un array sino un paginador, la comprobación de “está vacío” cambia de:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="pp">@</span><span class="cf">if</span> <span class="kw">empty</span>(<span class="va">$contactos</span>) ...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>)) ...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>a</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="pp">@</span><span class="cf">if</span> (<span class="va">$contactos</span>-&gt;isEmpty()) ...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luego, en el <strong>layout</strong> realizamos los otros dos cambios:</p>
@@ -815,12 +815,12 @@ Stack trace, variables de entorno, consultas SQL ejecutadas…</code></pre>
 <li><p>Crea la página <code>GET /solicitud</code> con la vista de la cesta, un contador visible en el menú del layout en toda la aplicación y un botón “Vaciar solicitud” con confirmación por mensaje flash. <strong>El nombre del controlador es decisión tuya</strong>, aunque <code>SolicitudController</code> es la opción natural, pero cualquier nombre coherente es válido; lo usarás también en EJ5.</p></li>
 <li><p>Crea <code>config/prestamos.php</code> con al menos tres parámetros alimentados desde <code>.env</code> y con valores por defecto: <code>max_videojuegos</code> (videojuegos máximos por solicitud), <code>dias_max</code> (duración máxima del préstamo) y <code>departamento</code> (nombre para el pie del layout).</p></li>
 <li><p>Conecta configuración y estado: si la cesta ya tiene <code>config('prestamos.max_videojuegos')</code> videojuegos, el intento de añadir otro debe rechazarse con un mensaje flash de error. Integra también <code>dias_max</code> en la validación de la fecha de EJ3 (la fecha de devolución no puede superar hoy + <code>dias_max</code>).</p></li>
-<li><p>En la propia entrega, responde a estas preguntas:</p></li>
-</ol>
+<li><p>En la propia entrega, responde a estas preguntas:</p>
 <ol type="a">
-<li>¿Qué viaja en la cookie del navegador?</li>
-<li>¿Dónde reside la cesta?</li>
-<li>¿Por qué el límite de videojuegos es configuración y no una constante en el código?</li>
+<li><p>¿Qué viaja en la cookie del navegador?</p></li>
+<li><p>¿Dónde reside la cesta?</p></li>
+<li><p>¿Por qué el límite de videojuegos es configuración y no una constante en el código?</p></li>
+</ol></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
