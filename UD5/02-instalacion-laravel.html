@@ -839,7 +839,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Este fichero es el único origen de estas credenciales: Laravel lo lee directamente y Docker Compose lo usa para crear la base de datos de MySQL con los mismos valores. Si migras antes de este paso, Laravel usará la base de datos sqlite que trae por defecto.</p>
 </div>
 </div>
-<p>Ahora sí, ejecuta el comando sigueinte para crear las tablas:</p>
+<p>Ahora sí, ejecuta el comando siguiente para crear las tablas:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan migrate</span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="co"># Ejecuta las migraciones: crea las tablas en la base de datos del</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="co"># servicio 'db'. Necesita que 'db' ya esté arrancado y aceptando</span></span>
