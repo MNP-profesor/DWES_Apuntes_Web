@@ -743,51 +743,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-27"><a href="#cb3-27" aria-label="27"></a><span class="co">    # contenedor. Los cambios que hagas en tus ficheros se reflejan</span></span>
 <span id="cb3-28"><a href="#cb3-28" aria-label="28"></a><span class="co">    # al instante dentro, sin reconstruir la imagen.</span></span>
 <span id="cb3-29"><a href="#cb3-29" aria-label="29"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-label="30"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-label="31"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DB_CONNECTION=mysql</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-label="32"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DB_HOST=db</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-label="33"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DB_DATABASE=agenda</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-label="34"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DB_USERNAME=root</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-label="35"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DB_PASSWORD=root</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-label="36"></a><span class="co">    # Variables de entorno inyectadas dentro del contenedor. Laravel las</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-label="37"></a><span class="co">    # lee vía getenv()/env() para configurar la conexión a base de datos</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-label="38"></a><span class="co">    # sin que tengas que tocar el .env a mano. DB_HOST=db funciona porque</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-label="39"></a><span class="co">    # 'db' es el nombre del otro servicio: dentro de la red de Docker,</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-label="40"></a><span class="co">    # los contenedores se resuelven entre sí por su nombre de servicio.</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-label="41"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-label="42"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-label="43"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-label="44"></a><span class="co">    # Arranca 'db' antes que 'web' (orden de arranque, no espera a que</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-label="45"></a><span class="co">    # MySQL esté realmente listo para aceptar conexiones).</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-label="46"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-label="47"></a><span class="at">  </span><span class="fu">db</span><span class="kw">:</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-label="48"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> mysql:8.0</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-label="49"></a><span class="co">    # Imagen oficial de MySQL, sin Dockerfile propio: no necesita</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-label="50"></a><span class="co">    # personalización, se usa tal cual.</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-label="51"></a></span>
-<span id="cb3-52"><a href="#cb3-52" aria-label="52"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-label="53"></a><span class="at">      </span><span class="fu">MYSQL_ROOT_PASSWORD</span><span class="kw">:</span><span class="at"> root</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-label="54"></a><span class="at">      </span><span class="fu">MYSQL_DATABASE</span><span class="kw">:</span><span class="at"> agenda</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-label="55"></a><span class="co">    # Estas dos variables las entiende la propia imagen de MySQL: crea</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-label="56"></a><span class="co">    # el usuario root con esa contraseña y una base de datos vacía</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-label="57"></a><span class="co">    # llamada 'agenda' automáticamente al primer arranque.</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-label="58"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-label="59"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-label="60"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"3306:3306"</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-label="61"></a><span class="co">    # Expone MySQL también en tu máquina (puerto estándar 3306), por si</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-label="62"></a><span class="co">    # quieres conectarte con un cliente externo (DBeaver, MySQL Workbench...)</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-label="63"></a><span class="co">    # además de desde el propio contenedor 'web'.  </span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-label="64"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-label="65"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-label="66"></a><span class="at">      </span><span class="kw">-</span><span class="at"> agenda_db_data:/var/lib/mysql</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-label="67"></a><span class="co">      # Volumen NOMBRADO, no anónimo: sin esta línea, MySQL crea uno</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-label="68"></a><span class="co">      # anónimo por su cuenta que no siempre se reutiliza entre</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-label="69"></a><span class="co">      # 'docker compose down'/'up' — es fácil perder los datos sin</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-label="70"></a><span class="co">      # querer. Nombrarlo aquí lo hace estable y localizable con</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-label="71"></a><span class="co">      # 'docker volume ls'.</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-label="72"></a></span>
-<span id="cb3-73"><a href="#cb3-73" aria-label="73"></a><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-label="74"></a><span class="at">  </span><span class="fu">agenda_db_data</span><span class="kw">:</span><span class="at">        </span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-30"><a href="#cb3-30" aria-label="30"></a><span class="co">    # Aquí NO hay variables de base de datos: Laravel lee su conexión del</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-label="31"></a><span class="co">    # fichero .env, que ve a través del volumen de arriba. Así las</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-label="32"></a><span class="co">    # credenciales viven en un solo sitio. DB_HOST=db (en el .env) funciona</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-label="33"></a><span class="co">    # porque 'db' es el nombre del otro servicio: dentro de la red de Docker,</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-label="34"></a><span class="co">    # los contenedores se resuelven entre sí por su nombre de servicio.</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-label="35"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-label="36"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-label="37"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-label="38"></a><span class="co">    # Arranca 'db' antes que 'web' (orden de arranque, no espera a que</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-label="39"></a><span class="co">    # MySQL esté realmente listo para aceptar conexiones).</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-label="40"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-label="41"></a><span class="at">  </span><span class="fu">db</span><span class="kw">:</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-label="42"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> mysql:8.0</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-label="43"></a><span class="co">    # Imagen oficial de MySQL, sin Dockerfile propio: no necesita</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-label="44"></a><span class="co">    # personalización, se usa tal cual.</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-label="45"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-label="46"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-label="47"></a><span class="at">      </span><span class="fu">MYSQL_ROOT_PASSWORD</span><span class="kw">:</span><span class="at"> ${DB_PASSWORD:-root}</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-label="48"></a><span class="at">      </span><span class="fu">MYSQL_DATABASE</span><span class="kw">:</span><span class="at"> ${DB_DATABASE:-agenda}</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-label="49"></a><span class="co">    # MySQL crea el usuario root con esa contraseña y una base de datos vacía</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-label="50"></a><span class="co">    # llamada 'agenda' automáticamente al primer arranque. Docker Compose</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-label="51"></a><span class="co">    # toma los valores del fichero .env (DB_PASSWORD y DB_DATABASE), el</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-label="52"></a><span class="co">    # mismo que lee Laravel; si no están definidos usa los que van tras</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-label="53"></a><span class="co">    # ':-' (root y agenda). Así MySQL y Laravel reciben siempre lo mismo.</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-label="54"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-label="55"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-label="56"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"3306:3306"</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-label="57"></a><span class="co">    # Expone MySQL también en tu máquina (puerto estándar 3306), por si</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-label="58"></a><span class="co">    # quieres conectarte con un cliente externo (DBeaver, MySQL Workbench...)</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-label="59"></a><span class="co">    # además de desde el propio contenedor 'web'.  </span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-label="60"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-label="61"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-label="62"></a><span class="at">      </span><span class="kw">-</span><span class="at"> agenda_db_data:/var/lib/mysql</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-label="63"></a><span class="co">      # Volumen NOMBRADO, no anónimo: sin esta línea, MySQL crea uno</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-label="64"></a><span class="co">      # anónimo por su cuenta que no siempre se reutiliza entre</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-label="65"></a><span class="co">      # 'docker compose down'/'up' — es fácil perder los datos sin</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-label="66"></a><span class="co">      # querer. Nombrarlo aquí lo hace estable y localizable con</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-label="67"></a><span class="co">      # 'docker volume ls'.</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-label="68"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-label="69"></a><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-label="70"></a><span class="at">  </span><span class="fu">agenda_db_data</span><span class="kw">:</span><span class="at">        </span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -801,7 +797,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Para los <strong>ejercicios</strong> de esta unidad (EJ1-EJ6), crea un segundo proyecto aparte con el mismo patrón, cambiando solo el nombre:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/app"</span> composer create-project laravel/laravel prestamos</span>
 <span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="bu">cd</span> prestamos</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>y en su <code>docker-compose.yml</code>: <code>name: ud5-prestamo-videojuegos</code>, <code>DB_DATABASE=prestamos</code> (en los dos sitios donde aparece: <code>environment</code> del servicio <code>web</code> y del servicio <code>db</code>), y en el volumen nombrado: <code>prestamos_db_data</code> en vez de <code>agenda_db_data</code> (tanto en <code>volumes:</code> de <code>db</code> como en el bloque final <code>volumes:</code> del fichero). No mezcles los dos proyectos. La agenda es solo para reproducir los ejemplos de teoría.</p>
+<p>y en su <code>docker-compose.yml</code>: <code>name: ud5-prestamo-videojuegos</code>, <code>${DB_DATABASE:-prestamos}</code> en el servicio <code>db</code> (y <code>DB_DATABASE=prestamos</code> en su <code>.env</code>), y en el volumen nombrado: <code>prestamos_db_data</code> en vez de <code>agenda_db_data</code> (tanto en <code>volumes:</code> de <code>db</code> como en el bloque final <code>volumes:</code> del fichero). No mezcles los dos proyectos. La agenda es solo para reproducir los ejemplos de teoría.</p>
 </div>
 </div>
 <p>Arranca y termina la instalación <strong>dentro</strong> del contenedor:</p>
@@ -822,13 +818,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-15"><a href="#cb5-15" aria-label="15"></a><span class="ex">docker</span> compose exec web php artisan key:generate</span>
 <span id="cb5-16"><a href="#cb5-16" aria-label="16"></a><span class="co"># Genera la clave de cifrado de la aplicación (APP_KEY) y la escribe</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-label="17"></a><span class="co"># en el .env. Laravel la necesita para cifrar sesiones, cookies, etc.</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a><span class="co"># Sin ella, la aplicación no arranca.</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a><span class="ex">docker</span> compose exec web php artisan migrate</span>
-<span id="cb5-21"><a href="#cb5-21" aria-label="21"></a><span class="co"># Ejecuta las migraciones: crea las tablas en la base de datos del</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-label="22"></a><span class="co"># servicio 'db'. Necesita que 'db' ya esté arrancado y aceptando</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-label="23"></a><span class="co"># conexiones (por eso depends_on en el compose, aunque no garantiza</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-label="24"></a><span class="co"># que MySQL esté "listo", solo que el contenedor está iniciado).</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a><span class="co"># Sin ella, la aplicación no arranca.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -839,9 +829,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Modifica el fichero <code>.env</code> para que las variables <code>DB_CONNECTION</code>, <code>DB_HOST</code>, <code>DB_DATABASE</code>, <code>DB_USERNAME</code> y <code>DB_PASSWORD</code> queden alineadas con el fichero <code>docker-compose.yml</code>.</p>
+<p>Antes de migrar, configura la conexión a la base de datos en el fichero <code>.env</code>: descomenta (o añade) las variables <code>DB_*</code> y cambia <code>sqlite</code> por <code>mysql</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource dotenv number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a>DB_CONNECTION=mysql</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>DB_HOST=db</span>
+<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>DB_PORT=3306</span>
+<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>DB_DATABASE=agenda</span>
+<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>DB_USERNAME=root</span>
+<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>DB_PASSWORD=root</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Este fichero es el único origen de estas credenciales: Laravel lo lee directamente y Docker Compose lo usa para crear la base de datos de MySQL con los mismos valores. Si migras antes de este paso, Laravel usará la base de datos sqlite que trae por defecto.</p>
 </div>
 </div>
+<p>Ahora sí, ejecuta el comando sigueinte para crear las tablas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan migrate</span>
+<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="co"># Ejecuta las migraciones: crea las tablas en la base de datos del</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="co"># servicio 'db'. Necesita que 'db' ya esté arrancado y aceptando</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="co"># conexiones (por eso depends_on en el compose, aunque no garantiza</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a><span class="co"># que MySQL esté "listo", solo que el contenedor está iniciado).</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Abre <code>http://localhost:8000</code>: verás la página de bienvenida de Laravel. Ya tienes una aplicación MVC funcionando.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -932,19 +935,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="artisan-la-consola-de-laravel" class="level2">
 <h2 class="anchored" data-anchor-id="artisan-la-consola-de-laravel">artisan: la consola de Laravel</h2>
 <p><code>artisan</code> genera código, inspecciona la aplicación y arranca servicios. Con Docker, cada comando se ejecuta anteponiendo <code>docker compose exec web</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan list            </span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="co"># Todos los comandos disponibles</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="ex">docker</span> compose exec web php artisan route:list      </span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="co"># Esquema del enrutado</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a><span class="ex">docker</span> compose exec web php artisan make:controller NombreControlador</span>
-<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a><span class="co"># No lo ejecutes aún, se utilizará en la sección rutas y controladores</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a><span class="ex">docker</span> compose exec web php artisan make:model NombreModelo                 </span>
-<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a><span class="co"># No lo ejecutes aún, se utilizará en la sección Eloquent y migraciones</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan list            </span>
+<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a><span class="co"># Todos los comandos disponibles</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="ex">docker</span> compose exec web php artisan route:list      </span>
+<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a><span class="co"># Esquema del enrutado</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a><span class="ex">docker</span> compose exec web php artisan make:controller NombreControlador</span>
+<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a><span class="co"># No lo ejecutes aún, se utilizará en la sección rutas y controladores</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-label="10"></a><span class="ex">docker</span> compose exec web php artisan make:model NombreModelo                 </span>
+<span id="cb8-11"><a href="#cb8-11" aria-label="11"></a><span class="co"># No lo ejecutes aún, se utilizará en la sección Eloquent y migraciones</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ejemplo real de <code>route:list</code> en un proyecto recién creado:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan route:list</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan route:list</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>  GET|HEAD   / ...................................................
   GET|HEAD   storage/{path} .......................... storage.local
   PUT        storage/{path} ................... storage.local.upload
@@ -957,10 +960,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="env-y-la-configuración"><code>.env</code> y la configuración</h2>
 <p><code>.env</code> guarda lo que cambia <strong>entre máquinas</strong> (tu portátil, el servidor del centro, producción): credenciales, URLs, modo de depuración. Los ficheros de <code>config/</code> leen esos valores con <code>env()</code> y el código de la aplicación los consume <strong>siempre</strong> con <code>config()</code>:</p>
 <p>Modifica el nombre de la app:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="co"># .env</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="va">APP_NAME</span><span class="op">=</span><span class="st">"Agenda DAW"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="co"># .env</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">APP_NAME</span><span class="op">=</span><span class="st">"Agenda DAW"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luego, en <code>routes/web.php</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-label="1"></a>Route::get(<span class="st">'/nombre'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; config(<span class="st">'app.name'</span>))<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a>Route::get(<span class="st">'/nombre'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; config(<span class="st">'app.name'</span>))<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Visitando <code>http://localhost:8000/nombre</code>:</p>
 <pre><code>Agenda DAW</code></pre>
 <p>La ruta completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Agenda DAW')</code>) → <code>config('app.name')</code> en tu código.</p>
@@ -978,7 +981,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Llamar a <code>env('APP_NAME')</code> desde un controlador o una vista. Esto funciona hasta que en producción se cachea la configuración (<code>php artisan config:cache</code>) y <code>env()</code> empieza a devolver <code>null</code> fuera de <code>config/</code>. Regla: <code>env()</code> <strong>solo</strong> dentro de <code>config/</code>; en tu código, <strong>siempre</strong> <code>config()</code>.</p></li>
 <li><p>Editar <code>.env</code> y no ver el cambio: reinicia el contenedor (<code>docker compose restart web</code>) y, si cacheaste, <code>docker compose exec web php artisan config:clear</code>.</p></li>
 <li><p>Subir <code>.env</code> al repositorio. Contiene credenciales; por eso Laravel lo incluye en <code>.gitignore</code>.</p></li>
-<li><p>Poner las credenciales de base de datos directamente en <code>.env</code> en vez de en el <code>docker-compose.yml</code> (<code>environment:</code>) cuando trabajas con Docker: si algún día compartes el proyecto, es fácil olvidar que <code>.env</code> también tiene que coincidir con lo que definiste en el compose.</p></li>
+<li><p>Repetir las credenciales de la base de datos en el <code>environment:</code> del servicio <code>web</code> del <code>docker-compose.yml</code>. Laravel ya las lee del <code>.env</code>, y las variables del contenedor ganan a las del <code>.env</code> en los comandos con <code>docker compose exec</code> (<code>migrate</code>, <code>tinker</code>, <code>test</code>) pero no en la web: acabarías con dos configuraciones distintas y errores difíciles de entender. La fuente única es el <code>.env</code>.</p></li>
 </ul>
 </div>
 </div>

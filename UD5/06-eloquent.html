@@ -770,7 +770,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p><code>create()</code> lanza <code>MassAssignmentException</code>: falta el <code>$fillable</code> en el modelo. Es una protección, no un capricho: evita que un atacante inyecte campos que no estaban en tu formulario.</p></li>
 <li><p>Nombre de tabla: Eloquent asume el plural del modelo (<code>Contacto</code> → <code>contactos</code>). Si tu tabla se llama distinto, decláralo con <code>protected $table = 'mi_tabla';</code>.</p></li>
-<li><p>Ejecutar <code>migrate</code> con el contenedor <code>db</code> todavía no disponible, o con credenciales que no coincidan con las del <code>docker-compose.yml</code> (<code>DB_HOST=db</code>, <code>DB_DATABASE</code>, <code>DB_USERNAME</code>, <code>DB_PASSWORD</code>). Si <code>migrate</code> falla con un error de conexión, comprueba primero <code>docker compose ps</code> (puede que <code>db</code> no haya terminado de arrancar todavía).</p></li>
+<li><p>Ejecutar <code>migrate</code> con el contenedor <code>db</code> todavía no disponible, o con un <code>.env</code> cuyas credenciales no coincidan con las de la base de datos que creó MySQL (<code>DB_HOST=db</code>, <code>DB_DATABASE</code>, <code>DB_USERNAME</code>, <code>DB_PASSWORD</code>). Si <code>migrate</code> falla con un error de conexión, comprueba primero <code>docker compose ps</code> (puede que <code>db</code> no haya terminado de arrancar todavía).</p></li>
 </ul>
 </div>
 </div>
@@ -847,25 +847,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Las variables de entorno que ve el contenedor no son las correctas. Para asegurarte, ejecuta el siguiente comando y compáralas con las de tu <code>docker-compose.yml</code>:</li>
+<li>Que Laravel no esté usando la conexión que esperas. Comprueba cuál lee:</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-label="1"></a><span class="ex">docker</span> compose exec web env <span class="kw">|</span> <span class="fu">grep</span> DB_</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Si no coinciden, para el contenedor y vuelve a arrancarlo (los cambios en <code>environment:</code> del compose no se aplican a un contenedor que ya está en marcha):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-label="1"></a><span class="ex">docker</span> compose down</span>
-<span id="cb21-2"><a href="#cb21-2" aria-label="2"></a><span class="ex">docker</span> compose up <span class="at">-d</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Revisa el fichero <code>.env</code> para asegurar que <code>DB_CONNECTION</code> es <code>mysql</code>. Si tras modificarlo el problema persiste, limpia la caché de configuración:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan config:clear</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan tinker <span class="at">--execute</span><span class="op">=</span><span class="st">"echo config('database.default');"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Debe imprimir <code>mysql</code>. Si imprime otra cosa, revisa que el fichero <code>.env</code> tenga <code>DB_CONNECTION=mysql</code>. Si tras modificarlo el problema persiste, limpia la caché de configuración:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-label="1"></a><span class="ex">docker</span> compose exec web php artisan config:clear</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si <code>config:clear</code> no basta, borra la caché a mano:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-label="1"></a><span class="ex">docker</span> compose exec web rm bootstrap/cache/config.php</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-label="1"></a><span class="ex">docker</span> compose exec web rm bootstrap/cache/config.php</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si sigue sin funcionar, vuelve a modificar el <code>.env</code> para descomentar y establecer explícitamente estas variables:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-label="1"></a><span class="va">DB_CONNECTION</span><span class="op">=</span>mysql</span>
-<span id="cb24-2"><a href="#cb24-2" aria-label="2"></a><span class="va">DB_HOST</span><span class="op">=</span>db</span>
-<span id="cb24-3"><a href="#cb24-3" aria-label="3"></a><span class="va">DB_PORT</span><span class="op">=</span>3306</span>
-<span id="cb24-4"><a href="#cb24-4" aria-label="4"></a><span class="va">DB_DATABASE</span><span class="op">=</span>agenda</span>
-<span id="cb24-5"><a href="#cb24-5" aria-label="5"></a><span class="va">DB_USERNAME</span><span class="op">=</span>root</span>
-<span id="cb24-6"><a href="#cb24-6" aria-label="6"></a><span class="va">DB_PASSWORD</span><span class="op">=</span>root</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-label="1"></a><span class="va">DB_CONNECTION</span><span class="op">=</span>mysql</span>
+<span id="cb23-2"><a href="#cb23-2" aria-label="2"></a><span class="va">DB_HOST</span><span class="op">=</span>db</span>
+<span id="cb23-3"><a href="#cb23-3" aria-label="3"></a><span class="va">DB_PORT</span><span class="op">=</span>3306</span>
+<span id="cb23-4"><a href="#cb23-4" aria-label="4"></a><span class="va">DB_DATABASE</span><span class="op">=</span>agenda</span>
+<span id="cb23-5"><a href="#cb23-5" aria-label="5"></a><span class="va">DB_USERNAME</span><span class="op">=</span>root</span>
+<span id="cb23-6"><a href="#cb23-6" aria-label="6"></a><span class="va">DB_PASSWORD</span><span class="op">=</span>root</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Si el problema <strong>reaparece</strong> tras reiniciar el equipo o tras varios <code>docker compose down</code>/<code>up</code>, comprueba que <code>db</code> tiene un volumen <strong>nombrado</strong>, no anónimo, en el <code>docker-compose.yml</code> (ver la nota de la sección anterior sobre <code>agenda_db_data</code>). Sin volumen nombrado, los datos no sobreviven de forma fiable entre reinicios.</li>
 </ul>
