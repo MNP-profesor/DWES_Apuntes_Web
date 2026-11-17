@@ -959,14 +959,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="env-y-la-configuración" class="level2">
 <h2 class="anchored" data-anchor-id="env-y-la-configuración"><code>.env</code> y la configuración</h2>
 <p><code>.env</code> guarda lo que cambia <strong>entre máquinas</strong> (tu portátil, el servidor del centro, producción): credenciales, URLs, modo de depuración. Los ficheros de <code>config/</code> leen esos valores con <code>env()</code> y el código de la aplicación los consume <strong>siempre</strong> con <code>config()</code>:</p>
-<p>Modifica el nombre de la app:</p>
+<p>Cambia el valor de <code>APP_NAME</code> (ya viene en el <code>.env</code>, por lo que no hace falta añadirlo):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-label="1"></a><span class="co"># .env</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-label="2"></a><span class="va">APP_NAME</span><span class="op">=</span><span class="st">"Agenda DAW"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luego, en <code>routes/web.php</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1" aria-label="1"></a>Route::get(<span class="st">'/nombre'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; config(<span class="st">'app.name'</span>))<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Visitando <code>http://localhost:8000/nombre</code>:</p>
 <pre><code>Agenda DAW</code></pre>
-<p>La ruta completa es: <code>.env</code> → <code>config/app.php</code> (que hace <code>'name' =&gt; env('APP_NAME', 'Agenda DAW')</code>) → <code>config('app.name')</code> en tu código.</p>
+<p>El valor viaja así: <code>APP_NAME</code> en el <code>.env</code> → lo lee <code>config/app.php</code> con <code>'name' =&gt; env('APP_NAME', 'Laravel')</code> (si no estuviera en el <code>.env</code>, usaría <code>'Laravel'</code>) → tu código lo pide con <code>config('app.name')</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
