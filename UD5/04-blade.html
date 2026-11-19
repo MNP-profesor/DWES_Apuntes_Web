@@ -598,7 +598,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#el-escapado-automático-tu-seguro-anti-xss" id="toc-el-escapado-automático-tu-seguro-anti-xss" class="nav-link" data-scroll-target="#el-escapado-automático-tu-seguro-anti-xss">El escapado automático (tu seguro anti-XSS)</a></li>
   </ul></li>
+  <li><a href="#la-vista-del-listado-index" id="toc-la-vista-del-listado-index" class="nav-link" data-scroll-target="#la-vista-del-listado-index">La vista del listado (<code>index</code>)</a>
+  <ul class="collapse">
   <li><a href="#directivas-de-control" id="toc-directivas-de-control" class="nav-link" data-scroll-target="#directivas-de-control">Directivas de control</a></li>
+  </ul></li>
   <li><a href="#la-vista-de-la-ficha-show" id="toc-la-vista-de-la-ficha-show" class="nav-link" data-scroll-target="#la-vista-de-la-ficha-show">La vista de la ficha (<code>show</code>)</a></li>
   <li><a href="#layouts-y-componentes-una-sola-plantilla-para-todo-el-sitio" id="toc-layouts-y-componentes-una-sola-plantilla-para-todo-el-sitio" class="nav-link" data-scroll-target="#layouts-y-componentes-una-sola-plantilla-para-todo-el-sitio">Layouts y componentes: una sola plantilla para todo el sitio</a></li>
   <li><a href="#componentes-con-props-piezas-reutilizables" id="toc-componentes-con-props-piezas-reutilizables" class="nav-link" data-scroll-target="#componentes-con-props-piezas-reutilizables">Componentes con <code>@props</code>: piezas reutilizables</a></li>
@@ -691,8 +694,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="directivas-de-control" class="level2">
-<h2 class="anchored" data-anchor-id="directivas-de-control">Directivas de control</h2>
+<section id="la-vista-del-listado-index" class="level2">
+<h2 class="anchored" data-anchor-id="la-vista-del-listado-index">La vista del listado (<code>index</code>)</h2>
+<p>El listado recorre los contactos que le pasa el controlador: es el caso ideal para ver las directivas de control de Blade.</p>
+<section id="directivas-de-control" class="level3">
+<h3 class="anchored" data-anchor-id="directivas-de-control">Directivas de control</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>{{<span class="op">--</span> Fragmento parcial<span class="ot">,</span> el completo<span class="ot">,</span> con el layout<span class="ot">,</span> lo verás más abajo <span class="op">--</span>}}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-label="3"></a></span>
@@ -748,6 +754,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Concepto clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>$loop-&gt;odd</code> solo escribe la clase <code>impar</code> o <code>par</code> en el HTML: no pone ningún color. El efecto de filas alternas lo da una hoja de estilos, que crearás en el apartado de layouts. Hasta entonces verás la numeración, pero no los colores.</p>
+</div>
+</div>
 <p>Más directivas útiles, con su resultado:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="pp">@</span><span class="kw">empty</span> (<span class="va">$contactos</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-label="2"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Agenda vacía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
@@ -770,6 +789,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-4"><a href="#cb11-4" aria-label="4"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Agenda vacía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-label="5"></a><span class="pp">@</span>endforelse</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Con <code>$contactos = []</code> solo se imprime <code>&lt;p&gt;Agenda vacía.&lt;/p&gt;</code>; con contactos, un <code>&lt;li&gt;</code> por cada uno.</p>
+</section>
 </section>
 <section id="la-vista-de-la-ficha-show" class="level2">
 <h2 class="anchored" data-anchor-id="la-vista-de-la-ficha-show">La vista de la ficha (<code>show</code>)</h2>
@@ -815,16 +835,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-4"><a href="#cb13-4" aria-label="4"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-label="5"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"utf-8"</span><span class="op">&gt;</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-label="6"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>{{ <span class="va">$titulo</span> <span class="op">??</span> <span class="st">'Agenda DAW'</span> }}<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-label="7"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-label="8"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-label="9"></a>    <span class="op">&lt;</span>nav<span class="op">&gt;</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-label="10"></a>        <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.index') }}"</span><span class="op">&gt;</span>Contactos<span class="op">&lt;/</span>a<span class="op">&gt;</span> <span class="op">|</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-label="11"></a>        <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('acerca') }}"</span><span class="op">&gt;</span>Acerca de<span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-label="12"></a>    <span class="op">&lt;/</span>nav<span class="op">&gt;</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-label="13"></a>    <span class="op">&lt;</span>main<span class="op">&gt;</span>{{ <span class="va">$slot</span> }}<span class="op">&lt;/</span>main<span class="op">&gt;</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-label="14"></a>    <span class="op">&lt;</span>footer<span class="op">&gt;</span><span class="er">2</span>º <span class="cn">DAW</span> <span class="op">|</span> <span class="cn">DWES</span><span class="op">&lt;/</span>footer<span class="op">&gt;</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-label="15"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-label="16"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-7"><a href="#cb13-7" aria-label="7"></a>    <span class="op">&lt;</span><span class="fu">link</span> rel<span class="op">=</span><span class="st">"stylesheet"</span> href<span class="op">=</span><span class="st">"{{ asset('css/app.css') }}"</span><span class="op">&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-label="8"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-label="9"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-label="10"></a>    <span class="op">&lt;</span>nav<span class="op">&gt;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-label="11"></a>        <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.index') }}"</span><span class="op">&gt;</span>Contactos<span class="op">&lt;/</span>a<span class="op">&gt;</span> <span class="op">|</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-label="12"></a>        <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('acerca') }}"</span><span class="op">&gt;</span>Acerca de<span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-label="13"></a>    <span class="op">&lt;/</span>nav<span class="op">&gt;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-label="14"></a>    <span class="op">&lt;</span>main<span class="op">&gt;</span>{{ <span class="va">$slot</span> }}<span class="op">&lt;/</span>main<span class="op">&gt;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-label="15"></a>    <span class="op">&lt;</span>footer<span class="op">&gt;</span><span class="er">2</span>º <span class="cn">DAW</span> <span class="op">|</span> <span class="cn">DWES</span><span class="op">&lt;/</span>footer<span class="op">&gt;</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-label="16"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-label="17"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>asset('css/app.css')</code> genera la URL de un fichero de la carpeta <code>public/</code>, la única accesible desde el navegador. Crea la carpeta <code>css</code> y el fichero <code>public/css/app.css</code> con unos estilos mínimos, para que se vea el efecto de filas alternas de <code>$loop-&gt;odd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a><span class="co">/* public/css/app.css */</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a>ul { <span class="kw">list-style</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span> <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span> }</span>
+<span id="cb14-3"><a href="#cb14-3" aria-label="3"></a>li { <span class="kw">padding</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb14-4"><a href="#cb14-4" aria-label="4"></a>li<span class="fu">.impar</span> { <span class="kw">background</span><span class="ch">:</span> <span class="cn">#eef2f7</span><span class="op">;</span> }</span>
+<span id="cb14-5"><a href="#cb14-5" aria-label="5"></a>li<span class="fu">.par</span>   { <span class="kw">background</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span> }</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -849,53 +876,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>El layout usa <code>route('acerca')</code>, pero esa ruta no existe todavía en <code>routes/web.php</code>. Añádela junto a las de <code>contactos</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1" aria-label="1"></a>Route::get(<span class="st">'/acerca'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; <span class="st">'Agenda de contactos — proyecto de ejemplo de UD5'</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-label="2"></a>     -&gt;name(<span class="st">'acerca'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb15-1"><a href="#cb15-1" aria-label="1"></a>Route::get(<span class="st">'/acerca'</span><span class="ot">,</span> <span class="kw">fn</span> () =&gt; <span class="st">'Agenda de contactos — proyecto de ejemplo de UD5'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-label="2"></a>     -&gt;name(<span class="st">'acerca'</span>)<span class="ot">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Sin ella, cualquier vista que use <code>&lt;x-layout&gt;</code> (como <code>contactos/index.blade.php</code>) fallará con <code>Route [acerca] not defined</code> — aunque <code>contactos/show.blade.php</code> funcione bien, porque esa vista no usa el layout todavía.</p>
 </div>
 </div>
 <p>Cualquier vista lo consume así:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb15-1"><a href="#cb15-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
-<span id="cb15-2"><a href="#cb15-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout titulo<span class="op">=</span><span class="st">"Listado de contactos"</span><span class="op">&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-label="4"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-label="5"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
-<span id="cb15-6"><a href="#cb15-6" aria-label="6"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>))</span>
-<span id="cb15-7"><a href="#cb15-7" aria-label="7"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No hay contactos todavía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-label="8"></a>    <span class="pp">@</span><span class="cf">else</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-label="9"></a>        <span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-label="10"></a>            <span class="pp">@</span><span class="cf">foreach</span> (<span class="va">$contactos</span> <span class="kw">as</span> <span class="va">$id</span> =&gt; <span class="va">$c</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-label="11"></a>                <span class="op">&lt;</span>li <span class="kw">class</span><span class="op">=</span><span class="st">"{{ </span><span class="va">$loop</span>-&gt;odd<span class="st"> ? 'impar' : 'par' }}"</span><span class="op">&gt;</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-label="12"></a>                    {{ <span class="va">$loop</span>-&gt;iteration }}<span class="op">.</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-label="13"></a>                    <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-label="14"></a>                        {{ <span class="va">$c</span>[<span class="st">'nombre'</span>] }}</span>
-<span id="cb15-15"><a href="#cb15-15" aria-label="15"></a>                    <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-label="16"></a>                <span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-label="17"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-label="18"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-label="19"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-label="20"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
-<span id="cb15-21"><a href="#cb15-21" aria-label="21"></a></span>
-<span id="cb15-22"><a href="#cb15-22" aria-label="22"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb16-1"><a href="#cb16-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb16-2"><a href="#cb16-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout titulo<span class="op">=</span><span class="st">"Listado de contactos"</span><span class="op">&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-label="4"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-label="5"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
+<span id="cb16-6"><a href="#cb16-6" aria-label="6"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-label="7"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No hay contactos todavía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-label="8"></a>    <span class="pp">@</span><span class="cf">else</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-label="9"></a>        <span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-label="10"></a>            <span class="pp">@</span><span class="cf">foreach</span> (<span class="va">$contactos</span> <span class="kw">as</span> <span class="va">$id</span> =&gt; <span class="va">$c</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-label="11"></a>                <span class="op">&lt;</span>li <span class="kw">class</span><span class="op">=</span><span class="st">"{{ </span><span class="va">$loop</span>-&gt;odd<span class="st"> ? 'impar' : 'par' }}"</span><span class="op">&gt;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-label="12"></a>                    {{ <span class="va">$loop</span>-&gt;iteration }}<span class="op">.</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-label="13"></a>                    <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-label="14"></a>                        {{ <span class="va">$c</span>[<span class="st">'nombre'</span>] }}</span>
+<span id="cb16-15"><a href="#cb16-15" aria-label="15"></a>                    <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-label="16"></a>                <span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-label="17"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-label="18"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-label="19"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-label="20"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
+<span id="cb16-21"><a href="#cb16-21" aria-label="21"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-label="22"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Qué ocurre al renderizar:</p>
 <ul>
 <li><p>El atributo <code>titulo="..."</code> llega al componente como variable <code>$titulo</code>.</p></li>
 <li><p>Todo lo que va <strong>entre</strong> <code>&lt;x-layout&gt;</code> y <code>&lt;/x-layout&gt;</code> ocupa el hueco <code>{ $slot }</code>.</p></li>
 </ul>
 <p>HTML resultante (recortado):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb16-1"><a href="#cb16-1" aria-label="1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-label="2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-label="3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Listado de contactos<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-label="4"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-label="5"></a>    <span class="dt">&lt;</span><span class="kw">nav</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"..."</span><span class="dt">&gt;</span>Contactos<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> · <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"..."</span><span class="dt">&gt;</span>Acerca de<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-label="6"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Agenda<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span> ...listado... <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-label="7"></a>    <span class="dt">&lt;</span><span class="kw">footer</span><span class="dt">&gt;</span>2º DAW · DWES<span class="dt">&lt;/</span><span class="kw">footer</span><span class="dt">&gt;</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-label="8"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-label="9"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-label="1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-label="2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-label="3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Listado de contactos<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-label="4"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-label="5"></a>    <span class="dt">&lt;</span><span class="kw">nav</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"..."</span><span class="dt">&gt;</span>Contactos<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> · <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"..."</span><span class="dt">&gt;</span>Acerca de<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-label="6"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Agenda<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span> ...listado... <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-label="7"></a>    <span class="dt">&lt;</span><span class="kw">footer</span><span class="dt">&gt;</span>2º DAW · DWES<span class="dt">&lt;/</span><span class="kw">footer</span><span class="dt">&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-label="8"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-label="9"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Cambia el <code>&lt;nav&gt;</code> del layout y el cambio aparece en <strong>todas</strong> las páginas al instante: eso es generar el aspecto visual con controles del servidor.</p>
 <p>A continuación tenemos la ficha del contacto. Fíjate que aquí el título sí es dinámico (el nombre del contacto, o un texto fijo si no existe):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb17-1"><a href="#cb17-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>show<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
-<span id="cb17-2"><a href="#cb17-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb18-1"><a href="#cb18-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>show<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb18-2"><a href="#cb18-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Compáralo con el <code>&lt;x-layout titulo="Listado de contactos"&gt;</code> de la vista anterior: aquí lleva <strong>dos puntos delante</strong> (<code>:titulo</code>, no <code>titulo</code>). La diferencia:</p>
 <ul>
 <li><p><strong>Sin <code>:</code></strong> (<code>titulo="Listado de contactos"</code>): el atributo es texto literal, tal cual está escrito entre comillas.</p></li>
@@ -906,60 +933,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Si lo que pasas es un texto fijo que escribes tú mismo, sin <code>:</code></p></li>
 <li><p>Si es una variable, una propiedad de array/objeto, o cualquier expresión PHP, con <code>:</code>.</p></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb18-1"><a href="#cb18-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>show<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
-<span id="cb18-2"><a href="#cb18-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-label="3"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-label="4"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="va">$contacto</span> <span class="op">===</span> <span class="kw">null</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-label="5"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>Contacto no encontrado<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-label="6"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No existe ningún contacto con id {{ <span class="va">$id</span> }}<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-label="7"></a>    <span class="pp">@</span><span class="cf">else</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-label="8"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>{{ <span class="va">$contacto</span>[<span class="st">'nombre'</span>] }}<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-label="9"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>Teléfono<span class="ot">:</span> {{ <span class="va">$contacto</span>[<span class="st">'tlf'</span>] }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-label="10"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-label="11"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-label="12"></a>    <span class="op">&lt;</span>p<span class="op">&gt;&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.index') }}"</span><span class="op">&gt;</span>← Volver al listado<span class="op">&lt;/</span>a<span class="op">&gt;&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-label="13"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-label="14"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb19-1"><a href="#cb19-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>show<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb19-2"><a href="#cb19-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout <span class="ot">:</span>titulo<span class="op">=</span><span class="st">"</span><span class="va">$contacto</span>[<span class="er">'</span><span class="st">nombre'] ?? 'Contacto no encontrado'"</span><span class="op">&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-label="3"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-label="4"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="va">$contacto</span> <span class="op">===</span> <span class="kw">null</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-label="5"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>Contacto no encontrado<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-label="6"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No existe ningún contacto con id {{ <span class="va">$id</span> }}<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-label="7"></a>    <span class="pp">@</span><span class="cf">else</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-label="8"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>{{ <span class="va">$contacto</span>[<span class="st">'nombre'</span>] }}<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-label="9"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>Teléfono<span class="ot">:</span> {{ <span class="va">$contacto</span>[<span class="st">'tlf'</span>] }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-label="10"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-label="11"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-label="12"></a>    <span class="op">&lt;</span>p<span class="op">&gt;&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.index') }}"</span><span class="op">&gt;</span>← Volver al listado<span class="op">&lt;/</span>a<span class="op">&gt;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-label="13"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-label="14"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Micro-ejercicio en clase: la vista «Acerca de»
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ahora mismo la ruta <code>acerca</code> devuelve solo un texto, así que esa página no tiene menú, pie ni estilos. Conviértela en una vista Blade que use el mismo layout que el listado y la ficha y que, como la ficha, tenga un enlace para volver al listado.</p>
+<ol type="1">
+<li>Crea <code>resources/views/acerca.blade.php</code> con su contenido dentro de <code>&lt;x-layout titulo="Acerca de"&gt;</code>.</li>
+<li>Muestra un título y una frase sobre la aplicación.</li>
+<li>Añade el enlace <code>← Volver al listado</code>, construido con <code>route()</code>.</li>
+<li>Cambia la ruta <code>acerca</code> para que devuelva esa vista con <code>view()</code>, sin cambiar su nombre.</li>
+</ol>
+<p>Compruébalo: en <code>/acerca</code> deben aparecer el menú y el pie, y el enlace debe llevarte al listado.</p>
+</div>
+</div>
 </section>
 <section id="componentes-con-props-piezas-reutilizables" class="level2">
 <h2 class="anchored" data-anchor-id="componentes-con-props-piezas-reutilizables">Componentes con <code>@props</code>: piezas reutilizables</h2>
 <p>Crea el siguiente componente:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb19-1"><a href="#cb19-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>components<span class="op">/</span>tarjeta<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
-<span id="cb19-2"><a href="#cb19-2" aria-label="2"></a><span class="pp">@</span>props([<span class="st">'id'</span><span class="ot">,</span> <span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'tlf'</span>])</span>
-<span id="cb19-3"><a href="#cb19-3" aria-label="3"></a><span class="op">&lt;</span>article <span class="kw">class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="op">&gt;</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-label="4"></a>    <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-label="5"></a>        <span class="op">&lt;</span>strong<span class="op">&gt;</span>{{ <span class="va">$nombre</span> }}<span class="op">&lt;/</span>strong<span class="op">&gt;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-label="6"></a>    <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-label="7"></a>    ({{ <span class="va">$tlf</span> }})</span>
-<span id="cb19-8"><a href="#cb19-8" aria-label="8"></a><span class="op">&lt;/</span>article<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb20-1"><a href="#cb20-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>components<span class="op">/</span>tarjeta<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb20-2"><a href="#cb20-2" aria-label="2"></a><span class="pp">@</span>props([<span class="st">'id'</span><span class="ot">,</span> <span class="st">'nombre'</span><span class="ot">,</span> <span class="st">'tlf'</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-label="3"></a><span class="op">&lt;</span>article <span class="kw">class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="op">&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-label="4"></a>    <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-label="5"></a>        <span class="op">&lt;</span>strong<span class="op">&gt;</span>{{ <span class="va">$nombre</span> }}<span class="op">&lt;/</span>strong<span class="op">&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-label="6"></a>    <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-label="7"></a>    ({{ <span class="va">$tlf</span> }})</span>
+<span id="cb20-8"><a href="#cb20-8" aria-label="8"></a><span class="op">&lt;/</span>article<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>La prop <code>id</code> es necesaria para poder construir el enlace a la ficha dentro del propio componente — sin ella, <code>&lt;x-tarjeta&gt;</code> solo podría mostrar datos, no enlazar a ningún sitio.</p>
 <p>Esto <strong>sustituye</strong> el <code>&lt;ul&gt;</code> de <code>&lt;li&gt;</code> del listado dentro de <code>index.blade.php</code> (la parte entre <code>&lt;!-- Listado INI --&gt;</code> y <code>&lt;!-- Listado FIN --&gt;</code>).</p>
-<p>Antes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb20-1"><a href="#cb20-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
-<span id="cb20-2"><a href="#cb20-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout titulo<span class="op">=</span><span class="st">"Listado de contactos"</span><span class="op">&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-label="4"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-label="5"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
-<span id="cb20-6"><a href="#cb20-6" aria-label="6"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>))</span>
-<span id="cb20-7"><a href="#cb20-7" aria-label="7"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No hay contactos todavía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-label="8"></a>    <span class="pp">@</span><span class="cf">else</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-label="9"></a>        <span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-label="10"></a>            <span class="pp">@</span><span class="cf">foreach</span> (<span class="va">$contactos</span> <span class="kw">as</span> <span class="va">$id</span> =&gt; <span class="va">$c</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-label="11"></a>                <span class="op">&lt;!--</span> Código a sustituir <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
-<span id="cb20-12"><a href="#cb20-12" aria-label="12"></a>                <span class="op">&lt;</span>li <span class="kw">class</span><span class="op">=</span><span class="st">"{{ </span><span class="va">$loop</span>-&gt;odd<span class="st"> ? 'impar' : 'par' }}"</span><span class="op">&gt;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-label="13"></a>                    {{ <span class="va">$loop</span>-&gt;iteration }}<span class="op">.</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-label="14"></a>                    <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-label="15"></a>                        {{ <span class="va">$c</span>[<span class="st">'nombre'</span>] }}</span>
-<span id="cb20-16"><a href="#cb20-16" aria-label="16"></a>                    <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-label="17"></a>                <span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-label="18"></a>                <span class="op">&lt;!--</span> Código a sustituir <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
-<span id="cb20-19"><a href="#cb20-19" aria-label="19"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-label="20"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-label="21"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-label="22"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
-<span id="cb20-23"><a href="#cb20-23" aria-label="23"></a></span>
-<span id="cb20-24"><a href="#cb20-24" aria-label="24"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Después (fíjate en los dos puntos para pasar variables PHP):</p>
+<p>Para ver qué ahorra el componente, compara la misma tarjeta escrita a mano (antes) y con <code>&lt;x-tarjeta&gt;</code> (después): <strong>en pantalla el resultado es idéntico</strong>.</p>
+<p><strong>Antes</strong> (la tarjeta escrita a mano en el listado):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb21-1"><a href="#cb21-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
 <span id="cb21-2"><a href="#cb21-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout titulo<span class="op">=</span><span class="st">"Listado de contactos"</span><span class="op">&gt;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
@@ -970,24 +993,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-8"><a href="#cb21-8" aria-label="8"></a>    <span class="pp">@</span><span class="cf">else</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-label="9"></a>        <span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
 <span id="cb21-10"><a href="#cb21-10" aria-label="10"></a>            <span class="pp">@</span><span class="cf">foreach</span> (<span class="va">$contactos</span> <span class="kw">as</span> <span class="va">$id</span> =&gt; <span class="va">$c</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-label="11"></a>                <span class="op">&lt;!--</span> Código sustituido <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
-<span id="cb21-12"><a href="#cb21-12" aria-label="12"></a>                <span class="op">&lt;</span>li<span class="op">&gt;&lt;</span>x<span class="op">-</span>tarjeta <span class="ot">:</span>id<span class="op">=</span><span class="st">"</span><span class="va">$id</span><span class="st">"</span> <span class="ot">:</span>nombre<span class="op">=</span><span class="st">"</span><span class="va">$c</span>[<span class="er">'</span><span class="st">nombre']"</span> <span class="ot">:</span>tlf<span class="op">=</span><span class="st">"</span><span class="va">$c</span>[<span class="er">'</span><span class="st">tlf']"</span> <span class="op">/&gt;&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-label="13"></a>                <span class="op">&lt;!--</span> Código sustituido <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
-<span id="cb21-14"><a href="#cb21-14" aria-label="14"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-label="15"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-label="16"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-label="17"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
-<span id="cb21-18"><a href="#cb21-18" aria-label="18"></a></span>
-<span id="cb21-19"><a href="#cb21-19" aria-label="19"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>HTML resultante para el primer contacto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb22-1"><a href="#cb22-1" aria-label="1"></a><span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-label="2"></a>    <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="dt">&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-label="3"></a>        <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://localhost:8000/contactos/1"</span><span class="dt">&gt;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-label="4"></a>            <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Aitana<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-label="5"></a>        <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-label="6"></a>        (600111222)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-label="7"></a>    <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-label="8"></a><span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-11"><a href="#cb21-11" aria-label="11"></a>                <span class="op">&lt;!--</span> Código a sustituir <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
+<span id="cb21-12"><a href="#cb21-12" aria-label="12"></a>                <span class="op">&lt;</span>li <span class="kw">class</span><span class="op">=</span><span class="st">"{{ </span><span class="va">$loop</span>-&gt;odd<span class="st"> ? 'impar' : 'par' }}"</span><span class="op">&gt;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-label="13"></a>                    {{ <span class="va">$loop</span>-&gt;iteration }}<span class="op">.</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-label="14"></a>                    <span class="op">&lt;</span>article <span class="kw">class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="op">&gt;</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-label="15"></a>                        <span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"{{ route('contactos.show', </span><span class="va">$id</span><span class="st">) }}"</span><span class="op">&gt;</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-label="16"></a>                            <span class="op">&lt;</span>strong<span class="op">&gt;</span>{{ <span class="va">$c</span>[<span class="st">'nombre'</span>] }}<span class="op">&lt;/</span>strong<span class="op">&gt;</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-label="17"></a>                        <span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-label="18"></a>                        ({{ <span class="va">$c</span>[<span class="st">'tlf'</span>] }})</span>
+<span id="cb21-19"><a href="#cb21-19" aria-label="19"></a>                    <span class="op">&lt;/</span>article<span class="op">&gt;</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-label="20"></a>                <span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-label="21"></a>                <span class="op">&lt;!--</span> Código a sustituir <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
+<span id="cb21-22"><a href="#cb21-22" aria-label="22"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-label="23"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-label="24"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-label="25"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
+<span id="cb21-26"><a href="#cb21-26" aria-label="26"></a></span>
+<span id="cb21-27"><a href="#cb21-27" aria-label="27"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Después</strong> (fíjate en los dos puntos para pasar variables PHP):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb22-1"><a href="#cb22-1" aria-label="1"></a>{{<span class="op">--</span> resources<span class="op">/</span>views<span class="op">/</span>contactos<span class="op">/</span>index<span class="op">.</span>blade<span class="op">.</span>php <span class="op">--</span>}}</span>
+<span id="cb22-2"><a href="#cb22-2" aria-label="2"></a><span class="op">&lt;</span>x<span class="op">-</span>layout titulo<span class="op">=</span><span class="st">"Listado de contactos"</span><span class="op">&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-label="3"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Agenda ({{ <span class="fu">count</span>(<span class="va">$contactos</span>) }})<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-label="4"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-label="5"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
+<span id="cb22-6"><a href="#cb22-6" aria-label="6"></a>    <span class="pp">@</span><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$contactos</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-label="7"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>No hay contactos todavía<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-label="8"></a>    <span class="pp">@</span><span class="cf">else</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-label="9"></a>        <span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-label="10"></a>            <span class="pp">@</span><span class="cf">foreach</span> (<span class="va">$contactos</span> <span class="kw">as</span> <span class="va">$id</span> =&gt; <span class="va">$c</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-label="11"></a>                <span class="op">&lt;!--</span> Código sustituido <span class="cn">INI</span> <span class="op">-</span>-&gt;</span>
+<span id="cb22-12"><a href="#cb22-12" aria-label="12"></a>                <span class="op">&lt;</span>li <span class="kw">class</span><span class="op">=</span><span class="st">"{{ </span><span class="va">$loop</span>-&gt;odd<span class="st"> ? 'impar' : 'par' }}"</span><span class="op">&gt;</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-label="13"></a>                    {{ <span class="va">$loop</span>-&gt;iteration }}<span class="op">.</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-label="14"></a>                    <span class="op">&lt;</span>x<span class="op">-</span>tarjeta <span class="ot">:</span>id<span class="op">=</span><span class="st">"</span><span class="va">$id</span><span class="st">"</span> <span class="ot">:</span>nombre<span class="op">=</span><span class="st">"</span><span class="va">$c</span>[<span class="er">'</span><span class="st">nombre']"</span> <span class="ot">:</span>tlf<span class="op">=</span><span class="st">"</span><span class="va">$c</span>[<span class="er">'</span><span class="st">tlf']"</span> <span class="op">/&gt;</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-label="15"></a>                <span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-label="16"></a>                <span class="op">&lt;!--</span> Código sustituido <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
+<span id="cb22-17"><a href="#cb22-17" aria-label="17"></a>            <span class="pp">@</span><span class="cf">endforeach</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-label="18"></a>        <span class="op">&lt;/</span>ul<span class="op">&gt;</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-label="19"></a>    <span class="pp">@</span><span class="cf">endif</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-label="20"></a>    <span class="op">&lt;!--</span> Listado <span class="cn">FIN</span> <span class="op">-</span>-&gt;</span>
+<span id="cb22-21"><a href="#cb22-21" aria-label="21"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-label="22"></a><span class="op">&lt;/</span>x<span class="op">-</span>layout<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>HTML resultante</strong> para el primer contacto (idéntico “con” y “sin” componente):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb23-1"><a href="#cb23-1" aria-label="1"></a><span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> class</span><span class="op">=</span><span class="st">"impar"</span><span class="dt">&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-label="2"></a>    1.</span>
+<span id="cb23-3"><a href="#cb23-3" aria-label="3"></a>    <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="dt">&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-label="4"></a>        <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://localhost:8000/contactos/1"</span><span class="dt">&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-label="5"></a>            <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Aitana<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-label="6"></a>        <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-label="7"></a>        (600111222)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-label="8"></a>    <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-label="9"></a><span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un <code>&lt;article&gt;</code> es un elemento de bloque, así que el número y la tarjeta saldrían en líneas distintas. Para dejarlos en la misma línea, añade esta regla a <code>public/css/app.css</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb24-1"><a href="#cb24-1" aria-label="1"></a><span class="fu">.tarjeta</span> { <span class="kw">display</span><span class="ch">:</span> <span class="dv">inline</span><span class="op">;</span> }</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -998,7 +1055,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Esta versión con <code>&lt;x-tarjeta&gt;</code> pierde la numeración (<code>$loop-&gt;iteration</code>) y la clase par/impar que tenía la versión con <code>&lt;li&gt;</code> suelto — <code>$loop</code> solo existe dentro del <code>@foreach</code> que lo genera, no dentro del componente al que llamas. Si los necesitas, pásalos también como props (<code>:numero="$loop-&gt;iteration"</code>).</p>
+<p>El componente te ahorra código y el resultado en pantalla es idéntico. La tarjeta escrita a mano son 7 líneas que habría que repetir en cada vista que mostrara un contacto.</p>
+<p>Con el componente está en un solo fichero (<code>tarjeta.blade.php</code>) y se usa con una línea. Si mañana cambia el diseño de la tarjeta, lo cambias en un sitio y se actualizan todas las vistas.</p>
+<p><code>$loop</code> solo existe dentro del <code>@foreach</code> que lo genera, no dentro del componente al que llamas. Por eso la numeración y la clase par/impar se quedan en el <code>&lt;li&gt;</code>, fuera de <code>&lt;x-tarjeta&gt;</code>. Si el componente las necesitara, pásalas como props (<code>:numero="$loop-&gt;iteration"</code>).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1028,6 +1087,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Olvidar los dos puntos con una expresión PHP (<code>&lt;x-tarjeta nombre="$c['nombre']"&gt;</code> en vez de <code>:nombre="$c['nombre']"</code>): el navegador muestra el texto literal <code>$c['nombre']</code>, no el valor. Es el mismo error de sintaxis que ya viste con <code>:titulo</code> en la ficha.</li>
 <li>Crear el componente fuera de <code>resources/views/components/</code>: la etiqueta <code>&lt;x-...&gt;</code> no lo encontrará.</li>
 <li>Olvidar <code>{ $slot }</code> en el layout: las páginas saldrán vacías.</li>
+<li>Olvidar crear <code>public/css/app.css</code> (o escribir mal su ruta en <code>asset()</code>): la página carga sin estilos y no sale ningún error, así que no verás el efecto par/impar.</li>
 </ul>
 </div>
 </div>
@@ -1047,7 +1107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="4" type="1">
 <li><p>En el listado, usa <code>$loop</code> para numerar los videojuegos y al menos otra directiva de control justificada (por ejemplo, <code>@forelse</code> para el catálogo vacío o un <code>@if</code> que imprima cada género).</p></li>
 <li><p>Para demostrar el escapado automático, añade un videojuego cuyo título sea <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>. Luego, comprueba que no se ejecuta y localiza en el código fuente de la página las entidades <code>&amp;lt;script&amp;gt;</code>.</p></li>
-<li><p>Utiliza PHPDoc para incluir comentarios en los métodos de <code>VideojuegoController</code>. Comenta qué es cada <code>prop</code> y lista las rutas con <code>php artisan route:list</code>.</p></li>
+<li><p>Utiliza PHPDoc para incluir comentarios en los métodos de <code>VideojuegoController</code>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
